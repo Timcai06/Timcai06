@@ -34,29 +34,17 @@ I'm Tim, a student developer based in Shanghai. I build research agents, ML obse
 
 ## Tech Stack / 技术栈
 
-**Languages:**<br>
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=py,ts,js,go,pytorch,django,fastapi,nextjs,react,tailwind,postgres,redis,docker,githubactions&amp;perline=7&amp;theme=dark">
+    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=py,ts,js,go,pytorch,django,fastapi,nextjs,react,tailwind,postgres,redis,docker,githubactions&amp;perline=7&amp;theme=light">
+    <img src="https://skillicons.dev/icons?i=py,ts,js,go,pytorch,django,fastapi,nextjs,react,tailwind,postgres,redis,docker,githubactions&amp;perline=7&amp;theme=dark" alt="Python, TypeScript, JavaScript, Go, PyTorch, Django, FastAPI, Next.js, React, Tailwind CSS, PostgreSQL, Redis, Docker, and GitHub Actions">
+  </picture>
+</p>
 
-**ML/DL:**<br>
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
-![YOLOv8](https://img.shields.io/badge/YOLOv8-00FFFF?style=flat-square&logo=yolo&logoColor=black)
-![PaddleOCR](https://img.shields.io/badge/PaddleOCR-013243?style=flat-square&logo=paddlepaddle&logoColor=white)
-
-**Backend & Database:**<br>
-![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
-
-**Frontend & Infra:**<br>
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Tailwind](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+<p align="center">
+  <sub><b>Specialized ML</b> / 专项方向<br>YOLOv8 · PaddleOCR</sub>
+</p>
 
 ## Selected work
 
