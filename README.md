@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://www.crt-dsg.com"><img src="https://img.shields.io/badge/Blog-crt--dsg.com-111827?style=flat-square&logo=vercel&logoColor=white" alt="Visit Tim's blog"></a>
-  <a href="mailto:cairentian932@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-0969DA?style=flat-square&logo=gmail&logoColor=white" alt="Email Tim"></a>
+  <a href="mailto:cairentian932@gmail.com"><img src="https://img.shields.io/badge/Email-cairentian932%40gmail.com-0969DA?style=flat-square&logo=gmail&logoColor=white" alt="Email Tim at cairentian932@gmail.com"></a>
 </p>
 
 <p align="center">
