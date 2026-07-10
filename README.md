@@ -52,22 +52,7 @@ CN:  上海大一学生，热爱 AI/ML、量化金融、全栈开发。
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 
----
 
-## Projects / 项目
-
-| Project | Description |
-|---------|-------------|
-| [PulseGraph](https://github.com/Timcai06/PulseGraph) | Local-first PyTorch training observability workbench |
-| [SciScope](https://github.com/Timcai06/SciScope) | Research literature agent (Python RAG + Go TUI) |
-| [BDI](https://github.com/Timcai06/BDI) | Drone bridge inspection AI (YOLOv8-seg + Next.js) |
-| [Earnlytics](https://github.com/Timcai06/Earnlytics) | AI-driven US tech earnings analysis with Chinese summaries |
-| [SPM](https://github.com/Timcai06/SPM) | Event-driven A-share stock prediction platform |
-| [TTT-I-M](https://github.com/Timcai06/TTT-I-M) | Cinematic landing page and content studio |
-| [FormulaLab](https://github.com/Timcai06/LinuxWeek11-Django-FormulaLab) | Django OCR formula recognition workbench |
-| [Google Translate Ext](https://github.com/Timcai06/google-trans-extantion) | Chrome extension for English learners |
-
----
 
 <p align="center">
   <sub>Thanks for stopping by — explore my repos and drop a star if you find something useful!</sub>
