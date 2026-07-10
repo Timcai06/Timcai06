@@ -1,9 +1,15 @@
-# Hi, I'm Tim Cai
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=26&pause=800&color=58A6FF&center=true&vCenter=true&width=460&lines=Hi+%2C+I'm+Tim+Cai" alt="Hi, I'm Tim Cai" />
+</p>
 
-**Shanghai · Freshman · AI/ML · Quant · Full-Stack**
+<p align="center">
+  <b>Shanghai · Freshman · AI/ML · Quant · Full-Stack</b>
+</p>
 
-[![Blog](https://img.shields.io/badge/Blog-crt--dsg.com-000000?style=flat-square&logo=vercel)](https://www.crt-dsg.com)
-[![GitHub](https://img.shields.io/badge/GitHub-Timcai06-181717?style=flat-square&logo=github)](https://github.com/Timcai06)
+<p align="center">
+  <a href="https://www.crt-dsg.com"><img src="https://img.shields.io/badge/Blog-crt--dsg.com-000000?style=flat-square&logo=vercel" /></a>
+  <a href="https://github.com/Timcai06"><img src="https://img.shields.io/badge/GitHub-Timcai06-181717?style=flat-square&logo=github" /></a>
+</p>
 
 ---
 
@@ -30,7 +36,7 @@ CN:  上海大一学生，热爱 AI/ML、量化金融、全栈开发。
 
 **ML/DL:**  
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
-![YOLO](https://img.shields.io/badge/YOLOv8-00FFFF?style=flat-square&logo=yolo&logoColor=black)
+![YOLOv8](https://img.shields.io/badge/YOLOv8-00FFFF?style=flat-square&logo=yolo&logoColor=black)
 ![PaddleOCR](https://img.shields.io/badge/PaddleOCR-013243?style=flat-square&logo=paddlepaddle&logoColor=white)
 
 **Backend & Database:**  
@@ -42,7 +48,6 @@ CN:  上海大一学生，热爱 AI/ML、量化金融、全栈开发。
 
 **Frontend & Infra:**  
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
@@ -64,6 +69,8 @@ CN:  上海大一学生，热爱 AI/ML、量化金融、全栈开发。
 
 ---
 
-<sub>Thanks for stopping by — explore my repos and drop a star if you find something useful!</sub>
-<br>
-<sub>感谢来访 — 欢迎逛逛仓库，觉得有用就点个 ⭐ 吧！</sub>
+<p align="center">
+  <sub>Thanks for stopping by — explore my repos and drop a star if you find something useful!</sub>
+  <br>
+  <sub>感谢来访 — 欢迎逛逛仓库，觉得有用就点个 ⭐ 吧！</sub>
+</p>
