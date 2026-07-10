@@ -1,8 +1,4 @@
 <p align="center">
-  <img src="./assets/profile-banner.png" alt="Abstract luminous data network converging into a precise signal curve">
-</p>
-
-<p align="center">
   <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=26&pause=800&color=58A6FF&center=true&vCenter=true&width=460&lines=Hi+%2C+I'm+Tim+Cai" alt="Hi, I'm Tim Cai">
 </p>
 
