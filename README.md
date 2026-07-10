@@ -27,9 +27,10 @@ I'm Tim, a student developer based in Shanghai. I build research agents, ML obse
 
 ### Now / 近期关注
 
-Evidence-grounded research workflows, local-first ML tooling, and systems that turn experiments into usable products.
-
-有证据支撑的研究工作流、本地优先的机器学习工具，以及将实验转化为可用产品的系统。
+> [!NOTE]
+> Evidence-grounded research workflows, local-first ML tooling, and systems that turn experiments into usable products.
+>
+> 有证据支撑的研究工作流、本地优先的机器学习工具，以及将实验转化为可用产品的系统。
 
 ---
 
