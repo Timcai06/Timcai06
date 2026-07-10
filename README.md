@@ -1,9 +1,5 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-hero-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/profile-hero-light.svg">
-    <img src="./assets/profile-hero-light.svg" alt="Tim Cai — building AI systems, ML infrastructure, and research tools" width="100%">
-  </picture>
+  <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=26&pause=800&color=58A6FF&center=true&vCenter=true&width=460&lines=Hi+%2C+I'm+Tim+Cai" alt="Hi, I'm Tim Cai">
 </p>
 
 <p align="center">
@@ -22,10 +18,44 @@ I'm Tim, a student developer based in Shanghai. I build research agents, ML obse
 > [!NOTE]
 > Currently focused on evidence-grounded research workflows, local-first ML tooling, and systems that turn experiments into usable products.
 
+---
+
+```js
+const tim = {
+  location: "Shanghai, China",
+  status: "Freshman",
+  passions: ["AI/ML", "Quantitative Finance", "Full-Stack Dev"],
+  toolkit: {
+    languages: ["Python", "TypeScript", "JavaScript", "Go"],
+    ml: ["PyTorch", "YOLOv8", "PaddleOCR"],
+    backend: ["Django", "FastAPI", "Next.js", "PostgreSQL", "Redis"],
+    frontend: ["React", "Vite", "Tailwind"],
+    infra: ["Docker", "GitHub Actions", "Vercel"],
+  },
+  philosophy: "Every repo is a learning experiment",
+};
+```
+
+```js
+const tim = {
+  location: "上海",
+  status: "大一",
+  passions: ["AI/ML", "量化金融", "全栈开发"],
+  toolkit: {
+    languages: ["Python", "TypeScript", "JavaScript", "Go"],
+    ml: ["PyTorch", "YOLOv8", "PaddleOCR"],
+    backend: ["Django", "FastAPI", "Next.js", "PostgreSQL", "Redis"],
+    frontend: ["React", "Vite", "Tailwind"],
+    infra: ["Docker", "GitHub Actions", "Vercel"],
+  },
+  philosophy: "每个仓库都是一次学习实验",
+};
+```
+
 ## Selected work
 
 <details>
-<summary><b>🔭 SciScope</b> — an evidence-grounded literature research agent</summary>
+<summary><b>SciScope</b> — an evidence-grounded literature research agent</summary>
 
 <br>
 
@@ -38,7 +68,7 @@ SciScope helps researchers move from papers to verifiable answers: a Python RAG 
 </details>
 
 <details>
-<summary><b>📈 PulseGraph</b> — local-first PyTorch training observability</summary>
+<summary><b>PulseGraph</b> — local-first PyTorch training observability</summary>
 
 <br>
 
@@ -51,7 +81,7 @@ PulseGraph turns a training run into something you can inspect: model graphs, me
 </details>
 
 <details>
-<summary><b>🌉 BDI</b> — drone-based bridge inspection with computer vision</summary>
+<summary><b>BDI</b> — drone-based bridge inspection with computer vision</summary>
 
 <br>
 
@@ -62,19 +92,6 @@ An end-to-end bridge inspection workflow built around YOLOv8 segmentation, with 
 [Explore BDI →](https://github.com/Timcai06/BDI)
 
 </details>
-
-## Working with
-
-<p>
-  <img src="https://img.shields.io/badge/Python-111827?style=flat-square&logo=python&logoColor=FFD43B" alt="Python">
-  <img src="https://img.shields.io/badge/TypeScript-111827?style=flat-square&logo=typescript&logoColor=3178C6" alt="TypeScript">
-  <img src="https://img.shields.io/badge/Go-111827?style=flat-square&logo=go&logoColor=00ADD8" alt="Go">
-  <img src="https://img.shields.io/badge/PyTorch-111827?style=flat-square&logo=pytorch&logoColor=EE4C2C" alt="PyTorch">
-  <img src="https://img.shields.io/badge/FastAPI-111827?style=flat-square&logo=fastapi&logoColor=009688" alt="FastAPI">
-  <img src="https://img.shields.io/badge/React-111827?style=flat-square&logo=react&logoColor=61DAFB" alt="React">
-  <img src="https://img.shields.io/badge/PostgreSQL-111827?style=flat-square&logo=postgresql&logoColor=4169E1" alt="PostgreSQL">
-  <img src="https://img.shields.io/badge/Docker-111827?style=flat-square&logo=docker&logoColor=2496ED" alt="Docker">
-</p>
 
 <details>
 <summary><b>中文简介</b></summary>
