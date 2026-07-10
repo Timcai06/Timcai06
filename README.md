@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://www.crt-dsg.com"><img src="https://img.shields.io/badge/Blog-crt--dsg.com-111827?style=flat-square&logo=vercel&logoColor=white" alt="Visit Tim's blog"></a>
-  <a href="https://github.com/Timcai06?tab=repositories"><img src="https://img.shields.io/badge/Explore-Projects-2563EB?style=flat-square&logo=github&logoColor=white" alt="Explore Tim's GitHub projects"></a>
+  <a href="mailto:cairentian932@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-0969DA?style=flat-square&logo=gmail&logoColor=white" alt="Email Tim"></a>
 </p>
 
 <p align="center">
@@ -25,10 +25,11 @@ I'm Tim, a student developer based in Shanghai. I build research agents, ML obse
 
 你好，我是 Tim，一名在上海学习的学生开发者。我专注于研究智能体、机器学习可观测性工具、量化系统和经过细致打磨的全栈产品，并希望让复杂工作更易检查、更值得信任。
 
-> [!NOTE]
-> Currently focused on evidence-grounded research workflows, local-first ML tooling, and systems that turn experiments into usable products.
->
-> 目前专注于有证据支撑的研究工作流、本地优先的机器学习工具，以及将实验转化为可用产品的系统。
+### Now / 近期关注
+
+Evidence-grounded research workflows, local-first ML tooling, and systems that turn experiments into usable products.
+
+有证据支撑的研究工作流、本地优先的机器学习工具，以及将实验转化为可用产品的系统。
 
 ---
 
@@ -46,9 +47,9 @@ I'm Tim, a student developer based in Shanghai. I build research agents, ML obse
   <sub><b>Specialized ML</b> / 专项方向<br>YOLOv8 · PaddleOCR</sub>
 </p>
 
-## Selected work
+## Selected Work / 代表项目
 
-<details>
+<details open>
 <summary><b>SciScope</b> — an evidence-grounded literature research agent</summary>
 
 <br>
