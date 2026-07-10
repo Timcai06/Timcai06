@@ -36,9 +36,9 @@ I'm Tim, a student developer based in Shanghai. I build research agents, ML obse
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=py,ts,js,go,pytorch,django,fastapi,nextjs,react,tailwind,postgres,redis,docker,githubactions&amp;perline=7&amp;theme=dark">
-    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=py,ts,js,go,pytorch,django,fastapi,nextjs,react,tailwind,postgres,redis,docker,githubactions&amp;perline=7&amp;theme=light">
-    <img src="https://skillicons.dev/icons?i=py,ts,js,go,pytorch,django,fastapi,nextjs,react,tailwind,postgres,redis,docker,githubactions&amp;perline=7&amp;theme=dark" alt="Python, TypeScript, JavaScript, Go, PyTorch, Django, FastAPI, Next.js, React, Tailwind CSS, PostgreSQL, Redis, Docker, and GitHub Actions">
+    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=py%2Cts%2Cjs%2Cgo%2Cpytorch%2Cdjango%2Cfastapi%2Cnextjs%2Creact%2Ctailwind%2Cpostgres%2Credis%2Cdocker%2Cgithubactions&amp;perline=7&amp;theme=dark">
+    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=py%2Cts%2Cjs%2Cgo%2Cpytorch%2Cdjango%2Cfastapi%2Cnextjs%2Creact%2Ctailwind%2Cpostgres%2Credis%2Cdocker%2Cgithubactions&amp;perline=7&amp;theme=light">
+    <img src="https://skillicons.dev/icons?i=py%2Cts%2Cjs%2Cgo%2Cpytorch%2Cdjango%2Cfastapi%2Cnextjs%2Creact%2Ctailwind%2Cpostgres%2Credis%2Cdocker%2Cgithubactions&amp;perline=7&amp;theme=dark" alt="Python, TypeScript, JavaScript, Go, PyTorch, Django, FastAPI, Next.js, React, Tailwind CSS, PostgreSQL, Redis, Docker, and GitHub Actions">
   </picture>
 </p>
 
