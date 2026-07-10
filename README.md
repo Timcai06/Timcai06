@@ -11,12 +11,16 @@
   <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&amp;weight=500&amp;size=18&amp;duration=3000&amp;pause=900&amp;color=58A6FF&amp;center=true&amp;vCenter=true&amp;width=760&amp;lines=Building+evidence-grounded+AI+systems;Designing+ML+tools+you+can+inspect;Turning+experiments+into+useful+products" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
 </p>
 
-## About
+## About / 关于我
 
 I'm Tim, a student developer based in Shanghai. I build research agents, ML observability tools, quantitative systems, and polished full-stack products — with a preference for tools that make complex work easier to inspect and trust.
 
+你好，我是 Tim，一名在上海学习的学生开发者。我专注于研究智能体、机器学习可观测性工具、量化系统和经过细致打磨的全栈产品，并希望让复杂工作更易检查、更值得信任。
+
 > [!NOTE]
 > Currently focused on evidence-grounded research workflows, local-first ML tooling, and systems that turn experiments into usable products.
+>
+> 目前专注于有证据支撑的研究工作流、本地优先的机器学习工具，以及将实验转化为可用产品的系统。
 
 ---
 
@@ -84,17 +88,6 @@ An end-to-end bridge inspection workflow built around YOLOv8 segmentation, with 
 [`YOLOv8`](https://github.com/Timcai06/BDI) · `Computer Vision` · `Django` · `Next.js`
 
 [Explore BDI →](https://github.com/Timcai06/BDI)
-
-</details>
-
-<details>
-<summary><b>中文简介</b></summary>
-
-<br>
-
-你好，我是 Tim，目前在上海学习和构建产品。我关注有证据链的 AI 研究工具、机器学习训练可观测性、量化研究系统，以及能够真正落地使用的全栈产品。
-
-我相信：每个仓库都可以从一次学习实验，成长为一个值得被使用的工具。
 
 </details>
 
