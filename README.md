@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=18&pause=1200&color=2563EB&center=true&vCenter=true&width=700&lines=Building+evidence-grounded+AI+systems;Exploring+ML+infrastructure+and+quant+research;Turning+learning+experiments+into+useful+products" alt="Building evidence-grounded AI systems; exploring ML infrastructure and quantitative research; turning learning experiments into useful products">
+  <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&amp;weight=500&amp;size=18&amp;duration=3000&amp;pause=900&amp;color=58A6FF&amp;center=true&amp;vCenter=true&amp;width=760&amp;lines=Building+evidence-grounded+AI+systems;Designing+ML+tools+you+can+inspect;Turning+experiments+into+useful+products" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
 </p>
 
 ## About
