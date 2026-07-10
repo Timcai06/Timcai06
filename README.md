@@ -1,5 +1,9 @@
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=26&pause=800&color=58A6FF&center=true&vCenter=true&width=460&lines=Hi+%2C+I'm+Tim+Cai" alt="Hi, I'm Tim Cai">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=600&amp;size=30&amp;duration=1800&amp;pause=1000&amp;color=79C0FF&amp;center=true&amp;vCenter=true&amp;repeat=false&amp;letterSpacing=1px&amp;width=540&amp;lines=Hi%2C+I'm+Tim+Cai">
+    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=600&amp;size=30&amp;duration=1800&amp;pause=1000&amp;color=0969DA&amp;center=true&amp;vCenter=true&amp;repeat=false&amp;letterSpacing=1px&amp;width=540&amp;lines=Hi%2C+I'm+Tim+Cai">
+    <img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=600&amp;size=30&amp;duration=1800&amp;pause=1000&amp;color=0969DA&amp;center=true&amp;vCenter=true&amp;repeat=false&amp;letterSpacing=1px&amp;width=540&amp;lines=Hi%2C+I'm+Tim+Cai" alt="Hi, I'm Tim Cai">
+  </picture>
 </p>
 
 <p align="center">
@@ -8,7 +12,11 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&amp;weight=500&amp;size=18&amp;duration=3000&amp;pause=900&amp;color=58A6FF&amp;center=true&amp;vCenter=true&amp;width=760&amp;lines=Building+evidence-grounded+AI+systems;Designing+ML+tools+you+can+inspect;Turning+experiments+into+useful+products" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=500&amp;size=18&amp;duration=3000&amp;pause=900&amp;color=79C0FF&amp;center=true&amp;vCenter=true&amp;width=760&amp;lines=Building+evidence-grounded+AI+systems;Designing+ML+tools+you+can+inspect;Turning+experiments+into+useful+products">
+    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=500&amp;size=18&amp;duration=3000&amp;pause=900&amp;color=0969DA&amp;center=true&amp;vCenter=true&amp;width=760&amp;lines=Building+evidence-grounded+AI+systems;Designing+ML+tools+you+can+inspect;Turning+experiments+into+useful+products">
+    <img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=500&amp;size=18&amp;duration=3000&amp;pause=900&amp;color=0969DA&amp;center=true&amp;vCenter=true&amp;width=760&amp;lines=Building+evidence-grounded+AI+systems;Designing+ML+tools+you+can+inspect;Turning+experiments+into+useful+products" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
+  </picture>
 </p>
 
 ## About / 关于我
