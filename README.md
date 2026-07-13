@@ -29,8 +29,14 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
 
 > [!NOTE]
 > Evidence-grounded research workflows, local-first ML tooling, and systems that turn experiments into usable products.
->
 > 有证据支撑的研究工作流、本地优先的机器学习工具，以及将实验转化为可用产品的系统。
+> 
+> ⭐️ Feel free to follow me - I’d really appreciate your support!
+
+> Thank you for visiting my page ❤️
+
+> P.S.: I followed your profile because your project caught my interest.
+> I really appreciate your work - it helps me discover something new. Thanks for that too.
 
 ---
 
