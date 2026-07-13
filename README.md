@@ -23,7 +23,7 @@
 
 Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development, observability tooling for machine learning, deep learning, and reinforcement learning, quantitative systems, and carefully crafted full-stack products. Full-stack development is central to who I am: from frontend and backend engineering to databases, LLMs, AI infrastructure, and low-level computer systems; from advanced GSAP motion design and Three.js 3D experiences to React development; and from FastAPI and Next.js to Redis and PostgreSQL. I aspire to become a versatile, end-to-end developer for the AI era.
 
-你好，我是 Tim，一名在上海学习的学生开发者。我专注于智能体开发、机器学习、深度学习与强化学习的可观测性工具、量化系统，以及经过细致打磨的全栈产品。全栈是我的标签：从前端到后端、数据库，再到 LLM、AI infrastructure 和计算机底层；从 GSAP 高级前端动效、Three.js 3D 建模到 React 开发；从 FastAPI、Next.js 到 Redis、PostgreSQL。我立志成为 AI 时代的全能开发者。
+你好，我是 Tim，一名在上海学习的学生开发者。我专注于智能体开发，ML、DL与RL的可观测性工具，量化系统，以及经过细致打磨的全栈产品。全栈是我的标签：从前端到后端、数据库，再到 LLM、AI infrastructure 和计算机底层；从 GSAP 高级前端动效、Three.js 3D 建模到 React 开发；从 FastAPI、Next.js 到 Redis、PostgreSQL。我立志成为 AI 时代的全能开发者。
 
 ### Now / 近期关注
 
