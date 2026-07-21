@@ -58,98 +58,95 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
 
 ## Selected Work / 代表项目
 
-<details open>
-<summary><b>SciScope</b> — an evidence-grounded literature research agent</summary>
+<table>
+  <tr>
+    <td width="50%">
+      <b>SciScope</b><br>
+      <sub>Evidence-grounded literature research agent — Python RAG + Go TUI</sub>
+      <br>
+      <img src="https://img.shields.io/github/languages/top/Timcai06/SciScope?style=flat-square&label=lang">
+      <img src="https://img.shields.io/github/stars/Timcai06/SciScope?style=flat-square&label=★">
+      <img src="https://img.shields.io/github/last-commit/Timcai06/SciScope?style=flat-square&label=updated">
+      <br>
+      <code>RAG</code> <code>DeepSeek</code> <code>Research Infra</code>
+      <br>
+      <a href="https://github.com/Timcai06/SciScope">Explore →</a>
+    </td>
+    <td width="50%">
+      <b>PulseGraph</b><br>
+      <sub>Local-first PyTorch training observability workbench</sub>
+      <br>
+      <img src="https://img.shields.io/github/languages/top/Timcai06/PulseGraph?style=flat-square&label=lang">
+      <img src="https://img.shields.io/github/stars/Timcai06/PulseGraph?style=flat-square&label=★">
+      <img src="https://img.shields.io/github/last-commit/Timcai06/PulseGraph?style=flat-square&label=updated">
+      <br>
+      <code>ML Observability</code> <code>Visualization</code> <code>Exp Tracking</code>
+      <br>
+      <a href="https://github.com/Timcai06/PulseGraph">Explore →</a>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <b>BDI</b><br>
+      <sub>Drone-based bridge inspection with YOLOv8 + Next.js + Django</sub>
+      <br>
+      <img src="https://img.shields.io/github/languages/top/Timcai06/BDI?style=flat-square&label=lang">
+      <img src="https://img.shields.io/github/stars/Timcai06/BDI?style=flat-square&label=★">
+      <img src="https://img.shields.io/github/last-commit/Timcai06/BDI?style=flat-square&label=updated">
+      <br>
+      <code>Computer Vision</code> <code>YOLOv8</code> <code>Django</code>
+      <br>
+      <a href="https://github.com/Timcai06/BDI">Explore →</a>
+    </td>
+    <td width="50%">
+      <b>EduCanvas</b><br>
+      <sub>Multimodal AI tutor for K–12 AI literacy education</sub>
+      <br>
+      <img src="https://img.shields.io/github/languages/top/Timcai06/EduCanvas?style=flat-square&label=lang">
+      <img src="https://img.shields.io/github/stars/Timcai06/EduCanvas?style=flat-square&label=★">
+      <img src="https://img.shields.io/github/last-commit/Timcai06/EduCanvas?style=flat-square&label=updated">
+      <br>
+      <code>Next.js</code> <code>AI</code> <code>Education</code> <code>Multimodal</code>
+      <br>
+      <a href="https://github.com/Timcai06/EduCanvas">Explore →</a>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <details>
+      <summary><b>Mathematical Modeling</b> — 3 competition entries: MILP, MDP, Monte Carlo &amp; Markov</summary>
 
-<br>
+      <br>
 
-SciScope helps researchers move from papers to verifiable answers: a Python RAG backend pairs with a cross-platform Go TUI, with evidence and source traceability kept at the center of the experience.
+      <b><a href="https://github.com/Timcai06/26_MathModel_Agriculture">26_MathModel_Agriculture</a></b> — 农作物种植策略优化<br>
+      <img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Agriculture?style=flat-square&label=lang">
+      MILP · SAA · CVaR · Stochastic Optimization
+      <br>
 
-[`Python`](https://github.com/Timcai06/SciScope) · `RAG` · `DeepSeek` · `Go` · `Research Infrastructure`
+      <b><a href="https://github.com/Timcai06/26_MathModel_Desert">26_MathModel_Desert</a></b> — 穿越沙漠<br>
+      <img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Desert?style=flat-square&label=lang">
+      MILP · MDP · Multi-agent · Game Theory
+      <br>
 
-[Explore SciScope →](https://github.com/Timcai06/SciScope)
+      <b><a href="https://github.com/Timcai06/26_MathModel_Tunnel">26_MathModel_Tunnel</a></b> — 霍尔木兹海峡封锁对国际原油价格的影响<br>
+      <img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Tunnel?style=flat-square&label=lang">
+      Markov · Monte Carlo · Mechanism Model · Econometrics
 
-</details>
-
-<details>
-<summary><b>PulseGraph</b> — local-first PyTorch training observability</summary>
-
-<br>
-
-PulseGraph turns a training run into something you can inspect: model graphs, metrics, experiment history, and a readable view of what the model is doing while it learns.
-
-[`PyTorch`](https://github.com/Timcai06/PulseGraph) · `ML Observability` · `Visualization` · `Experiment Tracking`
-
-[Explore PulseGraph →](https://github.com/Timcai06/PulseGraph)
-
-</details>
-
-<details>
-<summary><b>BDI</b> — drone-based bridge inspection with computer vision</summary>
-
-<br>
-
-An end-to-end bridge inspection workflow built around YOLOv8 segmentation, with a Next.js frontend and Django backend for taking defect detection beyond a model demo.
-
-[`YOLOv8`](https://github.com/Timcai06/BDI) · `Computer Vision` · `Django` · `Next.js`
-
-[Explore BDI →](https://github.com/Timcai06/BDI)
-
-</details>
-
-<details>
-<summary><b>EduCanvas</b> — a multimodal AI tutor for K–12 AI literacy education</summary>
-
-<br>
-
-EduCanvas brings AI education to K–12 classrooms through an interactive multimodal tutor built with Next.js, adapting to each student's learning journey.
-
-[`TypeScript`](https://github.com/Timcai06/EduCanvas) · `Next.js` · `AI` · `Education` · `Multimodal`
-
-[Explore EduCanvas →](https://github.com/Timcai06/EduCanvas)
-
-</details>
-
-<details>
-<summary><b>Mathematical Modeling</b> — 3 competition entries: MILP, MDP, Monte Carlo &amp; Markov methods</summary>
-
-<br>
-
-<b><a href="https://github.com/Timcai06/26_MathModel_Agriculture">26_MathModel_Agriculture</a></b> — 农作物种植策略优化<br>
-MILP、SAA与CVaR风险规划。将不确定的种植决策建模为随机优化问题，结合情景分析与条件风险价值约束。
-
-[`Python`](https://github.com/Timcai06/26_MathModel_Agriculture) · `MILP` · `SAA` · `CVaR` · `Stochastic Optimization`
-
-<br>
-
-<b><a href="https://github.com/Timcai06/26_MathModel_Desert">26_MathModel_Desert</a></b> — 穿越沙漠<br>
-MILP、MDP与多人博弈。多智能体在资源约束下的路径规划与策略博弈。
-
-[`Python`](https://github.com/Timcai06/26_MathModel_Desert) · `MILP` · `MDP` · `Multi-agent` · `Game Theory`
-
-<br>
-
-<b><a href="https://github.com/Timcai06/26_MathModel_Tunnel">26_MathModel_Tunnel</a></b> — 霍尔木兹海峡封锁对国际原油价格的影响<br>
-机制模型、Markov与Monte Carlo仿真。建模地缘政治事件对大宗商品市场的传导机制。
-
-[`Python`](https://github.com/Timcai06/26_MathModel_Tunnel) · `Markov` · `Monte Carlo` · `Mechanism Model` · `Econometrics`
-
-</details>
+      </details>
+    </td>
+  </tr>
+</table>
 
 <br>
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=Timcai06&show_icons=true&count_private=true&hide_border=true&theme=github_dark">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=Timcai06&show_icons=true&count_private=true&hide_border=true&theme=default">
-    <img src="https://github-readme-stats.vercel.app/api?username=Timcai06&show_icons=true&count_private=true&hide_border=true&theme=default" height="180" alt="GitHub Stats">
-  </picture>
-  &nbsp;&nbsp;
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Timcai06&layout=compact&hide_border=true&theme=github_dark">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Timcai06&layout=compact&hide_border=true&theme=default">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Timcai06&layout=compact&hide_border=true&theme=default" height="180" alt="Top Languages">
-  </picture>
+  <a href="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=default">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=github_dark">
+      <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=default">
+      <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=default" alt="GitHub Profile Summary">
+    </picture>
+  </a>
 </p>
 
 <p align="center">
