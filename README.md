@@ -97,6 +97,61 @@ An end-to-end bridge inspection workflow built around YOLOv8 segmentation, with 
 
 </details>
 
+<details>
+<summary><b>EduCanvas</b> — a multimodal AI tutor for K–12 AI literacy education</summary>
+
+<br>
+
+EduCanvas brings AI education to K–12 classrooms through an interactive multimodal tutor built with Next.js, adapting to each student's learning journey.
+
+[`TypeScript`](https://github.com/Timcai06/EduCanvas) · `Next.js` · `AI` · `Education` · `Multimodal`
+
+[Explore EduCanvas →](https://github.com/Timcai06/EduCanvas)
+
+</details>
+
+<details>
+<summary><b>Mathematical Modeling</b> — 3 competition entries: MILP, MDP, Monte Carlo &amp; Markov methods</summary>
+
+<br>
+
+<b><a href="https://github.com/Timcai06/26_MathModel_Agriculture">26_MathModel_Agriculture</a></b> — 农作物种植策略优化<br>
+MILP、SAA与CVaR风险规划。将不确定的种植决策建模为随机优化问题，结合情景分析与条件风险价值约束。
+
+[`Python`](https://github.com/Timcai06/26_MathModel_Agriculture) · `MILP` · `SAA` · `CVaR` · `Stochastic Optimization`
+
+<br>
+
+<b><a href="https://github.com/Timcai06/26_MathModel_Desert">26_MathModel_Desert</a></b> — 穿越沙漠<br>
+MILP、MDP与多人博弈。多智能体在资源约束下的路径规划与策略博弈。
+
+[`Python`](https://github.com/Timcai06/26_MathModel_Desert) · `MILP` · `MDP` · `Multi-agent` · `Game Theory`
+
+<br>
+
+<b><a href="https://github.com/Timcai06/26_MathModel_Tunnel">26_MathModel_Tunnel</a></b> — 霍尔木兹海峡封锁对国际原油价格的影响<br>
+机制模型、Markov与Monte Carlo仿真。建模地缘政治事件对大宗商品市场的传导机制。
+
+[`Python`](https://github.com/Timcai06/26_MathModel_Tunnel) · `Markov` · `Monte Carlo` · `Mechanism Model` · `Econometrics`
+
+</details>
+
+<br>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=Timcai06&show_icons=true&count_private=true&hide_border=true&theme=github_dark">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=Timcai06&show_icons=true&count_private=true&hide_border=true&theme=default">
+    <img src="https://github-readme-stats.vercel.app/api?username=Timcai06&show_icons=true&count_private=true&hide_border=true&theme=default" height="180" alt="GitHub Stats">
+  </picture>
+  &nbsp;&nbsp;
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Timcai06&layout=compact&hide_border=true&theme=github_dark">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=Timcai06&layout=compact&hide_border=true&theme=default">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Timcai06&layout=compact&hide_border=true&theme=default" height="180" alt="Top Languages">
+  </picture>
+</p>
+
 <p align="center">
   <sub>Build carefully. Measure honestly. Keep learning.</sub>
 </p>
