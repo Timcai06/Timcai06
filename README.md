@@ -64,9 +64,9 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
       <b>SciScope</b><br>
       <sub>Evidence-grounded literature research agent — Python RAG + Go TUI</sub>
       <br>
-      <img src="https://img.shields.io/github/languages/top/Timcai06/SciScope?style=flat-square&label=lang">
-      <img src="https://img.shields.io/github/stars/Timcai06/SciScope?style=flat-square&label=★">
-      <img src="https://img.shields.io/github/last-commit/Timcai06/SciScope?style=flat-square&label=updated">
+      <img src="https://img.shields.io/github/languages/top/Timcai06/SciScope?style=flat-square">
+      <img src="https://img.shields.io/github/stars/Timcai06/SciScope?style=flat-square★">
+      <img src="https://img.shields.io/github/last-commit/Timcai06/SciScope?style=flat-squareupdated">
       <br>
       <code>RAG</code> <code>DeepSeek</code> <code>Research Infra</code>
       <br>
@@ -76,9 +76,9 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
       <b>PulseGraph</b><br>
       <sub>Local-first PyTorch training observability workbench</sub>
       <br>
-      <img src="https://img.shields.io/github/languages/top/Timcai06/PulseGraph?style=flat-square&label=lang">
-      <img src="https://img.shields.io/github/stars/Timcai06/PulseGraph?style=flat-square&label=★">
-      <img src="https://img.shields.io/github/last-commit/Timcai06/PulseGraph?style=flat-square&label=updated">
+      <img src="https://img.shields.io/github/languages/top/Timcai06/PulseGraph?style=flat-square">
+      <img src="https://img.shields.io/github/stars/Timcai06/PulseGraph?style=flat-square★">
+      <img src="https://img.shields.io/github/last-commit/Timcai06/PulseGraph?style=flat-squareupdated">
       <br>
       <code>ML Observability</code> <code>Visualization</code> <code>Exp Tracking</code>
       <br>
@@ -90,9 +90,9 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
       <b>BDI</b><br>
       <sub>Drone-based bridge inspection with YOLOv8 + Next.js + Django</sub>
       <br>
-      <img src="https://img.shields.io/github/languages/top/Timcai06/BDI?style=flat-square&label=lang">
-      <img src="https://img.shields.io/github/stars/Timcai06/BDI?style=flat-square&label=★">
-      <img src="https://img.shields.io/github/last-commit/Timcai06/BDI?style=flat-square&label=updated">
+      <img src="https://img.shields.io/github/languages/top/Timcai06/BDI?style=flat-square">
+      <img src="https://img.shields.io/github/stars/Timcai06/BDI?style=flat-square★">
+      <img src="https://img.shields.io/github/last-commit/Timcai06/BDI?style=flat-squareupdated">
       <br>
       <code>Computer Vision</code> <code>YOLOv8</code> <code>Django</code>
       <br>
@@ -102,9 +102,9 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
       <b>EduCanvas</b><br>
       <sub>Multimodal AI tutor for K–12 AI literacy education</sub>
       <br>
-      <img src="https://img.shields.io/github/languages/top/Timcai06/EduCanvas?style=flat-square&label=lang">
-      <img src="https://img.shields.io/github/stars/Timcai06/EduCanvas?style=flat-square&label=★">
-      <img src="https://img.shields.io/github/last-commit/Timcai06/EduCanvas?style=flat-square&label=updated">
+      <img src="https://img.shields.io/github/languages/top/Timcai06/EduCanvas?style=flat-square">
+      <img src="https://img.shields.io/github/stars/Timcai06/EduCanvas?style=flat-square★">
+      <img src="https://img.shields.io/github/last-commit/Timcai06/EduCanvas?style=flat-squareupdated">
       <br>
       <code>Next.js</code> <code>AI</code> <code>Education</code> <code>Multimodal</code>
       <br>
@@ -119,17 +119,17 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
 <br>
 
 <b><a href="https://github.com/Timcai06/26_MathModel_Agriculture">26_MathModel_Agriculture</a></b> — 农作物种植策略优化<br>
-<img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Agriculture?style=flat-square&label=lang">
+<img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Agriculture?style=flat-square">
 MILP · SAA · CVaR · Stochastic Optimization
 <br>
 
 <b><a href="https://github.com/Timcai06/26_MathModel_Desert">26_MathModel_Desert</a></b> — 穿越沙漠<br>
-<img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Desert?style=flat-square&label=lang">
+<img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Desert?style=flat-square">
 MILP · MDP · Multi-agent · Game Theory
 <br>
 
 <b><a href="https://github.com/Timcai06/26_MathModel_Tunnel">26_MathModel_Tunnel</a></b> — 霍尔木兹海峡封锁对国际原油价格的影响<br>
-<img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Tunnel?style=flat-square&label=lang">
+<img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Tunnel?style=flat-square">
 Markov · Monte Carlo · Mechanism Model · Econometrics
 
 </details>
