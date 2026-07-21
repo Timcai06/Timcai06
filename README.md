@@ -58,6 +58,7 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
 
 ## Selected Work / 代表项目
 
+<p align="center">
 <table>
   <tr>
     <td width="50%">
@@ -65,8 +66,7 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
       <sub>Evidence-grounded literature research agent — Python RAG + Go TUI</sub>
       <br>
       <img src="https://img.shields.io/github/languages/top/Timcai06/SciScope?style=flat-square">
-      <img src="https://img.shields.io/github/stars/Timcai06/SciScope?style=flat-square★">
-      <img src="https://img.shields.io/github/last-commit/Timcai06/SciScope?style=flat-squareupdated">
+      <img src="https://img.shields.io/github/last-commit/Timcai06/SciScope?style=flat-square&label=updated">
       <br>
       <code>RAG</code> <code>DeepSeek</code> <code>Research Infra</code>
       <br>
@@ -77,8 +77,7 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
       <sub>Local-first PyTorch training observability workbench</sub>
       <br>
       <img src="https://img.shields.io/github/languages/top/Timcai06/PulseGraph?style=flat-square">
-      <img src="https://img.shields.io/github/stars/Timcai06/PulseGraph?style=flat-square★">
-      <img src="https://img.shields.io/github/last-commit/Timcai06/PulseGraph?style=flat-squareupdated">
+      <img src="https://img.shields.io/github/last-commit/Timcai06/PulseGraph?style=flat-square&label=updated">
       <br>
       <code>ML Observability</code> <code>Visualization</code> <code>Exp Tracking</code>
       <br>
@@ -91,8 +90,7 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
       <sub>Drone-based bridge inspection with YOLOv8 + Next.js + Django</sub>
       <br>
       <img src="https://img.shields.io/github/languages/top/Timcai06/BDI?style=flat-square">
-      <img src="https://img.shields.io/github/stars/Timcai06/BDI?style=flat-square★">
-      <img src="https://img.shields.io/github/last-commit/Timcai06/BDI?style=flat-squareupdated">
+      <img src="https://img.shields.io/github/last-commit/Timcai06/BDI?style=flat-square&label=updated">
       <br>
       <code>Computer Vision</code> <code>YOLOv8</code> <code>Django</code>
       <br>
@@ -103,8 +101,7 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
       <sub>Multimodal AI tutor for K–12 AI literacy education</sub>
       <br>
       <img src="https://img.shields.io/github/languages/top/Timcai06/EduCanvas?style=flat-square">
-      <img src="https://img.shields.io/github/stars/Timcai06/EduCanvas?style=flat-square★">
-      <img src="https://img.shields.io/github/last-commit/Timcai06/EduCanvas?style=flat-squareupdated">
+      <img src="https://img.shields.io/github/last-commit/Timcai06/EduCanvas?style=flat-square&label=updated">
       <br>
       <code>Next.js</code> <code>AI</code> <code>Education</code> <code>Multimodal</code>
       <br>
@@ -112,6 +109,7 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
     </td>
   </tr>
 </table>
+</p>
 
 <details>
 <summary><b>Mathematical Modeling</b> — 3 competition entries: MILP, MDP, Monte Carlo &amp; Markov</summary>
@@ -137,23 +135,10 @@ Markov · Monte Carlo · Mechanism Model · Econometrics
 <br>
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=github_dark">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=default">
-    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=default" alt="GitHub Profile Summary">
-  </picture>
-  <br><br>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Timcai06&theme=github_dark">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Timcai06&theme=default">
-    <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Timcai06&theme=default" alt="GitHub Stats">
-  </picture>
-  &nbsp;&nbsp;
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Timcai06&theme=github_dark">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Timcai06&theme=default">
-    <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Timcai06&theme=default" alt="Top Languages by Repo">
-  </picture>
+  <img src="https://img.shields.io/github/followers/Timcai06?style=flat-square&label=Followers&color=0969DA">
+  <img src="https://img.shields.io/github/stars/Timcai06?style=flat-square&label=Total%20Stars&color=0969DA">
+  <img src="https://img.shields.io/badge/Repos-16-0969DA?style=flat-square">
+  <img src="https://img.shields.io/github/last-commit/Timcai06/Timcai06?style=flat-square&label=Profile%20Updated&color=0969DA">
 </p>
 
 <p align="center">
