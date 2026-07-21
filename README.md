@@ -135,10 +135,11 @@ Markov · Monte Carlo · Mechanism Model · Econometrics
 <br>
 
 <p align="center">
-  <img src="https://img.shields.io/github/followers/Timcai06?style=flat-square&label=Followers&color=0969DA">
-  <img src="https://img.shields.io/github/stars/Timcai06?style=flat-square&label=Total%20Stars&color=0969DA">
-  <img src="https://img.shields.io/badge/Repos-16-0969DA?style=flat-square">
-  <img src="https://img.shields.io/github/last-commit/Timcai06/Timcai06?style=flat-square&label=Profile%20Updated&color=0969DA">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=github_dark">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=default">
+    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=default" alt="GitHub Profile Summary">
+  </picture>
 </p>
 
 <p align="center">
