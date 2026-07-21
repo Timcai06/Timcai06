@@ -111,42 +111,49 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
       <a href="https://github.com/Timcai06/EduCanvas">Explore →</a>
     </td>
   </tr>
-  <tr>
-    <td colspan="2">
-      <details>
-      <summary><b>Mathematical Modeling</b> — 3 competition entries: MILP, MDP, Monte Carlo &amp; Markov</summary>
-
-      <br>
-
-      <b><a href="https://github.com/Timcai06/26_MathModel_Agriculture">26_MathModel_Agriculture</a></b> — 农作物种植策略优化<br>
-      <img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Agriculture?style=flat-square&label=lang">
-      MILP · SAA · CVaR · Stochastic Optimization
-      <br>
-
-      <b><a href="https://github.com/Timcai06/26_MathModel_Desert">26_MathModel_Desert</a></b> — 穿越沙漠<br>
-      <img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Desert?style=flat-square&label=lang">
-      MILP · MDP · Multi-agent · Game Theory
-      <br>
-
-      <b><a href="https://github.com/Timcai06/26_MathModel_Tunnel">26_MathModel_Tunnel</a></b> — 霍尔木兹海峡封锁对国际原油价格的影响<br>
-      <img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Tunnel?style=flat-square&label=lang">
-      Markov · Monte Carlo · Mechanism Model · Econometrics
-
-      </details>
-    </td>
-  </tr>
 </table>
+
+<details>
+<summary><b>Mathematical Modeling</b> — 3 competition entries: MILP, MDP, Monte Carlo &amp; Markov</summary>
+
+<br>
+
+<b><a href="https://github.com/Timcai06/26_MathModel_Agriculture">26_MathModel_Agriculture</a></b> — 农作物种植策略优化<br>
+<img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Agriculture?style=flat-square&label=lang">
+MILP · SAA · CVaR · Stochastic Optimization
+<br>
+
+<b><a href="https://github.com/Timcai06/26_MathModel_Desert">26_MathModel_Desert</a></b> — 穿越沙漠<br>
+<img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Desert?style=flat-square&label=lang">
+MILP · MDP · Multi-agent · Game Theory
+<br>
+
+<b><a href="https://github.com/Timcai06/26_MathModel_Tunnel">26_MathModel_Tunnel</a></b> — 霍尔木兹海峡封锁对国际原油价格的影响<br>
+<img src="https://img.shields.io/github/languages/top/Timcai06/26_MathModel_Tunnel?style=flat-square&label=lang">
+Markov · Monte Carlo · Mechanism Model · Econometrics
+
+</details>
 
 <br>
 
 <p align="center">
-  <a href="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=default">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=github_dark">
-      <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=default">
-      <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=default" alt="GitHub Profile Summary">
-    </picture>
-  </a>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=github_dark">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=default">
+    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Timcai06&theme=default" alt="GitHub Profile Summary">
+  </picture>
+  <br><br>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Timcai06&theme=github_dark">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Timcai06&theme=default">
+    <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Timcai06&theme=default" alt="GitHub Stats">
+  </picture>
+  &nbsp;&nbsp;
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Timcai06&theme=github_dark">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Timcai06&theme=default">
+    <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Timcai06&theme=default" alt="Top Languages by Repo">
+  </picture>
 </p>
 
 <p align="center">
