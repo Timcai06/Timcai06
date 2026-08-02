@@ -40,6 +40,25 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
 > 
 > I really appreciate your work - it helps me discover something new. Thanks for that too.
 
+### Working principles / 工作方式
+
+<table>
+  <tr>
+    <td width="33.3%" align="center">
+      <img src="./assets/zine/systems-v1.png" alt="Systems — modular paper fragments with a cyan core" width="100%"><br>
+      <sub><b>SYSTEMS</b><br>Build the whole path, not only the interface.</sub>
+    </td>
+    <td width="33.3%" align="center">
+      <img src="./assets/zine/evidence-v1.png" alt="Evidence — archival citation card and a red locator mark" width="100%"><br>
+      <sub><b>EVIDENCE</b><br>Make claims inspectable and grounded.</sub>
+    </td>
+    <td width="33.3%" align="center">
+      <img src="./assets/zine/learning-v1.png" alt="Learning — a signal curve growing from a green paper leaf" width="100%"><br>
+      <sub><b>LEARNING</b><br>Keep exploring, measuring, and sharing.</sub>
+    </td>
+  </tr>
+</table>
+
 ---
 
 ## Tech Stack / 技术栈
