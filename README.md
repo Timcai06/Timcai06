@@ -26,9 +26,7 @@ Hi, I'm Tim, a student developer based in Shanghai. I focus on agent development
 你好，我是 Tim，一名在上海学习的学生开发者。我专注于智能体开发，ML、DL与RL的可观测性工具，量化系统，以及经过细致打磨的全栈产品。全栈是我的标签：从前端到后端、数据库，再到 LLM、AI infrastructure 和计算机底层；从 GSAP 高级前端动效、Three.js 3D 建模到 React 开发；从 FastAPI、Next.js 到 Redis、PostgreSQL。我立志成为 AI 时代的全能开发者。
 
 <p align="center">
-  <img src="./assets/zine/systems-v1.png" alt="Systems — modular paper fragments with a cyan core" width="31%">
-  <img src="./assets/zine/evidence-v1.png" alt="Evidence — archival citation card and a red locator mark" width="31%">
-  <img src="./assets/zine/learning-v1.png" alt="Learning — a signal curve growing from a green paper leaf" width="31%">
+  <img src="./assets/zine/profile-banner-v1.png" alt="A continuous paper signal connects systems, evidence, and learning" width="96%">
 </p>
 
 ### Now / 近期关注
