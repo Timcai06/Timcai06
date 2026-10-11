@@ -55,8 +55,8 @@ b += [text(111,132,'EXPLORER',12,'#8995b2','letter-spacing="1"'),text(292,132,'�
       text(108,162,'⌄ TIMCAI06',13,'#dde4f5','font-weight="700" letter-spacing=".5"')]
 tree=[(0,'file','TS','#5aa2e8','about.ts','#efc38f'),
       (0,'dir','⌄','#8491ae','featured','#c3cde4'),
+      (1,'proj','#e8c397',None,'EduCanvas','#a8b8d4'),(1,'proj','#9ec9e9',None,'SciScope','#a8b8d4'),
       (1,'proj','#e4b6eb',None,'TTT-I-M','#a8b8d4'),(1,'proj','#efba85',None,'BDI','#a8b8d4'),
-      (1,'proj','#9ec9e9',None,'SciScope','#a8b8d4'),(1,'proj','#e8c397',None,'EduCanvas','#a8b8d4'),
       (1,'proj','#b9afea',None,'PulseGraph','#a8b8d4'),
       (0,'dir','⌄','#8491ae','motion','#c3cde4'),(1,'proj','#f28c84',None,'01-clawd-mv','#a8b8d4'),
       (0,'dir','⌄','#8491ae','research','#c3cde4'),(1,'file','py','#e8c06a','models.py','#a8b8d4'),
@@ -104,7 +104,7 @@ code=[[S('import','kw'),s1,S('type','kw'),s1,S('{','b1'),s1,S('Builder','type'),
  [sp,S(']','b2'),S(',','punct')],
  kv('stack',S('{','b2'),s1,S('web','prop'),S(':','punct'),s1,*strs(['React','Next.js'],'b3'),S(', ','punct'),
     S('ml','prop'),S(':','punct'),s1,*strs(['PyTorch','FastAPI'],'b3'),s1,S('}','b2'),S(',','punct')),
- kv('featured',*strs(['TTT-I-M','BDI','SciScope','EduCanvas','PulseGraph'],'b2'),S(',','punct')),
+ kv('featured',*strs(['EduCanvas','SciScope','TTT-I-M','BDI','PulseGraph'],'b2'),S(',','punct')),
  kv('series',S('"Code in motion"','str'),S(',','punct')),
  kv('mindset',S('"Curiosity → craft"','str'),S(',','punct')),
  [S('}','b1'),s1,S('as','kw'),s1,S('const','kw'),S(';','punct')]]
@@ -144,6 +144,24 @@ b += [rect(46,704,1108,29,'#313952'),rect(46,704,100,29,'#4a3f63'),text(60,724,'
       text(162,724,'⊗ 0   ⚠ 0',14,'#bcc8e2'),text(268,724,'◷ profile',14,'#9aa6c4'),
       text(1138,724,'Ln 2, Col 1    Spaces: 2    UTF-8    LF    {} TypeScript    ✓ Prettier    ☾',14,'#bcc8e2','text-anchor="end"')]
 (out/'workspace.svg').write_text(svg(1200,800,b,"Tim's pixel-night editor workspace: AI agents, observable ML and full-stack products"))
+
+# ---- Footer: the terminal that closes the page (bookend to the workspace) ----
+fb=['<defs><filter id="shadow" x="-6%" y="-10%" width="112%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#02040c" flood-opacity=".6"/></filter></defs>',
+    f'<image width="1200" height="320" preserveAspectRatio="xMidYMax slice" xlink:href="data:image/png;base64,{bg}"/>',
+    rect(0,0,1200,320,'#070b1b','opacity=".12"'),
+    rect(150,42,900,236,'#111728','rx="10" fill-opacity=".97" stroke="#576078" filter="url(#shadow)"'),
+    rect(151,80,898,1,'#343d54')]
+for x,c in [(174,'#f28c84'),(194,'#e9ba79'),(214,'#97bf9b')]:
+    fb.append(f'<circle cx="{x}" cy="61" r="5.5" fill="{c}"/>')
+fb += [text(600,66,'zsh — ~/Timcai06',14,'#9aa5c0','text-anchor="middle"'),
+       text(1028,66,'TERMINAL',11,'#edc38c','text-anchor="end" letter-spacing="1"'),
+       code_line(186,132,[('~/Timcai06','var'),(' on ','punct'),('⎇ main','kw'),(' $ ','b1'),('echo ','plain'),('"Thanks for stopping by."','str')],22),
+       text(186,176,'Thanks for stopping by.',26,'#f2c48f','font-weight="700"'),
+       code_line(186,226,[('~/Timcai06','var'),(' on ','punct'),('⎇ main','kw'),(' $ ','b1')],22),
+       rect(round(186+len('~/Timcai06 on ⎇ main $ ')*22*0.6)+2,208,12,23,'#edc38c','opacity=".85"'),
+       rect(151,252,898,25,'#313952','rx="0"'),text(170,269,'⎇ main',12,'#f5d2a4'),
+       text(1030,269,'zsh   UTF-8   ☾',12,'#bcc8e2','text-anchor="end"')]
+(out/'footer.svg').write_text(svg(1200,320,fb,'Terminal: echo "Thanks for stopping by."'))
 for name,label,path,comment in [
  ('about','about.md','profile / about.md','A little context behind the code.'),
  ('agents','agents.md','projects / agents.md','Research, learning & observable systems'),
@@ -209,18 +227,26 @@ print('Built three project editor windows')
 
 # Compact editor compositions are designed for half-width README columns.
 compact = [
- ('tttim','TTT-I-M','Personal web & content studio',['电影感个人网站','内容工作室与交互体验'],['React','GSAP','R3F'],'#e4b6eb'),
- ('bdi','BDI','Visual bridge inspection',['桥梁视觉检测原型','分割模型与全栈工作流'],['YOLOv8','FastAPI','Next.js'],'#efba85'),
- ('sciscope','SciScope','Evidence-grounded research',['文献与证据驱动的研究','Python RAG × Go TUI'],['Python','RAG','Go'],'#9ec9e9'),
- ('educanvas','EduCanvas','A personal learning agent',['通用个人 Agent 平台','文档、对话与学习画布'],['TypeScript','PostgreSQL'],'#e8c397'),
- ('pulsegraph','PulseGraph','Training observability',['本地优先的训练工作台','模型图、指标与推理回放'],['PyTorch','FastAPI','React'],'#b9afea')]
+ ('tttim','TTT-I-M','Personal web & content studio',['电影感个人网站','内容工作室与交互体验'],['TypeScript','React','Next.js','Vite','GSAP','R3F','Vercel'],'#e4b6eb'),
+ ('bdi','BDI','Visual bridge inspection',['桥梁视觉检测原型','分割模型与全栈工作流'],['Python','YOLOv8-seg','FastAPI','TypeScript','Next.js','React'],'#efba85'),
+ ('sciscope','SciScope','Evidence-grounded research',['文献与证据驱动的研究','Python RAG × Go TUI'],['Python','RAG','FastAPI','PostgreSQL','DeepSeek','Go TUI','SSE'],'#9ec9e9'),
+ ('educanvas','EduCanvas','A personal learning agent',['通用个人 Agent 平台','文档、对话与学习画布'],['TypeScript','Agent runtime','Node.js','PostgreSQL','Drizzle','pnpm','Docker'],'#e8c397'),
+ ('pulsegraph','PulseGraph','Training observability',['本地优先的训练工作台','模型图、指标与推理回放'],['PyTorch','Python','FastAPI','TypeScript','React','Vite','SSE'],'#b9afea')]
+TERMINAL_CMDS = {  # quick-start commands quoted from each repository README
+ 'tttim': [('npm run dev:landing',''),('npm run dev:studio','')],
+ 'bdi': [('./bdi check',''),('./scripts/dev-backend-real.sh','# 真正推理后端')],
+ 'sciscope': [('make backend','# 先启动后端 127.0.0.1:8000'),('make tui-demo','# 离线演示流程（无后端）')],
+ 'educanvas': [('make doctor','# 检查 Node、pnpm、Docker 与 .env'),('make all','# 启动全部本地服务')],
+ 'pulsegraph': [('make backend','# FastAPI on 127.0.0.1:8010'),('make frontend','')],
+}
+REPO_DIR = {'tttim':'TTT-I-M','bdi':'BDI','sciscope':'SciScope','educanvas':'EduCanvas','pulsegraph':'PulseGraph'}
 def tspans(parts):
     return ''.join(f'<tspan fill="{c}"{extra}>{escape(t)}</tspan>' for t,c,extra in parts)
 for slug,name,tagline,desc,stack,accent in compact:
     data=pixel_b64(f'{slug}.png')
-    W,X0,X1,Y0,Y1 = 640,22,618,40,398
+    W,X0,X1,Y0,Y1 = 640,22,618,40,508
     b=['<defs><filter id="shadow" x="-6%" y="-6%" width="112%" height="120%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#02040c" flood-opacity=".6"/></filter></defs>',
-       f'<image width="640" height="430" preserveAspectRatio="xMidYMid slice" xlink:href="data:image/png;base64,{data}"/>',
+       f'<image width="640" height="540" preserveAspectRatio="xMidYMid slice" xlink:href="data:image/png;base64,{data}"/>',
        rect(X0,Y0,X1-X0,Y1-Y0,'#0e1527','rx="9" fill-opacity=".97" stroke="#5d6780" filter="url(#shadow)"')]
     # Title bar with traffic lights and repository pill.
     for x,c in [(42,'#f28c84'),(58,'#e9ba79'),(74,'#97bf9b')]:
@@ -232,36 +258,57 @@ for slug,name,tagline,desc,stack,accent in compact:
           text(38,94,'M↓',10,'#7fa7d9','font-weight="700"'),text(60,94,'README.md',13,accent),text(158,94,'×',12,'#7f89a3','text-anchor="middle"'),
           rect(173,74,1,30,'#222a40'),text(188,94,'◫',12,'#6f7b97'),text(206,94,'Preview',13,'#6f7b97')]
     # Markdown, token-highlighted.
-    lines=[(144,[('# ',accent,' opacity=".55"'),(name,accent,' font-weight="700"')],32),
-           (178,[('> ','#6c7a98',''),(tagline,'#d6e0ef',' font-style="italic"')],18),
-           (204,[],0),
-           (234,[('- ',accent,''),(desc[0],'#c4d3e8','')],21),
-           (264,[('- ',accent,''),(desc[1],'#c4d3e8','')],21),
-           (290,[],0),
-           (322,[],0)]
-    b.append(rect(X0+1,322-19,560,26,'#18213a'))   # active line: the stack chips
-    for i,(y,parts,size) in enumerate(lines):
-        b.append(text(56,y,str(i+1),12,'#c9d2e6' if i==6 else '#4f5c78','text-anchor="end"'))
-        if parts: b.append(f'<text x="72" y="{y}" font-size="{size}" xml:space="preserve">{tspans(parts)}</text>')
-    x=72
+    lines=[(140,[('# ',accent,' opacity=".55"'),(name,accent,' font-weight="700"')],32),
+           (172,[('> ','#6c7a98',''),(tagline,'#d6e0ef',' font-style="italic"')],18),
+           (196,[],0),
+           (224,[('- ',accent,''),(desc[0],'#c4d3e8','')],21),
+           (252,[('- ',accent,''),(desc[1],'#c4d3e8','')],21),
+           (274,[],0),
+           (298,[],0),
+           (330,[],0)]
+    # Stack chips wrap onto a second line; the chip lines are the active block.
+    CH, CF, PAD, GAP, XMAX = 24, 14, 18, 7, 574
+    chip_rows, row, x = [], [], 72
     for item in stack:
-        w=round(len(item)*15*0.6+22)
-        b += [rect(x,306,w,24,accent,'rx="5" fill-opacity=".14" stroke="'+accent+'" stroke-opacity=".45"'),
-              text(x+w/2,323,item,15,accent,'text-anchor="middle"')]
-        x+=w+8
+        w = round(len(item)*CF*0.6+PAD)
+        if row and x + w > XMAX:
+            chip_rows.append(row); row, x = [], 72
+        row.append((item, x, w)); x += w + GAP
+    chip_rows.append(row)
+    b.append(rect(X0+1,298-18,560,CH+8+(len(chip_rows)-1)*32,'#18213a'))
+    for i,(y,parts,size) in enumerate(lines):
+        if i==7 and len(chip_rows)<2: continue
+        b.append(text(56,y,str(i+1),12,'#c9d2e6' if i>=6 else '#4f5c78','text-anchor="end"'))
+        if parts: b.append(f'<text x="72" y="{y}" font-size="{size}" xml:space="preserve">{tspans(parts)}</text>')
+    for r,chips in enumerate(chip_rows):
+        top = 298-16 + r*32
+        for item, x, w in chips:
+            b += [rect(x,top,w,CH,accent,'rx="5" fill-opacity=".14" stroke="'+accent+'" stroke-opacity=".45"'),
+                  text(x+w/2,top+17,item,CF,accent,'text-anchor="middle"')]
     # Minimap.
-    b += [rect(586,104,1,264,'#222a40')]
+    b += [rect(586,104,1,244,'#222a40')]
     for i,(y,parts,size) in enumerate(lines):
         mx=594
         for t,c,_ in parts:
             w=min(len(t)*(1.6 if size>20 else 0.9),18)
             b.append(rect(round(mx,1),112+i*6,round(w,1),3,c,'opacity=".7"')); mx+=w
-    b.append(rect(594,112+6*6,16,3,accent,'opacity=".7"'))
+    for r in range(len(chip_rows)): b.append(rect(594,112+(6+r)*6,18,3,accent,'opacity=".7"'))
+    # Terminal panel: real quick-start commands from the repository README.
+    b += [rect(X0+1,350,X1-X0-2,1,'#2c3550'),rect(X0+1,351,X1-X0-2,128,'#0b111f'),
+          text(40,373,'PROBLEMS',10,'#5f6b88','letter-spacing=".5"'),text(110,373,'OUTPUT',10,'#5f6b88','letter-spacing=".5"'),
+          text(166,373,'TERMINAL',10,accent,'letter-spacing=".5"'),rect(166,378,58,2,accent),
+          text(604,373,'zsh  +  ×',11,'#6f7b97','text-anchor="end"')]
+    prompt=[('~/'+REPO_DIR[slug],'var'),(' $ ','b1')]
+    for k,(cmd,comment) in enumerate(TERMINAL_CMDS[slug]):
+        parts=prompt+[(cmd,'plain')]+([('  '+comment,'comment')] if comment else [])
+        b.append(code_line(40,402+k*24,parts,13))
+    b.append(code_line(40,450,prompt,13))
+    b.append(rect(round(40+len('~/'+REPO_DIR[slug]+' $ ')*13*0.6)+1,439,7,14,'#edc38c','opacity=".85"'))
     # Status bar.
-    b += [rect(X0+1,370,X1-X0-2,27,'#252f48'),rect(X0+1,370,74,27,'#3a3356'),
-          text(34,388,'⎇ main',12,'#f5d2a4'),text(110,388,'⊗ 0  ⚠ 0',12,'#aab6d2'),
-          text(604,388,'Markdown   UTF-8   LF',12,'#aab6d2','text-anchor="end"')]
-    (out/(slug+'-compact.svg')).write_text(svg(640,430,b,name+' — '+tagline))
+    b += [rect(X0+1,480,X1-X0-2,27,'#252f48'),rect(X0+1,480,74,27,'#3a3356'),
+          text(34,498,'⎇ main',12,'#f5d2a4'),text(110,498,'⊗ 0  ⚠ 0',12,'#aab6d2'),
+          text(604,498,'Markdown   UTF-8   LF',12,'#aab6d2','text-anchor="end"')]
+    (out/(slug+'-compact.svg')).write_text(svg(640,540,b,name+' — '+tagline))
 # The animation-series banner is vector artwork: a timeline and scene frames.
 b=[rect(0,0,1200,350,'#10101e'),rect(32,28,1136,294,'#181626','rx="8" stroke="#595064"'),
    text(57,60,'animation-series / timeline.ts',18,'#c8b5d8'),text(57,128,'Code in motion.',48,'#edcaa5'),

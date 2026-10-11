@@ -36,3 +36,12 @@ Reading order: who I am → featured work → Code in motion → toolbox & more.
 - Editor SVGs now embed `assets/pixel-lab/v2/*.png` when present. At build time each is quantized to an 8-colour palette (median cut, no dithering, no resampling); the generated PNGs on disk are not modified. Each SVG dropped from about 1.6–1.9 MB to about 50–140 KB.
 - Code in motion is split into two levels: a centred series statement (text only) and one bordered card per work. Each work's key visual is `assets/motion/<slug>.jpg`, composed by `scripts/build_motion.py` from the frames in `assets/motion/series.json`: one lead frame (`"lead": true`) plus the rest stacked on the right, edge to edge, with no title text. `series-banner.jpg` and `animation-series.svg` are no longer referenced.
 - Raw frames, the contact sheet and Codex process records stay local (see `.gitignore`).
+
+## Featured order and navigation (2026-10-11, round 4)
+
+- Chapters are centred `<h1>` openers (01–04). Subsections use a `<kbd>` label plus bold English.
+- Lead projects are EduCanvas and SciScope (two-column cards). TTT-I-M, BDI and PulseGraph follow as "Also featured" rows. The workspace file tree and `featured` array use the same order.
+- The in-page anchor nav under the workspace image was removed (GitHub always renders links blue).
+- Hero contact badges: Instagram and LinkedIn were added after Blog/Email (2026-10-11, at Tim's request), so the hero is no longer byte-identical to the originally published block. URLs come from the GitHub profile's social accounts. LinkedIn has no shields/simple-icons logo; the badge embeds a minimal "in" SVG as a data URI.
+- Project cards are 640×540: README pane (markdown, stack chips) plus a terminal panel showing two real quick-start commands quoted from each repository's README (`TERMINAL_CMDS` in `build_profile.py`), an idle prompt with cursor, and the status bar.
+- Chapter 04 folds: "其他作品" and "数学建模" are sibling `<details>`; inside "数学建模" each of the 5 projects has its own `<details>` (two levels, at Tim's request). `scripts/build_modeling.py` still finds each project fold by its summary title.

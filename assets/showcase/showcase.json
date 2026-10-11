@@ -1,5 +1,5 @@
 {
-  "_note": "Browser chrome (y<308: menu bar, tabs, address bar, bookmarks) and the bottom hover-URL area (y>1900) are cropped out.",
+  "_note": "Browser chrome (menu bar, tabs, address bar, bookmarks) and any bottom hover-URL/window edge are cropped out per frame.",
   "works": [
     {
       "slug": "sophon",
@@ -43,6 +43,19 @@
             308,
             3024,
             1900
+          ]
+        },
+        {
+          "label": "frame 04",
+          "file": "sophon-04.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-10-11 at 3.58.26 PM.png",
+          "sha256": "4990c5a4472759be39dc9f51c515d95df2a56067c32703426f0874b5d8145d88",
+          "crop": [
+            0,
+            264,
+            3024,
+            1950
           ]
         }
       ]
