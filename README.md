@@ -40,14 +40,14 @@
 <a href="https://github.com/Timcai06/TTT-I-M"><img src="./assets/editor/tttim-compact.svg" width="100%" alt="TTT-I-M — 个人网站与内容工作室"></a>
 <h3><a href="https://github.com/Timcai06/TTT-I-M">TTT-I-M</a> <sub>个人网站与内容工作室</sub></h3>
 <p>我的个人网站与内容工作室：<b>电影感 Landing</b> 与博客、作品、内容管理组成同一套空间。探索 GSAP 动效、Three.js / React Three Fiber 与全栈内容系统如何共同服务个人表达。</p>
-<p><img src="https://img.shields.io/badge/React-20232A?style=flat-square&amp;logo=react&amp;logoColor=61DAFB" alt="React"> <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&amp;logo=nextdotjs&amp;logoColor=white" alt="Next.js"> <img src="https://img.shields.io/badge/GSAP-0AE448?style=flat-square&amp;logo=greensock&amp;logoColor=black" alt="GSAP"> <img src="https://img.shields.io/badge/R3F-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="React Three Fiber"></p>
+<p><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/React-20232A?style=flat-square&amp;logo=react&amp;logoColor=61DAFB" alt="React"> <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&amp;logo=nextdotjs&amp;logoColor=white" alt="Next.js"> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite"> <img src="https://img.shields.io/badge/GSAP-0AE448?style=flat-square&amp;logo=greensock&amp;logoColor=black" alt="GSAP"> <img src="https://img.shields.io/badge/R3F-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="React Three Fiber"> <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&amp;logo=vercel&amp;logoColor=white" alt="Vercel"></p>
 <p><a href="https://github.com/Timcai06/TTT-I-M"><kbd>仓库 / Repo ↗</kbd></a> <a href="https://www.crt-dsg.com"><kbd>crt-dsg.com ↗</kbd></a></p>
 </td>
 <td width="50%" valign="top">
 <a href="https://github.com/Timcai06/BDI"><img src="./assets/editor/bdi-compact.svg" width="100%" alt="BDI — 桥梁视觉检测"></a>
 <h3><a href="https://github.com/Timcai06/BDI">BDI</a> <sub>桥梁视觉检测</sub></h3>
 <p>无人机桥梁巡检原型：把 <b>YOLOv8-seg 病害分割</b>接入全栈工作流，围绕检测结果与本地产物提供可查看的界面。</p>
-<p><img src="https://img.shields.io/badge/YOLOv8--seg-111F68?style=flat-square&amp;logo=yolo&amp;logoColor=white" alt="YOLOv8-seg"> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI"> <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&amp;logo=nextdotjs&amp;logoColor=white" alt="Next.js"></p>
+<p><img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/YOLOv8--seg-111F68?style=flat-square&amp;logo=ultralytics&amp;logoColor=white" alt="YOLOv8-seg (Ultralytics)"> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&amp;logo=nextdotjs&amp;logoColor=white" alt="Next.js"> <img src="https://img.shields.io/badge/React-20232A?style=flat-square&amp;logo=react&amp;logoColor=61DAFB" alt="React"></p>
 <p><a href="https://github.com/Timcai06/BDI"><kbd>仓库 / Repo ↗</kbd></a></p>
 </td>
 </tr>
@@ -59,7 +59,7 @@
 <td width="56%" valign="middle">
 <h3><a href="https://github.com/Timcai06/SciScope">SciScope</a> <sub>Evidence-grounded research</sub></h3>
 <p>围绕文献与证据构建研究工作流，让检索、阅读与研究过程<b>有据可循</b>。Python RAG 后端配合 Go TUI，把研究能力带到终端。</p>
-<p><img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/RAG-5A4FCF?style=flat-square" alt="RAG"> <img src="https://img.shields.io/badge/Go_TUI-00ADD8?style=flat-square&amp;logo=go&amp;logoColor=white" alt="Go TUI"></p>
+<p><img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/RAG-5A4FCF?style=flat-square" alt="RAG"> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL"> <img src="https://img.shields.io/badge/DeepSeek-4D6BFE?style=flat-square&amp;logo=deepseek&amp;logoColor=white" alt="DeepSeek"> <img src="https://img.shields.io/badge/Go_TUI-00ADD8?style=flat-square&amp;logo=go&amp;logoColor=white" alt="Go TUI"> <img src="https://img.shields.io/badge/SSE-30363D?style=flat-square" alt="Server-Sent Events"></p>
 </td>
 </tr>
 <tr>
@@ -67,7 +67,7 @@
 <td width="56%" valign="middle">
 <h3><a href="https://github.com/Timcai06/EduCanvas">EduCanvas</a> <sub>A personal agent for learning</sub></h3>
 <p><b>以教育能力为核心的通用个人 Agent 平台</b>。用 Notebook 组织文档、对话、Canvas 与学习过程，在统一运行时里组合工具和技能。</p>
-<p><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Agent_runtime-30363D?style=flat-square" alt="Agent runtime"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL"></p>
+<p><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Agent_runtime-30363D?style=flat-square" alt="Agent runtime"> <img src="https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&amp;logo=nodedotjs&amp;logoColor=white" alt="Node.js"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL"> <img src="https://img.shields.io/badge/Drizzle-1A1A1A?style=flat-square&amp;logo=drizzle&amp;logoColor=C5F74F" alt="Drizzle"> <img src="https://img.shields.io/badge/pnpm-F69220?style=flat-square&amp;logo=pnpm&amp;logoColor=white" alt="pnpm"> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" alt="Docker"></p>
 </td>
 </tr>
 <tr>
@@ -75,7 +75,7 @@
 <td width="56%" valign="middle">
 <h3><a href="https://github.com/Timcai06/PulseGraph">PulseGraph</a> <sub>See what your training is doing</sub></h3>
 <p><b>本地优先</b>的 PyTorch 训练可观测性工作台：连接模型图、训练指标、检查点与推理回放，让实验过程更容易检查和追溯。</p>
-<p><img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&amp;logo=pytorch&amp;logoColor=white" alt="PyTorch"> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI"> <img src="https://img.shields.io/badge/React-20232A?style=flat-square&amp;logo=react&amp;logoColor=61DAFB" alt="React"></p>
+<p><img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&amp;logo=pytorch&amp;logoColor=white" alt="PyTorch"> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/React-20232A?style=flat-square&amp;logo=react&amp;logoColor=61DAFB" alt="React"> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite"> <img src="https://img.shields.io/badge/SSE-30363D?style=flat-square" alt="Server-Sent Events"></p>
 </td>
 </tr>
 </table>
@@ -90,7 +90,7 @@
 <a href="https://github.com/Timcai06/clawd-mv"><img src="./assets/motion/clawd-mv.jpg" width="100%" alt="clawd-mv 画面：片尾署名（主画面）、October 32 报告、undefined 堆栈雨、Local 与 CI 对比"></a>
 <h3><kbd>01</kbd> &nbsp;<a href="https://github.com/Timcai06/clawd-mv">clawd-mv</a> <sub>Works on My Machine</sub></h3>
 <p>代码驱动的音乐影像实验，用 TypeScript / Three.js 时间轴与离线渲染串起场景、镜头和音乐。基于 pdoom-video 开源框架进行个人非商业创作，目前持续迭代中。</p>
-<p><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="Three.js"> <img src="https://img.shields.io/badge/Bun-000000?style=flat-square&amp;logo=bun&amp;logoColor=white" alt="Bun"> <img src="https://img.shields.io/badge/FFmpeg-007808?style=flat-square&amp;logo=ffmpeg&amp;logoColor=white" alt="FFmpeg"></p>
+<p><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="Three.js"> <img src="https://img.shields.io/badge/Bun-000000?style=flat-square&amp;logo=bun&amp;logoColor=white" alt="Bun"> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite"> <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat-square" alt="Playwright"> <img src="https://img.shields.io/badge/FFmpeg-007808?style=flat-square&amp;logo=ffmpeg&amp;logoColor=white" alt="FFmpeg"> <img src="https://img.shields.io/badge/Suno-000000?style=flat-square&amp;logo=suno&amp;logoColor=white" alt="Suno"></p>
 </td>
 </tr>
 </table>
