@@ -107,43 +107,13 @@
 <br>
 <h1 id="toolbox" align="center"><sub><samp>03</samp></sub><br>技术栈<br><sub>Toolbox</sub></h1>
 <p align="center"><sub>按方向整理的常用语言、框架与工具。</sub></p>
-<table align="center">
-<tr>
-<td width="50%" valign="top" align="center">
-<b>语言</b> &nbsp;<sub>Languages</sub><br><br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=py%2Cts%2Cjs%2Cgo&amp;theme=dark"><source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=py%2Cts%2Cjs%2Cgo&amp;theme=light"><img src="https://skillicons.dev/icons?i=py%2Cts%2Cjs%2Cgo&amp;theme=dark" height="40" alt="Python, TypeScript, JavaScript, Go"></picture>
-</td>
-<td width="50%" valign="top" align="center">
-<b>AI 与研究</b> &nbsp;<sub>AI &amp; research</sub><br><br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=pytorch%2Csklearn&amp;theme=dark"><source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=pytorch%2Csklearn&amp;theme=light"><img src="https://skillicons.dev/icons?i=pytorch%2Csklearn&amp;theme=dark" height="40" alt="PyTorch, scikit-learn"></picture><br>
-<img src="https://img.shields.io/badge/YOLOv8-111F68?style=flat-square&amp;logo=ultralytics&amp;logoColor=white" alt="YOLOv8"> <img src="https://img.shields.io/badge/PaddleOCR-0062B0?style=flat-square&amp;logo=paddlepaddle&amp;logoColor=white" alt="PaddleOCR"> <img src="https://img.shields.io/badge/RAG-5A4FCF?style=flat-square" alt="RAG"> <img src="https://img.shields.io/badge/Agent_workflows-30363D?style=flat-square" alt="Agent workflows">
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top" align="center">
-<b>前端与动效</b> &nbsp;<sub>Web &amp; motion</sub><br><br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=react%2Cnextjs%2Cvite%2Ctailwind%2Cthreejs&amp;theme=dark"><source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=react%2Cnextjs%2Cvite%2Ctailwind%2Cthreejs&amp;theme=light"><img src="https://skillicons.dev/icons?i=react%2Cnextjs%2Cvite%2Ctailwind%2Cthreejs&amp;theme=dark" height="40" alt="React, Next.js, Vite, Tailwind CSS, Three.js"></picture><br>
-<img src="https://img.shields.io/badge/GSAP-0AE448?style=flat-square&amp;logo=greensock&amp;logoColor=black" alt="GSAP"> <img src="https://img.shields.io/badge/React_Three_Fiber-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="React Three Fiber">
-</td>
-<td width="50%" valign="top" align="center">
-<b>后端与数据</b> &nbsp;<sub>Backend &amp; data</sub><br><br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=fastapi%2Cdjango%2Cpostgres%2Credis%2Csupabase&amp;theme=dark"><source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=fastapi%2Cdjango%2Cpostgres%2Credis%2Csupabase&amp;theme=light"><img src="https://skillicons.dev/icons?i=fastapi%2Cdjango%2Cpostgres%2Credis%2Csupabase&amp;theme=dark" height="40" alt="FastAPI, Django, PostgreSQL, Redis, Supabase"></picture><br>
-<img src="https://img.shields.io/badge/Celery-37814A?style=flat-square&amp;logo=celery&amp;logoColor=white" alt="Celery"> <img src="https://img.shields.io/badge/Drizzle-1A1A1A?style=flat-square&amp;logo=drizzle&amp;logoColor=C5F74F" alt="Drizzle">
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top" align="center">
-<b>工程与交付</b> &nbsp;<sub>Infra &amp; tooling</sub><br><br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=docker%2Cgithubactions%2Cvercel%2Cbun&amp;theme=dark"><source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=docker%2Cgithubactions%2Cvercel%2Cbun&amp;theme=light"><img src="https://skillicons.dev/icons?i=docker%2Cgithubactions%2Cvercel%2Cbun&amp;theme=dark" height="40" alt="Docker, GitHub Actions, Vercel, Bun"></picture><br>
-<img src="https://img.shields.io/badge/pnpm-F69220?style=flat-square&amp;logo=pnpm&amp;logoColor=white" alt="pnpm"> <img src="https://img.shields.io/badge/FFmpeg-007808?style=flat-square&amp;logo=ffmpeg&amp;logoColor=white" alt="FFmpeg">
-</td>
-<td width="50%" valign="top" align="center">
-<b>建模与科学计算</b> &nbsp;<sub>Modeling &amp; scientific computing</sub><br><br>
-<picture><source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=latex%2Cr&amp;theme=dark"><source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=latex%2Cr&amp;theme=light"><img src="https://skillicons.dev/icons?i=latex%2Cr&amp;theme=dark" height="40" alt="LaTeX, R"></picture><br>
-<img src="https://img.shields.io/badge/NumPy-013243?style=flat-square&amp;logo=numpy&amp;logoColor=white" alt="NumPy"> <img src="https://img.shields.io/badge/pandas-150458?style=flat-square&amp;logo=pandas&amp;logoColor=white" alt="pandas"> <img src="https://img.shields.io/badge/SciPy-8CAAE6?style=flat-square&amp;logo=scipy&amp;logoColor=white" alt="SciPy"> <img src="https://img.shields.io/badge/Matplotlib-11557C?style=flat-square" alt="Matplotlib"> <img src="https://img.shields.io/badge/PuLP-30363D?style=flat-square" alt="PuLP"> <img src="https://img.shields.io/badge/HiGHS-30363D?style=flat-square" alt="HiGHS">
-</td>
-</tr>
-</table>
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/toolbox/toolbox-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/toolbox/toolbox-light.svg">
+  <img src="./assets/toolbox/toolbox-light.svg" width="100%" alt="技术栈：语言（Python、TypeScript、JavaScript、Go）；AI 与研究（PyTorch、scikit-learn、YOLOv8、PaddleOCR、RAG、Agent workflows）；前端与动效（React、Next.js、Vite、Tailwind CSS、Three.js、GSAP、React Three Fiber）；后端与数据（FastAPI、Django、PostgreSQL、Redis、Supabase、Celery、Drizzle）；工程与交付（Docker、GitHub Actions、Vercel、Bun、pnpm、FFmpeg）；建模与科学计算（LaTeX、R、NumPy、pandas、SciPy、Matplotlib、PuLP、HiGHS）。">
+</picture>
+</p>
 
 <br>
 <h1 id="more" align="center"><sub><samp>04</samp></sub><br>更多<br><sub>More</sub></h1>

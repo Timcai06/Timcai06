@@ -31,22 +31,87 @@ TOK = dict(kw='#c6a6ed', type='#7fd1c7', var='#8fc4f0', prop='#a9c3e8', str='#b0
 def code_line(x, y, tokens, size, extra=''):
     spans = ''.join(f'<tspan fill="{TOK[k]}"' + (' font-style="italic"' if k == 'comment' else '') + f'>{escape(t)}</tspan>' for t, k in tokens)
     return f'<text x="{x}" y="{y}" font-size="{size}" xml:space="preserve" {extra}>{spans}</text>'
+# Profile content is a static illustration, not a live editor or repository tree.
+# Project descriptions/stacks: the respective repository READMEs (see assets/editor/README.md).
+S=lambda t,k:(t,k)
+sp=('  ','plain')
+s1=(' ','plain')
+def kv(key,*rest,indent=sp):
+    return [indent,S(key,'prop'),S(':','punct'),s1,*rest]
+def strs(items,bk):
+    parts=[S('[',bk)]
+    for j,v in enumerate(items):
+        parts.append(S(f'"{v}"','str'))
+        if j<len(items)-1: parts.append(S(', ','punct'))
+    return parts+[S(']',bk)]
+
+code=[[S('// A profile in code — Tim Cai','comment')],
+      [S('export','kw'),s1,S('const','kw'),s1,S('tim','var'),s1,S('=','op'),s1,S('{','b1')]]
+fields=[]
+def field(key,parts,kind='string'):
+    fields.append((key,kind,len(code)+1))
+    code.append(kv(key,*parts))
+def value(s):
+    return [S(f'"{s}"','str'),S(',','punct')]
+field('name',value('Tim Cai'))
+field('role',value('Student developer'))
+field('basedIn',value('Shanghai'))
+field('focus',strs(['AI agents','ML observability','Full-stack'],'b2')+[S(',','punct')],'array')
+code.append([])
+field('projects',[S('{','b2')],'object')
+for key,description in [
+    ('EduCanvas','Personal agent for learning'),
+    ('SciScope','Evidence-grounded research / Go TUI'),
+    ('PulseGraph','Local PyTorch training observability'),
+    ('portfolio','React / Vite / GSAP / R3F'),
+    ('clawdMV','TypeScript / Three.js music video'),
+]:
+    code.append(kv(key,*value(description),indent=('    ','plain')))
+code.append([sp,S('}','b2'),S(',','punct')])
+code.append([])
+field('stack',[S('{','b2')],'object')
+for key,items in [
+    ('web',['React','Vite','GSAP']),
+    ('backend',['Python','FastAPI','Node.js']),
+    ('data',['PostgreSQL','pgvector']),
+    ('research',['PyTorch','HiGHS']),
+    ('motion',['Three.js','TypeScript']),
+]:
+    code.append(kv(key,*strs(items,'b3'),S(',','punct'),indent=('    ','plain')))
+code.append([sp,S('}','b2'),S(',','punct')])
+code.append([])
+field('modeling',[S('[','b2')],'array')
+for item in ['Energy dispatch / LP + MPC', 'Crop planning / MILP + CVaR', 'Oil prices / Markov + Monte Carlo',
+             'Desert decisions / MDP', 'Glass composition / CLR + clustering']:
+    code.append([('    ','plain'),*value(item)])
+code.append([sp,S(']','b2'),S(',','punct')])
+code.append([S('}','b1'),s1,S('as','kw'),s1,S('const','kw'),S(';','punct')])
+
+CX,CY,STEP,SIZE=384,196,20,16
+CW=SIZE*0.6
+TERMINAL_Y=CY+(len(code)-1)*STEP+30
+STATUS_Y=TERMINAL_Y+138
+HEIGHT=STATUS_Y+96
+# Catch content growth before it reaches the minimap. This is a conservative
+# monospace estimate; the rendered result must still be inspected after changes.
+assert all(len(''.join(t for t,_ in line))*CW <= 680 for line in code)
+
 b=['<defs><filter id="shadow" x="-6%" y="-6%" width="112%" height="118%"><feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#02040c" flood-opacity=".6"/></filter></defs>',
-   f'<image width="1200" height="800" preserveAspectRatio="xMidYMid slice" xlink:href="data:image/png;base64,{bg}"/>',
-   rect(0,0,1200,800,'#070b1b','opacity=".12"'),
-   rect(45,60,1110,674,'#111728','rx="10" fill-opacity=".97" stroke="#576078" filter="url(#shadow)"'),
+   f'<image width="1200" height="{HEIGHT}" preserveAspectRatio="xMidYMid slice" xlink:href="data:image/png;base64,{bg}"/>',
+   rect(0,0,1200,HEIGHT,'#070b1b','opacity=".12"'),
+   rect(45,60,1110,STATUS_Y+30-60,'#111728','rx="10" fill-opacity=".97" stroke="#576078" filter="url(#shadow)"'),
    rect(46,100,1108,1,'#343d54')]
-# Title bar: traffic lights, command-centre search pill, layout toggles.
 for x,c in [(69,'#f28c84'),(90,'#e9ba79'),(111,'#97bf9b')]:
     b.append(f'<circle cx="{x}" cy="80" r="6" fill="{c}"/>')
-b += [rect(452,68,296,24,'#1a2133','rx="6" stroke="#2f3851"'),text(600,85,"⌕  Timcai06 — profile",13,'#9aa5c0','text-anchor="middle"'),
+b += [rect(452,68,296,24,'#1a2133','rx="6" stroke="#2f3851"'),
+      text(600,85,'⌕  Timcai06 — profile',13,'#9aa5c0','text-anchor="middle"'),
       text(1132,85,'▣  ◧  ▤',13,'#6f7b97','text-anchor="end"')]
-# Activity bar.
-b += [rect(46,101,48,603,'#141a2d'),rect(94,101,214,603,'#131a2c'),rect(307,101,1,603,'#303950'),rect(46,110,3,44,'#e5b581')]
-for y,g,c in [(141,'▣','#d5dcef'),(196,'⌕','#8491ae'),(251,'⑂','#8491ae'),(306,'▷','#8491ae'),(361,'⧉','#8491ae'),(640,'◉','#8491ae'),(686,'⚙','#8491ae')]:
+# Activity bar and explorer.
+b += [rect(46,101,48,STATUS_Y-101,'#141a2d'),rect(94,101,214,STATUS_Y-101,'#131a2c'),
+      rect(307,101,1,STATUS_Y-101,'#303950'),rect(46,110,3,44,'#e5b581')]
+for y,g,c in [(141,'▣','#d5dcef'),(196,'⌕','#8491ae'),(251,'⑂','#8491ae'),(306,'▷','#8491ae'),
+              (361,'⧉','#8491ae'),(STATUS_Y-64,'◉','#8491ae'),(STATUS_Y-18,'⚙','#8491ae')]:
     b.append(text(60,y,g,24,c))
-b += [f'<circle cx="82" cy="257" r="8" fill="#e5b581"/>',text(82,261,'1',11,'#1a1f30','text-anchor="middle" font-weight="700"')]
-# Explorer: the profile's real structure, each project with its accent colour.
 b += [text(111,132,'EXPLORER',12,'#8995b2','letter-spacing="1"'),text(292,132,'⋯',14,'#8995b2','text-anchor="end"'),
       text(108,162,'⌄ TIMCAI06',13,'#dde4f5','font-weight="700" letter-spacing=".5"')]
 tree=[(0,'file','TS','#5aa2e8','about.ts','#efc38f'),
@@ -55,91 +120,71 @@ tree=[(0,'file','TS','#5aa2e8','about.ts','#efc38f'),
       (1,'proj','#e4b6eb',None,'TTT-I-M','#a8b8d4'),(1,'proj','#efba85',None,'BDI','#a8b8d4'),
       (1,'proj','#b9afea',None,'PulseGraph','#a8b8d4'),
       (0,'dir','⌄','#8491ae','motion','#c3cde4'),(1,'proj','#f28c84',None,'01-clawd-mv','#a8b8d4'),
-      (0,'dir','⌄','#8491ae','research','#c3cde4'),(1,'file','py','#e8c06a','models.py','#a8b8d4'),
+      (0,'dir','⌄','#8491ae','research','#c3cde4'),
+      *[(1,'proj','#7fd1c7',None,name,'#a8b8d4') for name in ['energy','agriculture','oil-prices','desert','glass']],
       (0,'file','{}','#e8c06a','toolbox.json','#a8b8d4'),(0,'file','M↓','#7fa7d9','contact.md','#a8b8d4')]
 b += [rect(95,173,211,26,'#29314a'),rect(95,173,2,26,'#e5b581')]
 for i,(lvl,kind,icon,ic,name,nc) in enumerate(tree):
-    y=191+i*27; x=114+lvl*18
-    if lvl: b.append(rect(119,y-19,1,27,'#323b55'))
+    y=191+i*25; x=114+lvl*18
+    if lvl: b.append(rect(119,y-18,1,25,'#323b55'))
     if kind=='proj':
         b += [text(x,y,'▸',12,'#6f7b97'),f'<circle cx="{x+21}" cy="{y-5}" r="4.5" fill="{icon}"/>',text(x+32,y,name,14,nc)]
     elif kind=='dir':
         b += [text(x,y,icon,14,ic),text(x+18,y,name,14,nc)]
     else:
         b += [text(x,y,icon,11,ic,'font-weight="700"'),text(x+26,y,name,14,nc)]
-b += [rect(95,580,212,1,'#2a3149'),text(108,602,'›  OUTLINE',12,'#7f8aa6','letter-spacing=".5"'),
-      rect(95,614,212,1,'#2a3149'),text(108,636,'›  TIMELINE',12,'#7f8aa6','letter-spacing=".5"'),
-      rect(95,648,212,1,'#2a3149'),text(108,672,'›  NPM SCRIPTS',12,'#7f8aa6','letter-spacing=".5"')]
-# Tabs, breadcrumb.
+# Outline is derived from the same fields and line numbers as the editor.
+outline_y=191+len(tree)*25+12
+b += [rect(95,outline_y,212,1,'#2a3149'),text(108,outline_y+23,'⌄  OUTLINE',12,'#7f8aa6','letter-spacing=".5"'),
+      text(114,outline_y+49,'{} tim',14,'#e8c39a')]
+for i,(key,kind,line) in enumerate(fields):
+    y=outline_y+75+i*23
+    icon={'string':'ab','array':'[]','object':'{}'}[kind]
+    b += [text(130,y,icon,11,'#7fd1c7'),text(155,y,key,13,'#a8b8d4'),
+          text(290,y,str(line),11,'#6f7b97','text-anchor="end"')]
+assert outline_y+75+(len(fields)-1)*23 < STATUS_Y-20
+# Tabs and breadcrumbs.
 b += [rect(308,101,846,40,'#0e1423'),rect(308,101,168,40,'#111728'),rect(308,101,168,2,'#edbf88'),
-      text(324,126,'TS',11,'#5aa2e8','font-weight="700"'),text(348,126,'about.ts',15,'#e8c39a'),text(458,126,'×',14,'#8b95ae','text-anchor="middle"'),
+      text(324,126,'TS',11,'#5aa2e8','font-weight="700"'),text(348,126,'about.ts',15,'#e8c39a'),text(458,126,'×',14,'#8b95ae','text-anchor="end"'),
       rect(476,101,1,40,'#262e44'),text(492,126,'{}',11,'#e8c06a','font-weight="700"'),text(516,126,'toolbox.json',15,'#7f8ba7'),
       rect(652,101,1,40,'#262e44'),text(668,126,'M↓',11,'#7fa7d9','font-weight="700"'),text(694,126,'contact.md',15,'#7f8ba7'),
       rect(818,101,1,40,'#262e44'),text(1136,126,'⧉  ⋯',14,'#7f8ba7','text-anchor="end"'),
       code_line(326,164,[('Timcai06','punct'),('  ›  ','punct'),('TS ','var'),('about.ts','punct'),('  ›  ','punct'),('{} ','b1'),('tim','prop')],13)]
-S=lambda t,k:(t,k); sp=('  ','plain'); s1=(' ','plain')
-def kv(key,*rest,indent=sp): return [indent,S(key,'prop'),S(':','punct'),s1,*rest]
-def strs(items,bk):
-    out=[S('[',bk)]
-    for j,v in enumerate(items):
-        out.append(S(f'"{v}"','str'))
-        if j<len(items)-1: out.append(S(', ','punct'))
-    return out+[S(']',bk)]
-code=[[S('import','kw'),s1,S('type','kw'),s1,S('{','b1'),s1,S('Builder','type'),s1,S('}','b1'),s1,S('from','kw'),s1,S('"./types"','str'),S(';','punct')],
- [],
- [S('// Hello, world.','comment')],
- [S('export','kw'),s1,S('const','kw'),s1,S('tim','var'),S(':','punct'),s1,S('Builder','type'),s1,S('=','op'),s1,S('{','b1')],
- kv('name',S('"Tim Cai"','str'),S(',','punct')),
- kv('role',S('"Student developer"','str'),S(',','punct')),
- kv('basedIn',S('"Shanghai"','str'),S(',','punct')),
- kv('focus',*strs(['AI agents','ML observability','Full-stack'],'b2'),S(',','punct')),
- kv('building',S('[','b2')),
- [('    ','plain'),S('"AI agents & research tools"','str'),S(',','punct')],
- [('    ','plain'),S('"Observable ML systems"','str'),S(',','punct')],
- [('    ','plain'),S('"Thoughtful full-stack products"','str'),S(',','punct')],
- [sp,S(']','b2'),S(',','punct')],
- kv('stack',S('{','b2'),s1,S('web','prop'),S(':','punct'),s1,*strs(['React','Next.js'],'b3'),S(', ','punct'),
-    S('ml','prop'),S(':','punct'),s1,*strs(['PyTorch','FastAPI'],'b3'),s1,S('}','b2'),S(',','punct')),
- kv('featured',*strs(['EduCanvas','SciScope','TTT-I-M','BDI','PulseGraph'],'b2'),S(',','punct')),
- kv('series',S('"Code in motion"','str'),S(',','punct')),
- kv('mindset',S('"Curiosity → craft"','str'),S(',','punct')),
- [S('}','b1'),s1,S('as','kw'),s1,S('const','kw'),S(';','punct')]]
-CX, CY, STEP, SIZE = 384, 196, 20, 16
-CW = SIZE*0.6   # approximate monospace advance; used only for guides and the minimap
-cursor = 1
+cursor=next(line-1 for key,_,line in fields if key=='projects')
 b.append(rect(309,CY+cursor*STEP-15,770,STEP,'#1c2539'))
-for i in range(4,17): b.append(rect(CX+1,CY+i*STEP-15,1,STEP,'#2c3550'))
-for i in range(9,12): b.append(rect(round(CX+2*CW)+1,CY+i*STEP-15,1,STEP,'#2c3550'))
-for i,c in [(7,'#6f9fd8'),(13,'#7fb08a'),(14,'#7fb08a'),(15,'#7fb08a')]: b.append(rect(356,CY+i*STEP-15,3,STEP-2,c))
-for i in (3,8,13): b.append(text(370,CY+i*STEP-1,'⌄',12,'#56637f','text-anchor="middle"'))
 for i,tokens in enumerate(code):
     y=CY+i*STEP
+    plain=''.join(t for t,_ in tokens)
+    indent=len(plain)-len(plain.lstrip())
+    for level in range(0,indent,2):
+        b.append(rect(round(CX+level*CW)+1,y-15,1,STEP,'#2c3550'))
+    if plain.rstrip().endswith(('{','[')):
+        b.append(text(370,y-1,'⌄',12,'#56637f','text-anchor="middle"'))
     b.append(text(348,y,str(i+1),13,'#c9d2e6' if i==cursor else '#56637f','text-anchor="end"'))
     if tokens: b.append(code_line(CX,y,tokens,SIZE))
-b.append(rect(CX,CY+cursor*STEP-14,2,18,'#edc38c'))
-# Minimap and overview ruler.
-b += [rect(1084,145,1,412,'#262e44'),rect(1085,145,62,code.__len__()*5+14,'#ffffff','opacity=".04"'),rect(1148,145,6,412,'#151c2e')]
+# Minimap, viewport and scrollbar all track the content height.
+b += [rect(1084,145,1,TERMINAL_Y-154,'#262e44'),rect(1085,145,62,len(code)*5+14,'#ffffff','opacity=".04"'),
+      rect(1148,145,6,TERMINAL_Y-154,'#151c2e'),rect(1149,155,4,160,'#4b5774','rx="2" opacity=".45"')]
 for i,tokens in enumerate(code):
     x=1092
     for t,k in tokens:
         w=len(t)*0.78
         if t.strip(): b.append(rect(round(x,1),152+i*5,round(w,1),2.4,TOK[k],'opacity=".75"'))
         x+=w
-for i,c in [(7,'#6f9fd8'),(13,'#7fb08a'),(14,'#7fb08a'),(15,'#7fb08a')]: b.append(rect(1149,150+i*5*1.1,4,4,c))
-# Terminal.
-b += [rect(308,566,846,1,'#3a435a'),text(333,590,'PROBLEMS',12,'#6d7a97','letter-spacing=".5"'),text(425,590,'OUTPUT',12,'#6d7a97','letter-spacing=".5"'),
-      text(505,590,'TERMINAL',12,'#edc38c','letter-spacing=".5"'),rect(505,597,70,2,'#e8b983'),
-      text(1136,590,'zsh   +  ⌄   ⧉   ×',13,'#7f8ba7','text-anchor="end"'),
-      code_line(333,620,[('~/Timcai06','var'),(' on ','punct'),('⎇ main','kw'),(' $ ','b1'),('cat now.txt','plain')],15),
-      text(333,643,'Learning deeply. Building across the stack.',15,'#c3cde4'),
-      text(333,666,'从模型、数据到界面，让想法成为可用的产品。',16,'#a5b2ce'),
-      code_line(333,689,[('~/Timcai06','var'),(' on ','punct'),('⎇ main','kw'),(' $ ','b1')],15),
-      rect(round(333+len('~/Timcai06 on ⎇ main $ ')*9)+2,677,9,15,'#edc38c','opacity=".85"')]
-# Status bar.
-b += [rect(46,704,1108,29,'#313952'),rect(46,704,100,29,'#4a3f63'),text(60,724,'⎇ main*',14,'#f5d2a4'),
-      text(162,724,'⊗ 0   ⚠ 0',14,'#bcc8e2'),text(268,724,'◷ profile',14,'#9aa6c4'),
-      text(1138,724,'Ln 2, Col 1    Spaces: 2    UTF-8    LF    {} TypeScript    ✓ Prettier    ☾',14,'#bcc8e2','text-anchor="end"')]
-(out/'workspace.svg').write_text(svg(1200,800,b,"Tim's pixel-night editor workspace: AI agents, observable ML and full-stack products"))
+# Existing terminal introduction; coordinates follow the expanded editor.
+y=TERMINAL_Y
+b += [rect(308,y,846,1,'#3a435a'),text(333,y+24,'PROBLEMS',12,'#6d7a97','letter-spacing=".5"'),
+      text(425,y+24,'OUTPUT',12,'#6d7a97','letter-spacing=".5"'),text(505,y+24,'TERMINAL',12,'#edc38c','letter-spacing=".5"'),
+      rect(505,y+31,70,2,'#e8b983'),text(1136,y+24,'zsh   +  ⌄   ×',13,'#7f8ba7','text-anchor="end"'),
+      code_line(333,y+54,[('~/Timcai06','var'),(' $ ','b1'),('cat now.txt','plain')],15),
+      text(333,y+77,'Learning deeply. Building across the stack.',15,'#c3cde4'),
+      text(333,y+100,'从模型、数据到界面，让想法成为可用的产品。',16,'#a5b2ce'),
+      code_line(333,y+123,[('~/Timcai06','var'),(' $ ','b1')],15),
+      rect(round(333+len('~/Timcai06 $ ')*15*0.6)+2,y+111,9,15,'#edc38c','opacity=".85"')]
+b += [rect(46,STATUS_Y,1108,29,'#313952'),rect(46,STATUS_Y,140,29,'#4a3f63'),
+      text(60,STATUS_Y+20,'{} SVG profile',13,'#f5d2a4'),text(206,STATUS_Y+20,'Static illustration',12,'#bcc8e2'),
+      text(1138,STATUS_Y+20,f'Ln {cursor+1}, Col 1    Spaces: 2    UTF-8    LF    TypeScript',13,'#bcc8e2','text-anchor="end"')]
+(out/'workspace.svg').write_text(svg(1200,HEIGHT,b,"Tim's profile workspace: projects, technology stack and mathematical modeling"))
 
 # ---- Footer: the terminal that closes the page (bookend to the workspace) ----
 fb=['<defs><filter id="shadow" x="-6%" y="-10%" width="112%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#02040c" flood-opacity=".6"/></filter></defs>',

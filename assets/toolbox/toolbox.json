@@ -1,0 +1,150 @@
+{
+  "groups": [
+    {
+      "title": "语言",
+      "subtitle": "Languages",
+      "images": [
+        {
+          "url": "https://skillicons.dev/icons?i=py%2Cts%2Cjs%2Cgo&theme=dark",
+          "alt": "Python, TypeScript, JavaScript, Go",
+          "file": "01-00.svg"
+        }
+      ]
+    },
+    {
+      "title": "AI 与研究",
+      "subtitle": "AI & research",
+      "images": [
+        {
+          "url": "https://skillicons.dev/icons?i=pytorch%2Csklearn&theme=dark",
+          "alt": "PyTorch, scikit-learn",
+          "file": "02-00.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/YOLOv8-111F68?style=flat-square&logo=ultralytics&logoColor=white",
+          "alt": "YOLOv8",
+          "file": "02-01.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/PaddleOCR-0062B0?style=flat-square&logo=paddlepaddle&logoColor=white",
+          "alt": "PaddleOCR",
+          "file": "02-02.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/RAG-5A4FCF?style=flat-square",
+          "alt": "RAG",
+          "file": "02-03.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/Agent_workflows-30363D?style=flat-square",
+          "alt": "Agent workflows",
+          "file": "02-04.svg"
+        }
+      ]
+    },
+    {
+      "title": "前端与动效",
+      "subtitle": "Web & motion",
+      "images": [
+        {
+          "url": "https://skillicons.dev/icons?i=react%2Cnextjs%2Cvite%2Ctailwind%2Cthreejs&theme=dark",
+          "alt": "React, Next.js, Vite, Tailwind CSS, Three.js",
+          "file": "03-00.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/GSAP-0AE448?style=flat-square&logo=greensock&logoColor=black",
+          "alt": "GSAP",
+          "file": "03-01.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/React_Three_Fiber-000000?style=flat-square&logo=threedotjs&logoColor=white",
+          "alt": "React Three Fiber",
+          "file": "03-02.svg"
+        }
+      ]
+    },
+    {
+      "title": "后端与数据",
+      "subtitle": "Backend & data",
+      "images": [
+        {
+          "url": "https://skillicons.dev/icons?i=fastapi%2Cdjango%2Cpostgres%2Credis%2Csupabase&theme=dark",
+          "alt": "FastAPI, Django, PostgreSQL, Redis, Supabase",
+          "file": "04-00.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/Celery-37814A?style=flat-square&logo=celery&logoColor=white",
+          "alt": "Celery",
+          "file": "04-01.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/Drizzle-1A1A1A?style=flat-square&logo=drizzle&logoColor=C5F74F",
+          "alt": "Drizzle",
+          "file": "04-02.svg"
+        }
+      ]
+    },
+    {
+      "title": "工程与交付",
+      "subtitle": "Infra & tooling",
+      "images": [
+        {
+          "url": "https://skillicons.dev/icons?i=docker%2Cgithubactions%2Cvercel%2Cbun&theme=dark",
+          "alt": "Docker, GitHub Actions, Vercel, Bun",
+          "file": "05-00.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/pnpm-F69220?style=flat-square&logo=pnpm&logoColor=white",
+          "alt": "pnpm",
+          "file": "05-01.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/FFmpeg-007808?style=flat-square&logo=ffmpeg&logoColor=white",
+          "alt": "FFmpeg",
+          "file": "05-02.svg"
+        }
+      ]
+    },
+    {
+      "title": "建模与科学计算",
+      "subtitle": "Modeling & scientific computing",
+      "images": [
+        {
+          "url": "https://skillicons.dev/icons?i=latex%2Cr&theme=dark",
+          "alt": "LaTeX, R",
+          "file": "06-00.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white",
+          "alt": "NumPy",
+          "file": "06-01.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white",
+          "alt": "pandas",
+          "file": "06-02.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/SciPy-8CAAE6?style=flat-square&logo=scipy&logoColor=white",
+          "alt": "SciPy",
+          "file": "06-03.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/Matplotlib-11557C?style=flat-square",
+          "alt": "Matplotlib",
+          "file": "06-04.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/PuLP-30363D?style=flat-square",
+          "alt": "PuLP",
+          "file": "06-05.svg"
+        },
+        {
+          "url": "https://img.shields.io/badge/HiGHS-30363D?style=flat-square",
+          "alt": "HiGHS",
+          "file": "06-06.svg"
+        }
+      ]
+    }
+  ]
+}

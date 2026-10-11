@@ -10,7 +10,7 @@
 4. Chapters as centred `<h1>` openers `01–04`; subsections use `<kbd>label</kbd> <b>English</b>`.
    - 01 重点作品 — lead cards EduCanvas, SciScope; "Also featured" rows TTT-I-M, BDI, PulseGraph.
    - 02 用代码做动画 — series statement, then one card per work (01 clawd-mv).
-   - 03 技术栈 — 3×2 grid: square skillicons on one line, rectangular shields badges on the next.
+   - 03 技术栈 — centered light/dark SVG, 3×2 grid with interrupted borders, corner marks and numbered groups; original skillicons and shields are embedded.
    - 04 更多 — Sophon AI card, Seen; folds "其他作品" and "数学建模" (one fold per modeling project inside).
 5. `footer.svg` — terminal bookend, invitation text, grey contact buttons.
 
@@ -27,6 +27,7 @@
 |---|---|---|
 | `assets/editor/workspace.svg`, `footer.svg`, `*-compact.svg` | `scripts/build_profile.py` | `assets/pixel-lab/v2/*.png` (quantized to 8 colours at embed time) |
 | `assets/motion/clawd-mv.jpg`, `assets/showcase/sophon.jpg` | `scripts/build_motion.py` | `assets/motion/series.json`, `assets/showcase/showcase.json`; raw frames in git-ignored `desktop-screenshots/` / `source/` folders |
+| `assets/toolbox/toolbox-{dark,light}.svg` | `scripts/build_toolbox.py` | `assets/toolbox/toolbox.json` and vendored `source/*.svg` |
 | `assets/modeling/*.png` and the README modeling folds | `scripts/build_modeling.py` | `~/Desktop/数模论文插图/` archive (from `~/School/数模/`) |
 
 Project cards (`*-compact.svg`, 640×540): markdown README pane with stack chips that wrap, plus a terminal panel with two quick-start commands quoted from each repo README (`TERMINAL_CMDS` in `build_profile.py`). Key visuals: one lead frame (`"lead": true` in the JSON) plus the rest stacked on the right.
@@ -34,3 +35,18 @@ Project cards (`*-compact.svg`, 640×540): markdown README pane with stack chips
 SVGs embed their backgrounds as base64 and contain no scripts, `foreignObject` or external fonts. Positions of indent guides, minimaps and cursors assume a ~0.6 em monospace advance and may shift a few pixels with other fonts.
 
 Preview in VS Code or on GitHub; VS Code renders `<kbd>`, blockquotes and alerts differently from GitHub.
+
+## Workspace illustration
+
+`workspace.svg` is a static profile illustration, not a live IDE or a literal repository tree. Its research entries are topic labels. The current canvas is 1200×1060; code stays at 16 px with 20 px line spacing. Editor, terminal, status bar and canvas heights follow the code line count. Outline entries and their line numbers derive from the same top-level fields used in `about.ts`.
+
+Content checked against source READMEs on 2026-10-11:
+
+- `Timcai06/EduCanvas`: personal agent for learning, Node.js and PostgreSQL.
+- `Timcai06/SciScope`: evidence-grounded research, Go TUI, Python/FastAPI and PostgreSQL/pgvector.
+- `Timcai06/PulseGraph`: local-first PyTorch training observability.
+- `Timcai06/TTT-I-M`: React/Vite portfolio landing, GSAP and R3F.
+- `Timcai06/clawd-mv`: TypeScript/Three.js music video.
+- Modeling repository READMEs in `~/School/数模/`: energy dispatch (LP/MPC), crop planning (MILP/CVaR, HiGHS), oil prices (Markov/Monte Carlo), desert decisions (MDP), glass composition (CLR/clustering).
+
+No test counts, build status or other live diagnostics are asserted by the illustration. To add content, update the workspace portion of `scripts/build_profile.py` and regenerate; verify text bounds in a browser because font metrics vary across renderers.
