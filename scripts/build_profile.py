@@ -13,15 +13,11 @@ def rect(x,y,w,h,c,extra=''):
 def svg(w,h,body,title):
     return f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img"><title>{escape(title)}</title><g font-family="{FONT}">'+''.join(body)+'</g></svg>'
 def pixel(name):
-    # Prefer the calmer v2 backgrounds when present; originals stay untouched.
-    v2 = root/'assets/pixel-lab/v2'/name
-    return v2 if v2.exists() else root/'assets/pixel-lab'/name
+    return root/'assets/pixel-lab/v2'/name
 def pixel_b64(name, colors=8):
     # v2 plates are quantized to an 8-color palette (no dithering, no resampling)
     # at embed time; the generated PNGs on disk are left as-is.
     path = pixel(name)
-    if path.parent.name != 'v2':
-        return base64.b64encode(path.read_bytes()).decode()
     from PIL import Image
     import io
     image = Image.open(path).convert('RGB').quantize(colors=colors, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
@@ -162,70 +158,9 @@ fb += [text(600,66,'zsh — ~/Timcai06',14,'#9aa5c0','text-anchor="middle"'),
        rect(151,252,898,25,'#313952','rx="0"'),text(170,269,'⎇ main',12,'#f5d2a4'),
        text(1030,269,'zsh   UTF-8   ☾',12,'#bcc8e2','text-anchor="end"')]
 (out/'footer.svg').write_text(svg(1200,320,fb,'Terminal: echo "Thanks for stopping by."'))
-for name,label,path,comment in [
- ('about','about.md','profile / about.md','A little context behind the code.'),
- ('agents','agents.md','projects / agents.md','Research, learning & observable systems'),
- ('products','products.md','projects / products.md','Useful tools, from data to interface'),
- ('creative','creative.md','projects / creative.md','Web experiences, motion & experiments'),
- ('toolbox','toolbox.json','profile / toolbox.json','The tools I build and learn with'),
- ('models','models.py','research / models.py','Optimization, uncertainty & mathematical modeling')]:
-    b=[rect(0,0,1200,110,'#151d30','rx="7"'),rect(0,0,1200,38,'#20283e','rx="7"'),rect(0,34,1200,4,'#20283e'),rect(0,0,225,3,'#e9bd8a'),text(20,26,label,17,'#edc895'),text(254,26,path,14,'#8492ad'),text(24,81,'01',18,'#64728e'),text(73,81,'// '+comment,23,'#b8c8e3')]
-    (out/(name+'.svg')).write_text(svg(1200,110,b,path))
-print('Built editor SVGs')
+print('Built workspace and footer')
 
-# Project artwork uses the existing pixel scenes only as a backdrop.
-projects = [
-    ('sciscope', 'SciScope', 'Evidence-grounded research',
-     ['文献与证据驱动的研究工作流', 'Python RAG 后端 × Go 终端界面'],
-     ['Python', 'RAG', 'Go TUI'], '#9cc8ec',
-     ['Retrieve literature', 'Read with evidence', 'Research in the terminal']),
-    ('educanvas', 'EduCanvas', 'A personal agent for learning',
-     ['以教育能力为核心的通用个人 Agent', 'Notebook 串联文档、对话、Canvas 与学习'],
-     ['TypeScript', 'Agent runtime', 'PostgreSQL'], '#e8c194',
-     ['Organize a notebook', 'Connect tools & skills', 'Learn across modalities']),
-    ('pulsegraph', 'PulseGraph', 'See what your training is doing',
-     ['本地优先的 PyTorch 训练可观测性工作台', '模型图、训练指标、检查点与推理回放'],
-     ['PyTorch', 'FastAPI', 'React'], '#b8b0ed',
-     ['Inspect the model graph', 'Observe training metrics', 'Replay & compare experiments']),
-]
-for slug,name,tagline,description,stack,accent,flow in projects:
-    background = pixel_b64(f'{slug}.png')
-    b = [f'<image width="1200" height="530" preserveAspectRatio="xMidYMid slice" xlink:href="data:image/png;base64,{background}"/>',
-         rect(0,0,1200,530,'#060b19','opacity=".25"'),
-         rect(51,51,1104,450,'#040711','rx="10" opacity=".65"'),
-         rect(42,40,1116,450,'#111829','rx="9" fill-opacity=".96" stroke="#526078"'),
-         rect(43,80,1114,1,'#384258')]
-    for x,c in [(65,'#f28c84'),(85,'#e9ba79'),(105,'#97bf9b')]:
-        b.append(f'<circle cx="{x}" cy="61" r="5" fill="{c}"/>')
-    b += [text(440,67,name+' — project workspace',16,'#b8c4dc'),
-          rect(43,82,215,380,'#151e32'),
-          text(61,112,'EXPLORER',13,'#8795b0'),
-          text(61,146,'⌄ '+name,18,accent),
-          rect(43,162,214,35,'#29334c'),
-          text(76,186,'README.md',17,accent),
-          text(76,222,'capabilities',16,'#91a1bf'),
-          text(76,256,'stack',16,'#91a1bf'),
-          text(61,429,'Timcai06 /',14,'#7f90af'),
-          text(61,449,name,16,accent),
-          rect(258,82,899,42,'#0d1423'),
-          rect(258,82,207,42,'#1b253a'),
-          rect(258,82,207,2,accent),
-          text(278,110,'M↓ README.md ×',17,accent),
-          text(493,110,'project overview',16,'#8594b0')]
-    content = [(name,36,accent),(tagline,24,'#e2e8f5'),('',18,'#8394b4'),
-               (description[0],22,'#b9c7df'),(description[1],22,'#b9c7df'),
-               ('',18,'#8394b4'),(' / '.join(stack),19,accent)]
-    for i,(line,size,color) in enumerate(content):
-        y=171+i*34
-        b += [text(278,y,str(i+1).zfill(2),15,'#5e708e'), text(326,y,line,size,color)]
-    b += [rect(258,402,899,1,'#384258'),text(280,431,'WORKFLOW',12,accent),
-          text(280,452,' → '.join(flow[:2]),16,'#aabbd5'),
-          rect(43,462,1114,27,'#29354c'),text(61,481,'Markdown',13,accent),
-          text(278,481,flow[2],14,'#b9c7df')]
-    (out/(slug+'.svg')).write_text(svg(1200,530,b,name+' — '+tagline))
-print('Built three project editor windows')
-
-# Compact editor compositions are designed for half-width README columns.
+# Project cards: compact editor windows designed for half-width README columns.
 compact = [
  ('tttim','TTT-I-M','Personal web & content studio',['电影感个人网站','内容工作室与交互体验'],['TypeScript','React','Next.js','Vite','GSAP','R3F','Vercel'],'#e4b6eb'),
  ('bdi','BDI','Visual bridge inspection',['桥梁视觉检测原型','分割模型与全栈工作流'],['Python','YOLOv8-seg','FastAPI','TypeScript','Next.js','React'],'#efba85'),
@@ -309,15 +244,4 @@ for slug,name,tagline,desc,stack,accent in compact:
           text(34,498,'⎇ main',12,'#f5d2a4'),text(110,498,'⊗ 0  ⚠ 0',12,'#aab6d2'),
           text(604,498,'Markdown   UTF-8   LF',12,'#aab6d2','text-anchor="end"')]
     (out/(slug+'-compact.svg')).write_text(svg(640,540,b,name+' — '+tagline))
-# The animation-series banner is vector artwork: a timeline and scene frames.
-b=[rect(0,0,1200,350,'#10101e'),rect(32,28,1136,294,'#181626','rx="8" stroke="#595064"'),
-   text(57,60,'animation-series / timeline.ts',18,'#c8b5d8'),text(57,128,'Code in motion.',48,'#edcaa5'),
-   text(59,169,'用代码做动画',25,'#c3b9d8'),text(59,213,'Scenes → cameras → timelines → frames',20,'#9d9fba')]
-for j,(x,h,c) in enumerate([(753,75,'#a7b7d9'),(838,119,'#e5ad90'),(933,91,'#aa94c4')]):
-    b += [rect(x,95,62,h,c,'opacity=".85"'),text(x,243,'0'+str(j+1),14,'#978aa8')]
-b += [rect(57,272,1084,2,'#61506f')]
-for i in range(22): b.append(rect(60+i*49,264,1,17,'#776481'))
-for x,w,c in [(65,207,'#ad8ea9'),(286,164,'#9aaac3'),(464,271,'#bc9479'),(749,200,'#84769e')]: b.append(rect(x,291,w,8,c))
-b += [rect(889,78,2,232,'#f3c399'),text(1003,115,'FRAME',14,'#a899b6'),text(1003,150,'{ t }',25,'#efc49b')]
-(out/'animation-series.svg').write_text(svg(1200,350,b,'Code in motion — 用代码做动画系列'))
-print('Built compact cards and animation series')
+print('Built project cards')

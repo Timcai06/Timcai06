@@ -1,31 +1,12 @@
 """Compose one key visual per work from real frames; edit assets/motion/series.json to select frames."""
 from pathlib import Path
 import json
-from PIL import Image, ImageDraw, ImageFont, ImageOps
+from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
 MOTION = ROOT / 'assets/motion'
 SHOWCASE = ROOT / 'assets/showcase'
-BG, ACCENT = '#10142a', '#e9b97f'
 GUTTER = '#0d1117'
-
-
-def font(size):
-    for path in ('/System/Library/Fonts/Menlo.ttc',
-                 '/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf'):
-        if Path(path).exists():
-            return ImageFont.truetype(path, size)
-    return ImageFont.load_default(size=size)
-
-
-def timecode(t):
-    return f'{int(t // 60):02d}:{t % 60:04.1f}'
-
-
-def frame_label(frame):
-    if frame.get('timestamp') is not None:
-        return timecode(frame['timestamp'])
-    return frame['label']
 
 
 def frame_image(path, frame):
@@ -34,24 +15,6 @@ def frame_image(path, frame):
     if frame.get('crop'):
         image = image.crop(tuple(frame['crop']))
     return image
-
-
-def contact_sheet(work):
-    directory = MOTION / work['candidates']
-    frames = json.loads((directory / 'frames.json').read_text())
-    cols, cw, ch, gap, label = 4, 480, 270, 20, 42
-    rows = (len(frames) + cols - 1) // cols
-    sheet = Image.new('RGB', (cols * (cw + gap) + gap,
-                             rows * (ch + label + gap) + gap), BG)
-    draw = ImageDraw.Draw(sheet)
-    for i, frame in enumerate(frames):
-        x, y = gap + i % cols * (cw + gap), gap + i // cols * (ch + label + gap)
-        image = frame_image(directory / frame['file'], frame)
-        sheet.paste(ImageOps.fit(image, (cw, ch), method=Image.Resampling.LANCZOS), (x, y))
-        draw.text((x + 4, y + ch + 8),
-                  f"{frame['scene']} | {frame_label(frame)}",
-                  font=font(22), fill=ACCENT)
-    sheet.save(directory.parent / 'contact-sheet.jpg', quality=90, optimize=True)
 
 
 def key_visual(work, base=MOTION):
@@ -99,7 +62,6 @@ def key_visual(work, base=MOTION):
 def main():
     config = json.loads((MOTION / 'series.json').read_text())
     for work in config['works']:
-        contact_sheet(work)
         key_visual(work)
     # Other works (not part of the series) reuse the same key-visual layout.
     showcase = SHOWCASE / 'showcase.json'
