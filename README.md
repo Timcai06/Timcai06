@@ -23,11 +23,15 @@
 <p align="center"><a href="#featured"><b>重点作品</b></a> &nbsp;·&nbsp; <a href="#code-in-motion"><b>用代码做动画</b></a> &nbsp;·&nbsp; <a href="#toolbox"><b>技术栈</b></a> &nbsp;·&nbsp; <a href="#more"><b>更多项目与数学建模</b></a></p>
 
 <p><b>Hi, I'm Tim, a student developer based in Shanghai.</b></p>
-<p>I focus on AI agents, observability for ML / DL / RL, quantitative research systems, and carefully crafted full-stack products. I enjoy following an idea all the way through: from models and data pipelines to the interface someone actually uses.</p>
+<p>I focus on <code>AI agents</code>, <b>observability for ML / DL / RL</b>, quantitative research systems, and <b>carefully crafted full-stack products</b>. I enjoy following an idea all the way through: from models and data pipelines to the interface someone actually uses.</p>
 <p>Full-stack is central to how I learn and build. My interests span frontend, backend, databases, LLMs, AI infrastructure, and lower-level computing systems. I work with React, Next.js and FastAPI, build around PostgreSQL and Redis, and explore GSAP motion and Three.js experiences. I'm working toward becoming a versatile, end-to-end developer in the AI era.</p>
 <p><b>你好，我是 Tim，一名在上海学习的学生开发者。</b></p>
-<p>我专注于智能体开发、ML / DL / RL 的可观测性工具、量化研究系统，以及经过细致打磨的全栈产品。我喜欢沿着一个想法往下走：从模型、数据流和后端逻辑，一直做到用户真正接触的界面。</p>
+<p>我专注于<code>智能体开发</code>、<b>ML / DL / RL 的可观测性工具</b>、量化研究系统，以及<b>经过细致打磨的全栈产品</b>。我喜欢沿着一个想法往下走：从模型、数据流和后端逻辑，一直做到用户真正接触的界面。</p>
 <p>全栈是我的标签：从前端到后端、数据库，再到 LLM、AI infrastructure 和计算机底层；从 GSAP 高级前端动效、Three.js 3D 体验到 React 开发；从 FastAPI、Next.js 到 Redis、PostgreSQL。我希望成为 AI 时代能够端到端解决问题的开发者，也在持续把实验转化为可以理解、观察和使用的产品。</p>
+
+<blockquote>
+<p><b>Now / 近期关注</b><br>Evidence-grounded research workflows, local-first ML tooling, and systems that turn experiments into usable products.<br>有证据支撑的研究工作流、本地优先的机器学习工具，以及将实验转化为可用产品的系统。</p>
+</blockquote>
 
 <h2 id="featured">重点作品 <sub>Featured work</sub></h2>
 <table>
@@ -35,16 +39,16 @@
 <td width="50%" valign="top">
 <a href="https://github.com/Timcai06/TTT-I-M"><img src="./assets/editor/tttim-compact.svg" width="100%" alt="TTT-I-M — 个人网站与内容工作室"></a>
 <h3><a href="https://github.com/Timcai06/TTT-I-M">TTT-I-M</a> <sub>个人网站与内容工作室</sub></h3>
-<p>我的个人网站与内容工作室：电影感 Landing 与博客、作品、内容管理组成同一套空间。探索 GSAP 动效、Three.js / React Three Fiber 与全栈内容系统如何共同服务个人表达。</p>
+<p>我的个人网站与内容工作室：<b>电影感 Landing</b> 与博客、作品、内容管理组成同一套空间。探索 GSAP 动效、Three.js / React Three Fiber 与全栈内容系统如何共同服务个人表达。</p>
 <p><img src="https://img.shields.io/badge/React-20232A?style=flat-square&amp;logo=react&amp;logoColor=61DAFB" alt="React"> <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&amp;logo=nextdotjs&amp;logoColor=white" alt="Next.js"> <img src="https://img.shields.io/badge/GSAP-0AE448?style=flat-square&amp;logo=greensock&amp;logoColor=black" alt="GSAP"> <img src="https://img.shields.io/badge/R3F-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="React Three Fiber"></p>
-<p><a href="https://github.com/Timcai06/TTT-I-M">仓库 / Repo ↗</a> &nbsp;·&nbsp; <a href="https://www.crt-dsg.com">crt-dsg.com ↗</a></p>
+<p><a href="https://github.com/Timcai06/TTT-I-M"><kbd>仓库 / Repo ↗</kbd></a> <a href="https://www.crt-dsg.com"><kbd>crt-dsg.com ↗</kbd></a></p>
 </td>
 <td width="50%" valign="top">
 <a href="https://github.com/Timcai06/BDI"><img src="./assets/editor/bdi-compact.svg" width="100%" alt="BDI — 桥梁视觉检测"></a>
 <h3><a href="https://github.com/Timcai06/BDI">BDI</a> <sub>桥梁视觉检测</sub></h3>
-<p>无人机桥梁巡检原型：把 YOLOv8-seg 病害分割接入全栈工作流，围绕检测结果与本地产物提供可查看的界面。</p>
+<p>无人机桥梁巡检原型：把 <b>YOLOv8-seg 病害分割</b>接入全栈工作流，围绕检测结果与本地产物提供可查看的界面。</p>
 <p><img src="https://img.shields.io/badge/YOLOv8--seg-111F68?style=flat-square&amp;logo=yolo&amp;logoColor=white" alt="YOLOv8-seg"> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI"> <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&amp;logo=nextdotjs&amp;logoColor=white" alt="Next.js"></p>
-<p><a href="https://github.com/Timcai06/BDI">仓库 / Repo ↗</a></p>
+<p><a href="https://github.com/Timcai06/BDI"><kbd>仓库 / Repo ↗</kbd></a></p>
 </td>
 </tr>
 </table>
@@ -54,7 +58,7 @@
 <td width="44%" valign="middle"><a href="https://github.com/Timcai06/SciScope"><img src="./assets/editor/sciscope-compact.svg" width="100%" alt="SciScope — 文献与证据驱动的研究"></a></td>
 <td width="56%" valign="middle">
 <h3><a href="https://github.com/Timcai06/SciScope">SciScope</a> <sub>Evidence-grounded research</sub></h3>
-<p>围绕文献与证据构建研究工作流，让检索、阅读与研究过程有据可循。Python RAG 后端配合 Go TUI，把研究能力带到终端。</p>
+<p>围绕文献与证据构建研究工作流，让检索、阅读与研究过程<b>有据可循</b>。Python RAG 后端配合 Go TUI，把研究能力带到终端。</p>
 <p><img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/RAG-5A4FCF?style=flat-square" alt="RAG"> <img src="https://img.shields.io/badge/Go_TUI-00ADD8?style=flat-square&amp;logo=go&amp;logoColor=white" alt="Go TUI"></p>
 </td>
 </tr>
@@ -62,7 +66,7 @@
 <td width="44%" valign="middle"><a href="https://github.com/Timcai06/EduCanvas"><img src="./assets/editor/educanvas-compact.svg" width="100%" alt="EduCanvas — 通用个人 Agent 与学习空间"></a></td>
 <td width="56%" valign="middle">
 <h3><a href="https://github.com/Timcai06/EduCanvas">EduCanvas</a> <sub>A personal agent for learning</sub></h3>
-<p>以教育能力为核心的通用个人 Agent 平台。用 Notebook 组织文档、对话、Canvas 与学习过程，在统一运行时里组合工具和技能。</p>
+<p><b>以教育能力为核心的通用个人 Agent 平台</b>。用 Notebook 组织文档、对话、Canvas 与学习过程，在统一运行时里组合工具和技能。</p>
 <p><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Agent_runtime-30363D?style=flat-square" alt="Agent runtime"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL"></p>
 </td>
 </tr>
@@ -70,21 +74,21 @@
 <td width="44%" valign="middle"><a href="https://github.com/Timcai06/PulseGraph"><img src="./assets/editor/pulsegraph-compact.svg" width="100%" alt="PulseGraph — 训练可观测性工作台"></a></td>
 <td width="56%" valign="middle">
 <h3><a href="https://github.com/Timcai06/PulseGraph">PulseGraph</a> <sub>See what your training is doing</sub></h3>
-<p>本地优先的 PyTorch 训练可观测性工作台：连接模型图、训练指标、检查点与推理回放，让实验过程更容易检查和追溯。</p>
+<p><b>本地优先</b>的 PyTorch 训练可观测性工作台：连接模型图、训练指标、检查点与推理回放，让实验过程更容易检查和追溯。</p>
 <p><img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&amp;logo=pytorch&amp;logoColor=white" alt="PyTorch"> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI"> <img src="https://img.shields.io/badge/React-20232A?style=flat-square&amp;logo=react&amp;logoColor=61DAFB" alt="React"></p>
 </td>
 </tr>
 </table>
 
 <h2 id="code-in-motion">用代码做动画 <sub>Code in motion</sub></h2>
-<p align="center"><b>用代码编排场景、镜头与时间，把程序变成动画。</b><br>
-<i>Scenes, cameras and time, composed in code.</i><br>
-<sub>这是一个持续创作的系列，新作品完成后会收录在这里。</sub></p>
+<p align="center"><b>用代码编排场景、镜头与时间，<code>把程序变成动画</code>。</b><br>
+<sub>Scenes, cameras and time, composed in code.</sub></p>
+<blockquote><p>这是一个持续创作的系列，新作品完成后会收录在这里。</p></blockquote>
 <table>
 <tr>
 <td>
 <a href="https://github.com/Timcai06/clawd-mv"><img src="./assets/motion/clawd-mv.jpg" width="100%" alt="clawd-mv 画面：片尾署名（主画面）、October 32 报告、undefined 堆栈雨、Local 与 CI 对比"></a>
-<h3><samp>01</samp> &nbsp;<a href="https://github.com/Timcai06/clawd-mv">clawd-mv</a> <sub>Works on My Machine</sub></h3>
+<h3><kbd>01</kbd> &nbsp;<a href="https://github.com/Timcai06/clawd-mv">clawd-mv</a> <sub>Works on My Machine</sub></h3>
 <p>代码驱动的音乐影像实验，用 TypeScript / Three.js 时间轴与离线渲染串起场景、镜头和音乐。基于 pdoom-video 开源框架进行个人非商业创作，目前持续迭代中。</p>
 <p><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="Three.js"> <img src="https://img.shields.io/badge/Bun-000000?style=flat-square&amp;logo=bun&amp;logoColor=white" alt="Bun"> <img src="https://img.shields.io/badge/FFmpeg-007808?style=flat-square&amp;logo=ffmpeg&amp;logoColor=white" alt="FFmpeg"></p>
 </td>
@@ -120,11 +124,17 @@
 </table>
 
 <h2 id="more">更多 <sub>More</sub></h2>
-<p><b>在建 / Also building</b> <sub>（代码仓库暂未公开）</sub></p>
-<ul>
-<li><b>Seen</b> — 面向中国出海品牌的 AI 商务平台，探索商品信息如何被 AI 理解、发现与推荐。</li>
-<li><b>Sophon AI 官网</b> — 结合交互叙事、前端动效与 3D 视觉的官网设计与开发。</li>
-</ul>
+<p><kbd>在建</kbd> &nbsp;<b>Also building</b> <sub>代码仓库暂未公开</sub></p>
+<table>
+<tr>
+<td>
+<img src="./assets/showcase/sophon.jpg" width="100%" alt="Sophon AI 官网界面：Bitemporal 记忆章节与 client.memory.search 示例等页面">
+<h3>Sophon AI 官网</h3>
+<p>结合交互叙事、前端动效与 3D 视觉的官网设计与开发。</p>
+</td>
+</tr>
+</table>
+<p><b>Seen</b> — 面向中国出海品牌的 AI 商务平台，探索商品信息如何被 AI 理解、发现与推荐。</p>
 
 <details>
 <summary><b>更多项目 / More projects</b> — GoogleTrans · FormulaLab · SPM · Earnlytics</summary>

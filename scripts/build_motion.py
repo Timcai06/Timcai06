@@ -5,6 +5,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
 MOTION = ROOT / 'assets/motion'
+SHOWCASE = ROOT / 'assets/showcase'
 BG, ACCENT = '#10142a', '#e9b97f'
 GUTTER = '#0d1117'
 
@@ -53,7 +54,7 @@ def contact_sheet(work):
     sheet.save(directory.parent / 'contact-sheet.jpg', quality=90, optimize=True)
 
 
-def key_visual(work):
+def key_visual(work, base=MOTION):
     """One large lead frame plus the remaining frames stacked on the right.
 
     Edge-to-edge, thin gutters only, no title text. The lead frame is the
@@ -64,7 +65,7 @@ def key_visual(work):
         raise ValueError(f"Select at least one real frame for {work['slug']}")
     lead = next((f for f in frames if f.get('lead')), frames[0])
     rest = [f for f in frames if f is not lead]
-    directory = MOTION / work['candidates']
+    directory = base / work['candidates']
     gap, width = 12, 2400
     if rest:
         n = len(rest)
@@ -82,7 +83,7 @@ def key_visual(work):
         side_h = (lead_h - (len(rest) - 1) * gap) // len(rest)
         for i, frame in enumerate(rest):
             canvas.paste(fit(frame, (side_w, side_h)), (lead_w + gap, i * (side_h + gap)))
-    destination = MOTION / f"{work['slug']}.jpg"
+    destination = base / f"{work['slug']}.jpg"
     quality = 85
     while True:
         canvas.save(destination, quality=quality, optimize=True)
@@ -100,6 +101,11 @@ def main():
     for work in config['works']:
         contact_sheet(work)
         key_visual(work)
+    # Other works (not part of the series) reuse the same key-visual layout.
+    showcase = SHOWCASE / 'showcase.json'
+    if showcase.exists():
+        for work in json.loads(showcase.read_text())['works']:
+            key_visual(work, SHOWCASE)
 
 
 if __name__ == '__main__':

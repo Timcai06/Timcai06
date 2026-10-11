@@ -6,7 +6,7 @@ Regenerate with `python3 scripts/build_profile.py` from the repository root.
 
 Content was checked against GitHub repository metadata and default-branch READMEs on 2026-10-11. This is a curated selection: package distribution repositories and forks are not shown as separate original projects. Seen and Sophon have names and short descriptions only, as authorized; no private repository URLs are included. Electricity modeling is also described without its private repository URL.
 
-Local preview is approximate GitHub rendering, not a hosted GitHub acceptance test. Editor tabs/file tree are static illustration, not interactive controls.
+Preview the README in VS Code or on GitHub; there is no separate local preview. Editor tabs/file tree are static illustration, not interactive controls.
 
 ## Project workspaces
 

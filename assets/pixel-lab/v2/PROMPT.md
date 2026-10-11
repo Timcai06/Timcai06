@@ -45,5 +45,5 @@ only a thin border around the edges stays visible. Treat it as a quiet backdrop,
 
 - Output files are 1536×1024 PNG and their names exactly match the table.
 - Files under `assets/pixel-lab/` are byte-identical to before (`git status` / `shasum` shows no change).
-- `python3 scripts/build_profile.py && python3 scripts/build_preview.py` runs without errors.
+- `python3 scripts/build_profile.py` runs without errors.
 - Visual acceptance is done by Tim; Codex does not make aesthetic judgments.

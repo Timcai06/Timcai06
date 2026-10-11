@@ -1,0 +1,51 @@
+{
+  "_note": "Browser chrome (y<308: menu bar, tabs, address bar, bookmarks) and the bottom hover-URL area (y>1900) are cropped out.",
+  "works": [
+    {
+      "slug": "sophon",
+      "candidates": "sophon/source",
+      "selected_frames": [
+        {
+          "label": "frame 01",
+          "file": "sophon-01.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-10-10 at 1.44.47 PM.png",
+          "sha256": "ab414fcd5f7e2f8962d7e3260f702fd65486350571fff4c7b8c7b8e6f8a503a1",
+          "crop": [
+            0,
+            308,
+            3024,
+            1900
+          ]
+        },
+        {
+          "label": "frame 02",
+          "file": "sophon-02.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-10-10 at 1.45.06 PM.png",
+          "sha256": "5dc21ac376898dfc4ce53d76ac142f979b248646744e6d3da6a8e873053c3658",
+          "crop": [
+            0,
+            308,
+            3024,
+            1900
+          ],
+          "lead": true
+        },
+        {
+          "label": "frame 03",
+          "file": "sophon-03.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-10-10 at 1.45.20 PM.png",
+          "sha256": "3386f52b1ebd3e66ffa5a73360e5b0bb8ddab7236d95757f733440e297101048",
+          "crop": [
+            0,
+            308,
+            3024,
+            1900
+          ]
+        }
+      ]
+    }
+  ]
+}
