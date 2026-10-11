@@ -1,0 +1,76 @@
+{
+  "works": [
+    {
+      "number": 1,
+      "slug": "clawd-mv",
+      "candidates": "clawd-mv/desktop-screenshots",
+      "selected_frames": [
+        {
+          "timestamp": null,
+          "scene": "S03",
+          "label": "frame 01",
+          "file": "desktop-01.png",
+          "source": "user desktop screenshot",
+          "source_video": "clawd-mv-preview-v6.mp4 (visible player title)",
+          "sha256": "2071faf78cc2f5d8dc4d6ad76828b830099ea0b09711a6f4a825844aff68d400",
+          "crop": [
+            18,
+            80,
+            2812,
+            1612
+          ],
+          "source_file_name": "Screenshot 2026-10-04 at 2.15.44 PM.png"
+        },
+        {
+          "timestamp": null,
+          "scene": "S11",
+          "label": "frame 02",
+          "file": "desktop-02.png",
+          "source": "user desktop screenshot",
+          "source_video": "clawd-mv-preview-v6.mp4 (visible player title)",
+          "sha256": "bdf9e9423f55e9ae395e6a2586d601a714a330dc61a4ff1acb8abde3b883c6ec",
+          "crop": [
+            18,
+            80,
+            2804,
+            1618
+          ],
+          "source_file_name": "Screenshot 2026-10-04 at 2.16.04 PM.png"
+        },
+        {
+          "timestamp": null,
+          "scene": "S13",
+          "label": "frame 03",
+          "file": "desktop-03.png",
+          "source": "user desktop screenshot",
+          "source_video": "clawd-mv-preview-v6.mp4 (visible player title)",
+          "sha256": "d16bc5ef7456d19b7bc6e518390abcfd3023cba2a2899e782e0459bfdbaf0857",
+          "crop": [
+            18,
+            80,
+            2800,
+            1642
+          ],
+          "source_file_name": "Screenshot 2026-10-04 at 2.16.45 PM.png"
+        },
+        {
+          "timestamp": null,
+          "scene": "S18",
+          "label": "frame 04",
+          "file": "desktop-04.png",
+          "source": "user desktop screenshot",
+          "source_video": "clawd-mv-preview-v6.mp4 (visible player title)",
+          "sha256": "74c9a0c125ade1474174cd4e730648621e55a98cd3603a2c0b23e89ac194c753",
+          "crop": [
+            18,
+            80,
+            2776,
+            1650
+          ],
+          "source_file_name": "Screenshot 2026-10-04 at 2.17.07 PM.png",
+          "lead": true
+        }
+      ]
+    }
+  ]
+}

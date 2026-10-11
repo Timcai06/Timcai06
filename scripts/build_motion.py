@@ -1,0 +1,106 @@
+"""Compose one key visual per work from real frames; edit assets/motion/series.json to select frames."""
+from pathlib import Path
+import json
+from PIL import Image, ImageDraw, ImageFont, ImageOps
+
+ROOT = Path(__file__).resolve().parents[1]
+MOTION = ROOT / 'assets/motion'
+BG, ACCENT = '#10142a', '#e9b97f'
+GUTTER = '#0d1117'
+
+
+def font(size):
+    for path in ('/System/Library/Fonts/Menlo.ttc',
+                 '/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf'):
+        if Path(path).exists():
+            return ImageFont.truetype(path, size)
+    return ImageFont.load_default(size=size)
+
+
+def timecode(t):
+    return f'{int(t // 60):02d}:{t % 60:04.1f}'
+
+
+def frame_label(frame):
+    if frame.get('timestamp') is not None:
+        return timecode(frame['timestamp'])
+    return frame['label']
+
+
+def frame_image(path, frame):
+    with Image.open(path) as source:
+        image = source.convert('RGB')
+    if frame.get('crop'):
+        image = image.crop(tuple(frame['crop']))
+    return image
+
+
+def contact_sheet(work):
+    directory = MOTION / work['candidates']
+    frames = json.loads((directory / 'frames.json').read_text())
+    cols, cw, ch, gap, label = 4, 480, 270, 20, 42
+    rows = (len(frames) + cols - 1) // cols
+    sheet = Image.new('RGB', (cols * (cw + gap) + gap,
+                             rows * (ch + label + gap) + gap), BG)
+    draw = ImageDraw.Draw(sheet)
+    for i, frame in enumerate(frames):
+        x, y = gap + i % cols * (cw + gap), gap + i // cols * (ch + label + gap)
+        image = frame_image(directory / frame['file'], frame)
+        sheet.paste(ImageOps.fit(image, (cw, ch), method=Image.Resampling.LANCZOS), (x, y))
+        draw.text((x + 4, y + ch + 8),
+                  f"{frame['scene']} | {frame_label(frame)}",
+                  font=font(22), fill=ACCENT)
+    sheet.save(directory.parent / 'contact-sheet.jpg', quality=90, optimize=True)
+
+
+def key_visual(work):
+    """One large lead frame plus the remaining frames stacked on the right.
+
+    Edge-to-edge, thin gutters only, no title text. The lead frame is the
+    selection marked "lead": true, or the first one.
+    """
+    frames = work['selected_frames']
+    if not frames:
+        raise ValueError(f"Select at least one real frame for {work['slug']}")
+    lead = next((f for f in frames if f.get('lead')), frames[0])
+    rest = [f for f in frames if f is not lead]
+    directory = MOTION / work['candidates']
+    gap, width = 12, 2400
+    if rest:
+        n = len(rest)
+        # lead_w*9/16 == n*side_w*9/16 + (n-1)*gap  and  lead_w + gap + side_w == width
+        side_w = round((width - gap - (n - 1) * gap * 16 / 9) / (n + 1))
+        lead_w = width - gap - side_w
+    else:
+        side_w, lead_w = 0, width
+    lead_h = round(lead_w * 9 / 16)
+    canvas = Image.new('RGB', (width, lead_h), GUTTER)
+    fit = lambda f, size: ImageOps.fit(frame_image(directory / f['file'], f), size,
+                                       method=Image.Resampling.LANCZOS)
+    canvas.paste(fit(lead, (lead_w, lead_h)), (0, 0))
+    if rest:
+        side_h = (lead_h - (len(rest) - 1) * gap) // len(rest)
+        for i, frame in enumerate(rest):
+            canvas.paste(fit(frame, (side_w, side_h)), (lead_w + gap, i * (side_h + gap)))
+    destination = MOTION / f"{work['slug']}.jpg"
+    quality = 85
+    while True:
+        canvas.save(destination, quality=quality, optimize=True)
+        if destination.stat().st_size <= 800_000:
+            break
+        quality -= 5
+        if quality < 50:
+            raise ValueError(f'{destination.name} exceeds 800 KB at quality 50')
+    print(f'{destination.relative_to(ROOT)}: {canvas.width}×{canvas.height}, '
+          f'{destination.stat().st_size} bytes, quality {quality}')
+
+
+def main():
+    config = json.loads((MOTION / 'series.json').read_text())
+    for work in config['works']:
+        contact_sheet(work)
+        key_visual(work)
+
+
+if __name__ == '__main__':
+    main()

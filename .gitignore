@@ -1,0 +1,13 @@
+.DS_Store
+
+# Local preview scaffolding and agent briefs (not part of the profile)
+preview/
+
+# Raw frames and process records stay local; only the composed banner,
+# series.json and scripts/build_motion.py are meant to be published.
+assets/motion/clawd-mv/candidates/
+assets/motion/clawd-mv/desktop-screenshots/
+assets/motion/clawd-mv/contact-sheet.jpg
+assets/motion/DELIVERY.md
+assets/motion/pixel-files-*.sha256
+assets/motion/readme-task.diff
