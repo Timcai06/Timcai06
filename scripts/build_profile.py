@@ -222,12 +222,58 @@ TERMINAL_CMDS = {  # quick-start commands quoted from each repository README
 REPO_DIR = {'tttim':'TTT-I-M','bdi':'BDI','sciscope':'SciScope','educanvas':'EduCanvas','pulsegraph':'PulseGraph'}
 def tspans(parts):
     return ''.join(f'<tspan fill="{c}"{extra}>{escape(t)}</tspan>' for t,c,extra in parts)
+# Decorative frames only: these marks are not charts, metrics or live status.
+CARD_ORDER = {'educanvas': 1, 'sciscope': 2, 'tttim': 3, 'bdi': 4, 'pulsegraph': 5}
+def project_frame(slug, name, accent):
+    edge, mark, label = '#536070', '#b1bac4', '#bac3ce'
+    def line(d, color=mark, width=1.3, extra=''):
+        return f'<path d="{d}" fill="none" stroke="{color}" stroke-width="{width}" stroke-linecap="round" stroke-linejoin="round" {extra}/>'
+    def dot(x, y, color=mark, radius=2):
+        return f'<circle cx="{x}" cy="{y}" r="{radius}" fill="{color}"/>'
+    # Outer rail breaks around the project label, middle-side ticks and signature.
+    frame = [
+        line('M 24 18 H 32 M 224 18 H 600 M 628 46 V 258 M 628 282 V 504 M 600 526 H 374 M 266 526 H 40 M 12 502 V 282 M 12 258 V 42', edge, 1),
+        rect(40,8,176,20,'#101726','rx="4" fill-opacity=".92"'),
+        text(50,22,f'{CARD_ORDER[slug]:02d}  /  {name}',11,label,'letter-spacing=".5"'),
+        line('M 9 270 H 15 M 625 270 H 631',mark,1),
+    ]
+    if slug == 'educanvas':
+        # Page layers, a folded corner and a small open-book signature.
+        frame += [line('M 12 38 V 18 H 28 M 18 34 V 24 H 28'),
+                  line('M 606 12 H 628 V 36 L 617 29 L 606 36 Z'),
+                  line('M 12 506 V 526 H 34 M 18 506 V 520 H 34'),
+                  line('M 628 510 V 526 H 610'),
+                  line('M 292 522 Q 306 516 320 522 Q 334 516 348 522 V 530 Q 334 524 320 530 Q 306 524 292 530 Z M 320 522 V 530',accent)]
+    elif slug == 'sciscope':
+        # Brackets and linked reference points.
+        frame += [line('M 30 12 H 12 V 38 M 610 12 H 628 V 38 M 12 506 V 530 H 30 M 610 530 H 628 V 506'),
+                  line('M 286 520 H 282 V 532 H 286 M 354 520 H 358 V 532 H 354'),
+                  line('M 299 526 H 341',edge),dot(300,526,accent),dot(320,526,accent),dot(340,526,accent),
+                  line('M 592 15 V 21 M 582 15 V 21 M 572 15 V 21',edge,1)]
+    elif slug == 'tttim':
+        # Extended viewfinder crop marks and three timeline keyframes.
+        frame += [line('M 6 34 V 12 H 28 M 610 12 H 634 V 34 M 6 510 V 532 H 28 M 610 532 H 634 V 510'),
+                  line('M 302 521 L 307 526 L 302 531 L 297 526 Z M 320 521 L 325 526 L 320 531 L 315 526 Z M 338 521 L 343 526 L 338 531 L 333 526 Z',accent),
+                  line('M 610 24 H 622 V 36 M 18 504 V 516 H 30',edge,1)]
+    elif slug == 'bdi':
+        # Chamfered corners and an abstract truss; no inspection result encoded.
+        frame += [line('M 12 38 V 28 L 22 18 H 30 M 606 18 H 618 L 628 28 V 38 M 12 506 V 516 L 22 526 H 32 M 608 526 H 618 L 628 516 V 506'),
+                  line('M 284 530 H 356 M 284 530 L 302 518 L 320 530 L 338 518 L 356 530 M 302 518 H 338 M 302 518 V 530 M 338 518 V 530',accent),
+                  dot(22,28,mark,1.5),dot(618,516,mark,1.5)]
+    else:
+        # Abstract graph nodes and a signal-shaped signature, not measured telemetry.
+        frame += [line('M 12 38 V 18 H 30 M 608 18 H 628 V 38 M 12 506 V 526 H 32 M 608 526 H 628 V 506'),
+                  dot(12,18,accent,2.5),dot(628,18,accent,2.5),dot(628,526,accent,2.5),
+                  line('M 282 526 H 299 L 306 519 L 314 532 L 325 516 L 333 526 H 358',accent),
+                  dot(282,526,mark),dot(358,526,mark)]
+    return frame
+
 for slug,name,tagline,desc,stack,accent in compact:
     data=pixel_b64(f'{slug}.png')
     W,X0,X1,Y0,Y1 = 640,22,618,40,508
     b=['<defs><filter id="shadow" x="-6%" y="-6%" width="112%" height="120%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#02040c" flood-opacity=".6"/></filter></defs>',
        f'<image width="640" height="540" preserveAspectRatio="xMidYMid slice" xlink:href="data:image/png;base64,{data}"/>',
-       rect(X0,Y0,X1-X0,Y1-Y0,'#0e1527','rx="9" fill-opacity=".97" stroke="#5d6780" filter="url(#shadow)"')]
+       rect(X0,Y0,X1-X0,Y1-Y0,'#0e1527','rx="9" fill-opacity=".97" stroke="#354153" filter="url(#shadow)"')]
     # Title bar with traffic lights and repository pill.
     for x,c in [(42,'#f28c84'),(58,'#e9ba79'),(74,'#97bf9b')]:
         b.append(f'<circle cx="{x}" cy="57" r="4.5" fill="{c}"/>')
@@ -288,5 +334,6 @@ for slug,name,tagline,desc,stack,accent in compact:
     b += [rect(X0+1,480,X1-X0-2,27,'#252f48'),rect(X0+1,480,74,27,'#3a3356'),
           text(34,498,'⎇ main',12,'#f5d2a4'),text(110,498,'⊗ 0  ⚠ 0',12,'#aab6d2'),
           text(604,498,'Markdown   UTF-8   LF',12,'#aab6d2','text-anchor="end"')]
+    b.extend(project_frame(slug, name, accent))
     (out/(slug+'-compact.svg')).write_text(svg(640,540,b,name+' — '+tagline))
 print('Built project cards')
