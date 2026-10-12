@@ -6,6 +6,9 @@ import json
 root = Path(__file__).resolve().parents[1]
 out = root / 'assets/editor'
 out.mkdir(exist_ok=True)
+# Imported (e.g. by build_social.py) for data and helpers only: no files are written,
+# so a local run cannot overwrite the CI-built PNG bytes inside these SVGs.
+WRITE = __name__ == '__main__'
 FONT = "'SFMono-Regular',Consolas,'Liberation Mono',monospace"
 def text(x,y,s,size=18,color='#ccd4ea',extra=''):
     return f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}" {extra}>{escape(s)}</text>'
@@ -185,9 +188,9 @@ b += [rect(308,y,846,1,'#3a435a'),text(333,y+24,'PROBLEMS',12,'#6d7a97','letter-
 b += [rect(46,STATUS_Y,1108,29,'#313952'),rect(46,STATUS_Y,140,29,'#4a3f63'),
       text(60,STATUS_Y+20,'{} SVG profile',13,'#f5d2a4'),text(206,STATUS_Y+20,'Static illustration',12,'#bcc8e2'),
       text(1138,STATUS_Y+20,f'Ln {cursor+1}, Col 1    Spaces: 2    UTF-8    LF    TypeScript',13,'#bcc8e2','text-anchor="end"')]
-(out/'workspace.svg').write_text(svg(1200,HEIGHT,b,"Tim's profile workspace: projects, technology stack and mathematical modeling"))
-
-print('Built workspace')
+if WRITE:
+    (out/'workspace.svg').write_text(svg(1200,HEIGHT,b,"Tim's profile workspace: projects, technology stack and mathematical modeling"))
+    print('Built workspace')
 
 # Project cards: compact editor windows designed for half-width README columns.
 compact = [
@@ -337,5 +340,5 @@ for slug,name,tagline,desc,stack,accent in compact:
           text(34,498,'⎇ main',12,'#f5d2a4'),*card_activity(REPO_DIR[slug],accent),
           text(604,498,'Markdown   UTF-8   LF',12,'#aab6d2','text-anchor="end"')]
     b.extend(project_frame(slug, name, accent))
-    (out/(slug+'-compact.svg')).write_text(svg(640,540,b,name+' — '+tagline))
-print('Built project cards')
+    if WRITE: (out/(slug+'-compact.svg')).write_text(svg(640,540,b,name+' — '+tagline))
+if WRITE: print('Built project cards')
