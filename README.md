@@ -42,15 +42,17 @@
 <td width="50%" valign="top">
 <a href="https://github.com/Timcai06/EduCanvas"><img src="./assets/editor/educanvas-compact.svg" width="100%" alt="EduCanvas — 通用个人 Agent 与学习空间"></a>
 <h3>EduCanvas <sub>A personal agent for learning</sub></h3>
-<p><b>以教育能力为核心的通用个人 Agent 平台</b>。用 Notebook 组织文档、对话、Canvas 与学习过程，在统一运行时里组合工具和技能。</p>
+<p><b>面向学习场景的通用个人 Agent</b>。你可以把资料、对话和 Canvas 放在同一个 Notebook 里，让 Agent 调用工具和技能，围绕这些资料继续讨论、创作和学习。</p>
+<p>普通对话和教育功能共用一套 <code>Agent Runtime</code>，按需接入学习工具。判分、掌握度和学习记录由服务端代码更新；模型适配、权限和数据访问各有明确边界。这个项目也包含 Web、Gateway 和后台任务，覆盖从 Agent 运行时到用户界面的开发。</p>
 <p><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Agent_runtime-30363D?style=flat-square" alt="Agent runtime"> <img src="https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&amp;logo=nodedotjs&amp;logoColor=white" alt="Node.js"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL"> <img src="https://img.shields.io/badge/Drizzle-1A1A1A?style=flat-square&amp;logo=drizzle&amp;logoColor=C5F74F" alt="Drizzle"> <img src="https://img.shields.io/badge/pnpm-F69220?style=flat-square&amp;logo=pnpm&amp;logoColor=white" alt="pnpm"> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" alt="Docker"></p>
 <p><a href="https://github.com/Timcai06/EduCanvas"><kbd>仓库 / Repo ↗</kbd></a></p>
 </td>
 <td width="50%" valign="top">
-<a href="https://github.com/Timcai06/SciScope"><img src="./assets/editor/sciscope-compact.svg" width="100%" alt="SciScope — 文献与证据驱动的研究"></a>
-<h3>SciScope <sub>Evidence-grounded research</sub></h3>
-<p>围绕文献与证据构建研究工作流，让检索、阅读与研究过程<b>有据可循</b>。Python RAG 后端配合 Go TUI，把研究能力带到终端。</p>
-<p><img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/RAG-5A4FCF?style=flat-square" alt="RAG"> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL"> <img src="https://img.shields.io/badge/DeepSeek-4D6BFE?style=flat-square&amp;logo=deepseek&amp;logoColor=white" alt="DeepSeek"> <img src="https://img.shields.io/badge/Go_TUI-00ADD8?style=flat-square&amp;logo=go&amp;logoColor=white" alt="Go TUI"> <img src="https://img.shields.io/badge/SSE-30363D?style=flat-square" alt="Server-Sent Events"></p>
+<a href="https://github.com/Timcai06/SciScope"><img src="./assets/editor/sciscope-compact.svg" width="100%" alt="SciScope — 文献与证据驱动的研究 Agent"></a>
+<h3>SciScope <sub>Evidence-grounded research agent</sub></h3>
+<p><b>在终端里查文献、找证据的研究 Agent</b>。后端用 <code>LangGraph StateGraph</code> 组织运行过程，调用 RAG 检索和研究工具，再把找到的文献证据用于回答。</p>
+<p>除了最终答案，你还能看到它如何规划、调用了什么工具、工具返回了什么，以及反思过程。Python / FastAPI 后端通过 SSE 把这些事件传给 Go TUI，终端按时间线展示工具调用，并支持在同一会话里重试。Agent 编排、后端协议和终端交互都在这个项目里实现。</p>
+<p><img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/Agent-30363D?style=flat-square" alt="Agent"> <img src="https://img.shields.io/badge/LangGraph-30363D?style=flat-square" alt="LangGraph"> <img src="https://img.shields.io/badge/RAG-5A4FCF?style=flat-square" alt="RAG"> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL"> <img src="https://img.shields.io/badge/DeepSeek-4D6BFE?style=flat-square&amp;logo=deepseek&amp;logoColor=white" alt="DeepSeek"> <img src="https://img.shields.io/badge/Go_TUI-00ADD8?style=flat-square&amp;logo=go&amp;logoColor=white" alt="Go TUI"> <img src="https://img.shields.io/badge/SSE-30363D?style=flat-square" alt="Server-Sent Events"></p>
 <p><a href="https://github.com/Timcai06/SciScope"><kbd>仓库 / Repo ↗</kbd></a></p>
 </td>
 </tr>

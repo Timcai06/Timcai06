@@ -120,7 +120,7 @@ tree=[(0,'file','TS','#5aa2e8','about.ts','#efc38f'),
       (1,'proj','#e4b6eb',None,'TTT-I-M','#a8b8d4'),(1,'proj','#efba85',None,'BDI','#a8b8d4'),
       (1,'proj','#b9afea',None,'PulseGraph','#a8b8d4'),
       (0,'dir','⌄','#8491ae','motion','#c3cde4'),(1,'proj','#f28c84',None,'01-clawd-mv','#a8b8d4'),
-      (0,'dir','⌄','#8491ae','research','#c3cde4'),
+      (0,'dir','⌄','#8491ae','math-model','#c3cde4'),
       *[(1,'proj','#7fd1c7',None,name,'#a8b8d4') for name in ['energy','agriculture','oil-prices','desert','glass']],
       (0,'file','{}','#e8c06a','toolbox.json','#a8b8d4'),(0,'file','M↓','#7fa7d9','contact.md','#a8b8d4')]
 b += [rect(95,173,211,26,'#29314a'),rect(95,173,2,26,'#e5b581')]
@@ -209,7 +209,7 @@ print('Built workspace and footer')
 compact = [
  ('tttim','TTT-I-M','Personal web & content studio',['电影感个人网站','内容工作室与交互体验'],['TypeScript','React','Next.js','Vite','GSAP','R3F','Vercel'],'#e4b6eb'),
  ('bdi','BDI','Visual bridge inspection',['桥梁视觉检测原型','分割模型与全栈工作流'],['Python','YOLOv8-seg','FastAPI','TypeScript','Next.js','React'],'#efba85'),
- ('sciscope','SciScope','Evidence-grounded research',['文献与证据驱动的研究','Python RAG × Go TUI'],['Python','RAG','FastAPI','PostgreSQL','DeepSeek','Go TUI','SSE'],'#9ec9e9'),
+ ('sciscope','SciScope','Evidence-grounded research agent',['LangGraph 研究 Agent','工具编排 · 证据检索 · 流式交互'],['Python','Agent','LangGraph','RAG','FastAPI','PostgreSQL','DeepSeek','Go TUI','SSE'],'#9ec9e9'),
  ('educanvas','EduCanvas','A personal learning agent',['通用个人 Agent 平台','文档、对话与学习画布'],['TypeScript','Agent runtime','Node.js','PostgreSQL','Drizzle','pnpm','Docker'],'#e8c397'),
  ('pulsegraph','PulseGraph','Training observability',['本地优先的训练工作台','模型图、指标与推理回放'],['PyTorch','Python','FastAPI','TypeScript','React','Vite','SSE'],'#b9afea')]
 TERMINAL_CMDS = {  # quick-start commands quoted from each repository README
