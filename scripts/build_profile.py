@@ -187,24 +187,7 @@ b += [rect(46,STATUS_Y,1108,29,'#313952'),rect(46,STATUS_Y,140,29,'#4a3f63'),
       text(1138,STATUS_Y+20,f'Ln {cursor+1}, Col 1    Spaces: 2    UTF-8    LF    TypeScript',13,'#bcc8e2','text-anchor="end"')]
 (out/'workspace.svg').write_text(svg(1200,HEIGHT,b,"Tim's profile workspace: projects, technology stack and mathematical modeling"))
 
-# ---- Footer: the terminal that closes the page (bookend to the workspace) ----
-fb=['<defs><filter id="shadow" x="-6%" y="-10%" width="112%" height="130%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#02040c" flood-opacity=".6"/></filter></defs>',
-    f'<image width="1200" height="320" preserveAspectRatio="xMidYMax slice" xlink:href="data:image/png;base64,{bg}"/>',
-    rect(0,0,1200,320,'#070b1b','opacity=".12"'),
-    rect(150,42,900,236,'#111728','rx="10" fill-opacity=".97" stroke="#576078" filter="url(#shadow)"'),
-    rect(151,80,898,1,'#343d54')]
-for x,c in [(174,'#f28c84'),(194,'#e9ba79'),(214,'#97bf9b')]:
-    fb.append(f'<circle cx="{x}" cy="61" r="5.5" fill="{c}"/>')
-fb += [text(600,66,'zsh — ~/Timcai06',14,'#9aa5c0','text-anchor="middle"'),
-       text(1028,66,'TERMINAL',11,'#edc38c','text-anchor="end" letter-spacing="1"'),
-       code_line(186,132,[('~/Timcai06','var'),(' on ','punct'),('⎇ main','kw'),(' $ ','b1'),('echo ','plain'),('"Thanks for stopping by."','str')],22),
-       text(186,176,'Thanks for stopping by.',26,'#f2c48f','font-weight="700"'),
-       code_line(186,226,[('~/Timcai06','var'),(' on ','punct'),('⎇ main','kw'),(' $ ','b1')],22),
-       rect(round(186+len('~/Timcai06 on ⎇ main $ ')*22*0.6)+2,208,12,23,'#edc38c','opacity=".85"'),
-       rect(151,252,898,25,'#313952','rx="0"'),text(170,269,'⎇ main',12,'#f5d2a4'),
-       text(1030,269,'zsh   UTF-8   ☾',12,'#bcc8e2','text-anchor="end"')]
-(out/'footer.svg').write_text(svg(1200,320,fb,'Terminal: echo "Thanks for stopping by."'))
-print('Built workspace and footer')
+print('Built workspace')
 
 # Project cards: compact editor windows designed for half-width README columns.
 compact = [

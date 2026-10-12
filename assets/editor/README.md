@@ -12,9 +12,9 @@
    - 02 用代码做动画 — series statement, then one card per work (01 clawd-mv).
    - 03 技术栈 — centered light/dark SVG, 3×2 grid with interrupted borders, corner marks and numbered groups; original skillicons and shields are embedded.
    - 04 更多 — Sophon AI card, Seen; folds "其他作品" and "数学建模" (one fold per modeling project inside).
-5. `skyline.svg` — live terminal: `git log` of the 5 latest commits across public repos, contribution skyline (one building per week, windows = days), a 24-floor commit-hour tower (weekday × hour, UTC+8) and the real moon phase (snapped to 1/16 cycle). Refreshed daily by `.github/workflows/skyline.yml`.
+5. `skyline.svg` — live terminal: `git log` of the 5 latest commits across public repos, contribution skyline (one building per week, windows = days), a 24-floor commit-hour tower (weekday × hour, UTC+8) and the real moon phase (snapped to 1/16 cycle), closing with `echo "Thanks for stopping by."` as the page bookend. Refreshed daily by `.github/workflows/skyline.yml`.
 Project cards: frames stay decorative; the status bar is live (lamp = commit in the last 14 days, 12 weekly bars, commits / 12w and last commit date).
-6. `footer.svg` — terminal bookend, invitation text, grey contact buttons.
+6. Invitation text and grey contact buttons.
 
 ## Style rules
 
@@ -27,7 +27,7 @@ Project cards: frames stay decorative; the status bar is live (lamp = commit in 
 
 | Output | Script | Inputs |
 |---|---|---|
-| `assets/editor/workspace.svg`, `footer.svg`, `*-compact.svg` | `scripts/build_profile.py` (also run daily by the Action) | `assets/pixel-lab/v2/*.png` (quantized to 8 colours at embed time); card status bars read `activity.json` |
+| `assets/editor/workspace.svg`, `*-compact.svg` | `scripts/build_profile.py` (also run daily by the Action) | `assets/pixel-lab/v2/*.png` (quantized to 8 colours at embed time); card status bars read `activity.json` |
 | `assets/motion/clawd-mv.jpg`, `assets/showcase/sophon.jpg` | `scripts/build_motion.py` | `assets/motion/series.json`, `assets/showcase/showcase.json`; raw frames in git-ignored `desktop-screenshots/` / `source/` folders |
 | `assets/toolbox/toolbox-{dark,light}.svg` | `scripts/build_toolbox.py` | `assets/toolbox/toolbox.json` and vendored `source/*.svg` |
 | `assets/editor/activity.json` | `scripts/fetch_activity.py` (daily GitHub Action; locally `GH_TOKEN=$(gh auth token) python3 scripts/fetch_activity.py`) | GitHub GraphQL: contribution calendar + default-branch commits authored by Tim in public non-fork repos (bots excluded); aggregates only. Optional repo secret `SKYLINE_TOKEN` (fine-grained PAT, read-only) |

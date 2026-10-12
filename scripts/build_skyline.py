@@ -1,9 +1,10 @@
 """Build the live terminal (skyline.svg) from assets/editor/activity.json.
 
-One window, two commands: `git log` (latest commits across public repos) and
+One window, three commands: `git log` (latest commits across public repos),
 `skyline` — one building per week (height = weekly contributions, sqrt scale,
 lit windows = days by contribution level), a 24-floor tower whose windows are
-commit counts by weekday x hour (UTC+8), and the real moon phase in the sky.
+commit counts by weekday x hour (UTC+8), and the real moon phase in the sky —
+then `echo "Thanks for stopping by."`, the page's closing bookend.
 Run scripts/fetch_activity.py first; both run daily in .github/workflows/skyline.yml.
 """
 from pathlib import Path
@@ -30,7 +31,7 @@ PHASES = ['new moon', 'waxing crescent', 'first quarter', 'waxing gibbous',
 
 
 def background():
-    # Same pixel plate and 8-colour quantization as workspace.svg / footer.svg.
+    # Same pixel plate and 8-colour quantization as workspace.svg.
     image = Image.open(ROOT / 'assets/pixel-lab/v2/background.png').convert('RGB')
     image = image.quantize(colors=8, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
     buffer = io.BytesIO()
@@ -96,14 +97,14 @@ def build(data, today):
     days = [d for w in weeks for d in w['contributionDays']]
     totals = [sum(d['contributionCount'] for d in w['contributionDays']) for w in weeks]
     longest, current = streaks(days)
-    W, H = 1200, 560
+    W, H = 1200, 690
     b = ['<defs><filter id="shadow" x="-6%" y="-8%" width="112%" height="120%"><feDropShadow dx="0" dy="14" '
          'stdDeviation="16" flood-color="#02040c" flood-opacity=".6"/></filter></defs>',
          f'<image width="{W}" height="{H}" preserveAspectRatio="xMidYMax slice" xlink:href="data:image/png;base64,{background()}"/>',
          rect(0, 0, W, H, '#070b1b', 'opacity=".12"')]
     moon_cells, phase = moon(1125, 92, today)
     b += moon_cells
-    b += [rect(150, 42, 900, 482, '#111728', 'rx="10" fill-opacity=".97" stroke="#576078" filter="url(#shadow)"'),
+    b += [rect(150, 42, 900, 612, '#111728', 'rx="10" fill-opacity=".97" stroke="#576078" filter="url(#shadow)"'),
           rect(151, 80, 898, 1, '#343d54')]
     for x, c in [(174, '#f28c84'), (194, '#e9ba79'), (214, '#97bf9b')]:
         b.append(f'<circle cx="{x}" cy="61" r="5.5" fill="{c}"/>')
@@ -169,10 +170,15 @@ def build(data, today):
         b.append(text(TX + 48, GROUND - 4 - hour * FLOOR - 1, f'{hour:02d}h', 9, '#5f6b88'))
     b += [text(TX + 21, GROUND + 18, 'hours', 10, '#5f6b88', 'text-anchor="middle"'),
           rect(176, GROUND, 848, 1, '#3a435a'),
-          rect(151, 498, 898, 25, '#313952'), text(170, 515, '⎇ main', 12, '#f5d2a4'),
-          text(1030, 515, f'buildings = weeks  ·  tower = commit hours (UTC+8)  ·  ☾ {phase}', 12, '#bcc8e2', 'text-anchor="end"')]
+          rect(170, 522, 860, 1, '#262e44'),
+          spans(186, 552, 16, prompt('echo ') + [('"Thanks for stopping by."', '#b0d6bf', '')]),
+          text(186, 590, 'Thanks for stopping by.', 26, '#f2c48f', 'font-weight="700"'),
+          spans(186, 624, 16, prompt('')),
+          rect(round(186 + len('~/Timcai06 $ ') * 16 * 0.6) + 2, 611, 9, 16, '#edc38c', 'opacity=".85"'),
+          rect(151, 628, 898, 25, '#313952'), text(170, 645, '⎇ main', 12, '#f5d2a4'),
+          text(1030, 645, f'buildings = weeks  ·  tower = commit hours (UTC+8)  ·  ☾ {phase}', 12, '#bcc8e2', 'text-anchor="end"')]
     title = (f'Live terminal: latest commits; contribution skyline ({cal["totalContributions"]} contributions '
-             f'in the last year); commit-hour tower; {phase}')
+             f'in the last year); commit-hour tower; {phase}; echo "Thanks for stopping by."')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{W}" height="{H}" '
             f'viewBox="0 0 {W} {H}" role="img"><title>{escape(title)}</title><g font-family="{FONT}">' + ''.join(b) + '</g></svg>')
 
