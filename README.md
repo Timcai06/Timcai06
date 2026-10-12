@@ -99,7 +99,7 @@
 <td>
 <a href="https://github.com/Timcai06/clawd-mv"><img src="./assets/motion/clawd-mv.jpg" width="100%" alt="clawd-mv 画面：片尾署名（主画面）、October 32 报告、undefined 堆栈雨、Local 与 CI 对比"></a>
 <h3><kbd>01</kbd> &nbsp;clawd-mv <sub>Works on My Machine</sub></h3>
-<p>代码驱动的音乐影像实验，用 TypeScript / Three.js 时间轴与离线渲染串起场景、镜头和音乐。基于 pdoom-video 开源框架进行个人非商业创作，目前持续迭代中。</p>
+<p>代码驱动的音乐MV，用 TypeScript / Three.js 时间轴与离线渲染串起场景、镜头和音乐。基于 pdoom-video 开源框架进行个人非商业创作，目前持续迭代中。</p>
 <p><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="Three.js"> <img src="https://img.shields.io/badge/Bun-000000?style=flat-square&amp;logo=bun&amp;logoColor=white" alt="Bun"> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite"> <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat-square" alt="Playwright"> <img src="https://img.shields.io/badge/FFmpeg-007808?style=flat-square&amp;logo=ffmpeg&amp;logoColor=white" alt="FFmpeg"> <img src="https://img.shields.io/badge/Suno-000000?style=flat-square&amp;logo=suno&amp;logoColor=white" alt="Suno"></p>
 <p><a href="https://github.com/Timcai06/clawd-mv"><kbd>仓库 / Repo ↗</kbd></a></p>
 </td>
