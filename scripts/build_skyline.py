@@ -123,9 +123,11 @@ def build(data, today, generated):
     for x, c in [(174, '#f28c84'), (194, '#e9ba79'), (214, '#97bf9b')]:
         b.append(f'<circle cx="{x}" cy="61" r="5.5" fill="{c}"/>')
     b += [text(600, 66, 'zsh — ~/Timcai06', 14, '#9aa5c0', 'text-anchor="middle"'),
-          text(1028, 66, f'LIVE · updated {generated}', 11, '#edc38c', 'text-anchor="end" letter-spacing=".5"')]
-    # Pulsing red dot before the label: this terminal is regenerated from live data.
-    live_x = round(1028 - len(f'LIVE · updated {generated}') * 11 * 0.62 - 12)
+          ]
+    # Pulsing red dot, then the label starting to its right (no width estimate can push
+    # the text onto the dot, whatever monospace font the viewer has).
+    live_x = 748
+    b.append(text(live_x + 11, 66, f'LIVE · updated {generated}', 11, '#edc38c'))
     M.raw('@keyframes ping{0%{transform:scale(1);opacity:.7}80%,100%{transform:scale(2.6);opacity:0}}'
           '.ping{transform-box:fill-box;transform-origin:center;animation:ping 1.8s ease-out infinite}')
     b += [f'<circle cx="{live_x}" cy="62" r="4" fill="#f85149" class="ping"/>', f'<circle cx="{live_x}" cy="62" r="4" fill="#f85149"/>']
