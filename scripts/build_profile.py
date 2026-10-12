@@ -35,6 +35,25 @@ TOK = dict(kw='#c6a6ed', type='#7fd1c7', var='#8fc4f0', prop='#a9c3e8', str='#b0
 def code_line(x, y, tokens, size, extra=''):
     spans = ''.join(f'<tspan fill="{TOK[k]}"' + (' font-style="italic"' if k == 'comment' else '') + f'>{escape(t)}</tspan>' for t, k in tokens)
     return f'<text x="{x}" y="{y}" font-size="{size}" xml:space="preserve" {extra}>{spans}</text>'
+# ---- Motion: CSS keyframes inside the SVG (GitHub renders <img> SVGs with CSS animation).
+# Like a pixel room with a few moving props, nearly everything stays still. Each moving
+# element carries its reduced-motion end state as attributes; prefers-reduced-motion
+# turns the keyframes off and leaves that state.
+KEYFRAMES=[]
+def window_anim(name, start, end, period, prop='opacity'):
+    """Visible only during [start, end) seconds of a looping period; start > end wraps around the loop."""
+    a, z = round(start/period*100, 3), round(end/period*100, 3)
+    if a > z:
+        frames = f'0%{{{prop}:1}}{z}%{{{prop}:0}}{a}%{{{prop}:1}}'
+    else:
+        frames = (f'0%{{{prop}:0}}' if a > 0 else '') + f'{a}%{{{prop}:1}}' + (f'{z}%{{{prop}:0}}' if z < 100 else '')
+    KEYFRAMES.append(f'@keyframes {name}{{{frames}}}.{name}{{animation:{name} {period}s step-end infinite}}')
+    return name
+def motion_style():
+    return ('<style>@keyframes blink{0%{opacity:1}50%{opacity:0}}.blink{animation:blink 1.1s step-end infinite}'
+            '@keyframes tw{0%,100%{opacity:.2}50%{opacity:1}}'
+            + ''.join(KEYFRAMES) +
+            '@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>')
 # Profile content is a static illustration, not a live editor or repository tree.
 # Project descriptions/stacks: the respective repository READMEs (see assets/editor/README.md).
 S=lambda t,k:(t,k)
@@ -155,7 +174,13 @@ b += [rect(308,101,846,40,'#0e1423'),rect(308,101,168,40,'#111728'),rect(308,101
       rect(818,101,1,40,'#262e44'),text(1136,126,'⧉  ⋯',14,'#7f8ba7','text-anchor="end"'),
       code_line(326,164,[('Timcai06','punct'),('  ›  ','punct'),('TS ','var'),('about.ts','punct'),('  ›  ','punct'),('{} ','b1'),('tim','prop')],13)]
 cursor=next(line-1 for key,_,line in fields if key=='projects')
-b.append(rect(309,CY+cursor*STEP-15,770,STEP,'#1c2539'))
+# The active line walks from `projects` through its five entries and loops.
+WALK=[cursor+k for k in range(6)]
+EDIT_T, HOLD = 6*2.2, 2.2
+def line_end(i): return len(''.join(t for t,_ in code[i]).rstrip())
+shift=''.join(f'{round(k/len(WALK)*100,3)}%{{transform:translateY({k*STEP}px)}}' for k in range(len(WALK)))
+KEYFRAMES.append(f'@keyframes walk{{{shift}}}.walk{{animation:walk {EDIT_T}s step-end infinite}}')
+b.append(rect(309,CY+cursor*STEP-15,770,STEP,'#1c2539','class="walk"'))
 for i,tokens in enumerate(code):
     y=CY+i*STEP
     plain=''.join(t for t,_ in tokens)
@@ -164,8 +189,14 @@ for i,tokens in enumerate(code):
         b.append(rect(round(CX+level*CW)+1,y-15,1,STEP,'#2c3550'))
     if plain.rstrip().endswith(('{','[')):
         b.append(text(370,y-1,'⌄',12,'#56637f','text-anchor="middle"'))
-    b.append(text(348,y,str(i+1),13,'#c9d2e6' if i==cursor else '#56637f','text-anchor="end"'))
+    b.append(text(348,y,str(i+1),13,'#56637f','text-anchor="end"'))
     if tokens: b.append(code_line(CX,y,tokens,SIZE))
+for k,i in enumerate(WALK):
+    # Bright line number and blinking caret for each stop of the walk.
+    y=CY+i*STEP
+    cls=window_anim(f'ln{k}',k*HOLD,(k+1)*HOLD,EDIT_T)
+    b.append(f'<g class="{cls}" opacity="{1 if k==0 else 0}">'+text(348,y,str(i+1),13,'#c9d2e6','text-anchor="end"')
+             +rect(round(CX+line_end(i)*CW)+2,y-14,2,18,'#edc38c','class="blink"')+'</g>')
 # Minimap, viewport and scrollbar all track the content height.
 b += [rect(1084,145,1,TERMINAL_Y-154,'#262e44'),rect(1085,145,62,len(code)*5+14,'#ffffff','opacity=".04"'),
       rect(1148,145,6,TERMINAL_Y-154,'#151c2e'),rect(1149,155,4,160,'#4b5774','rx="2" opacity=".45"')]
@@ -180,14 +211,30 @@ y=TERMINAL_Y
 b += [rect(308,y,846,1,'#3a435a'),text(333,y+24,'PROBLEMS',12,'#6d7a97','letter-spacing=".5"'),
       text(425,y+24,'OUTPUT',12,'#6d7a97','letter-spacing=".5"'),text(505,y+24,'TERMINAL',12,'#edc38c','letter-spacing=".5"'),
       rect(505,y+31,70,2,'#e8b983'),text(1136,y+24,'zsh   +  ⌄   ×',13,'#7f8ba7','text-anchor="end"'),
-      code_line(333,y+54,[('~/Timcai06','var'),(' $ ','b1'),('cat now.txt','plain')],15),
-      text(333,y+77,'Learning deeply. Building across the stack.',15,'#c3cde4'),
-      text(333,y+100,'从模型、数据到界面，让想法成为可用的产品。',16,'#a5b2ce'),
-      code_line(333,y+123,[('~/Timcai06','var'),(' $ ','b1')],15),
-      rect(round(333+len('~/Timcai06 $ ')*15*0.6)+2,y+111,9,15,'#edc38c','opacity=".85"')]
+      ]
+# One tspan per typed character keeps the reveal font-independent.
+TERM_T, TYPE_AT, CHAR_DT, RESET = 12, 0.9, 0.09, 11.4
+cmd='cat now.txt'
+typed=''.join(f'<tspan fill="{TOK["plain"]}" class="{window_anim(f"ch{j}",TYPE_AT+j*CHAR_DT,RESET,TERM_T,"fill-opacity")}">{escape(c)}</tspan>' for j,c in enumerate(cmd))
+done=TYPE_AT+len(cmd)*CHAR_DT+0.35
+cw15=15*0.6
+b += [f'<text x="333" y="{y+54}" font-size="15" xml:space="preserve"><tspan fill="{TOK["var"]}">~/Timcai06</tspan><tspan fill="{TOK["b1"]}"> $ </tspan>{typed}</text>',
+      f'<g class="{window_anim("idle0",RESET,TYPE_AT,TERM_T)}" opacity="0">'+rect(round(333+len('~/Timcai06 $ ')*cw15)+2,y+42,9,15,'#edc38c','opacity=".85" class="blink"')+'</g>',
+      text(333,y+77,'Learning deeply. Building across the stack.',15,'#c3cde4',f'class="{window_anim("out0",done,RESET,TERM_T)}"'),
+      text(333,y+100,'从模型、数据到界面，让想法成为可用的产品。',16,'#a5b2ce',f'class="{window_anim("out1",done+0.25,RESET,TERM_T)}"'),
+      f'<g class="{window_anim("idle1",done+0.5,RESET,TERM_T)}">'+code_line(333,y+123,[('~/Timcai06','var'),(' $ ','b1')],15)
+      +rect(round(333+len('~/Timcai06 $ ')*cw15)+2,y+111,9,15,'#edc38c','opacity=".85" class="blink"')+'</g>']
+# Twinkling stars in the strips of night sky around the window.
+STARS=[(28,22,'#f2c48f',0),(176,34,'#8fa0d8',1.1),(318,14,'#f2c48f',2.3),(512,40,'#8fa0d8',.6),(688,18,'#f2c48f',1.7),
+       (842,36,'#8fa0d8',2.9),(1004,16,'#f2c48f',.3),(1176,30,'#8fa0d8',2.0),(18,180,'#8fa0d8',1.4),(30,330,'#f2c48f',2.6),
+       (1180,200,'#f2c48f',.9),(1172,360,'#8fa0d8',2.2)]
+b[3:3]=[rect(x,yy,3,3,c,f'style="animation:tw 3.4s ease-in-out {d}s infinite"') for x,yy,c,d in STARS]
 b += [rect(46,STATUS_Y,1108,29,'#313952'),rect(46,STATUS_Y,140,29,'#4a3f63'),
-      text(60,STATUS_Y+20,'{} SVG profile',13,'#f5d2a4'),text(206,STATUS_Y+20,'Static illustration',12,'#bcc8e2'),
-      text(1138,STATUS_Y+20,f'Ln {cursor+1}, Col 1    Spaces: 2    UTF-8    LF    TypeScript',13,'#bcc8e2','text-anchor="end"')]
+      text(60,STATUS_Y+20,'{} SVG profile',13,'#f5d2a4'),text(206,STATUS_Y+20,'Animated illustration',12,'#bcc8e2')]
+for k,i in enumerate(WALK):
+    b.append(text(1138,STATUS_Y+20,f'Ln {i+1}, Col {line_end(i)+1}    Spaces: 2    UTF-8    LF    TypeScript',13,'#bcc8e2',
+                  f'text-anchor="end" opacity="{1 if k==0 else 0}" class="ln{k}"'))
+b.insert(0,motion_style())
 if WRITE:
     (out/'workspace.svg').write_text(svg(1200,HEIGHT,b,"Tim's profile workspace: projects, technology stack and mathematical modeling"))
     print('Built workspace')

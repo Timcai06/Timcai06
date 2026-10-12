@@ -5,7 +5,7 @@
 ## Page structure
 
 1. Hero — locally built typing-SVG title (`assets/hero/`, no external service), contact badges (Blog uses the site's chrome "T" mark as a data-URI logo; LinkedIn uses a minimal "in" SVG), typing subtitle.
-2. English intro, then `workspace.svg` — pixel-night backdrop + VS Code-style editor (`about.ts`, file tree, terminal, minimap).
+2. English intro, then `workspace.svg` — pixel-night backdrop + VS Code-style editor (`about.ts`, file tree, terminal, minimap). Subtle CSS motion, the rest stays still: the terminal types `cat now.txt` and prints (12 s loop), the active line walks `projects` with a blinking caret and matching `Ln/Col` (13.2 s loop), and stars twinkle in the sky around the window. `prefers-reduced-motion` shows the finished static state.
 3. Chinese intro below the workspace image + "Now" blockquote.
 4. Chapters as centred `<h1>` openers `01–04`; subsections use `<kbd>label</kbd> <b>English</b>`.
    - 01 重点作品 — two `<details>` layers: 主推 (open by default) with lead cards EduCanvas, SciScope; 精选 (collapsed) with rows TTT-I-M, BDI, PulseGraph.
