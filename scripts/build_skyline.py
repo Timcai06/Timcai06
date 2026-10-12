@@ -21,6 +21,7 @@ import os
 from PIL import Image
 
 from motion import Motion
+from pixel_moon import GLOW_CSS, moon
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'assets/editor/skyline.svg'
@@ -29,10 +30,6 @@ LEVEL = {'NONE': '#232b42', 'FIRST_QUARTILE': '#6c5a3e', 'SECOND_QUARTILE': '#a8
          'THIRD_QUARTILE': '#e0ae6e', 'FOURTH_QUARTILE': '#f5d2a4'}
 LEVELS = list(LEVEL.values())
 TZ = timezone(timedelta(hours=8))
-SYNODIC = 29.530588853
-NEW_MOON = datetime(2000, 1, 6, 18, 14, tzinfo=timezone.utc)
-PHASES = ['new moon', 'waxing crescent', 'first quarter', 'waxing gibbous',
-          'full moon', 'waning gibbous', 'last quarter', 'waning crescent']
 
 
 def background():
@@ -75,57 +72,12 @@ def streaks(days):
     return longest, current
 
 
-# Moon: pixel-art shading lit by the real phase. Albedo map = the major near-side maria
-# (normalised disc coords, x right, y down: Imbrium, Serenitatis, Tranquillitatis,
-# Crisium, Procellarum, Nubium, Fecunditatis, Nectaris).
-MARIA = [(-.25, -.36, .24), (.2, -.3, .15), (.32, -.04, .18), (.62, -.24, .1),
-         (-.55, .02, .3), (-.15, .38, .16), (.52, .18, .12), (.32, .3, .08)]
-CRATERS = [(-.12, .72, .05), (-.3, -.04, .05), (.05, .1, .04), (-.6, -.5, .04)]
-LIT = ['#4a4656', '#6e6672', '#9c8f86', '#c8b394', '#e6cda2', '#f4dfb8', '#fff1d6']
-BAYER = [[0, 2], [3, 1]]
-
-
-def moon(cx, cy, today):
-    # Phase snapped to 1/16 of a cycle so the image changes every ~2 days, not daily.
-    noon = datetime(today.year, today.month, today.day, 12, tzinfo=TZ)
-    p = round(((noon - NEW_MOON).total_seconds() / 86400 / SYNODIC % 1) * 16) / 16 % 1
-    name = PHASES[int(p * 8 + .5) % 8]
-    lit_fraction = (1 - math.cos(2 * math.pi * p)) / 2
-    # Sun direction in the moon's frame: behind it at new moon, from the right while waxing.
-    lx, lz = math.sin(2 * math.pi * p), -math.cos(2 * math.pi * p)
-    cell, R = 2, 15
-    glow = .3 + .7 * lit_fraction
-    out = ['<defs><radialGradient id="moonglow"><stop offset="0" stop-color="#f6d9a6" stop-opacity=".55"/>'
-           '<stop offset=".35" stop-color="#f2c48f" stop-opacity=".16"/><stop offset="1" stop-color="#f2c48f" stop-opacity="0"/>'
-           '</radialGradient></defs>',
-           # Glow strength follows the lit fraction; the inner circle breathes on top of it.
-           f'<g opacity="{glow:.2f}"><circle cx="{cx}" cy="{cy}" r="{round(R * cell * 2.6)}" fill="url(#moonglow)" '
-           'style="animation:moonglow 7s ease-in-out infinite"/></g>']
-    for j in range(-R, R):
-        for i in range(-R, R):
-            nx, ny = (i + .5) / R, (j + .5) / R
-            d2 = nx * nx + ny * ny
-            if d2 > 1:
-                continue
-            nz = math.sqrt(1 - d2)
-            albedo = .7 if any((nx - mx) ** 2 + (ny - my) ** 2 < mr * mr for mx, my, mr in MARIA) else 1
-            if any((nx - mx) ** 2 + (ny - my) ** 2 < mr * mr for mx, my, mr in CRATERS):
-                albedo *= .8
-            light = max(0, nx * lx + nz * lz) * albedo * (.78 + .22 * nz)
-            if light < .05:
-                # Earthshine: the night side stays faintly visible, cooler at the limb.
-                colour = '#2e3758' if nz > .45 else '#29304e'
-                if albedo < 1:
-                    colour = '#262c48'
-            else:
-                level = light * len(LIT) + (BAYER[j % 2][i % 2] / 4 - .375) * .9
-                colour = LIT[max(0, min(len(LIT) - 1, int(level)))]
-            out.append(rect(cx + i * cell, cy + j * cell, cell, cell, colour))
-    # A thin moonlit cloud drifts across now and then (starts off-canvas, so a still frame shows none).
+# Thin moonlit cloud that drifts across the moon now and then (starts off-canvas,
+# so a still frame shows none).
+def cloud(cx, cy):
     cloud = [(0, 0, 34), (6, -2, 18), (-8, 2, 14), (40, 2, 22), (46, 0, 10)]
-    out.append('<g class="cloud">' + ''.join(rect(cx + 90 + x, cy + 8 + y, w, 2, '#3a4466') + rect(cx + 90 + x, cy + 10 + y, w, 3, '#232a44')
+    return ('<g class="cloud">' + ''.join(rect(cx + 90 + x, cy + 8 + y, w, 2, '#3a4466') + rect(cx + 90 + x, cy + 10 + y, w, 3, '#232a44')
                                          for x, y, w in cloud) + '</g>')
-    return out, name
 
 
 def build(data, today):
@@ -139,13 +91,12 @@ def build(data, today):
          'stdDeviation="16" flood-color="#02040c" flood-opacity=".6"/></filter></defs>',
          f'<image width="{W}" height="{H}" preserveAspectRatio="xMidYMax slice" xlink:href="data:image/png;base64,{background()}"/>',
          rect(0, 0, W, H, '#070b1b', 'opacity=".12"')]
-    moon_cells, phase = moon(1125, 92, today)
-    b += moon_cells
+    moon_cells, phase, lit = moon(1125, 92, today)
+    b += moon_cells + [cloud(1125, 92)]
     M = Motion()
     M.raw('@keyframes beacon{0%,100%{opacity:1}50%{opacity:.15}}')
-    M.raw('@keyframes moonglow{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.08);opacity:1}}'
-          'circle[fill="url(#moonglow)"]{transform-box:fill-box;transform-origin:center}'
-          '@keyframes cloud{0%{transform:translateX(0)}100%{transform:translateX(-230px)}}'
+    M.raw(GLOW_CSS)
+    M.raw('@keyframes cloud{0%{transform:translateX(0)}100%{transform:translateX(-230px)}}'
           '.cloud{animation:cloud 46s linear 4s infinite}')
     # Night sky around the window (the moon sits at 1125, 92).
     b += M.stars([(30, 18, '#f2c48f', 0), (96, 46, '#8fa0d8', 1.2), (58, 120, '#f2c48f', 2.4), (118, 190, '#8fa0d8', .7),
@@ -153,6 +104,19 @@ def build(data, today):
                   (905, 30, '#f2c48f', 2.2), (1072, 20, '#8fa0d8', 1.0), (1176, 40, '#f2c48f', 2.6), (1168, 170, '#8fa0d8', .2),
                   (1086, 236, '#f2c48f', 1.4), (1150, 300, '#8fa0d8', 2.9)])
     b.append(M.meteor('meteor', 20, 60, 110, 70, 13, 5))
+    # An airliner crosses the top strip of sky with its nav light and strobe.
+    M.raw('@keyframes plane{0%{transform:translateX(0)}100%{transform:translateX(1260px)}}'
+          '.plane{animation:plane 70s linear -20s infinite}'
+          '@keyframes strobe{0%,92%,100%{opacity:0}94%,96%{opacity:1}}')
+    b.append(f'<g class="plane">{rect(-40, 24, 7, 2, "#56627f")}{rect(-37, 22, 2, 6, "#4a5572")}'
+             f'{rect(-41, 23, 2, 2, "#f28c84", "class=\"blink\"")}'
+             f'<rect x="-33" y="23" width="2" height="2" fill="#ffffff" style="animation:strobe 1.4s linear infinite"/></g>')
+    # Moonlight glints on the water strip below the moon; brighter when more of it is lit.
+    glints = [(1104, 662, 10), (1122, 660, 16), (1140, 664, 8), (1096, 670, 6), (1114, 668, 14), (1134, 672, 10),
+              (1108, 678, 12), (1128, 680, 8), (1146, 676, 6), (1118, 686, 10)]
+    b.append(f'<g opacity="{.25 + .55 * lit:.2f}">' + ''.join(
+        rect(x, y, w, 1, '#f6d9a6', f'style="animation:tw {2.2 + k % 3 * .6:.1f}s ease-in-out {k * .37:.2f}s infinite"')
+        for k, (x, y, w) in enumerate(glints)) + '</g>')
     b += [rect(150, 42, 900, 612, '#111728', 'rx="10" fill-opacity=".97" stroke="#576078" filter="url(#shadow)"'),
           rect(151, 80, 898, 1, '#343d54')]
     for x, c in [(174, '#f28c84'), (194, '#e9ba79'), (214, '#97bf9b')]:

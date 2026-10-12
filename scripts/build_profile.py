@@ -4,6 +4,9 @@ from html import escape
 import base64
 import json
 from motion import Motion
+from pixel_moon import GLOW_CSS, TZ, moon
+from datetime import datetime
+import os
 root = Path(__file__).resolve().parents[1]
 out = root / 'assets/editor'
 out.mkdir(exist_ok=True)
@@ -272,11 +275,28 @@ for r,(name,where,dot) in enumerate(results):
             text(PX+370,ry+18,where,12,'#6f7b97','text-anchor="end"')]
 pal.append(G(window_anim('res',PAL_START+0.95,PAL_END,S),res))
 b.append(G(M.pop('pal',PAL_START,PAL_END,S),pal,' opacity="0"'))
+# After the second command, a toast notes the one real background job: the daily Action.
+TX0,TY0=866,STATUS_Y-64
+b.append(G(M.pop('toast',33.0,37.6,S,dy=8,dur=.3),[rect(TX0,TY0,280,48,'#1a2133','rx="6" stroke="#3a4562" filter="url(#shadow)"'),
+      rect(TX0,TY0,3,48,'#edc38c','rx="1"'),text(TX0+18,TY0+21,'↻',15,'#edc38c'),
+      text(TX0+40,TY0+20,'skyline.svg refreshed',13,'#dfe6f5'),text(TX0+40,TY0+37,'GitHub Actions · every day',11,'#7f8aa6'),
+      text(TX0+266,TY0+20,'×',13,'#6f7b97','text-anchor="end"')],' opacity="0"'))
 # Stars and the meteor sit behind the window; everything from the window frame up opens and closes.
 w0=b.index(WIN_RECT)
 M.raw(f'@keyframes win{{0%{{opacity:0;transform:scale(.95)}}1.5%{{opacity:1;transform:scale(1)}}96.5%{{opacity:1;transform:scale(1)}}'
       f'98.5%,100%{{opacity:0;transform:scale(.97)}}}}.win{{transform-origin:600px {HEIGHT//2}px;animation:win {S}s ease-out infinite}}')
-b=b[:w0]+M.stars(STARS)+[M.meteor('meteor',380,4,220,52,11,3.5),G('win',b[w0:])]
+# The same moon as the live terminal (same day, same phase), small, in the top strip of sky.
+day = datetime.fromisoformat(os.environ['SKYLINE_DATE']).date() if os.environ.get('SKYLINE_DATE') else datetime.now(TZ).date()
+moon_cells, _, lit = moon(1100, 30, day, R=8)
+M.raw(GLOW_CSS)
+# Water strip under the window: faint ripples, and moonlight glints under the moon.
+ripples=[(80,1030,18),(210,1046,10),(340,1036,24),(470,1058,14),(600,1040,20),(730,1052,12),(860,1034,16),
+         (990,1062,22),(150,1068,12),(520,1072,16),(820,1070,10),(1160,1044,14)]
+water=[rect(x,y,w,1,'#56608a',f'style="animation:tw {2.6+k%3*.7:.1f}s ease-in-out {k*.41:.2f}s infinite"') for k,(x,y,w) in enumerate(ripples)]
+glints=[(1086,1024,12),(1102,1030,8),(1092,1040,14),(1108,1048,6),(1084,1056,10),(1100,1064,12)]
+water.append(f'<g opacity="{.25+.55*lit:.2f}">'+''.join(rect(x,y,w,1,'#f6d9a6',f'style="animation:tw {2.2+k%3*.6:.1f}s ease-in-out {k*.37:.2f}s infinite"')
+                                                     for k,(x,y,w) in enumerate(glints))+'</g>')
+b=b[:w0]+moon_cells+M.stars(STARS)+water+[M.meteor('meteor',380,4,220,52,11,3.5),G('win',b[w0:])]
 b.insert(0,M.style())
 if WRITE:
     (out/'workspace.svg').write_text(svg(1200,HEIGHT,b,"Tim's profile workspace: projects, technology stack and mathematical modeling"))
@@ -302,7 +322,7 @@ def tspans(parts):
 # Frames are decorative only: these marks are not charts, metrics or live status.
 # Live data lives in one place per card, the status bar (see card_activity).
 ACTIVITY = json.loads((root/'assets/editor/activity.json').read_text())['cards']
-def card_activity(repo, accent):
+def card_activity(repo, accent, delay=0.0):
     # Real commits by Tim on the default branch: lamp = any in the last 14 days,
     # bars = the last 12 calendar weeks (oldest left), then the last commit date. Text must end before
     # the right-hand 'Markdown   UTF-8   LF' (x≈453).
@@ -315,7 +335,8 @@ def card_activity(repo, accent):
     peak = max(a['weeks']) or 1
     for i, n in enumerate(a['weeks']):
         h = max(1, round(n / peak * 13))
-        out.append(rect(126 + i * 6, 501 - h, 4, h, accent if n else '#4b5774', '' if n else 'opacity=".7"'))
+        grow = f'style="transform-box:fill-box;transform-origin:50% 100%;animation:grow 11s ease-out {delay + i * .04:.2f}s infinite"'
+        out.append(rect(126 + i * 6, 501 - h, 4, h, accent if n else '#4b5774', grow + ('' if n else ' opacity=".7"')))
     label = f"{sum(a['weeks'])} commits / 12w · {a['last_commit'] or '—'}"
     assert 206 + len(label) * 12 * 0.6 < 450
     out.append(text(206, 498, label, 12, '#aab6d2'))
@@ -365,6 +386,74 @@ def project_frame(slug, name, accent):
                   dot(282,526,mark),dot(358,526,mark)]
     return frame
 
+# ---- Plate-themed details in the strips of each card that the window leaves open.
+# Positions come from the plate pixels themselves (same xMidYMid-slice mapping as the
+# <image>), so twinkles sit on the plate's real stars, the pulse runs on its real wave.
+def plate_px(slug):
+    from PIL import Image
+    im = Image.open(pixel(f'{slug}.png')).convert('RGB')
+    sc = max(640/im.width, 540/im.height); ox = (640-im.width*sc)/2; oy = (540-im.height*sc)/2
+    px = im.load()
+    def at(cx, cy):
+        x, y = int((cx-ox)/sc), int((cy-oy)/sc)
+        return px[min(max(x,0),im.width-1), min(max(y,0),im.height-1)]
+    return at
+def open_strip(cx, cy):
+    return not (22 <= cx <= 618 and 40 <= cy <= 508) and not (40 <= cx <= 216 and 8 <= cy <= 28)
+def spaced(points, gap, limit):
+    out=[]
+    for p in points:
+        if all((p[0]-q[0])**2+(p[1]-q[1])**2 >= gap*gap for q in out): out.append(p)
+        if len(out) == limit: break
+    return out
+def card_fx(slug, Mc):
+    at = plate_px(slug)
+    fx = []
+    if slug == 'sciscope':
+        # Twinkle the plate's own stars, plus a meteor through the constellations.
+        found = []
+        for cy in range(2, 40):
+            for cx in range(2, 638):
+                if not open_strip(cx, cy): continue
+                l = sum(at(cx, cy))/3
+                if l > 120 and l - max(sum(at(cx+dx, cy+dy))/3 for dx in (-4, 4) for dy in (-4, 4)) > 40:
+                    found.append((cx, cy))
+        for k, (x, y) in enumerate(spaced(found, 8, 8)):
+            fx.append(f'<g style="animation:tw 2.8s ease-in-out {k*.6:.1f}s infinite">'+rect(x-1, y-1, 2, 2, '#ffffff')
+                      +rect(x-3, y-.5, 6, 1, '#cfd8ff', 'opacity=".6"')+rect(x-.5, y-3, 1, 6, '#cfd8ff', 'opacity=".6"')+'</g>')
+        fx.append(Mc.meteor('meteor', 250, 2, 170, 36, 9, 2.5))
+    elif slug == 'pulsegraph':
+        # A signal pulse travels along the plate's waveform (visible where it leaves the window).
+        pts = []
+        for cx in range(0, 641, 4):
+            best = max(((sum(at(cx, cy))/3, cy) for cy in range(440, 540) if at(cx, cy)[2] > 150), default=None)
+            if best and best[0] > 140: pts.append((cx, best[1]))
+        d = 'M ' + ' L '.join(f'{x} {y}' for x, y in pts)
+        total = round(sum(((x2-x1)**2+(y2-y1)**2)**.5 for (x1, y1), (x2, y2) in zip(pts, pts[1:])))
+        Mc.raw(f'@keyframes pulse{{from{{stroke-dashoffset:40}}to{{stroke-dashoffset:-{total}}}}}'
+               '.pulse{animation:pulse 5.5s linear infinite}')
+        for width, op in ((6, .25), (2, .95)):
+            fx.append(f'<path d="{d}" fill="none" stroke="#efeaff" stroke-width="{width}" stroke-linecap="round" opacity="{op}" '
+                      f'stroke-dasharray="40 {total+80}" stroke-dashoffset="40" class="pulse"/>')
+    elif slug == 'bdi':
+        # Dusk light on the horizon and the water flickers.
+        warm = [(cx, cy) for cy in range(430, 540, 3) for cx in range(0, 640, 3)
+                if open_strip(cx, cy) and at(cx, cy)[0] > 170 and at(cx, cy)[0]-at(cx, cy)[2] > 50]
+        for k, (x, y) in enumerate(spaced(warm, 9, 14)):
+            fx.append(rect(x, y, 4, 1, '#ffd9a0', f'style="animation:tw {2.2+k%3*.5:.1f}s ease-in-out {k*.33:.2f}s infinite"'))
+    elif slug == 'educanvas':
+        # Dust motes drift in the window light (top-left).
+        Mc.raw('@keyframes mote{0%{opacity:0;transform:translate(0,0)}30%{opacity:.9}100%{opacity:0;transform:translate(16px,-20px)}}')
+        for k, (x, y) in enumerate([(14, 34), (36, 26), (58, 36), (80, 30), (8, 120), (12, 200), (100, 38)]):
+            fx.append(rect(x, y, 2, 2, '#f6d9a6', f'opacity="0" style="animation:mote {6+k%3*1.5:.1f}s ease-in-out {k*1.1:.1f}s infinite"'))
+    elif slug == 'tttim':
+        # Pink cloud wisps drift through the top strip, like the plate's evening clouds.
+        Mc.raw('@keyframes wisp{0%{transform:translateX(-80px)}100%{transform:translateX(420px)}}')
+        for k, (x, y, w, dur) in enumerate([(230, 30, 70, 46), (300, 35, 44, 60), (160, 33, 30, 52)]):
+            fx.append(f'<g style="animation:wisp {dur}s linear {-k*17}s infinite">'+rect(x, y, w, 2, '#c99bc0', 'opacity=".55"')
+                      +rect(x+8, y+2, w-16, 1, '#8f6d9a', 'opacity=".5"')+'</g>')
+    return fx
+
 for slug,name,tagline,desc,stack,accent in compact:
     data=pixel_b64(f'{slug}.png')
     W,X0,X1,Y0,Y1 = 640,22,618,40,508
@@ -403,11 +492,17 @@ for slug,name,tagline,desc,stack,accent in compact:
         if i==7 and len(chip_rows)<2: continue
         b.append(text(56,y,str(i+1),12,'#c9d2e6' if i>=6 else '#4f5c78','text-anchor="end"'))
         if parts: b.append(f'<text x="72" y="{y}" font-size="{size}" xml:space="preserve">{tspans(parts)}</text>')
+    Mc=Motion(phase=CARD_ORDER[slug]*1.7)
+    chip_j=0
     for r,chips in enumerate(chip_rows):
         top = 298-16 + r*32
         for item, x, w in chips:
+            # Each loop a highlight reads across the stack chips, one after another.
+            sweep=Mc.window(f'chip{chip_j}',4.2+chip_j*0.3,4.2+chip_j*0.3+0.45,11)
             b += [rect(x,top,w,CH,accent,'rx="5" fill-opacity=".14" stroke="'+accent+'" stroke-opacity=".45"'),
+                  rect(x,top,w,CH,accent,f'rx="5" fill-opacity=".3" opacity="0" class="{sweep}"'),
                   text(x+w/2,top+17,item,CF,accent,'text-anchor="middle"')]
+            chip_j+=1
     # Minimap.
     b += [rect(586,104,1,244,'#222a40')]
     for i,(y,parts,size) in enumerate(lines):
@@ -424,8 +519,9 @@ for slug,name,tagline,desc,stack,accent in compact:
     # Motion: the README's quick-start commands are typed one after another (11 s loop,
     # phase-shifted per card), a caret waits on the empty README line, and the status
     # lamp breathes only for an active repository.
-    Mc=Motion(phase=CARD_ORDER[slug]*1.7)
     Mc.raw('@keyframes halo{0%,100%{opacity:.08}50%{opacity:.4}}')
+    Mc.raw('@keyframes grow{0%,4%{transform:scaleY(0)}12%,100%{transform:scaleY(1)}}')
+    b[2:2]=card_fx(slug,Mc)
     prompt=[('~/'+REPO_DIR[slug],'var'),(' $ ','b1')]
     prompt_spans=''.join(f'<tspan fill="{TOK[k]}">{escape(t)}</tspan>' for t,k in prompt)
     cursor_x=round(40+len('~/'+REPO_DIR[slug]+' $ ')*13*0.6)+1
@@ -444,7 +540,7 @@ for slug,name,tagline,desc,stack,accent in compact:
     b.append(rect(72,259,2,18,'#edc38c','class="blink"'))
     # Status bar.
     b += [rect(X0+1,480,X1-X0-2,27,'#252f48'),rect(X0+1,480,74,27,'#3a3356'),
-          text(34,498,'⎇ main',12,'#f5d2a4'),*card_activity(REPO_DIR[slug],accent),
+          text(34,498,'⎇ main',12,'#f5d2a4'),*card_activity(REPO_DIR[slug],accent,-(Mc.phase%11)),
           text(604,498,'Markdown   UTF-8   LF',12,'#aab6d2','text-anchor="end"')]
     b.extend(project_frame(slug, name, accent))
     b.insert(0,Mc.style())
