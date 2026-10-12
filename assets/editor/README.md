@@ -5,14 +5,14 @@
 ## Page structure
 
 1. Hero — locally built typing-SVG title (`assets/hero/`, no external service), contact badges (Blog uses the site's chrome "T" mark as a data-URI logo; LinkedIn uses a minimal "in" SVG), typing subtitle.
-2. English intro, then `workspace.svg` — pixel-night backdrop + VS Code-style editor (`about.ts`, file tree, terminal, minimap). Subtle CSS motion, the rest stays still: the terminal types `cat now.txt` and prints (12 s loop), the active line walks `projects` with a blinking caret and matching `Ln/Col` (13.2 s loop), and stars twinkle in the sky around the window. `prefers-reduced-motion` shows the finished static state.
+2. English intro, then `workspace.svg` — pixel-night backdrop + VS Code-style editor (`about.ts`, file tree, terminal, minimap). Subtle CSS motion (`scripts/motion.py`), the rest stays still: the terminal types `cat now.txt` and prints (12 s loop); the active line walks `projects` with a blinking caret, and the explorer row, minimap marker and `Ln/Col` follow it (13.2 s loop); stars twinkle and a meteor crosses the sky. `prefers-reduced-motion` shows the finished static state.
 3. Chinese intro below the workspace image + "Now" blockquote.
 4. Chapters as centred `<h1>` openers `01–04`; subsections use `<kbd>label</kbd> <b>English</b>`.
    - 01 重点作品 — two `<details>` layers: 主推 (open by default) with lead cards EduCanvas, SciScope; 精选 (collapsed) with rows TTT-I-M, BDI, PulseGraph.
    - 02 用代码做动画 — series statement, then one card per work (01 clawd-mv).
    - 03 技术栈 — centered light/dark SVG, 3×2 grid with interrupted borders, corner marks and numbered groups; original skillicons and shields are embedded.
    - 04 更多 — Sophon AI card, Seen; folds "其他作品" and "数学建模" (one fold per modeling project inside).
-5. `skyline.svg` — live terminal: `git log` of the 5 latest commits across public repos, contribution skyline (one building per week, windows = days), a 24-floor commit-hour tower (weekday × hour, UTC+8) and the real moon phase (snapped to 1/16 cycle), closing with `echo "Thanks for stopping by."` as the page bookend. Refreshed daily by `.github/workflows/skyline.yml`.
+5. `skyline.svg` — live terminal: `git log` of the 5 latest commits across public repos, contribution skyline (one building per week, windows = days), a 24-floor commit-hour tower (weekday × hour, UTC+8) and the real moon phase (snapped to 1/16 cycle), closing with `echo "Thanks for stopping by."` as the page bookend. Refreshed daily by `.github/workflows/skyline.yml`. Motion is decorative only (stars, a meteor, the moon halo, a car on the street, the roof beacon, the retyped echo on a 14 s loop); buildings and windows are data and never animate.
 Project cards: frames stay decorative; the status bar is live (lamp = commit in the last 14 days, 12 weekly bars, commits / 12w and last commit date).
 6. Invitation text and grey contact buttons.
 

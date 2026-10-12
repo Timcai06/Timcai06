@@ -3,6 +3,7 @@ from pathlib import Path
 from html import escape
 import base64
 import json
+from motion import Motion
 root = Path(__file__).resolve().parents[1]
 out = root / 'assets/editor'
 out.mkdir(exist_ok=True)
@@ -35,25 +36,9 @@ TOK = dict(kw='#c6a6ed', type='#7fd1c7', var='#8fc4f0', prop='#a9c3e8', str='#b0
 def code_line(x, y, tokens, size, extra=''):
     spans = ''.join(f'<tspan fill="{TOK[k]}"' + (' font-style="italic"' if k == 'comment' else '') + f'>{escape(t)}</tspan>' for t, k in tokens)
     return f'<text x="{x}" y="{y}" font-size="{size}" xml:space="preserve" {extra}>{spans}</text>'
-# ---- Motion: CSS keyframes inside the SVG (GitHub renders <img> SVGs with CSS animation).
-# Like a pixel room with a few moving props, nearly everything stays still. Each moving
-# element carries its reduced-motion end state as attributes; prefers-reduced-motion
-# turns the keyframes off and leaves that state.
-KEYFRAMES=[]
-def window_anim(name, start, end, period, prop='opacity'):
-    """Visible only during [start, end) seconds of a looping period; start > end wraps around the loop."""
-    a, z = round(start/period*100, 3), round(end/period*100, 3)
-    if a > z:
-        frames = f'0%{{{prop}:1}}{z}%{{{prop}:0}}{a}%{{{prop}:1}}'
-    else:
-        frames = (f'0%{{{prop}:0}}' if a > 0 else '') + f'{a}%{{{prop}:1}}' + (f'{z}%{{{prop}:0}}' if z < 100 else '')
-    KEYFRAMES.append(f'@keyframes {name}{{{frames}}}.{name}{{animation:{name} {period}s step-end infinite}}')
-    return name
-def motion_style():
-    return ('<style>@keyframes blink{0%{opacity:1}50%{opacity:0}}.blink{animation:blink 1.1s step-end infinite}'
-            '@keyframes tw{0%,100%{opacity:.2}50%{opacity:1}}'
-            + ''.join(KEYFRAMES) +
-            '@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>')
+# Motion helpers are shared with build_skyline.py (see motion.py for the rules).
+M=Motion()
+window_anim=M.window
 # Profile content is a static illustration, not a live editor or repository tree.
 # Project descriptions/stacks: the respective repository READMEs (see assets/editor/README.md).
 S=lambda t,k:(t,k)
@@ -179,7 +164,7 @@ WALK=[cursor+k for k in range(6)]
 EDIT_T, HOLD = 6*2.2, 2.2
 def line_end(i): return len(''.join(t for t,_ in code[i]).rstrip())
 shift=''.join(f'{round(k/len(WALK)*100,3)}%{{transform:translateY({k*STEP}px)}}' for k in range(len(WALK)))
-KEYFRAMES.append(f'@keyframes walk{{{shift}}}.walk{{animation:walk {EDIT_T}s step-end infinite}}')
+M.raw(f'@keyframes walk{{{shift}}}.walk{{animation:walk {EDIT_T}s step-end infinite}}')
 b.append(rect(309,CY+cursor*STEP-15,770,STEP,'#1c2539','class="walk"'))
 for i,tokens in enumerate(code):
     y=CY+i*STEP
@@ -191,6 +176,12 @@ for i,tokens in enumerate(code):
         b.append(text(370,y-1,'⌄',12,'#56637f','text-anchor="middle"'))
     b.append(text(348,y,str(i+1),13,'#56637f','text-anchor="end"'))
     if tokens: b.append(code_line(CX,y,tokens,SIZE))
+# The explorer row and minimap marker follow the same walk (tree rows: featured,
+# EduCanvas, SciScope, PulseGraph, TTT-I-M for `portfolio`, 01-clawd-mv).
+TREE_ROW=[1,2,3,6,4,8]
+for k,(i,row) in enumerate(zip(WALK,TREE_ROW)):
+    b.append(f'<g class="ln{k}" opacity="{1 if k==0 else 0}">'+rect(95,173+row*25,211,25,'#ffffff','opacity=".05"')
+             +rect(95,173+row*25,2,25,'#8491ae')+rect(1086,151+i*5,3,4,'#edc38c')+'</g>')
 for k,i in enumerate(WALK):
     # Bright line number and blinking caret for each stop of the walk.
     y=CY+i*STEP
@@ -213,10 +204,10 @@ b += [rect(308,y,846,1,'#3a435a'),text(333,y+24,'PROBLEMS',12,'#6d7a97','letter-
       rect(505,y+31,70,2,'#e8b983'),text(1136,y+24,'zsh   +  ⌄   ×',13,'#7f8ba7','text-anchor="end"'),
       ]
 # One tspan per typed character keeps the reveal font-independent.
-TERM_T, TYPE_AT, CHAR_DT, RESET = 12, 0.9, 0.09, 11.4
+TERM_T, TYPE_AT, CHAR_DT, RESET = 12, 0.7, 0.055, 11.4
 cmd='cat now.txt'
-typed=''.join(f'<tspan fill="{TOK["plain"]}" class="{window_anim(f"ch{j}",TYPE_AT+j*CHAR_DT,RESET,TERM_T,"fill-opacity")}">{escape(c)}</tspan>' for j,c in enumerate(cmd))
-done=TYPE_AT+len(cmd)*CHAR_DT+0.35
+typed=M.typed('ch',cmd,TOK['plain'],TYPE_AT,CHAR_DT,RESET,TERM_T)
+done=TYPE_AT+len(cmd)*CHAR_DT+0.3
 cw15=15*0.6
 b += [f'<text x="333" y="{y+54}" font-size="15" xml:space="preserve"><tspan fill="{TOK["var"]}">~/Timcai06</tspan><tspan fill="{TOK["b1"]}"> $ </tspan>{typed}</text>',
       f'<g class="{window_anim("idle0",RESET,TYPE_AT,TERM_T)}" opacity="0">'+rect(round(333+len('~/Timcai06 $ ')*cw15)+2,y+42,9,15,'#edc38c','opacity=".85" class="blink"')+'</g>',
@@ -228,13 +219,14 @@ b += [f'<text x="333" y="{y+54}" font-size="15" xml:space="preserve"><tspan fill
 STARS=[(28,22,'#f2c48f',0),(176,34,'#8fa0d8',1.1),(318,14,'#f2c48f',2.3),(512,40,'#8fa0d8',.6),(688,18,'#f2c48f',1.7),
        (842,36,'#8fa0d8',2.9),(1004,16,'#f2c48f',.3),(1176,30,'#8fa0d8',2.0),(18,180,'#8fa0d8',1.4),(30,330,'#f2c48f',2.6),
        (1180,200,'#f2c48f',.9),(1172,360,'#8fa0d8',2.2)]
-b[3:3]=[rect(x,yy,3,3,c,f'style="animation:tw 3.4s ease-in-out {d}s infinite"') for x,yy,c,d in STARS]
+# Behind the window, so a meteor only shows while crossing the open sky.
+b[3:3]=M.stars(STARS)+[M.meteor('meteor',380,4,220,52,11,3.5)]
 b += [rect(46,STATUS_Y,1108,29,'#313952'),rect(46,STATUS_Y,140,29,'#4a3f63'),
       text(60,STATUS_Y+20,'{} SVG profile',13,'#f5d2a4'),text(206,STATUS_Y+20,'Animated illustration',12,'#bcc8e2')]
 for k,i in enumerate(WALK):
     b.append(text(1138,STATUS_Y+20,f'Ln {i+1}, Col {line_end(i)+1}    Spaces: 2    UTF-8    LF    TypeScript',13,'#bcc8e2',
                   f'text-anchor="end" opacity="{1 if k==0 else 0}" class="ln{k}"'))
-b.insert(0,motion_style())
+b.insert(0,M.style())
 if WRITE:
     (out/'workspace.svg').write_text(svg(1200,HEIGHT,b,"Tim's profile workspace: projects, technology stack and mathematical modeling"))
     print('Built workspace')
