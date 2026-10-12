@@ -2,6 +2,7 @@
 from pathlib import Path
 from html import escape
 import base64
+import json
 root = Path(__file__).resolve().parents[1]
 out = root / 'assets/editor'
 out.mkdir(exist_ok=True)
@@ -222,7 +223,25 @@ TERMINAL_CMDS = {  # quick-start commands quoted from each repository README
 REPO_DIR = {'tttim':'TTT-I-M','bdi':'BDI','sciscope':'SciScope','educanvas':'EduCanvas','pulsegraph':'PulseGraph'}
 def tspans(parts):
     return ''.join(f'<tspan fill="{c}"{extra}>{escape(t)}</tspan>' for t,c,extra in parts)
-# Decorative frames only: these marks are not charts, metrics or live status.
+# Frames are decorative only: these marks are not charts, metrics or live status.
+# Live data lives in one place per card, the status bar (see card_activity).
+ACTIVITY = json.loads((root/'assets/editor/activity.json').read_text())['cards']
+def card_activity(repo, accent):
+    # Real commits by Tim on the default branch: lamp = any in the last 14 days,
+    # bars = the last 12 calendar weeks (oldest left), then the last commit date. Text must end before
+    # the right-hand 'Markdown   UTF-8   LF' (x≈453).
+    from datetime import date, timedelta
+    a = ACTIVITY[repo]
+    active = a['last_commit'] and date.fromisoformat(a['last_commit']) >= date.today() - timedelta(days=14)
+    out = [f'<circle cx="114" cy="494" r="3.5" fill="{accent if active else "#4b5774"}"/>']
+    peak = max(a['weeks']) or 1
+    for i, n in enumerate(a['weeks']):
+        h = max(1, round(n / peak * 13))
+        out.append(rect(126 + i * 6, 501 - h, 4, h, accent if n else '#4b5774', '' if n else 'opacity=".7"'))
+    label = f"{sum(a['weeks'])} commits / 12w · {a['last_commit'] or '—'}"
+    assert 206 + len(label) * 12 * 0.6 < 450
+    out.append(text(206, 498, label, 12, '#aab6d2'))
+    return out
 CARD_ORDER = {'educanvas': 1, 'sciscope': 2, 'tttim': 3, 'bdi': 4, 'pulsegraph': 5}
 def project_frame(slug, name, accent):
     edge, mark, label = '#536070', '#b1bac4', '#bac3ce'
@@ -332,7 +351,7 @@ for slug,name,tagline,desc,stack,accent in compact:
     b.append(rect(round(40+len('~/'+REPO_DIR[slug]+' $ ')*13*0.6)+1,439,7,14,'#edc38c','opacity=".85"'))
     # Status bar.
     b += [rect(X0+1,480,X1-X0-2,27,'#252f48'),rect(X0+1,480,74,27,'#3a3356'),
-          text(34,498,'⎇ main',12,'#f5d2a4'),text(110,498,'⊗ 0  ⚠ 0',12,'#aab6d2'),
+          text(34,498,'⎇ main',12,'#f5d2a4'),*card_activity(REPO_DIR[slug],accent),
           text(604,498,'Markdown   UTF-8   LF',12,'#aab6d2','text-anchor="end"')]
     b.extend(project_frame(slug, name, accent))
     (out/(slug+'-compact.svg')).write_text(svg(640,540,b,name+' — '+tagline))

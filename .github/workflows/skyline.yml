@@ -1,4 +1,4 @@
-name: Contribution skyline
+name: Live profile data
 
 on:
   schedule:
@@ -16,17 +16,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install pillow
-      - run: python scripts/build_skyline.py
+      - run: pip install pillow==12.2.0  # same as local, so PNG bytes stay stable
+      - run: python scripts/fetch_activity.py
         env:
           # A fine-grained PAT (read-only) counts private contributions the same
           # way the profile does; the default token falls back to public data.
           GH_TOKEN: ${{ secrets.SKYLINE_TOKEN || github.token }}
+      - run: python scripts/build_skyline.py
+      - run: python scripts/build_profile.py
       - name: Commit if changed
         run: |
-          git diff --quiet assets/editor/skyline.svg && exit 0
+          git diff --quiet assets/editor && exit 0
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add assets/editor/skyline.svg
-          git commit -m 'chore(profile): refresh contribution skyline'
+          git add assets/editor
+          git commit -m 'chore(profile): refresh live profile data'
           git push
