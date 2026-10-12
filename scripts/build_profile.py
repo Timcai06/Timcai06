@@ -116,14 +116,25 @@ for x,c in [(69,'#f28c84'),(90,'#e9ba79'),(111,'#97bf9b')]:
 b += [rect(452,68,296,24,'#1a2133','rx="6" stroke="#2f3851"'),
       text(600,85,'⌕  Timcai06 — profile',13,'#9aa5c0','text-anchor="middle"'),
       text(1132,85,'▣  ◧  ▤',13,'#6f7b97','text-anchor="end"')]
+# ---- Session timeline (40 s loop). The window opens on the night sky, the interface
+# loads in, the cursor walks the projects, ⌘P jumps to clawdMV, the terminal runs a
+# second command, and the window closes again. Every element keeps its designed place:
+# reduced motion (no animation) shows exactly the original static workspace.
+S=40
+WIN_RECT=b[3]
+def G(cls, parts, extra=''): return f'<g class="{cls}"{extra}>'+''.join(parts)+'</g>'
+_n=[0]
+def app(at, parts, dx=0, dy=0):
+    _n[0]+=1
+    return G(M.appear(f'a{_n[0]}', at, S, dx, dy), parts)
 # Activity bar and explorer.
 b += [rect(46,101,48,STATUS_Y-101,'#141a2d'),rect(94,101,214,STATUS_Y-101,'#131a2c'),
       rect(307,101,1,STATUS_Y-101,'#303950'),rect(46,110,3,44,'#e5b581')]
-for y,g,c in [(141,'▣','#d5dcef'),(196,'⌕','#8491ae'),(251,'⑂','#8491ae'),(306,'▷','#8491ae'),
-              (361,'⧉','#8491ae'),(STATUS_Y-64,'◉','#8491ae'),(STATUS_Y-18,'⚙','#8491ae')]:
-    b.append(text(60,y,g,24,c))
-b += [text(111,132,'EXPLORER',12,'#8995b2','letter-spacing="1"'),text(292,132,'⋯',14,'#8995b2','text-anchor="end"'),
-      text(108,162,'⌄ TIMCAI06',13,'#dde4f5','font-weight="700" letter-spacing=".5"')]
+for k,(y,g,c) in enumerate([(141,'▣','#d5dcef'),(196,'⌕','#8491ae'),(251,'⑂','#8491ae'),(306,'▷','#8491ae'),
+              (361,'⧉','#8491ae'),(STATUS_Y-64,'◉','#8491ae'),(STATUS_Y-18,'⚙','#8491ae')]):
+    b.append(app(0.35+k*0.04,[text(60,y,g,24,c)],dx=-6))
+b.append(app(0.4,[text(111,132,'EXPLORER',12,'#8995b2','letter-spacing="1"'),text(292,132,'⋯',14,'#8995b2','text-anchor="end"'),
+      text(108,162,'⌄ TIMCAI06',13,'#dde4f5','font-weight="700" letter-spacing=".5"')]))
 tree=[(0,'file','TS','#5aa2e8','about.ts','#efc38f'),
       (0,'dir','⌄','#8491ae','featured','#c3cde4'),
       (1,'proj','#e8c397',None,'EduCanvas','#a8b8d4'),(1,'proj','#9ec9e9',None,'SciScope','#a8b8d4'),
@@ -133,102 +144,139 @@ tree=[(0,'file','TS','#5aa2e8','about.ts','#efc38f'),
       (0,'dir','⌄','#8491ae','math-model','#c3cde4'),
       *[(1,'proj','#7fd1c7',None,name,'#a8b8d4') for name in ['energy','agriculture','oil-prices','desert','glass']],
       (0,'file','{}','#e8c06a','toolbox.json','#a8b8d4'),(0,'file','M↓','#7fa7d9','contact.md','#a8b8d4')]
-b += [rect(95,173,211,26,'#29314a'),rect(95,173,2,26,'#e5b581')]
+b.append(app(0.45,[rect(95,173,211,26,'#29314a'),rect(95,173,2,26,'#e5b581')]))
 for i,(lvl,kind,icon,ic,name,nc) in enumerate(tree):
     y=191+i*25; x=114+lvl*18
-    if lvl: b.append(rect(119,y-18,1,25,'#323b55'))
+    row=[rect(119,y-18,1,25,'#323b55')] if lvl else []
     if kind=='proj':
-        b += [text(x,y,'▸',12,'#6f7b97'),f'<circle cx="{x+21}" cy="{y-5}" r="4.5" fill="{icon}"/>',text(x+32,y,name,14,nc)]
+        row += [text(x,y,'▸',12,'#6f7b97'),f'<circle cx="{x+21}" cy="{y-5}" r="4.5" fill="{icon}"/>',text(x+32,y,name,14,nc)]
     elif kind=='dir':
-        b += [text(x,y,icon,14,ic),text(x+18,y,name,14,nc)]
+        row += [text(x,y,icon,14,ic),text(x+18,y,name,14,nc)]
     else:
-        b += [text(x,y,icon,11,ic,'font-weight="700"'),text(x+26,y,name,14,nc)]
+        row += [text(x,y,icon,11,ic,'font-weight="700"'),text(x+26,y,name,14,nc)]
+    b.append(app(0.45+i*0.05,row,dx=-8))
 # Outline is derived from the same fields and line numbers as the editor.
 outline_y=191+len(tree)*25+12
-b += [rect(95,outline_y,212,1,'#2a3149'),text(108,outline_y+23,'⌄  OUTLINE',12,'#7f8aa6','letter-spacing=".5"'),
-      text(114,outline_y+49,'{} tim',14,'#e8c39a')]
+b.append(app(1.4,[rect(95,outline_y,212,1,'#2a3149'),text(108,outline_y+23,'⌄  OUTLINE',12,'#7f8aa6','letter-spacing=".5"'),
+      text(114,outline_y+49,'{} tim',14,'#e8c39a')]))
 for i,(key,kind,line) in enumerate(fields):
     y=outline_y+75+i*23
     icon={'string':'ab','array':'[]','object':'{}'}[kind]
-    b += [text(130,y,icon,11,'#7fd1c7'),text(155,y,key,13,'#a8b8d4'),
-          text(290,y,str(line),11,'#6f7b97','text-anchor="end"')]
+    b.append(app(1.45+i*0.05,[text(130,y,icon,11,'#7fd1c7'),text(155,y,key,13,'#a8b8d4'),
+          text(290,y,str(line),11,'#6f7b97','text-anchor="end"')],dx=-6))
 assert outline_y+75+(len(fields)-1)*23 < STATUS_Y-20
 # Tabs and breadcrumbs.
-b += [rect(308,101,846,40,'#0e1423'),rect(308,101,168,40,'#111728'),rect(308,101,168,2,'#edbf88'),
+b += [rect(308,101,846,40,'#0e1423')]
+b.append(app(0.6,[rect(308,101,168,40,'#111728'),rect(308,101,168,2,'#edbf88'),
       text(324,126,'TS',11,'#5aa2e8','font-weight="700"'),text(348,126,'about.ts',15,'#e8c39a'),text(458,126,'×',14,'#8b95ae','text-anchor="end"'),
       rect(476,101,1,40,'#262e44'),text(492,126,'{}',11,'#e8c06a','font-weight="700"'),text(516,126,'toolbox.json',15,'#7f8ba7'),
       rect(652,101,1,40,'#262e44'),text(668,126,'M↓',11,'#7fa7d9','font-weight="700"'),text(694,126,'contact.md',15,'#7f8ba7'),
-      rect(818,101,1,40,'#262e44'),text(1136,126,'⧉  ⋯',14,'#7f8ba7','text-anchor="end"'),
-      code_line(326,164,[('Timcai06','punct'),('  ›  ','punct'),('TS ','var'),('about.ts','punct'),('  ›  ','punct'),('{} ','b1'),('tim','prop')],13)]
+      rect(818,101,1,40,'#262e44'),text(1136,126,'⧉  ⋯',14,'#7f8ba7','text-anchor="end"')],dy=-4))
+b.append(app(0.85,[code_line(326,164,[('Timcai06','punct'),('  ›  ','punct'),('TS ','var'),('about.ts','punct'),('  ›  ','punct'),('{} ','b1'),('tim','prop')],13)]))
 cursor=next(line-1 for key,_,line in fields if key=='projects')
-# The active line walks from `projects` through its six entries and loops.
+# The active line walks from `projects` through its six entries; ⌘P later jumps to clawdMV.
 WALK=[cursor+k for k in range(7)]
-EDIT_T, HOLD = 7*2.2, 2.2
+WALK_AT, HOLD = 6.0, 2.1
+PAL_START, PAL_END = 22.0, 25.6
+STOPS=([(0,WALK_AT+HOLD,0)]+[(WALK_AT+k*HOLD,WALK_AT+(k+1)*HOLD,k) for k in range(1,7)]
+       +[(WALK_AT+7*HOLD,PAL_END,0),(PAL_END,S,6)])
 def line_end(i): return len(''.join(t for t,_ in code[i]).rstrip())
-shift=''.join(f'{round(k/len(WALK)*100,3)}%{{transform:translateY({k*STEP}px)}}' for k in range(len(WALK)))
-M.raw(f'@keyframes walk{{{shift}}}.walk{{animation:walk {EDIT_T}s step-end infinite}}')
-b.append(rect(309,CY+cursor*STEP-15,770,STEP,'#1c2539','class="walk"'))
+shift=''.join(f'{round(a/S*100,3)}%{{transform:translateY({k*STEP}px)}}' for a,_,k in STOPS)
+M.raw(f'@keyframes walk{{{shift}}}.walk{{animation:walk {S}s step-end infinite}}')
+b.append(app(1.9,[rect(309,CY+cursor*STEP-15,770,STEP,'#1c2539','class="walk"')]))
 for i,tokens in enumerate(code):
     y=CY+i*STEP
     plain=''.join(t for t,_ in tokens)
     indent=len(plain)-len(plain.lstrip())
-    for level in range(0,indent,2):
-        b.append(rect(round(CX+level*CW)+1,y-15,1,STEP,'#2c3550'))
+    row=[rect(round(CX+level*CW)+1,y-15,1,STEP,'#2c3550') for level in range(0,indent,2)]
     if plain.rstrip().endswith(('{','[')):
-        b.append(text(370,y-1,'⌄',12,'#56637f','text-anchor="middle"'))
-    b.append(text(348,y,str(i+1),13,'#56637f','text-anchor="end"'))
-    if tokens: b.append(code_line(CX,y,tokens,SIZE))
+        row.append(text(370,y-1,'⌄',12,'#56637f','text-anchor="middle"'))
+    row.append(text(348,y,str(i+1),13,'#56637f','text-anchor="end"'))
+    if tokens: row.append(code_line(CX,y,tokens,SIZE))
+    b.append(app(0.8+i*0.04,row,dx=-4))
 # The explorer row and minimap marker follow the same walk, row for row:
 # projects -> featured/, then EduCanvas, SciScope, TTT-I-M, BDI, PulseGraph, 01-clawd-mv.
 TREE_ROW=[1,2,3,4,5,6,8]
 assert [tree[r][4] for r in TREE_ROW[1:6]]==[k.strip('"') for k,_ in [(''.join(t for t,_ in code[i]).split(':')[0].strip(),0) for i in WALK[1:6]]]
+for k in range(len(WALK)):
+    M.spans(f'ln{k}',[(a,z) for a,z,kk in STOPS if kk==k],S)
+walk_marks=[]
 for k,(i,row) in enumerate(zip(WALK,TREE_ROW)):
-    b.append(f'<g class="ln{k}" opacity="{1 if k==0 else 0}">'+rect(95,173+row*25,211,25,'#ffffff','opacity=".05"')
-             +rect(95,173+row*25,2,25,'#8491ae')+rect(1086,151+i*5,3,4,'#edc38c')+'</g>')
-for k,i in enumerate(WALK):
-    # Bright line number and blinking caret for each stop of the walk.
     y=CY+i*STEP
-    cls=window_anim(f'ln{k}',k*HOLD,(k+1)*HOLD,EDIT_T)
-    b.append(f'<g class="{cls}" opacity="{1 if k==0 else 0}">'+text(348,y,str(i+1),13,'#c9d2e6','text-anchor="end"')
+    walk_marks.append(f'<g class="ln{k}" opacity="{1 if k==0 else 0}">'+rect(95,173+row*25,211,25,'#ffffff','opacity=".05"')
+             +rect(95,173+row*25,2,25,'#8491ae')+rect(1086,151+i*5,3,4,'#edc38c')
+             +text(348,y,str(i+1),13,'#c9d2e6','text-anchor="end"')
              +rect(round(CX+line_end(i)*CW)+2,y-14,2,18,'#edc38c','class="blink"')+'</g>')
+b.append(app(1.9,walk_marks))
 # Minimap, viewport and scrollbar all track the content height.
-b += [rect(1084,145,1,TERMINAL_Y-154,'#262e44'),rect(1085,145,62,len(code)*5+14,'#ffffff','opacity=".04"'),
+mini=[rect(1084,145,1,TERMINAL_Y-154,'#262e44'),rect(1085,145,62,len(code)*5+14,'#ffffff','opacity=".04"'),
       rect(1148,145,6,TERMINAL_Y-154,'#151c2e'),rect(1149,155,4,160,'#4b5774','rx="2" opacity=".45"')]
 for i,tokens in enumerate(code):
     x=1092
     for t,k in tokens:
         w=len(t)*0.78
-        if t.strip(): b.append(rect(round(x,1),152+i*5,round(w,1),2.4,TOK[k],'opacity=".75"'))
+        if t.strip(): mini.append(rect(round(x,1),152+i*5,round(w,1),2.4,TOK[k],'opacity=".75"'))
         x+=w
-# Existing terminal introduction; coordinates follow the expanded editor.
+b.append(app(1.6,mini))
+# Terminal: `cat now.txt` after the panel rises; cleared at CLEAR, then `echo $FOCUS`
+# prints the focus field from about.ts. One tspan per typed character (font-independent).
 y=TERMINAL_Y
-b += [rect(308,y,846,1,'#3a435a'),text(333,y+24,'PROBLEMS',12,'#6d7a97','letter-spacing=".5"'),
+cw15=15*0.6
+cursor_x=round(333+len('~/Timcai06 $ ')*cw15)+2
+T1, DT, CLEAR, T2 = 3.0, 0.055, 29.5, 30.0
+cmd, cmd2 = 'cat now.txt', 'echo $FOCUS'
+done1, done2 = T1+len(cmd)*DT, T2+len(cmd2)*DT
+prompt_spans=f'<tspan fill="{TOK["var"]}">~/Timcai06</tspan><tspan fill="{TOK["b1"]}"> $ </tspan>'
+def caret(row_y, cls, base=1):
+    return f'<g class="{cls}" opacity="{base}">'+rect(cursor_x,row_y-12,9,15,'#edc38c','opacity=".85" class="blink"')+'</g>'
+term=[rect(308,y,846,1,'#3a435a'),text(333,y+24,'PROBLEMS',12,'#6d7a97','letter-spacing=".5"'),
       text(425,y+24,'OUTPUT',12,'#6d7a97','letter-spacing=".5"'),text(505,y+24,'TERMINAL',12,'#edc38c','letter-spacing=".5"'),
       rect(505,y+31,70,2,'#e8b983'),text(1136,y+24,'zsh   +  ⌄   ×',13,'#7f8ba7','text-anchor="end"'),
-      ]
-# One tspan per typed character keeps the reveal font-independent.
-TERM_T, TYPE_AT, CHAR_DT, RESET = 12, 0.7, 0.055, 11.4
-cmd='cat now.txt'
-typed=M.typed('ch',cmd,TOK['plain'],TYPE_AT,CHAR_DT,RESET,TERM_T)
-done=TYPE_AT+len(cmd)*CHAR_DT+0.3
-cw15=15*0.6
-b += [f'<text x="333" y="{y+54}" font-size="15" xml:space="preserve"><tspan fill="{TOK["var"]}">~/Timcai06</tspan><tspan fill="{TOK["b1"]}"> $ </tspan>{typed}</text>',
-      f'<g class="{window_anim("idle0",RESET,TYPE_AT,TERM_T)}" opacity="0">'+rect(round(333+len('~/Timcai06 $ ')*cw15)+2,y+42,9,15,'#edc38c','opacity=".85" class="blink"')+'</g>',
-      text(333,y+77,'Learning deeply. Building across the stack.',15,'#c3cde4',f'class="{window_anim("out0",done,RESET,TERM_T)}"'),
-      text(333,y+100,'从模型、数据到界面，让想法成为可用的产品。',16,'#a5b2ce',f'class="{window_anim("out1",done+0.25,RESET,TERM_T)}"'),
-      f'<g class="{window_anim("idle1",done+0.5,RESET,TERM_T)}">'+code_line(333,y+123,[('~/Timcai06','var'),(' $ ','b1')],15)
-      +rect(round(333+len('~/Timcai06 $ ')*cw15)+2,y+111,9,15,'#edc38c','opacity=".85" class="blink"')+'</g>']
+      G(window_anim('scr1',0,CLEAR,S),[
+        f'<text x="333" y="{y+54}" font-size="15" xml:space="preserve">{prompt_spans}{M.typed("ch",cmd,TOK["plain"],T1,DT,CLEAR,S)}</text>',
+        caret(y+54,window_anim('idle0',2.2,T1,S),0),
+        text(333,y+77,'Learning deeply. Building across the stack.',15,'#c3cde4',f'class="{window_anim("out0",done1+0.3,CLEAR,S)}"'),
+        text(333,y+100,'从模型、数据到界面，让想法成为可用的产品。',16,'#a5b2ce',f'class="{window_anim("out1",done1+0.55,CLEAR,S)}"'),
+        G(window_anim('idle1',done1+0.8,CLEAR,S),[code_line(333,y+123,[('~/Timcai06','var'),(' $ ','b1')],15),caret(y+123,'blink-host')])]),
+      G(window_anim('scr2',CLEAR+0.2,S,S),[
+        f'<text x="333" y="{y+54}" font-size="15" xml:space="preserve">{prompt_spans}{M.typed("fo",cmd2,TOK["plain"],T2,DT,S,S)}</text>',
+        caret(y+54,window_anim('idle2',CLEAR+0.2,T2,S),0),
+        text(333,y+77,'AI agents · ML observability · Full-stack',15,'#c3cde4',f'class="{window_anim("out2",done2+0.3,S,S)}"'),
+        G(window_anim('idle3',done2+0.6,S,S),[code_line(333,y+100,[('~/Timcai06','var'),(' $ ','b1')],15),caret(y+100,'blink-host')])],
+        ' opacity="0"')]
+b.append(app(2.2,term,dy=14))
 # Twinkling stars in the strips of night sky around the window.
 STARS=[(28,22,'#f2c48f',0),(176,34,'#8fa0d8',1.1),(318,14,'#f2c48f',2.3),(512,40,'#8fa0d8',.6),(688,18,'#f2c48f',1.7),
        (842,36,'#8fa0d8',2.9),(1004,16,'#f2c48f',.3),(1176,30,'#8fa0d8',2.0),(18,180,'#8fa0d8',1.4),(30,330,'#f2c48f',2.6),
        (1180,200,'#f2c48f',.9),(1172,360,'#8fa0d8',2.2)]
-# Behind the window, so a meteor only shows while crossing the open sky.
-b[3:3]=M.stars(STARS)+[M.meteor('meteor',380,4,220,52,11,3.5)]
 b += [rect(46,STATUS_Y,1108,29,'#313952'),rect(46,STATUS_Y,140,29,'#4a3f63'),
       text(60,STATUS_Y+20,'{} SVG profile',13,'#f5d2a4'),text(206,STATUS_Y+20,'Animated illustration',12,'#bcc8e2')]
 for k,i in enumerate(WALK):
     b.append(text(1138,STATUS_Y+20,f'Ln {i+1}, Col {line_end(i)+1}    Spaces: 2    UTF-8    LF    TypeScript',13,'#bcc8e2',
                   f'text-anchor="end" opacity="{1 if k==0 else 0}" class="ln{k}"'))
+# ⌘P quick open: types `clawd`, moves to clawdMV and "opens" it (the walk jumps to that line).
+PX,PY=408,106
+results=[('01-clawd-mv','motion/','#f28c84'),('clawdMV',f'about.ts:{WALK[6]+1}','#e8c39a'),('clawd-mv.jpg','assets/motion/','#8fa0d8')]
+pal=[rect(PX,PY,384,138,'#1a2133','rx="8" stroke="#3a4562" filter="url(#shadow)"'),
+     rect(PX+10,PY+10,364,28,'#111728','rx="5" stroke="#edc38c" stroke-opacity=".55"'),
+     text(PX+22,PY+29,'Search files by name',13,'#5f6b88',f'class="{window_anim("ph",0,PAL_START+0.45,S)}"'),
+     f'<text x="{PX+22}" y="{PY+29}" font-size="13" xml:space="preserve">{M.typed("pq","clawd","#e6ecf8",PAL_START+0.45,0.08,PAL_END,S)}</text>']
+sel=[[(PAL_START+0.95,PAL_START+2.1)],[(PAL_START+2.1,PAL_END)],[]]
+res=[]
+for r,(name,where,dot) in enumerate(results):
+    ry=PY+48+r*28
+    if sel[r]: res.append(rect(PX+6,ry,372,26,'#2a3552',f'rx="4" class="{M.spans(f"sel{r}",sel[r],S)}"'))
+    res += [f'<circle cx="{PX+22}" cy="{ry+13}" r="4" fill="{dot}"/>',
+            f'<text x="{PX+34}" y="{ry+18}" font-size="14" xml:space="preserve"><tspan fill="#edc38c" font-weight="700">{escape(name[:5])}</tspan>'
+            f'<tspan fill="#dfe6f5">{escape(name[5:])}</tspan></text>',
+            text(PX+370,ry+18,where,12,'#6f7b97','text-anchor="end"')]
+pal.append(G(window_anim('res',PAL_START+0.95,PAL_END,S),res))
+b.append(G(M.pop('pal',PAL_START,PAL_END,S),pal,' opacity="0"'))
+# Stars and the meteor sit behind the window; everything from the window frame up opens and closes.
+w0=b.index(WIN_RECT)
+M.raw(f'@keyframes win{{0%{{opacity:0;transform:scale(.95)}}1.5%{{opacity:1;transform:scale(1)}}96.5%{{opacity:1;transform:scale(1)}}'
+      f'98.5%,100%{{opacity:0;transform:scale(.97)}}}}.win{{transform-origin:600px {HEIGHT//2}px;animation:win {S}s ease-out infinite}}')
+b=b[:w0]+M.stars(STARS)+[M.meteor('meteor',380,4,220,52,11,3.5),G('win',b[w0:])]
 b.insert(0,M.style())
 if WRITE:
     (out/'workspace.svg').write_text(svg(1200,HEIGHT,b,"Tim's profile workspace: projects, technology stack and mathematical modeling"))

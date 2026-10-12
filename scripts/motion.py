@@ -27,6 +27,34 @@ class Motion:
         self.raw(f'@keyframes {name}{{{frames}}}.{name}{{animation:{name} {period}s step-end {-(self.phase % period):.2f}s infinite}}')
         return name
 
+    def spans(self, name, intervals, period, prop='opacity'):
+        """Visible during each [start, end) of a looping period (step changes)."""
+        pct = lambda t: round(t / period * 100, 3)
+        frames, on = [], False
+        for t in sorted({0, *[x for ab in intervals for x in ab]}):
+            now = any(a <= t < z for a, z in intervals)
+            if t == 0 or now != on:
+                frames.append(f'{pct(t)}%{{{prop}:{1 if now else 0}}}')
+                on = now
+        self.raw(f'@keyframes {name}{{{"".join(frames)}}}.{name}{{animation:{name} {period}s step-end infinite}}')
+        return name
+
+    def appear(self, name, at, period, dx=0, dy=0, dur=.45):
+        """Hidden from the start of each loop, eases in at `at` seconds, then stays."""
+        a, z = round(at / period * 100, 3), round((at + dur) / period * 100, 3)
+        hidden = f'opacity:0;transform:translate({dx}px,{dy}px)'
+        self.raw(f'@keyframes {name}{{0%,{a}%{{{hidden}}}{z}%,100%{{opacity:1;transform:translate(0,0)}}}}'
+                 f'.{name}{{animation:{name} {period}s ease-out infinite}}')
+        return name
+
+    def pop(self, name, start, end, period, dy=-6, dur=.2):
+        """Eases in at `start`, eases out by `end` (for overlays such as a command palette)."""
+        p = lambda t: round(t / period * 100, 3)
+        hidden = f'opacity:0;transform:translate(0,{dy}px)'
+        self.raw(f'@keyframes {name}{{0%,{p(start)}%{{{hidden}}}{p(start + dur)}%,{p(end - dur)}%{{opacity:1;transform:translate(0,0)}}'
+                 f'{p(end)}%,100%{{{hidden}}}}}.{name}{{animation:{name} {period}s ease-out infinite}}')
+        return name
+
     def typed(self, prefix, text, color, start, dt, end, period):
         """One tspan per character (font-independent reveal); returns the tspans."""
         return ''.join(f'<tspan fill="{color}" class="{self.window(f"{prefix}{j}", start + j * dt, end, period, "fill-opacity")}">'
