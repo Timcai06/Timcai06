@@ -1,8 +1,8 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/title-dark.svg?v=0500387c">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/title-light.svg?v=e769fc15">
-    <img src="./assets/hero/title-light.svg?v=e769fc15" alt="Hi, I'm Tim Cai">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/title-dark.svg?v=60e8f08f">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/title-light.svg?v=851ecf8a">
+    <img src="./assets/hero/title-light.svg?v=851ecf8a" alt="Hi, I'm Tim Cai">
   </picture>
 </p>
 
@@ -15,9 +15,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/tagline-dark.svg?v=6752d516">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/tagline-light.svg?v=664a65b5">
-    <img src="./assets/hero/tagline-light.svg?v=664a65b5" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/tagline-dark.svg?v=15ba0ae9">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/tagline-light.svg?v=eb55cd30">
+    <img src="./assets/hero/tagline-light.svg?v=eb55cd30" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
   </picture>
 </p>
 

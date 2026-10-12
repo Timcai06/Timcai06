@@ -1,8 +1,11 @@
-"""Build the hero typing SVGs locally (replaces readme-typing-svg.demolab.com).
+"""Build the hero SVGs locally (no external service).
 
-Same mechanism as the hosted service: a textPath whose path grows and shrinks
-via SMIL, with a subset of JetBrains Mono embedded so the look does not depend
-on installed fonts. Run with: uv run --with fonttools python scripts/build_hero.py
+- title: "Hi, I'm Tim Cai" in a 5x7 pixel font, matching the page's pixel art. A 16 s
+  loop: columns light up and drop in left to right, a block cursor blinks, a highlight
+  sweeps the letters twice, stars twinkle, a meteor passes, then the columns go out.
+- tagline: typed lines (a textPath whose path grows and shrinks via SMIL, JetBrains
+  Mono subset embedded), with a block cursor that follows the reveal edge.
+Run with: uv run --with fonttools python scripts/build_hero.py
 """
 from pathlib import Path
 from html import escape
@@ -16,11 +19,9 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'assets/hero'
 FONTS = OUT / 'fonts'
 COLORS = {'dark': '#79C0FF', 'light': '#0969DA'}
-WEIGHT_FILE = {500: 'JetBrainsMono-Medium.ttf', 600: 'JetBrainsMono-SemiBold.ttf'}
+WEIGHT_FILE = {500: 'JetBrainsMono-Medium.ttf'}
 
 HEROES = [
-    dict(name='title', weight=600, size=30, width=540, height=50, letter_spacing='1px',
-         duration=1800, pause=6000, repeat=True, lines=["Hi, I'm Tim Cai"]),
     dict(name='tagline', weight=500, size=18, width=760, height=50, letter_spacing='normal',
          duration=3000, pause=900, repeat=True, lines=['Building evidence-grounded AI systems',
                                                        'Designing ML tools you can inspect',
@@ -64,6 +65,17 @@ def build(h, color):
         values = f'm0,{y} h0 ; m0,{y} h{w} ; m0,{y} h{w} ; m0,{y} h{end_w}'
         body.append(f'<path id="path{i}"><animate id="d{i}" attributeName="d" begin="{begin}" dur="{total:g}ms" '
                     f'fill="{fill}" values="{values}" keyTimes="0;{k1:.6f};{k2:.6f};1"/></path>')
+        # Block cursor on the reveal edge, clamped to the text (JetBrains Mono advance = 0.6 em).
+        tw = len(line) * h['size'] * 0.6
+        left, right = w / 2 - tw / 2, w / 2 + tw / 2
+        t_l, t_r = left / w * k1, right / w * k1
+        e_r, e_l = k2 + (1 - right / w) * (1 - k2), k2 + (1 - left / w) * (1 - k2)
+        xs = f'{left:.1f};{left:.1f};{right:.1f};{right:.1f};{right:.1f};{left:.1f};{left:.1f}'
+        kt = f'0;{t_l:.6f};{t_r:.6f};{k2:.6f};{e_r:.6f};{e_l:.6f};1'
+        body.append(f'<rect y="{y - 11}" width="10" height="22" fill="{color}" opacity="0">'
+                    f'<set attributeName="opacity" to=".75" begin="d{i}.begin" end="d{i}.end"/>'
+                    f'<animate attributeName="x" begin="d{i}.begin" dur="{total:g}ms" values="{xs}" keyTimes="{kt}"/>'
+                    f'<animate attributeName="fill-opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1s" repeatCount="indefinite"/></rect>')
         body.append(f'<text font-family="\'JetBrains Mono\', monospace" font-weight="{h["weight"]}" fill="{color}" '
                     f'font-size="{h["size"]}" dominant-baseline="middle" x="50%" text-anchor="middle" '
                     f'letter-spacing="{h["letter_spacing"]}"><textPath xlink:href="#path{i}">{escape(line)}</textPath></text>')
@@ -73,7 +85,83 @@ def build(h, color):
             f'<title>{escape("; ".join(h["lines"]))}</title><style>{style}</style>' + ''.join(body) + '</svg>')
 
 
+# 5x7 pixel glyphs (rows top to bottom); blank columns are trimmed per glyph.
+GLYPHS = {
+    'H': ['10001', '10001', '10001', '11111', '10001', '10001', '10001'],
+    'i': ['00100', '00000', '01100', '00100', '00100', '00100', '01110'],
+    ',': ['00000', '00000', '00000', '00000', '01100', '00100', '01000'],
+    'I': ['01110', '00100', '00100', '00100', '00100', '00100', '01110'],
+    "'": ['00100', '00100', '01000', '00000', '00000', '00000', '00000'],
+    'm': ['00000', '00000', '11010', '10101', '10101', '10101', '10101'],
+    'T': ['11111', '00100', '00100', '00100', '00100', '00100', '00100'],
+    'C': ['01111', '10000', '10000', '10000', '10000', '10000', '01111'],
+    'a': ['00000', '00000', '01110', '00001', '01111', '10001', '01111'],
+}
+PIXEL = {'dark': dict(top='#b6dcff', bottom='#4f9cf0', shadow='#14304f', shine='#ffffff', stars=('#f2c48f', '#8fa0d8')),
+         'light': dict(top='#3f8ef5', bottom='#0550ae', shadow='#c9dcf5', shine='#ffffff', stars=('#bf8700', '#54aeff'))}
+
+
+def pixel_title(theme, text="Hi, I'm Tim Cai", W=540, H=80, P=6, S=5, LOOP=16):
+    pal = PIXEL[theme]
+    cols = []  # list of (column bits top->bottom) with spacing columns
+    for ch in text:
+        if ch == ' ':
+            cols += [[0] * 7] * 3
+            continue
+        g = GLYPHS[ch]
+        used = [c for c in range(5) if any(row[c] == '1' for row in g)]
+        for c in range(used[0], used[-1] + 1):
+            cols.append([int(row[c]) for row in g])
+        cols.append([0] * 7)
+    cols = cols[:-1]
+    x0, y0 = round((W - (len(cols) + 2) * P) / 2), round((H - 7 * P) / 2) + 4
+    ramp = lambda r: _mix(pal['top'], pal['bottom'], r / 6)
+    css = [f'@keyframes px{{0%{{opacity:0;transform:translateY(-8px)}}2.5%{{opacity:1;transform:translateY(0)}}'
+           f'93%{{opacity:1;transform:translateY(0)}}96%,100%{{opacity:0;transform:translateY(0)}}}}',
+           '@keyframes blink{0%{opacity:1}50%{opacity:0}}.blink{animation:blink 1.1s step-end infinite}',
+           f'@keyframes cur{{0%,11%{{opacity:0}}11.5%,93%{{opacity:1}}93.5%,100%{{opacity:0}}}}.cur{{animation:cur {LOOP}s step-end infinite}}',
+           f'@keyframes shine{{0%,26%{{transform:translateX(0)}}36%,58%{{transform:translateX({W + 160}px)}}58.01%{{transform:translateX(0)}}'
+           f'68%,100%{{transform:translateX({W + 160}px)}}}}.shine{{animation:shine {LOOP}s ease-in-out infinite}}',
+           '@keyframes tw{0%,100%{opacity:.25}50%{opacity:1}}',
+           f'@keyframes met{{0%,47%{{opacity:0;transform:translate(0,0)}}48%{{opacity:1}}53%,100%{{opacity:0;transform:translate(150px,26px)}}}}'
+           f'.met{{animation:met {LOOP}s linear infinite}}',
+           '@media (prefers-reduced-motion:reduce){*{animation:none!important}}']
+    body, mask = [], []
+    for k, bits in enumerate(cols):
+        x = x0 + k * P
+        on = [r for r in range(7) if bits[r]]
+        if not on:
+            continue
+        cells = ''.join(f'<rect x="{x + 1}" y="{y0 + r * P + 1}" width="{S}" height="{S}" fill="{pal["shadow"]}"/>' for r in on)
+        cells += ''.join(f'<rect x="{x}" y="{y0 + r * P}" width="{S}" height="{S}" fill="{ramp(r)}"/>' for r in on)
+        mask += [f'<rect x="{x}" y="{y0 + r * P}" width="{S}" height="{S}" fill="#fff"/>' for r in on]
+        body.append(f'<g style="animation:px {LOOP}s cubic-bezier(.2,.8,.2,1) {k * 0.022:.3f}s infinite backwards">{cells}</g>')
+    cx = x0 + (len(cols) + 1) * P
+    body.append(f'<g class="cur"><rect x="{cx}" y="{y0}" width="{S}" height="{7 * P - 1}" fill="{pal["bottom"]}" class="blink"/></g>')
+    body.append(f'<defs><mask id="letters">{"".join(mask)}</mask><linearGradient id="sh" x1="0" x2="1">'
+                f'<stop offset="0" stop-color="{pal["shine"]}" stop-opacity="0"/><stop offset=".5" stop-color="{pal["shine"]}" stop-opacity=".85"/>'
+                f'<stop offset="1" stop-color="{pal["shine"]}" stop-opacity="0"/></linearGradient></defs>'
+                f'<g mask="url(#letters)"><rect class="shine" x="-120" y="0" width="70" height="{H}" fill="url(#sh)" transform="skewX(-18)"/></g>')
+    stars = [(x0 - 26, 18, 0), (x0 + 70, 9, 1), (x0 + 205, 12, 0), (cx + 22, 20, 1), (cx - 60, 70, 0), (x0 + 30, 70, 1)]
+    for k, (sx, sy, c) in enumerate(stars):
+        col = pal['stars'][c]
+        body.append(f'<g style="animation:tw {2.6 + k % 3 * .7:.1f}s ease-in-out {k * .5:.1f}s infinite" opacity=".8">'
+                    f'<rect x="{sx}" y="{sy}" width="2" height="2" fill="{col}"/><rect x="{sx - 2}" y="{sy + .5}" width="6" height="1" fill="{col}" opacity=".5"/>'
+                    f'<rect x="{sx + .5}" y="{sy - 2}" width="1" height="6" fill="{col}" opacity=".5"/></g>')
+    body.append(f'<g class="met" opacity="0"><path d="M {x0 + 40} 4 l 22 4" stroke="{pal["stars"][0]}" stroke-width="2"/>'
+                f'<rect x="{x0 + 61}" y="7" width="3" height="3" fill="{pal["shine"]}"/></g>')
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img">'
+            f'<title>{escape(text)}</title><style>{"".join(css)}</style>' + ''.join(body) + '</svg>')
+
+
+def _mix(a, b, t):
+    pa, pb = [int(a[i:i + 2], 16) for i in (1, 3, 5)], [int(b[i:i + 2], 16) for i in (1, 3, 5)]
+    return '#' + ''.join(f'{round(x + (y - x) * t):02x}' for x, y in zip(pa, pb))
+
+
+for theme in PIXEL:
+    (OUT / f'title-{theme}.svg').write_text(pixel_title(theme))
 for hero in HEROES:
     for theme, color in COLORS.items():
         (OUT / f'{hero["name"]}-{theme}.svg').write_text(build(hero, color))
-print('Built hero typing SVGs')
+print('Built hero title (pixel) and tagline SVGs')
