@@ -1,6 +1,6 @@
 {
  "calendar": {
-  "totalContributions": 3080,
+  "totalContributions": 3069,
   "weeks": [
    {
     "contributionDays": [
@@ -1669,7 +1669,7 @@
      },
      {
       "date": "2026-08-07",
-      "contributionCount": 20,
+      "contributionCount": 19,
       "contributionLevel": "FIRST_QUARTILE"
      },
      {
@@ -1732,13 +1732,13 @@
      },
      {
       "date": "2026-08-18",
-      "contributionCount": 8,
-      "contributionLevel": "FIRST_QUARTILE"
+      "contributionCount": 0,
+      "contributionLevel": "NONE"
      },
      {
       "date": "2026-08-19",
-      "contributionCount": 4,
-      "contributionLevel": "FIRST_QUARTILE"
+      "contributionCount": 0,
+      "contributionLevel": "NONE"
      },
      {
       "date": "2026-08-20",
@@ -1927,8 +1927,8 @@
      },
      {
       "date": "2026-09-22",
-      "contributionCount": 1,
-      "contributionLevel": "FIRST_QUARTILE"
+      "contributionCount": 0,
+      "contributionLevel": "NONE"
      },
      {
       "date": "2026-09-23",
@@ -2039,7 +2039,7 @@
      },
      {
       "date": "2026-10-12",
-      "contributionCount": 17,
+      "contributionCount": 20,
       "contributionLevel": "FIRST_QUARTILE"
      }
     ]
@@ -2066,7 +2066,7 @@
    27,
    39,
    16,
-   24,
+   27,
    24,
    13,
    14,
@@ -2086,13 +2086,13 @@
    8,
    18,
    34,
-   14,
+   13,
+   19,
    21,
+   33,
    21,
-   35,
-   21,
-   29,
-   21,
+   28,
+   19,
    29,
    22,
    13,
@@ -2109,9 +2109,9 @@
    0,
    0,
    0,
-   16,
+   15,
    22,
-   31,
+   28,
    7,
    42,
    27,
@@ -2230,8 +2230,26 @@
    21
   ]
  ],
- "commits_last_year": 2322,
+ "commits_last_year": 2313,
  "recent": [
+  {
+   "repo": "Timcai06",
+   "sha": "bf978f3",
+   "date": "2026-10-12",
+   "message": "feat(profile): merge closing terminal into the live terminal"
+  },
+  {
+   "repo": "Timcai06",
+   "sha": "d15e682",
+   "date": "2026-10-12",
+   "message": "feat(profile): fold lead and also-featured work into expandable layers"
+  },
+  {
+   "repo": "Timcai06",
+   "sha": "c29cc19",
+   "date": "2026-10-12",
+   "message": "feat(profile): live terminal with git log, commit-hour tower and moon…"
+  },
   {
    "repo": "Timcai06",
    "sha": "be737fc",
@@ -2243,24 +2261,6 @@
    "sha": "d9005a7",
    "date": "2026-10-12",
    "message": "feat(profile): self-host hero typing SVGs and link clawd-mv on Bilibili"
-  },
-  {
-   "repo": "readme-studio",
-   "sha": "1d59d95",
-   "date": "2026-10-12",
-   "message": "chore: remove superseded examples and previews; current-state docs"
-  },
-  {
-   "repo": "readme-studio",
-   "sha": "125068d",
-   "date": "2026-10-12",
-   "message": "feat: rename to readme-studio; support project READMEs"
-  },
-  {
-   "repo": "readme-studio",
-   "sha": "93fc108",
-   "date": "2026-10-12",
-   "message": "feat(skill): material study, page system, design check, animated iden…"
   }
  ],
  "cards": {
