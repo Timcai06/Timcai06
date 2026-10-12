@@ -16,6 +16,7 @@ import base64
 import io
 import json
 import math
+import os
 
 from PIL import Image
 
@@ -74,24 +75,56 @@ def streaks(days):
     return longest, current
 
 
+# Moon: pixel-art shading lit by the real phase. Albedo map = the major near-side maria
+# (normalised disc coords, x right, y down: Imbrium, Serenitatis, Tranquillitatis,
+# Crisium, Procellarum, Nubium, Fecunditatis, Nectaris).
+MARIA = [(-.25, -.36, .24), (.2, -.3, .15), (.32, -.04, .18), (.62, -.24, .1),
+         (-.55, .02, .3), (-.15, .38, .16), (.52, .18, .12), (.32, .3, .08)]
+CRATERS = [(-.12, .72, .05), (-.3, -.04, .05), (.05, .1, .04), (-.6, -.5, .04)]
+LIT = ['#4a4656', '#6e6672', '#9c8f86', '#c8b394', '#e6cda2', '#f4dfb8', '#fff1d6']
+BAYER = [[0, 2], [3, 1]]
+
+
 def moon(cx, cy, today):
     # Phase snapped to 1/16 of a cycle so the image changes every ~2 days, not daily.
     noon = datetime(today.year, today.month, today.day, 12, tzinfo=TZ)
     p = round(((noon - NEW_MOON).total_seconds() / 86400 / SYNODIC % 1) * 16) / 16 % 1
     name = PHASES[int(p * 8 + .5) % 8]
-    cell, r = 3, 6
-    out = [f'<circle cx="{cx}" cy="{cy}" r="{r * cell + 9}" fill="#f2c48f" opacity=".05" style="animation:breathe 6s ease-in-out infinite"/>',
-           f'<circle cx="{cx}" cy="{cy}" r="{r * cell + 4}" fill="#f2c48f" opacity=".06" style="animation:breathe 6s ease-in-out 1.5s infinite"/>']
-    k = math.cos(2 * math.pi * p)
-    for j in range(-r, r):
-        for i in range(-r, r):
-            x, y = i + .5, j + .5
-            if x * x + y * y > r * r:
+    lit_fraction = (1 - math.cos(2 * math.pi * p)) / 2
+    # Sun direction in the moon's frame: behind it at new moon, from the right while waxing.
+    lx, lz = math.sin(2 * math.pi * p), -math.cos(2 * math.pi * p)
+    cell, R = 2, 15
+    glow = .3 + .7 * lit_fraction
+    out = ['<defs><radialGradient id="moonglow"><stop offset="0" stop-color="#f6d9a6" stop-opacity=".55"/>'
+           '<stop offset=".35" stop-color="#f2c48f" stop-opacity=".16"/><stop offset="1" stop-color="#f2c48f" stop-opacity="0"/>'
+           '</radialGradient></defs>',
+           # Glow strength follows the lit fraction; the inner circle breathes on top of it.
+           f'<g opacity="{glow:.2f}"><circle cx="{cx}" cy="{cy}" r="{round(R * cell * 2.6)}" fill="url(#moonglow)" '
+           'style="animation:moonglow 7s ease-in-out infinite"/></g>']
+    for j in range(-R, R):
+        for i in range(-R, R):
+            nx, ny = (i + .5) / R, (j + .5) / R
+            d2 = nx * nx + ny * ny
+            if d2 > 1:
                 continue
-            edge = math.sqrt(r * r - y * y)
-            lit = x >= k * edge if p <= .5 else x <= -k * edge
-            out.append(rect(cx + i * cell, cy + j * cell, cell, cell, '#f2c48f' if lit else '#2a3150',
-                            '' if lit else 'opacity=".55"'))
+            nz = math.sqrt(1 - d2)
+            albedo = .7 if any((nx - mx) ** 2 + (ny - my) ** 2 < mr * mr for mx, my, mr in MARIA) else 1
+            if any((nx - mx) ** 2 + (ny - my) ** 2 < mr * mr for mx, my, mr in CRATERS):
+                albedo *= .8
+            light = max(0, nx * lx + nz * lz) * albedo * (.78 + .22 * nz)
+            if light < .05:
+                # Earthshine: the night side stays faintly visible, cooler at the limb.
+                colour = '#2e3758' if nz > .45 else '#29304e'
+                if albedo < 1:
+                    colour = '#262c48'
+            else:
+                level = light * len(LIT) + (BAYER[j % 2][i % 2] / 4 - .375) * .9
+                colour = LIT[max(0, min(len(LIT) - 1, int(level)))]
+            out.append(rect(cx + i * cell, cy + j * cell, cell, cell, colour))
+    # A thin moonlit cloud drifts across now and then (starts off-canvas, so a still frame shows none).
+    cloud = [(0, 0, 34), (6, -2, 18), (-8, 2, 14), (40, 2, 22), (46, 0, 10)]
+    out.append('<g class="cloud">' + ''.join(rect(cx + 90 + x, cy + 8 + y, w, 2, '#3a4466') + rect(cx + 90 + x, cy + 10 + y, w, 3, '#232a44')
+                                         for x, y, w in cloud) + '</g>')
     return out, name
 
 
@@ -110,6 +143,10 @@ def build(data, today):
     b += moon_cells
     M = Motion()
     M.raw('@keyframes beacon{0%,100%{opacity:1}50%{opacity:.15}}')
+    M.raw('@keyframes moonglow{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.08);opacity:1}}'
+          'circle[fill="url(#moonglow)"]{transform-box:fill-box;transform-origin:center}'
+          '@keyframes cloud{0%{transform:translateX(0)}100%{transform:translateX(-230px)}}'
+          '.cloud{animation:cloud 46s linear 4s infinite}')
     # Night sky around the window (the moon sits at 1125, 92).
     b += M.stars([(30, 18, '#f2c48f', 0), (96, 46, '#8fa0d8', 1.2), (58, 120, '#f2c48f', 2.4), (118, 190, '#8fa0d8', .7),
                   (24, 250, '#8fa0d8', 1.9), (262, 14, '#8fa0d8', 2.8), (470, 26, '#f2c48f', .4), (690, 12, '#8fa0d8', 1.6),
@@ -211,5 +248,7 @@ def build(data, today):
 
 
 data = json.loads((ROOT / 'assets/editor/activity.json').read_text())
-OUT.write_text(build(data, datetime.now(TZ).date()))
+# SKYLINE_DATE=YYYY-MM-DD previews another day (e.g. a full moon) without touching the data.
+day = date.fromisoformat(os.environ['SKYLINE_DATE']) if os.environ.get('SKYLINE_DATE') else datetime.now(TZ).date()
+OUT.write_text(build(data, day))
 print('Built live terminal')

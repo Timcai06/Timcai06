@@ -67,11 +67,13 @@ field('basedIn',value('Shanghai'))
 field('focus',strs(['AI agents','ML observability','Full-stack'],'b2')+[S(',','punct')],'array')
 code.append([])
 field('projects',[S('{','b2')],'object')
+# Same order as the explorer tree and the README: featured work, then the motion series.
 for key,description in [
     ('EduCanvas','Personal agent for learning'),
     ('SciScope','Evidence-grounded research / Go TUI'),
+    ('"TTT-I-M"','Personal web & content studio'),
+    ('BDI','YOLOv8-seg bridge inspection'),
     ('PulseGraph','Local PyTorch training observability'),
-    ('portfolio','React / Vite / GSAP / R3F'),
     ('clawdMV','TypeScript / Three.js music video'),
 ]:
     code.append(kv(key,*value(description),indent=('    ','plain')))
@@ -159,9 +161,9 @@ b += [rect(308,101,846,40,'#0e1423'),rect(308,101,168,40,'#111728'),rect(308,101
       rect(818,101,1,40,'#262e44'),text(1136,126,'⧉  ⋯',14,'#7f8ba7','text-anchor="end"'),
       code_line(326,164,[('Timcai06','punct'),('  ›  ','punct'),('TS ','var'),('about.ts','punct'),('  ›  ','punct'),('{} ','b1'),('tim','prop')],13)]
 cursor=next(line-1 for key,_,line in fields if key=='projects')
-# The active line walks from `projects` through its five entries and loops.
-WALK=[cursor+k for k in range(6)]
-EDIT_T, HOLD = 6*2.2, 2.2
+# The active line walks from `projects` through its six entries and loops.
+WALK=[cursor+k for k in range(7)]
+EDIT_T, HOLD = 7*2.2, 2.2
 def line_end(i): return len(''.join(t for t,_ in code[i]).rstrip())
 shift=''.join(f'{round(k/len(WALK)*100,3)}%{{transform:translateY({k*STEP}px)}}' for k in range(len(WALK)))
 M.raw(f'@keyframes walk{{{shift}}}.walk{{animation:walk {EDIT_T}s step-end infinite}}')
@@ -176,9 +178,10 @@ for i,tokens in enumerate(code):
         b.append(text(370,y-1,'⌄',12,'#56637f','text-anchor="middle"'))
     b.append(text(348,y,str(i+1),13,'#56637f','text-anchor="end"'))
     if tokens: b.append(code_line(CX,y,tokens,SIZE))
-# The explorer row and minimap marker follow the same walk (tree rows: featured,
-# EduCanvas, SciScope, PulseGraph, TTT-I-M for `portfolio`, 01-clawd-mv).
-TREE_ROW=[1,2,3,6,4,8]
+# The explorer row and minimap marker follow the same walk, row for row:
+# projects -> featured/, then EduCanvas, SciScope, TTT-I-M, BDI, PulseGraph, 01-clawd-mv.
+TREE_ROW=[1,2,3,4,5,6,8]
+assert [tree[r][4] for r in TREE_ROW[1:6]]==[k.strip('"') for k,_ in [(''.join(t for t,_ in code[i]).split(':')[0].strip(),0) for i in WALK[1:6]]]
 for k,(i,row) in enumerate(zip(WALK,TREE_ROW)):
     b.append(f'<g class="ln{k}" opacity="{1 if k==0 else 0}">'+rect(95,173+row*25,211,25,'#ffffff','opacity=".05"')
              +rect(95,173+row*25,2,25,'#8491ae')+rect(1086,151+i*5,3,4,'#edc38c')+'</g>')
