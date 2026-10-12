@@ -1,8 +1,8 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/title-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/title-light.svg">
-    <img src="./assets/hero/title-light.svg" alt="Hi, I'm Tim Cai">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/title-dark.svg?v=93051222">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/title-light.svg?v=43f2f1f0">
+    <img src="./assets/hero/title-light.svg?v=43f2f1f0" alt="Hi, I'm Tim Cai">
   </picture>
 </p>
 
@@ -15,9 +15,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/tagline-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/tagline-light.svg">
-    <img src="./assets/hero/tagline-light.svg" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/tagline-dark.svg?v=9acf4c77">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/tagline-light.svg?v=19e18830">
+    <img src="./assets/hero/tagline-light.svg?v=19e18830" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
   </picture>
 </p>
 
@@ -25,7 +25,7 @@
 <p>I focus on <code>AI agents</code>, <b>observability for ML / DL / RL</b>, quantitative research systems, and <b>carefully crafted full-stack products</b>. I enjoy following an idea all the way through: from models and data pipelines to the interface someone actually uses.</p>
 <p>Full-stack is central to how I learn and build. My interests span frontend, backend, databases, LLMs, AI infrastructure, and lower-level computing systems. I work with React, Next.js and FastAPI, build around PostgreSQL and Redis, and explore GSAP motion and Three.js experiences. I'm working toward becoming a versatile, end-to-end developer in the AI era.</p>
 
-<p><img src="./assets/editor/workspace.svg" width="100%" alt="Tim 的像素夜景代码工作台：文件树、about.ts、语法高亮与终端。AI agents · ML observability · Full-stack products."></p>
+<p><img src="./assets/editor/workspace.svg?v=c8ec511a" width="100%" alt="Tim 的像素夜景代码工作台：文件树、about.ts、语法高亮与终端。AI agents · ML observability · Full-stack products."></p>
 
 <p><b>你好，我是 Tim，一名在上海学习的学生开发者。</b></p>
 <p>我专注于<code>智能体开发</code>、<b>ML / DL / RL 算法</b>、量化研究系统，以及<b>经过细致打磨的全栈产品</b>。我喜欢沿着一个想法往下走：从模型、数据流和后端逻辑，一直做到用户真正接触的界面。</p>
@@ -43,7 +43,7 @@
 <table>
 <tr>
 <td width="50%" valign="top">
-<a href="https://github.com/Timcai06/EduCanvas"><img src="./assets/editor/educanvas-compact.svg" width="100%" alt="EduCanvas — 通用个人 Agent 与学习空间"></a>
+<a href="https://github.com/Timcai06/EduCanvas"><img src="./assets/editor/educanvas-compact.svg?v=befdc618" width="100%" alt="EduCanvas — 通用个人 Agent 与学习空间"></a>
 <h3>EduCanvas <sub>A personal agent for learning</sub></h3>
 <p><b>面向学习场景的通用个人 Agent</b>。你可以把资料、对话和 Canvas 放在同一个 Notebook 里，让 Agent 调用工具和技能，围绕这些资料继续讨论、创作和学习。</p>
 <p>普通对话和教育功能共用一套 <code>Agent Runtime</code>，按需接入学习工具。判分、掌握度和学习记录由服务端代码更新；模型适配、权限和数据访问各有明确边界。这个项目也包含 Web、Gateway 和后台任务，覆盖从 Agent 运行时到用户界面的开发。</p>
@@ -51,7 +51,7 @@
 <p><a href="https://github.com/Timcai06/EduCanvas"><kbd>仓库 / Repo ↗</kbd></a></p>
 </td>
 <td width="50%" valign="top">
-<a href="https://github.com/Timcai06/SciScope"><img src="./assets/editor/sciscope-compact.svg" width="100%" alt="SciScope — 文献与证据驱动的研究 Agent"></a>
+<a href="https://github.com/Timcai06/SciScope"><img src="./assets/editor/sciscope-compact.svg?v=ce13794c" width="100%" alt="SciScope — 文献与证据驱动的研究 Agent"></a>
 <h3>SciScope <sub>Evidence-grounded research agent</sub></h3>
 <p><b>在终端里查文献、找证据的研究 Agent</b>。后端用 <code>LangGraph StateGraph</code> 组织运行过程，调用 RAG 检索和研究工具，再把找到的文献证据用于回答。</p>
 <p>除了最终答案，你还能看到它如何规划、调用了什么工具、工具返回了什么，以及反思过程。Python / FastAPI 后端通过 SSE 把这些事件传给 Go TUI，终端按时间线展示工具调用，并支持在同一会话里重试。Agent 编排、后端协议和终端交互都在这个项目里实现。</p>
@@ -67,7 +67,7 @@
 <br>
 <table>
 <tr>
-<td width="44%" valign="middle"><a href="https://github.com/Timcai06/TTT-I-M"><img src="./assets/editor/tttim-compact.svg" width="100%" alt="TTT-I-M — 个人网站与内容工作室"></a></td>
+<td width="44%" valign="middle"><a href="https://github.com/Timcai06/TTT-I-M"><img src="./assets/editor/tttim-compact.svg?v=7089dd0b" width="100%" alt="TTT-I-M — 个人网站与内容工作室"></a></td>
 <td width="56%" valign="middle">
 <h3>TTT-I-M <sub>个人网站与内容工作室</sub></h3>
 <p>我的个人网站与内容工作室：<b>电影感 Landing</b> 与博客、作品、内容管理组成同一套空间。探索 GSAP 动效、Three.js / React Three Fiber 与全栈内容系统如何共同服务个人表达。</p>
@@ -76,7 +76,7 @@
 </td>
 </tr>
 <tr>
-<td width="44%" valign="middle"><a href="https://github.com/Timcai06/BDI"><img src="./assets/editor/bdi-compact.svg" width="100%" alt="BDI — 桥梁视觉检测"></a></td>
+<td width="44%" valign="middle"><a href="https://github.com/Timcai06/BDI"><img src="./assets/editor/bdi-compact.svg?v=27cf4e18" width="100%" alt="BDI — 桥梁视觉检测"></a></td>
 <td width="56%" valign="middle">
 <h3>BDI <sub>桥梁视觉检测</sub></h3>
 <p>无人机桥梁巡检原型：把 <b>YOLOv8-seg 病害分割</b>接入全栈工作流，围绕检测结果与本地产物提供可查看的界面。</p>
@@ -85,7 +85,7 @@
 </td>
 </tr>
 <tr>
-<td width="44%" valign="middle"><a href="https://github.com/Timcai06/PulseGraph"><img src="./assets/editor/pulsegraph-compact.svg" width="100%" alt="PulseGraph — 训练可观测性工作台"></a></td>
+<td width="44%" valign="middle"><a href="https://github.com/Timcai06/PulseGraph"><img src="./assets/editor/pulsegraph-compact.svg?v=7370d4da" width="100%" alt="PulseGraph — 训练可观测性工作台"></a></td>
 <td width="56%" valign="middle">
 <h3>PulseGraph <sub>See what your training is doing</sub></h3>
 <p><b>本地优先</b>的 PyTorch 训练可观测性工作台：连接模型图、训练指标、检查点与推理回放，让实验过程更容易检查和追溯。</p>
@@ -104,7 +104,7 @@
 <table>
 <tr>
 <td>
-<a href="https://www.bilibili.com/video/BV1wapR6JER5/"><img src="./assets/motion/clawd-mv.jpg" width="100%" alt="clawd-mv 画面：片尾署名（主画面）、October 32 报告、undefined 堆栈雨、Local 与 CI 对比"></a>
+<a href="https://www.bilibili.com/video/BV1wapR6JER5/"><img src="./assets/motion/clawd-mv.jpg?v=a907d2e1" width="100%" alt="clawd-mv 画面：片尾署名（主画面）、October 32 报告、undefined 堆栈雨、Local 与 CI 对比"></a>
 <h3><kbd>01</kbd> &nbsp;clawd-mv <sub>Works on My Machine</sub></h3>
 <p>代码驱动的音乐MV，用 TypeScript / Three.js 时间轴与离线渲染串起场景、镜头和音乐。基于 pdoom-video 开源框架进行个人非商业创作，目前持续迭代中。</p>
 <p><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="Three.js"> <img src="https://img.shields.io/badge/Bun-000000?style=flat-square&amp;logo=bun&amp;logoColor=white" alt="Bun"> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite"> <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat-square" alt="Playwright"> <img src="https://img.shields.io/badge/FFmpeg-007808?style=flat-square&amp;logo=ffmpeg&amp;logoColor=white" alt="FFmpeg"> <img src="https://img.shields.io/badge/Suno-000000?style=flat-square&amp;logo=suno&amp;logoColor=white" alt="Suno"></p>
@@ -118,9 +118,9 @@
 <p align="center"><sub>按方向整理的常用语言、框架与工具。</sub></p>
 <p align="center">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/toolbox/toolbox-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/toolbox/toolbox-light.svg">
-  <img src="./assets/toolbox/toolbox-light.svg" width="100%" alt="技术栈：语言（Python、TypeScript、JavaScript、Go）；AI 与研究（PyTorch、scikit-learn、YOLOv8、PaddleOCR、RAG、Agent workflows）；前端与动效（React、Next.js、Vite、Tailwind CSS、Three.js、GSAP、React Three Fiber）；后端与数据（FastAPI、Django、PostgreSQL、Redis、Supabase、Celery、Drizzle）；工程与交付（Docker、GitHub Actions、Vercel、Bun、pnpm、FFmpeg）；建模与科学计算（LaTeX、R、NumPy、pandas、SciPy、Matplotlib、PuLP、HiGHS）。">
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/toolbox/toolbox-dark.svg?v=bf1e5f5c">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/toolbox/toolbox-light.svg?v=5057b973">
+  <img src="./assets/toolbox/toolbox-light.svg?v=5057b973" width="100%" alt="技术栈：语言（Python、TypeScript、JavaScript、Go）；AI 与研究（PyTorch、scikit-learn、YOLOv8、PaddleOCR、RAG、Agent workflows）；前端与动效（React、Next.js、Vite、Tailwind CSS、Three.js、GSAP、React Three Fiber）；后端与数据（FastAPI、Django、PostgreSQL、Redis、Supabase、Celery、Drizzle）；工程与交付（Docker、GitHub Actions、Vercel、Bun、pnpm、FFmpeg）；建模与科学计算（LaTeX、R、NumPy、pandas、SciPy、Matplotlib、PuLP、HiGHS）。">
 </picture>
 </p>
 
@@ -131,7 +131,7 @@
 <table>
 <tr>
 <td>
-<img src="./assets/showcase/sophon.jpg" width="100%" alt="Sophon AI 官网界面：Bitemporal 记忆章节与 client.memory.search 示例等页面">
+<img src="./assets/showcase/sophon.jpg?v=7a1810dd" width="100%" alt="Sophon AI 官网界面：Bitemporal 记忆章节与 client.memory.search 示例等页面">
 <h3>Sophon AI 官网</h3>
 <p>结合交互叙事、前端动效与 3D 视觉的官网设计与开发，与全栈系统骨架</p>
 </td>
@@ -160,14 +160,14 @@
 <summary><b>微网与外部电网电力调控</b> — LP、MPC 与动态电价，研究电力调控策略。</summary>
 <br>
 <p><sub>2026 年全国大学生数学建模竞赛 · C 题 · 论文正式插图 11 张，以下选 4 张</sub></p>
-<p><img src="./assets/modeling/electricity-1.png" width="100%" alt="安全裕量策略的月均储电量三维曲面"><br><sub>安全裕量策略的月均储电量三维曲面</sub></p>
+<p><img src="./assets/modeling/electricity-1.png?v=d72f6b08" width="100%" alt="安全裕量策略的月均储电量三维曲面"><br><sub>安全裕量策略的月均储电量三维曲面</sub></p>
 <table>
 <tr>
-<td width="50%" valign="top"><img src="./assets/modeling/electricity-2.png" width="100%" alt="全年运行矩阵：基线与安全裕量的储电量、计划购电和应急购电逐日对照"><br><sub>全年运行矩阵：基线与安全裕量的储电量、计划购电和应急购电逐日对照</sub></td>
-<td width="50%" valign="top"><img src="./assets/modeling/electricity-3.png" width="100%" alt="合同更新的经济价值：日期热力、预计与事后收益对照、累计费用差"><br><sub>合同更新的经济价值：日期热力、预计与事后收益对照、累计费用差</sub></td>
+<td width="50%" valign="top"><img src="./assets/modeling/electricity-2.png?v=c8060540" width="100%" alt="全年运行矩阵：基线与安全裕量的储电量、计划购电和应急购电逐日对照"><br><sub>全年运行矩阵：基线与安全裕量的储电量、计划购电和应急购电逐日对照</sub></td>
+<td width="50%" valign="top"><img src="./assets/modeling/electricity-3.png?v=2a2904c7" width="100%" alt="合同更新的经济价值：日期热力、预计与事后收益对照、累计费用差"><br><sub>合同更新的经济价值：日期热力、预计与事后收益对照、累计费用差</sub></td>
 </tr>
 <tr>
-<td width="50%" valign="top"><img src="./assets/modeling/electricity-4.png" width="100%" alt="代表日电量流向对照、购电时序与储电量"><br><sub>代表日电量流向对照、购电时序与储电量</sub></td>
+<td width="50%" valign="top"><img src="./assets/modeling/electricity-4.png?v=15c48032" width="100%" alt="代表日电量流向对照、购电时序与储电量"><br><sub>代表日电量流向对照、购电时序与储电量</sub></td>
 <td width="50%" valign="middle"><p>LP、MPC 与动态电价，研究电力调控策略。</p><p><sub>论文正式插图 11 张</sub></p><p><a href="https://github.com/Timcai06/26National_MathModel_Electricty"><kbd>仓库 / Repo ↗</kbd></a></p></td>
 </tr>
 </table>
@@ -177,10 +177,10 @@
 <summary><b>霍尔木兹海峡与国际油价</b> — 机制模型、Markov 与 Monte Carlo 模拟。</summary>
 <br>
 <p><sub>浙江工商大学 2026 年大学生数学建模竞赛 · A 题 · 论文正式插图 11 张，以下选 2 张</sub></p>
-<p><img src="./assets/modeling/tunnel-1.png" width="100%" alt="布伦特原油收益率与滚动波动率"><br><sub>布伦特原油收益率与滚动波动率</sub></p>
+<p><img src="./assets/modeling/tunnel-1.png?v=fe12d756" width="100%" alt="布伦特原油收益率与滚动波动率"><br><sub>布伦特原油收益率与滚动波动率</sub></p>
 <table>
 <tr>
-<td width="50%" valign="top"><img src="./assets/modeling/tunnel-2.png" width="100%" alt="中长期油价调节模型蒙特卡洛情景树"><br><sub>中长期油价调节模型蒙特卡洛情景树</sub></td>
+<td width="50%" valign="top"><img src="./assets/modeling/tunnel-2.png?v=c215fae4" width="100%" alt="中长期油价调节模型蒙特卡洛情景树"><br><sub>中长期油价调节模型蒙特卡洛情景树</sub></td>
 <td width="50%" valign="middle"><p>机制模型、Markov 与 Monte Carlo 模拟。</p><p><sub>论文正式插图 11 张</sub></p><p><a href="https://github.com/Timcai06/26_MathModel_Tunnel"><kbd>仓库 / Repo ↗</kbd></a></p></td>
 </tr>
 </table>
@@ -190,14 +190,14 @@
 <summary><b>农作物种植策略优化</b> — MILP、SAA 与 CVaR，处理不确定性下的种植决策。</summary>
 <br>
 <p><sub>浙江工商大学 2026 年校级数学建模模拟赛 1 · C 题 · 论文正式插图 16 张，以下选 4 张</sub></p>
-<p><img src="./assets/modeling/agriculture-1.png" width="100%" alt="问题二各土地类型的复种季利用率与水浇地模式切换"><br><sub>问题二各土地类型的复种季利用率与水浇地模式切换</sub></p>
+<p><img src="./assets/modeling/agriculture-1.png?v=32518443" width="100%" alt="问题二各土地类型的复种季利用率与水浇地模式切换"><br><sub>问题二各土地类型的复种季利用率与水浇地模式切换</sub></p>
 <table>
 <tr>
-<td width="50%" valign="top"><img src="./assets/modeling/agriculture-2.png" width="100%" alt="问题二三年豆类轮作约束的地块–窗口绑定图"><br><sub>问题二三年豆类轮作约束的地块–窗口绑定图</sub></td>
-<td width="50%" valign="top"><img src="./assets/modeling/agriculture-3.png" width="100%" alt="问题三相对问题二的类别–年份面积调整"><br><sub>问题三相对问题二的类别–年份面积调整</sub></td>
+<td width="50%" valign="top"><img src="./assets/modeling/agriculture-2.png?v=e338d9ea" width="100%" alt="问题二三年豆类轮作约束的地块–窗口绑定图"><br><sub>问题二三年豆类轮作约束的地块–窗口绑定图</sub></td>
+<td width="50%" valign="top"><img src="./assets/modeling/agriculture-3.png?v=186a3478" width="100%" alt="问题三相对问题二的类别–年份面积调整"><br><sub>问题三相对问题二的类别–年份面积调整</sub></td>
 </tr>
 <tr>
-<td width="50%" valign="top"><img src="./assets/modeling/agriculture-4.png" width="100%" alt="问题二与问题三各年份作物类别面积结构"><br><sub>问题二与问题三各年份作物类别面积结构</sub></td>
+<td width="50%" valign="top"><img src="./assets/modeling/agriculture-4.png?v=1f2760c8" width="100%" alt="问题二与问题三各年份作物类别面积结构"><br><sub>问题二与问题三各年份作物类别面积结构</sub></td>
 <td width="50%" valign="middle"><p>MILP、SAA 与 CVaR，处理不确定性下的种植决策。</p><p><sub>论文正式插图 16 张</sub></p><p><a href="https://github.com/Timcai06/26_MathModel_Agriculture"><kbd>仓库 / Repo ↗</kbd></a></p></td>
 </tr>
 </table>
@@ -207,16 +207,16 @@
 <summary><b>穿越沙漠</b> — MILP、MDP 与多玩家博弈。</summary>
 <br>
 <p><sub>浙江工商大学 2026 年校级数学建模模拟赛 2 · B 题 · 论文正式插图 15 张，以下选 4 张</sub></p>
-<p><img src="./assets/modeling/desert-1.png" width="100%" alt="六关地图的规范图结构与确定天气最优轨迹"><br><sub>六关地图的规范图结构与确定天气最优轨迹</sub></p>
+<p><img src="./assets/modeling/desert-1.png?v=6e866def" width="100%" alt="六关地图的规范图结构与确定天气最优轨迹"><br><sub>六关地图的规范图结构与确定天气最优轨迹</sub></p>
 <table>
 <tr>
-<td colspan="2" valign="top"><img src="./assets/modeling/desert-2.png" width="100%" alt="第六关错峰角色的二维装载可行域与分布鲁棒入选点"><br><sub>第六关错峰角色的二维装载可行域与分布鲁棒入选点</sub></td>
+<td colspan="2" valign="top"><img src="./assets/modeling/desert-2.png?v=e29414ba" width="100%" alt="第六关错峰角色的二维装载可行域与分布鲁棒入选点"><br><sub>第六关错峰角色的二维装载可行域与分布鲁棒入选点</sub></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><img src="./assets/modeling/desert-3.png" width="100%" alt="第四关候选策略在基准和不利天气下的训练收益–风险前沿"><br><sub>第四关候选策略在基准和不利天气下的训练收益–风险前沿</sub></td>
+<td colspan="2" valign="top"><img src="./assets/modeling/desert-3.png?v=04264d44" width="100%" alt="第四关候选策略在基准和不利天气下的训练收益–风险前沿"><br><sub>第四关候选策略在基准和不利天气下的训练收益–风险前沿</sub></td>
 </tr>
 <tr>
-<td colspan="2" valign="top"><img src="./assets/modeling/desert-4.png" width="100%" alt="第五关均衡的空间路径、行动时序与偏离复核"><br><sub>第五关均衡的空间路径、行动时序与偏离复核</sub></td>
+<td colspan="2" valign="top"><img src="./assets/modeling/desert-4.png?v=af30ab4c" width="100%" alt="第五关均衡的空间路径、行动时序与偏离复核"><br><sub>第五关均衡的空间路径、行动时序与偏离复核</sub></td>
 </tr>
 </table>
 <p><a href="https://github.com/Timcai06/26_MathModel_Desert"><kbd>仓库 / Repo ↗</kbd></a></p>
@@ -226,12 +226,12 @@
 <summary><b>古代玻璃成分分析</b> — 成分分类、CLR 变换与稳健聚类。</summary>
 <br>
 <p><sub>浙江工商大学 2026 年校级数学建模模拟赛 3 · C 题 · 论文正式插图 5 张，以下选 1 张</sub></p>
-<p><img src="./assets/modeling/glass-1.png" width="100%" alt="高钾与铅钡玻璃的比例性矩阵"><br><sub>高钾与铅钡玻璃的比例性矩阵</sub></p>
+<p><img src="./assets/modeling/glass-1.png?v=20c58b0c" width="100%" alt="高钾与铅钡玻璃的比例性矩阵"><br><sub>高钾与铅钡玻璃的比例性矩阵</sub></p>
 <p><a href="https://github.com/Timcai06/26_MathModel_Glass"><kbd>仓库 / Repo ↗</kbd></a></p>
 </details>
 </details>
 
 <br>
-<p><img src="./assets/editor/skyline.svg" width="100%" alt="实时终端：所有公开仓库最近 5 条提交；贡献天际线（每周一栋楼，楼高为当周贡献数，窗户为每天）；24 层作息楼（窗户为周一到周日各小时的提交数，UTC+8）；天上是当天真实月相；最后 echo &quot;Thanks for stopping by.&quot;。每日自动更新。"></p>
+<p><img src="./assets/editor/skyline.svg?v=5c5acf72" width="100%" alt="实时终端：所有公开仓库最近 5 条提交；贡献天际线（每周一栋楼，楼高为当周贡献数，窗户为每天）；24 层作息楼（窗户为周一到周日各小时的提交数，UTC+8）；天上是当天真实月相；最后 echo &quot;Thanks for stopping by.&quot;。每日自动更新。"></p>
 <p align="center"><b>如果你也在做智能体、研究工具或有趣的全栈产品，欢迎交流。</b><br><sub>If something here resonates with you, feel free to explore, follow, or say hello.</sub></p>
 <p align="center"><a href="https://www.crt-dsg.com"><kbd>crt-dsg.com ↗</kbd></a> <a href="mailto:cairentian932@gmail.com"><kbd>cairentian932@gmail.com</kbd></a> <a href="https://www.instagram.com/cairentian932/"><kbd>Instagram ↗</kbd></a> <a href="https://www.linkedin.com/in/%E4%BB%BB%E5%A4%A9-%E8%94%A1-6553163a6"><kbd>LinkedIn ↗</kbd></a></p>

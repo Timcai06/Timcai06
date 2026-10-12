@@ -64,3 +64,5 @@ The five 640×540 project cards share a broken outer rail and numbered label, wi
 SciScope copy was checked against its repository README on 2026-10-12: a single LangGraph StateGraph runtime, RAG/evidence grounding/tool orchestration, SSE plan/tool/reflect/final events, and Go TUI tool timelines with same-session retry. The project card and profile description emphasize this Agent development work.
 
 Note: the daily Action rebuilds `workspace.svg` and the cards on Linux, whose PNG bytes differ from a local macOS build even with the same Pillow. A local `build_profile.py` run therefore shows diffs in every card; commit them only when the content actually changed.
+
+Cache busting: README image URLs carry `?v=<sha256[:8]>` of the file (`scripts/stamp_readme.py`). Browsers and GitHub's CDN cache images by URL, so without it an updated SVG keeps showing the old version (this hid the new animations once). Run the stamp after every asset build; the daily Action does.

@@ -24,11 +24,12 @@ jobs:
           GH_TOKEN: ${{ secrets.SKYLINE_TOKEN || github.token }}
       - run: python scripts/build_skyline.py
       - run: python scripts/build_profile.py
+      - run: python scripts/stamp_readme.py  # new ?v= hash => browsers/CDN fetch the new SVGs
       - name: Commit if changed
         run: |
-          git diff --quiet assets/editor && exit 0
+          git diff --quiet assets/editor README.md && exit 0
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add assets/editor
+          git add assets/editor README.md
           git commit -m 'chore(profile): refresh live profile data'
           git push
