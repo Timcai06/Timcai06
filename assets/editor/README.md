@@ -4,7 +4,7 @@
 
 ## Page structure
 
-1. Hero — typing-SVG title, contact badges (Blog uses the site's chrome "T" mark as a data-URI logo; LinkedIn uses a minimal "in" SVG), typing subtitle.
+1. Hero — locally built typing-SVG title (`assets/hero/`, no external service), contact badges (Blog uses the site's chrome "T" mark as a data-URI logo; LinkedIn uses a minimal "in" SVG), typing subtitle.
 2. English intro, then `workspace.svg` — pixel-night backdrop + VS Code-style editor (`about.ts`, file tree, terminal, minimap).
 3. Chinese intro below the workspace image + "Now" blockquote.
 4. Chapters as centred `<h1>` openers `01–04`; subsections use `<kbd>label</kbd> <b>English</b>`.
@@ -28,6 +28,7 @@
 | `assets/editor/workspace.svg`, `footer.svg`, `*-compact.svg` | `scripts/build_profile.py` | `assets/pixel-lab/v2/*.png` (quantized to 8 colours at embed time) |
 | `assets/motion/clawd-mv.jpg`, `assets/showcase/sophon.jpg` | `scripts/build_motion.py` | `assets/motion/series.json`, `assets/showcase/showcase.json`; raw frames in git-ignored `desktop-screenshots/` / `source/` folders |
 | `assets/toolbox/toolbox-{dark,light}.svg` | `scripts/build_toolbox.py` | `assets/toolbox/toolbox.json` and vendored `source/*.svg` |
+| `assets/hero/{title,tagline}-{dark,light}.svg` | `scripts/build_hero.py` (run via `uv run --with fonttools python scripts/build_hero.py`) | Lines/timing in the script; vendored JetBrains Mono in `assets/hero/fonts/` (OFL), subset per SVG at build time |
 | `assets/modeling/*.png` and the README modeling folds | `scripts/build_modeling.py` | `~/Desktop/数模论文插图/` archive (from `~/School/数模/`) |
 
 Project cards (`*-compact.svg`, 640×540): markdown README pane with stack chips that wrap, plus a terminal panel with two quick-start commands quoted from each repo README (`TERMINAL_CMDS` in `build_profile.py`). Key visuals: one lead frame (`"lead": true` in the JSON) plus the rest stacked on the right.

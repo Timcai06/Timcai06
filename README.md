@@ -1,8 +1,8 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=600&amp;size=30&amp;duration=1800&amp;pause=1000&amp;color=79C0FF&amp;center=true&amp;vCenter=true&amp;repeat=false&amp;letterSpacing=1px&amp;width=540&amp;lines=Hi%2C+I'm+Tim+Cai">
-    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=600&amp;size=30&amp;duration=1800&amp;pause=1000&amp;color=0969DA&amp;center=true&amp;vCenter=true&amp;repeat=false&amp;letterSpacing=1px&amp;width=540&amp;lines=Hi%2C+I'm+Tim+Cai">
-    <img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=600&amp;size=30&amp;duration=1800&amp;pause=1000&amp;color=0969DA&amp;center=true&amp;vCenter=true&amp;repeat=false&amp;letterSpacing=1px&amp;width=540&amp;lines=Hi%2C+I'm+Tim+Cai" alt="Hi, I'm Tim Cai">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/title-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/title-light.svg">
+    <img src="./assets/hero/title-light.svg" alt="Hi, I'm Tim Cai">
   </picture>
 </p>
 
@@ -15,9 +15,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=500&amp;size=18&amp;duration=3000&amp;pause=900&amp;color=79C0FF&amp;center=true&amp;vCenter=true&amp;width=760&amp;lines=Building+evidence-grounded+AI+systems;Designing+ML+tools+you+can+inspect;Turning+experiments+into+useful+products">
-    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=500&amp;size=18&amp;duration=3000&amp;pause=900&amp;color=0969DA&amp;center=true&amp;vCenter=true&amp;width=760&amp;lines=Building+evidence-grounded+AI+systems;Designing+ML+tools+you+can+inspect;Turning+experiments+into+useful+products">
-    <img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&amp;weight=500&amp;size=18&amp;duration=3000&amp;pause=900&amp;color=0969DA&amp;center=true&amp;vCenter=true&amp;width=760&amp;lines=Building+evidence-grounded+AI+systems;Designing+ML+tools+you+can+inspect;Turning+experiments+into+useful+products" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/tagline-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/tagline-light.svg">
+    <img src="./assets/hero/tagline-light.svg" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
   </picture>
 </p>
 
@@ -98,11 +98,11 @@
 <table>
 <tr>
 <td>
-<a href="https://github.com/Timcai06/clawd-mv"><img src="./assets/motion/clawd-mv.jpg" width="100%" alt="clawd-mv 画面：片尾署名（主画面）、October 32 报告、undefined 堆栈雨、Local 与 CI 对比"></a>
+<a href="https://www.bilibili.com/video/BV1wapR6JER5/"><img src="./assets/motion/clawd-mv.jpg" width="100%" alt="clawd-mv 画面：片尾署名（主画面）、October 32 报告、undefined 堆栈雨、Local 与 CI 对比"></a>
 <h3><kbd>01</kbd> &nbsp;clawd-mv <sub>Works on My Machine</sub></h3>
 <p>代码驱动的音乐MV，用 TypeScript / Three.js 时间轴与离线渲染串起场景、镜头和音乐。基于 pdoom-video 开源框架进行个人非商业创作，目前持续迭代中。</p>
 <p><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="Three.js"> <img src="https://img.shields.io/badge/Bun-000000?style=flat-square&amp;logo=bun&amp;logoColor=white" alt="Bun"> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite"> <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat-square" alt="Playwright"> <img src="https://img.shields.io/badge/FFmpeg-007808?style=flat-square&amp;logo=ffmpeg&amp;logoColor=white" alt="FFmpeg"> <img src="https://img.shields.io/badge/Suno-000000?style=flat-square&amp;logo=suno&amp;logoColor=white" alt="Suno"></p>
-<p><a href="https://github.com/Timcai06/clawd-mv"><kbd>仓库 / Repo ↗</kbd></a></p>
+<p><a href="https://www.bilibili.com/video/BV1wapR6JER5/"><kbd>▶ 观看完整 MV / Watch on Bilibili ↗</kbd></a> <a href="https://github.com/Timcai06/clawd-mv"><kbd>仓库 / Repo ↗</kbd></a></p>
 </td>
 </tr>
 </table>
