@@ -112,3 +112,13 @@ if __name__ == '__main__':
     assert len(groups) == 6
     for theme in ('dark', 'light'):
         build(theme, groups)
+    # Plain-text stack under the image: SVG text is invisible to Ctrl+F and search,
+    # so the same groups are also written into README.md between the markers.
+    line = ' &nbsp;|&nbsp; '.join(f"<b>{g['title']}</b> " + ' · '.join(i['alt'].replace(', ', ' · ') for i in g['images'])
+                                 for g in groups)
+    block = f'<!-- toolbox:text -->\n<p align="center"><sub>{line}</sub></p>\n<!-- /toolbox:text -->'
+    readme = ROOT / 'README.md'
+    text_ = readme.read_text()
+    start, end = text_.index('<!-- toolbox:text -->'), text_.index('<!-- /toolbox:text -->') + len('<!-- /toolbox:text -->')
+    readme.write_text(text_[:start] + block + text_[end:])
+    print('README.md: toolbox text updated')

@@ -20,7 +20,7 @@ WEIGHT_FILE = {500: 'JetBrainsMono-Medium.ttf', 600: 'JetBrainsMono-SemiBold.ttf
 
 HEROES = [
     dict(name='title', weight=600, size=30, width=540, height=50, letter_spacing='1px',
-         duration=1800, pause=1000, repeat=False, lines=["Hi, I'm Tim Cai"]),
+         duration=1800, pause=6000, repeat=True, lines=["Hi, I'm Tim Cai"]),
     dict(name='tagline', weight=500, size=18, width=760, height=50, letter_spacing='normal',
          duration=3000, pause=900, repeat=True, lines=['Building evidence-grounded AI systems',
                                                        'Designing ML tools you can inspect',

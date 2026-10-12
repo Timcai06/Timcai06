@@ -1,8 +1,8 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/title-dark.svg?v=93051222">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/title-light.svg?v=43f2f1f0">
-    <img src="./assets/hero/title-light.svg?v=43f2f1f0" alt="Hi, I'm Tim Cai">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/title-dark.svg?v=0500387c">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/title-light.svg?v=e769fc15">
+    <img src="./assets/hero/title-light.svg?v=e769fc15" alt="Hi, I'm Tim Cai">
   </picture>
 </p>
 
@@ -15,25 +15,26 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/tagline-dark.svg?v=9acf4c77">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/tagline-light.svg?v=19e18830">
-    <img src="./assets/hero/tagline-light.svg?v=19e18830" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/tagline-dark.svg?v=6752d516">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/tagline-light.svg?v=664a65b5">
+    <img src="./assets/hero/tagline-light.svg?v=664a65b5" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
   </picture>
 </p>
 
 <p><b>Hi, I'm Tim, a student developer based in Shanghai.</b></p>
-<p>I focus on <code>AI agents</code>, <b>observability for ML / DL / RL</b>, quantitative research systems, and <b>carefully crafted full-stack products</b>. I enjoy following an idea all the way through: from models and data pipelines to the interface someone actually uses.</p>
+<p>My focus is <b>AI agent engineering</b>: agent runtimes, tool orchestration and <code>evidence-grounded research agents</code>, delivered end to end on full-stack foundations. Alongside that I work on observability for ML / DL / RL, quantitative research systems and creative coding. I enjoy following an idea all the way through: from models and data pipelines to the interface someone actually uses.</p>
 <p>Full-stack is central to how I learn and build. My interests span frontend, backend, databases, LLMs, AI infrastructure, and lower-level computing systems. I work with React, Next.js and FastAPI, build around PostgreSQL and Redis, and explore GSAP motion and Three.js experiences. I'm working toward becoming a versatile, end-to-end developer in the AI era.</p>
 
 <p><img src="./assets/editor/workspace.svg?v=c8ec511a" width="100%" alt="Tim 的像素夜景代码工作台：文件树、about.ts、语法高亮与终端。AI agents · ML observability · Full-stack products."></p>
 
 <p><b>你好，我是 Tim，一名在上海学习的学生开发者。</b></p>
-<p>我专注于<code>智能体开发</code>、<b>ML / DL / RL 算法</b>、量化研究系统，以及<b>经过细致打磨的全栈产品</b>。我喜欢沿着一个想法往下走：从模型、数据流和后端逻辑，一直做到用户真正接触的界面。</p>
+<p>我的主攻方向是 <b>AI Agent 工程</b>：Agent 运行时、工具编排和<code>有证据支撑的研究 Agent</code>，并以全栈能力把它们完整交付。此外也做 ML / DL / RL 可观测性、量化研究系统和创意编程。我喜欢沿着一个想法往下走：从模型、数据流和后端逻辑，一直做到用户真正接触的界面。</p>
 <p>全栈是我的标签：从前端到后端、数据库，再到 LLM、AI infrastructure 和计算机底层；从 GSAP 高级前端动效、Three.js 3D 体验到 React 开发；从 FastAPI、Next.js 到 Redis、PostgreSQL。我希望成为 AI 时代能够端到端解决问题的开发者，也在持续把实验转化为可以理解、观察和使用的产品。</p>
 
 <blockquote>
 <p><b>Now / 近期关注</b><br>Evidence-grounded research workflows, local-first ML tooling, and systems that turn experiments into usable products.<br>有证据支撑的研究工作流、本地优先的机器学习工具，以及将实验转化为可用产品的系统。</p>
 </blockquote>
+<p><kbd>Writing</kbd> &nbsp;<a href="https://www.crt-dsg.com/blog/platform-split"><kbd>Keeping the landing cinematic and the studio quiet ↗</kbd></a> <a href="https://www.crt-dsg.com/blog/studio-mdx-system"><kbd>Studio content now starts in the repository ↗</kbd></a> <a href="https://www.crt-dsg.com/blog"><kbd>全部文章 / All posts ↗</kbd></a></p>
 
 <br>
 <h1 id="featured" align="center"><sub><samp>01</samp></sub><br>重点作品<br><sub>Featured work</sub></h1>
@@ -123,6 +124,9 @@
   <img src="./assets/toolbox/toolbox-light.svg?v=5057b973" width="100%" alt="技术栈：语言（Python、TypeScript、JavaScript、Go）；AI 与研究（PyTorch、scikit-learn、YOLOv8、PaddleOCR、RAG、Agent workflows）；前端与动效（React、Next.js、Vite、Tailwind CSS、Three.js、GSAP、React Three Fiber）；后端与数据（FastAPI、Django、PostgreSQL、Redis、Supabase、Celery、Drizzle）；工程与交付（Docker、GitHub Actions、Vercel、Bun、pnpm、FFmpeg）；建模与科学计算（LaTeX、R、NumPy、pandas、SciPy、Matplotlib、PuLP、HiGHS）。">
 </picture>
 </p>
+<!-- toolbox:text -->
+<p align="center"><sub><b>语言</b> Python · TypeScript · JavaScript · Go &nbsp;|&nbsp; <b>AI 与研究</b> PyTorch · scikit-learn · YOLOv8 · PaddleOCR · RAG · Agent workflows &nbsp;|&nbsp; <b>前端与动效</b> React · Next.js · Vite · Tailwind CSS · Three.js · GSAP · React Three Fiber &nbsp;|&nbsp; <b>后端与数据</b> FastAPI · Django · PostgreSQL · Redis · Supabase · Celery · Drizzle &nbsp;|&nbsp; <b>工程与交付</b> Docker · GitHub Actions · Vercel · Bun · pnpm · FFmpeg &nbsp;|&nbsp; <b>建模与科学计算</b> LaTeX · R · NumPy · pandas · SciPy · Matplotlib · PuLP · HiGHS</sub></p>
+<!-- /toolbox:text -->
 
 <br>
 <h1 id="more" align="center"><sub><samp>04</samp></sub><br>更多<br><sub>More</sub></h1>
