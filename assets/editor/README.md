@@ -12,7 +12,8 @@
    - 02 用代码做动画 — series statement, then one card per work (01 clawd-mv).
    - 03 技术栈 — centered light/dark SVG, 3×2 grid with interrupted borders, corner marks and numbered groups; original skillicons and shields are embedded.
    - 04 更多 — Sophon AI card, Seen; folds "其他作品" and "数学建模" (one fold per modeling project inside).
-5. `footer.svg` — terminal bookend, invitation text, grey contact buttons.
+5. `skyline.svg` — contribution skyline (one building per week, windows = days), refreshed daily by `.github/workflows/skyline.yml`; the only live element on the page.
+6. `footer.svg` — terminal bookend, invitation text, grey contact buttons.
 
 ## Style rules
 
@@ -28,6 +29,7 @@
 | `assets/editor/workspace.svg`, `footer.svg`, `*-compact.svg` | `scripts/build_profile.py` | `assets/pixel-lab/v2/*.png` (quantized to 8 colours at embed time) |
 | `assets/motion/clawd-mv.jpg`, `assets/showcase/sophon.jpg` | `scripts/build_motion.py` | `assets/motion/series.json`, `assets/showcase/showcase.json`; raw frames in git-ignored `desktop-screenshots/` / `source/` folders |
 | `assets/toolbox/toolbox-{dark,light}.svg` | `scripts/build_toolbox.py` | `assets/toolbox/toolbox.json` and vendored `source/*.svg` |
+| `assets/editor/skyline.svg` | `scripts/build_skyline.py` (daily GitHub Action; locally `GH_TOKEN=$(gh auth token) python3 scripts/build_skyline.py`) | GitHub GraphQL contribution calendar; `assets/pixel-lab/v2/background.png`. Optional repo secret `SKYLINE_TOKEN` (fine-grained PAT, read-only) |
 | `assets/hero/{title,tagline}-{dark,light}.svg` | `scripts/build_hero.py` (run via `uv run --with fonttools python scripts/build_hero.py`) | Lines/timing in the script; vendored JetBrains Mono in `assets/hero/fonts/` (OFL), subset per SVG at build time |
 | `assets/modeling/*.png` and the README modeling folds | `scripts/build_modeling.py` | `~/Desktop/数模论文插图/` archive (from `~/School/数模/`) |
 
