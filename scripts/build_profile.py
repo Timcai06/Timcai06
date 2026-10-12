@@ -259,6 +259,8 @@ def card_activity(repo, accent):
     a = ACTIVITY[repo]
     active = a['last_commit'] and date.fromisoformat(a['last_commit']) >= date.today() - timedelta(days=14)
     out = [f'<circle cx="114" cy="494" r="3.5" fill="{accent if active else "#4b5774"}"/>']
+    if active:  # only a genuinely active repository breathes
+        out.insert(0, f'<circle cx="114" cy="494" r="7" fill="{accent}" opacity=".3" style="animation:halo 2.4s ease-in-out infinite"/>')
     peak = max(a['weeks']) or 1
     for i, n in enumerate(a['weeks']):
         h = max(1, round(n / peak * 13))
@@ -368,16 +370,32 @@ for slug,name,tagline,desc,stack,accent in compact:
           text(40,373,'PROBLEMS',10,'#5f6b88','letter-spacing=".5"'),text(110,373,'OUTPUT',10,'#5f6b88','letter-spacing=".5"'),
           text(166,373,'TERMINAL',10,accent,'letter-spacing=".5"'),rect(166,378,58,2,accent),
           text(604,373,'zsh  +  ×',11,'#6f7b97','text-anchor="end"')]
+    # Motion: the README's quick-start commands are typed one after another (11 s loop,
+    # phase-shifted per card), a caret waits on the empty README line, and the status
+    # lamp breathes only for an active repository.
+    Mc=Motion(phase=CARD_ORDER[slug]*1.7)
+    Mc.raw('@keyframes halo{0%,100%{opacity:.08}50%{opacity:.4}}')
     prompt=[('~/'+REPO_DIR[slug],'var'),(' $ ','b1')]
+    prompt_spans=''.join(f'<tspan fill="{TOK[k]}">{escape(t)}</tspan>' for t,k in prompt)
+    cursor_x=round(40+len('~/'+REPO_DIR[slug]+' $ ')*13*0.6)+1
+    T, t, DT, RESET = 11, 0.6, 0.05, 10.4
+    b.append(f'<g class="{Mc.window("idle0",RESET,t,T)}" opacity="0">'+rect(cursor_x,391,7,14,'#edc38c','opacity=".85" class="blink"')+'</g>')
     for k,(cmd,comment) in enumerate(TERMINAL_CMDS[slug]):
-        parts=prompt+[(cmd,'plain')]+([('  '+comment,'comment')] if comment else [])
-        b.append(code_line(40,402+k*24,parts,13))
-    b.append(code_line(40,450,prompt,13))
-    b.append(rect(round(40+len('~/'+REPO_DIR[slug]+' $ ')*13*0.6)+1,439,7,14,'#edc38c','opacity=".85"'))
+        typed=Mc.typed(f'c{k}_',cmd,TOK['plain'],t,DT,RESET,T)
+        done=t+len(cmd)*DT
+        note=(f'<tspan fill="{TOK["comment"]}" font-style="italic" class="{Mc.window(f"m{k}",done+0.15,RESET,T,"fill-opacity")}">'
+              f'{escape("  "+comment)}</tspan>') if comment else ''
+        line=f'<text x="40" y="{402+k*24}" font-size="13" xml:space="preserve">{prompt_spans}{typed}{note}</text>'
+        b.append(line if k==0 else f'<g class="{Mc.window(f"p{k}",t-0.4,RESET,T)}">{line}</g>')
+        t=done+0.9
+    b.append(f'<g class="{Mc.window("idle1",t-0.5,RESET,T)}">'+code_line(40,450,prompt,13)
+             +rect(cursor_x,439,7,14,'#edc38c','opacity=".85" class="blink"')+'</g>')
+    b.append(rect(72,259,2,18,'#edc38c','class="blink"'))
     # Status bar.
     b += [rect(X0+1,480,X1-X0-2,27,'#252f48'),rect(X0+1,480,74,27,'#3a3356'),
           text(34,498,'⎇ main',12,'#f5d2a4'),*card_activity(REPO_DIR[slug],accent),
           text(604,498,'Markdown   UTF-8   LF',12,'#aab6d2','text-anchor="end"')]
     b.extend(project_frame(slug, name, accent))
+    b.insert(0,Mc.style())
     if WRITE: (out/(slug+'-compact.svg')).write_text(svg(640,540,b,name+' — '+tagline))
 if WRITE: print('Built project cards')

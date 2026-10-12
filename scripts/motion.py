@@ -9,8 +9,10 @@ from html import escape
 
 
 class Motion:
-    def __init__(self):
+    def __init__(self, phase=0.0):
+        # phase (s) shifts every window loop, so several SVGs on one page do not move in lockstep.
         self.frames = []
+        self.phase = phase
 
     def raw(self, css):
         self.frames.append(css)
@@ -22,7 +24,7 @@ class Motion:
             frames = f'0%{{{prop}:1}}{z}%{{{prop}:0}}{a}%{{{prop}:1}}'
         else:
             frames = (f'0%{{{prop}:0}}' if a > 0 else '') + f'{a}%{{{prop}:1}}' + (f'{z}%{{{prop}:0}}' if z < 100 else '')
-        self.raw(f'@keyframes {name}{{{frames}}}.{name}{{animation:{name} {period}s step-end infinite}}')
+        self.raw(f'@keyframes {name}{{{frames}}}.{name}{{animation:{name} {period}s step-end {-(self.phase % period):.2f}s infinite}}')
         return name
 
     def typed(self, prefix, text, color, start, dt, end, period):

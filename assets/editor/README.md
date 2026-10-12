@@ -13,7 +13,7 @@
    - 03 技术栈 — centered light/dark SVG, 3×2 grid with interrupted borders, corner marks and numbered groups; original skillicons and shields are embedded.
    - 04 更多 — Sophon AI card, Seen; folds "其他作品" and "数学建模" (one fold per modeling project inside).
 5. `skyline.svg` — live terminal: `git log` of the 5 latest commits across public repos, contribution skyline (one building per week, windows = days), a 24-floor commit-hour tower (weekday × hour, UTC+8) and the real moon phase (snapped to 1/16 cycle), closing with `echo "Thanks for stopping by."` as the page bookend. Refreshed daily by `.github/workflows/skyline.yml`. Motion is decorative only (stars, a meteor, the moon halo, a car on the street, the roof beacon, the retyped echo on a 14 s loop); buildings and windows are data and never animate.
-Project cards: frames stay decorative; the status bar is live (lamp = commit in the last 14 days, 12 weekly bars, commits / 12w and last commit date).
+Project cards: frames stay decorative; the status bar is live (lamp = commit in the last 14 days, 12 weekly bars, commits / 12w and last commit date). Motion: the terminal types the README quick-start commands one after another (11 s loop, phase-shifted per card so the five cards never move in lockstep), a caret blinks on the empty README line, and the lamp breathes only for an active repository.
 6. Invitation text and grey contact buttons.
 
 ## Style rules
