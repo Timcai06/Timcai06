@@ -15,6 +15,8 @@ import base64
 from fontTools import subset
 from fontTools.ttLib import TTFont
 
+from pixel_font import columns, render
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'assets/hero'
 FONTS = OUT / 'fonts'
@@ -30,7 +32,7 @@ HEROES = [
 
 
 def font_face(weight, chars):
-    font = TTFont(FONTS / WEIGHT_FILE[weight])
+    font = TTFont(FONTS / WEIGHT_FILE[weight], recalcTimestamp=False)  # stable bytes across builds
     options = subset.Options()
     options.layout_features = []
     options.name_IDs = []
@@ -85,37 +87,14 @@ def build(h, color):
             f'<title>{escape("; ".join(h["lines"]))}</title><style>{style}</style>' + ''.join(body) + '</svg>')
 
 
-# 5x7 pixel glyphs (rows top to bottom); blank columns are trimmed per glyph.
-GLYPHS = {
-    'H': ['10001', '10001', '10001', '11111', '10001', '10001', '10001'],
-    'i': ['00100', '00000', '01100', '00100', '00100', '00100', '01110'],
-    ',': ['00000', '00000', '00000', '00000', '01100', '00100', '01000'],
-    'I': ['01110', '00100', '00100', '00100', '00100', '00100', '01110'],
-    "'": ['00100', '00100', '01000', '00000', '00000', '00000', '00000'],
-    'm': ['00000', '00000', '11010', '10101', '10101', '10101', '10101'],
-    'T': ['11111', '00100', '00100', '00100', '00100', '00100', '00100'],
-    'C': ['01111', '10000', '10000', '10000', '10000', '10000', '01111'],
-    'a': ['00000', '00000', '01110', '00001', '01111', '10001', '01111'],
-}
 PIXEL = {'dark': dict(top='#b6dcff', bottom='#4f9cf0', shadow='#14304f', shine='#ffffff', stars=('#f2c48f', '#8fa0d8')),
          'light': dict(top='#3f8ef5', bottom='#0550ae', shadow='#c9dcf5', shine='#ffffff', stars=('#bf8700', '#54aeff'))}
 
 
 def pixel_title(theme, text="Hi, I'm Tim Cai", W=540, H=80, P=6, S=5, LOOP=16):
     pal = PIXEL[theme]
-    cols = []  # list of (column bits top->bottom) with spacing columns
-    for ch in text:
-        if ch == ' ':
-            cols += [[0] * 7] * 3
-            continue
-        g = GLYPHS[ch]
-        used = [c for c in range(5) if any(row[c] == '1' for row in g)]
-        for c in range(used[0], used[-1] + 1):
-            cols.append([int(row[c]) for row in g])
-        cols.append([0] * 7)
-    cols = cols[:-1]
+    cols = columns(text)
     x0, y0 = round((W - (len(cols) + 2) * P) / 2), round((H - 7 * P) / 2) + 4
-    ramp = lambda r: _mix(pal['top'], pal['bottom'], r / 6)
     css = [f'@keyframes px{{0%{{opacity:0;transform:translateY(-8px)}}2.5%{{opacity:1;transform:translateY(0)}}'
            f'93%{{opacity:1;transform:translateY(0)}}96%,100%{{opacity:0;transform:translateY(0)}}}}',
            '@keyframes blink{0%{opacity:1}50%{opacity:0}}.blink{animation:blink 1.1s step-end infinite}',
@@ -126,16 +105,8 @@ def pixel_title(theme, text="Hi, I'm Tim Cai", W=540, H=80, P=6, S=5, LOOP=16):
            f'@keyframes met{{0%,47%{{opacity:0;transform:translate(0,0)}}48%{{opacity:1}}53%,100%{{opacity:0;transform:translate(150px,26px)}}}}'
            f'.met{{animation:met {LOOP}s linear infinite}}',
            '@media (prefers-reduced-motion:reduce){*{animation:none!important}}']
-    body, mask = [], []
-    for k, bits in enumerate(cols):
-        x = x0 + k * P
-        on = [r for r in range(7) if bits[r]]
-        if not on:
-            continue
-        cells = ''.join(f'<rect x="{x + 1}" y="{y0 + r * P + 1}" width="{S}" height="{S}" fill="{pal["shadow"]}"/>' for r in on)
-        cells += ''.join(f'<rect x="{x}" y="{y0 + r * P}" width="{S}" height="{S}" fill="{ramp(r)}"/>' for r in on)
-        mask += [f'<rect x="{x}" y="{y0 + r * P}" width="{S}" height="{S}" fill="#fff"/>' for r in on]
-        body.append(f'<g style="animation:px {LOOP}s cubic-bezier(.2,.8,.2,1) {k * 0.022:.3f}s infinite backwards">{cells}</g>')
+    lit, mask = render(text, x0, y0, P, S, pal['top'], pal['bottom'], pal['shadow'])
+    body = [f'<g style="animation:px {LOOP}s cubic-bezier(.2,.8,.2,1) {k * 0.022:.3f}s infinite backwards">{cells}</g>' for k, cells in lit]
     cx = x0 + (len(cols) + 1) * P
     body.append(f'<g class="cur"><rect x="{cx}" y="{y0}" width="{S}" height="{7 * P - 1}" fill="{pal["bottom"]}" class="blink"/></g>')
     body.append(f'<defs><mask id="letters">{"".join(mask)}</mask><linearGradient id="sh" x1="0" x2="1">'
@@ -152,11 +123,6 @@ def pixel_title(theme, text="Hi, I'm Tim Cai", W=540, H=80, P=6, S=5, LOOP=16):
                 f'<rect x="{x0 + 61}" y="7" width="3" height="3" fill="{pal["shine"]}"/></g>')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img">'
             f'<title>{escape(text)}</title><style>{"".join(css)}</style>' + ''.join(body) + '</svg>')
-
-
-def _mix(a, b, t):
-    pa, pb = [int(a[i:i + 2], 16) for i in (1, 3, 5)], [int(b[i:i + 2], 16) for i in (1, 3, 5)]
-    return '#' + ''.join(f'{round(x + (y - x) * t):02x}' for x, y in zip(pa, pb))
 
 
 for theme in PIXEL:

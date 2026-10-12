@@ -47,6 +47,18 @@ class Motion:
                  f'.{name}{{animation:{name} {period}s ease-out infinite}}')
         return name
 
+    def grow(self, name, at, period, dur=.5):
+        """Scales up from its own bottom edge at `at` seconds (a data bar rising to its true height)."""
+        a, z = round(at / period * 100, 3), round((at + dur) / period * 100, 3)
+        self.raw(f'@keyframes {name}{{0%,{a}%{{transform:scaleY(0)}}{z}%,100%{{transform:scaleY(1)}}}}'
+                 f'.{name}{{transform-box:fill-box;transform-origin:50% 100%;animation:{name} {period}s cubic-bezier(.2,.8,.2,1) infinite}}')
+        return name
+
+    def session_fade(self, name, period, out=(96, 99)):
+        """Whole-session wrapper: visible, then fades out just before the loop restarts."""
+        self.raw(f'@keyframes {name}{{0%,{out[0]}%{{opacity:1}}{out[1]}%,100%{{opacity:0}}}}.{name}{{animation:{name} {period}s linear infinite}}')
+        return name
+
     def pop(self, name, start, end, period, dy=-6, dur=.2):
         """Eases in at `start`, eases out by `end` (for overlays such as a command palette)."""
         p = lambda t: round(t / period * 100, 3)

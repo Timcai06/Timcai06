@@ -15,9 +15,9 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/tagline-dark.svg?v=15ba0ae9">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/tagline-light.svg?v=eb55cd30">
-    <img src="./assets/hero/tagline-light.svg?v=eb55cd30" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero/tagline-dark.svg?v=993544eb">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero/tagline-light.svg?v=359ad65c">
+    <img src="./assets/hero/tagline-light.svg?v=359ad65c" alt="Building evidence-grounded AI systems; designing inspectable ML tools; turning experiments into useful products.">
   </picture>
 </p>
 
@@ -236,6 +236,6 @@
 </details>
 
 <br>
-<p><img src="./assets/editor/skyline.svg?v=5c5acf72" width="100%" alt="实时终端：所有公开仓库最近 5 条提交；贡献天际线（每周一栋楼，楼高为当周贡献数，窗户为每天）；24 层作息楼（窗户为周一到周日各小时的提交数，UTC+8）；天上是当天真实月相；最后 echo &quot;Thanks for stopping by.&quot;。每日自动更新。"></p>
+<p><img src="./assets/editor/skyline.svg?v=29e1f218" width="100%" alt="实时终端：所有公开仓库最近 5 条提交；贡献天际线（每周一栋楼，楼高为当周贡献数，窗户为每天）；24 层作息楼（窗户为周一到周日各小时的提交数，UTC+8）；天上是当天真实月相；最后 echo &quot;Thanks for stopping by.&quot;。每日自动更新。"></p>
 <p align="center"><b>如果你也在做智能体、研究工具或有趣的全栈产品，欢迎交流。</b><br><sub>If something here resonates with you, feel free to explore, follow, or say hello.</sub></p>
 <p align="center"><a href="https://www.crt-dsg.com"><kbd>crt-dsg.com ↗</kbd></a> <a href="mailto:cairentian932@gmail.com"><kbd>cairentian932@gmail.com</kbd></a> <a href="https://www.instagram.com/cairentian932/"><kbd>Instagram ↗</kbd></a> <a href="https://www.linkedin.com/in/%E4%BB%BB%E5%A4%A9-%E8%94%A1-6553163a6"><kbd>LinkedIn ↗</kbd></a></p>
