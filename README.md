@@ -21,13 +21,14 @@
   </picture>
 </p>
 
-<p><img src="./assets/editor/workspace.svg" width="100%" alt="Tim 的像素夜景代码工作台：文件树、about.ts、语法高亮与终端。AI agents · ML observability · Full-stack products."></p>
-
 <p><b>Hi, I'm Tim, a student developer based in Shanghai.</b></p>
 <p>I focus on <code>AI agents</code>, <b>observability for ML / DL / RL</b>, quantitative research systems, and <b>carefully crafted full-stack products</b>. I enjoy following an idea all the way through: from models and data pipelines to the interface someone actually uses.</p>
 <p>Full-stack is central to how I learn and build. My interests span frontend, backend, databases, LLMs, AI infrastructure, and lower-level computing systems. I work with React, Next.js and FastAPI, build around PostgreSQL and Redis, and explore GSAP motion and Three.js experiences. I'm working toward becoming a versatile, end-to-end developer in the AI era.</p>
+
+<p><img src="./assets/editor/workspace.svg" width="100%" alt="Tim 的像素夜景代码工作台：文件树、about.ts、语法高亮与终端。AI agents · ML observability · Full-stack products."></p>
+
 <p><b>你好，我是 Tim，一名在上海学习的学生开发者。</b></p>
-<p>我专注于<code>智能体开发</code>、<b>ML / DL / RL 的可观测性工具</b>、量化研究系统，以及<b>经过细致打磨的全栈产品</b>。我喜欢沿着一个想法往下走：从模型、数据流和后端逻辑，一直做到用户真正接触的界面。</p>
+<p>我专注于<code>智能体开发</code>、<b>ML / DL / RL 算法</b>、量化研究系统，以及<b>经过细致打磨的全栈产品</b>。我喜欢沿着一个想法往下走：从模型、数据流和后端逻辑，一直做到用户真正接触的界面。</p>
 <p>全栈是我的标签：从前端到后端、数据库，再到 LLM、AI infrastructure 和计算机底层；从 GSAP 高级前端动效、Three.js 3D 体验到 React 开发；从 FastAPI、Next.js 到 Redis、PostgreSQL。我希望成为 AI 时代能够端到端解决问题的开发者，也在持续把实验转化为可以理解、观察和使用的产品。</p>
 
 <blockquote>
@@ -126,7 +127,7 @@
 <td>
 <img src="./assets/showcase/sophon.jpg" width="100%" alt="Sophon AI 官网界面：Bitemporal 记忆章节与 client.memory.search 示例等页面">
 <h3>Sophon AI 官网</h3>
-<p>结合交互叙事、前端动效与 3D 视觉的官网设计与开发。</p>
+<p>结合交互叙事、前端动效与 3D 视觉的官网设计与开发，与全栈系统骨架</p>
 </td>
 </tr>
 </table>

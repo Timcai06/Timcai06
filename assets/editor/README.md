@@ -5,8 +5,8 @@
 ## Page structure
 
 1. Hero — typing-SVG title, contact badges (Blog uses the site's chrome "T" mark as a data-URI logo; LinkedIn uses a minimal "in" SVG), typing subtitle.
-2. `workspace.svg` — pixel-night backdrop + VS Code-style editor (`about.ts`, file tree, terminal, minimap).
-3. Bilingual intro + "Now" blockquote.
+2. English intro, then `workspace.svg` — pixel-night backdrop + VS Code-style editor (`about.ts`, file tree, terminal, minimap).
+3. Chinese intro below the workspace image + "Now" blockquote.
 4. Chapters as centred `<h1>` openers `01–04`; subsections use `<kbd>label</kbd> <b>English</b>`.
    - 01 重点作品 — lead cards EduCanvas, SciScope; "Also featured" rows TTT-I-M, BDI, PulseGraph.
    - 02 用代码做动画 — series statement, then one card per work (01 clawd-mv).
