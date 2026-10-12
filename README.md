@@ -25,7 +25,7 @@
 <p>My focus is <b>AI agent engineering</b>: agent runtimes, tool orchestration and <code>evidence-grounded research agents</code>, delivered end to end on full-stack foundations. Alongside that I work on observability for ML / DL / RL, quantitative research systems and creative coding. I enjoy following an idea all the way through: from models and data pipelines to the interface someone actually uses.</p>
 <p>Full-stack is central to how I learn and build. My interests span frontend, backend, databases, LLMs, AI infrastructure, and lower-level computing systems. I work with React, Next.js and FastAPI, build around PostgreSQL and Redis, and explore GSAP motion and Three.js experiences. I'm working toward becoming a versatile, end-to-end developer in the AI era.</p>
 
-<p><img src="./assets/editor/workspace.svg?v=c8ec511a" width="100%" alt="Tim 的像素夜景代码工作台：文件树、about.ts、语法高亮与终端。AI agents · ML observability · Full-stack products."></p>
+<p><img src="./assets/editor/workspace.svg?v=bcfe9406" width="100%" alt="Tim 的像素夜景代码工作台：文件树、about.ts、语法高亮与终端。AI agents · ML observability · Full-stack products."></p>
 
 <p><b>你好，我是 Tim，一名在上海学习的学生开发者。</b></p>
 <p>我的主攻方向是 <b>AI Agent 工程</b>：Agent 运行时、工具编排和<code>有证据支撑的研究 Agent</code>，并以全栈能力把它们完整交付。此外也做 ML / DL / RL 可观测性、量化研究系统和创意编程。我喜欢沿着一个想法往下走：从模型、数据流和后端逻辑，一直做到用户真正接触的界面。</p>
@@ -35,6 +35,7 @@
 <p><b>Now / 近期关注</b><br>Evidence-grounded research workflows, local-first ML tooling, and systems that turn experiments into usable products.<br>有证据支撑的研究工作流、本地优先的机器学习工具，以及将实验转化为可用产品的系统。</p>
 </blockquote>
 <p><kbd>Writing</kbd> &nbsp;<a href="https://www.crt-dsg.com/blog/platform-split"><kbd>Keeping the landing cinematic and the studio quiet ↗</kbd></a> <a href="https://www.crt-dsg.com/blog/studio-mdx-system"><kbd>Studio content now starts in the repository ↗</kbd></a> <a href="https://www.crt-dsg.com/blog"><kbd>全部文章 / All posts ↗</kbd></a></p>
+<p><kbd>Live</kbd> &nbsp;页尾是一台每天自动更新的终端：最近提交、贡献和今晚的月相 <a href="#live"><kbd>跳到 05 / Jump ↓</kbd></a></p>
 
 <br>
 <h1 id="featured" align="center"><sub><samp>01</samp></sub><br>重点作品<br><sub>Featured work</sub></h1>
@@ -44,7 +45,7 @@
 <table>
 <tr>
 <td width="50%" valign="top">
-<a href="https://github.com/Timcai06/EduCanvas"><img src="./assets/editor/educanvas-compact.svg?v=befdc618" width="100%" alt="EduCanvas — 通用个人 Agent 与学习空间"></a>
+<a href="https://github.com/Timcai06/EduCanvas"><img src="./assets/editor/educanvas-compact.svg?v=14594b1d" width="100%" alt="EduCanvas — 通用个人 Agent 与学习空间"></a>
 <h3>EduCanvas <sub>A personal agent for learning</sub></h3>
 <p><b>面向学习场景的通用个人 Agent</b>。你可以把资料、对话和 Canvas 放在同一个 Notebook 里，让 Agent 调用工具和技能，围绕这些资料继续讨论、创作和学习。</p>
 <p>普通对话和教育功能共用一套 <code>Agent Runtime</code>，按需接入学习工具。判分、掌握度和学习记录由服务端代码更新；模型适配、权限和数据访问各有明确边界。这个项目也包含 Web、Gateway 和后台任务，覆盖从 Agent 运行时到用户界面的开发。</p>
@@ -52,7 +53,7 @@
 <p><a href="https://github.com/Timcai06/EduCanvas"><kbd>仓库 / Repo ↗</kbd></a></p>
 </td>
 <td width="50%" valign="top">
-<a href="https://github.com/Timcai06/SciScope"><img src="./assets/editor/sciscope-compact.svg?v=ce13794c" width="100%" alt="SciScope — 文献与证据驱动的研究 Agent"></a>
+<a href="https://github.com/Timcai06/SciScope"><img src="./assets/editor/sciscope-compact.svg?v=37298d55" width="100%" alt="SciScope — 文献与证据驱动的研究 Agent"></a>
 <h3>SciScope <sub>Evidence-grounded research agent</sub></h3>
 <p><b>在终端里查文献、找证据的研究 Agent</b>。后端用 <code>LangGraph StateGraph</code> 组织运行过程，调用 RAG 检索和研究工具，再把找到的文献证据用于回答。</p>
 <p>除了最终答案，你还能看到它如何规划、调用了什么工具、工具返回了什么，以及反思过程。Python / FastAPI 后端通过 SSE 把这些事件传给 Go TUI，终端按时间线展示工具调用，并支持在同一会话里重试。Agent 编排、后端协议和终端交互都在这个项目里实现。</p>
@@ -68,7 +69,7 @@
 <br>
 <table>
 <tr>
-<td width="44%" valign="middle"><a href="https://github.com/Timcai06/TTT-I-M"><img src="./assets/editor/tttim-compact.svg?v=7089dd0b" width="100%" alt="TTT-I-M — 个人网站与内容工作室"></a></td>
+<td width="44%" valign="middle"><a href="https://github.com/Timcai06/TTT-I-M"><img src="./assets/editor/tttim-compact.svg?v=6e5d8d8e" width="100%" alt="TTT-I-M — 个人网站与内容工作室"></a></td>
 <td width="56%" valign="middle">
 <h3>TTT-I-M <sub>个人网站与内容工作室</sub></h3>
 <p>我的个人网站与内容工作室：<b>电影感 Landing</b> 与博客、作品、内容管理组成同一套空间。探索 GSAP 动效、Three.js / React Three Fiber 与全栈内容系统如何共同服务个人表达。</p>
@@ -77,7 +78,7 @@
 </td>
 </tr>
 <tr>
-<td width="44%" valign="middle"><a href="https://github.com/Timcai06/BDI"><img src="./assets/editor/bdi-compact.svg?v=27cf4e18" width="100%" alt="BDI — 桥梁视觉检测"></a></td>
+<td width="44%" valign="middle"><a href="https://github.com/Timcai06/BDI"><img src="./assets/editor/bdi-compact.svg?v=95544977" width="100%" alt="BDI — 桥梁视觉检测"></a></td>
 <td width="56%" valign="middle">
 <h3>BDI <sub>桥梁视觉检测</sub></h3>
 <p>无人机桥梁巡检原型：把 <b>YOLOv8-seg 病害分割</b>接入全栈工作流，围绕检测结果与本地产物提供可查看的界面。</p>
@@ -86,7 +87,7 @@
 </td>
 </tr>
 <tr>
-<td width="44%" valign="middle"><a href="https://github.com/Timcai06/PulseGraph"><img src="./assets/editor/pulsegraph-compact.svg?v=7370d4da" width="100%" alt="PulseGraph — 训练可观测性工作台"></a></td>
+<td width="44%" valign="middle"><a href="https://github.com/Timcai06/PulseGraph"><img src="./assets/editor/pulsegraph-compact.svg?v=2c035d38" width="100%" alt="PulseGraph — 训练可观测性工作台"></a></td>
 <td width="56%" valign="middle">
 <h3>PulseGraph <sub>See what your training is doing</sub></h3>
 <p><b>本地优先</b>的 PyTorch 训练可观测性工作台：连接模型图、训练指标、检查点与推理回放，让实验过程更容易检查和追溯。</p>
@@ -236,6 +237,11 @@
 </details>
 
 <br>
-<p><img src="./assets/editor/skyline.svg?v=29e1f218" width="100%" alt="实时终端：所有公开仓库最近 5 条提交；贡献天际线（每周一栋楼，楼高为当周贡献数，窗户为每天）；24 层作息楼（窗户为周一到周日各小时的提交数，UTC+8）；天上是当天真实月相；最后 echo &quot;Thanks for stopping by.&quot;。每日自动更新。"></p>
+<h1 id="live" align="center"><sub><samp>05</samp></sub><br>实时终端<br><sub>Live</sub></h1>
+<p align="center"><b>每天 03:17 由 GitHub Actions 自动重新生成</b><br><sub>Regenerated every day from live GitHub data.</sub></p>
+<p><img src="./assets/editor/skyline.svg?v=0e3b4e07" width="100%" alt="实时终端：所有公开仓库最近 5 条提交；贡献天际线（每周一栋楼，楼高为当周贡献数，窗户为每天）；24 层作息楼（窗户为周一到周日各小时的提交数，UTC+8）；天上是当天真实月相；最后 echo &quot;Thanks for stopping by.&quot;。每日自动更新。"></p>
+<p align="center"><sub>最近提交、贡献天际线、作息楼和月相，都是生成当天的真实数据 · 最近更新 <!-- live:updated --><b>2026-10-13 00:20 (UTC+8)</b><!-- /live:updated --></sub><br>
+<a href="https://github.com/Timcai06/Timcai06/actions/workflows/skyline.yml"><img src="https://github.com/Timcai06/Timcai06/actions/workflows/skyline.yml/badge.svg" alt="Live profile data workflow status"></a> <a href="./.github/workflows/skyline.yml"><kbd>Workflow 源码 / Source ↗</kbd></a> <a href="https://github.com/Timcai06/Timcai06/actions/workflows/skyline.yml"><kbd>运行记录 / Runs ↗</kbd></a></p>
+<br>
 <p align="center"><b>如果你也在做智能体、研究工具或有趣的全栈产品，欢迎交流。</b><br><sub>If something here resonates with you, feel free to explore, follow, or say hello.</sub></p>
 <p align="center"><a href="https://www.crt-dsg.com"><kbd>crt-dsg.com ↗</kbd></a> <a href="mailto:cairentian932@gmail.com"><kbd>cairentian932@gmail.com</kbd></a> <a href="https://www.instagram.com/cairentian932/"><kbd>Instagram ↗</kbd></a> <a href="https://www.linkedin.com/in/%E4%BB%BB%E5%A4%A9-%E8%94%A1-6553163a6"><kbd>LinkedIn ↗</kbd></a></p>

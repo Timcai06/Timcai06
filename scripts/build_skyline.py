@@ -81,7 +81,7 @@ def cloud(cx, cy):
                                          for x, y, w in cloud) + '</g>')
 
 
-def build(data, today):
+def build(data, today, generated):
     cal = data['calendar']
     weeks = cal['weeks']
     days = [d for w in weeks for d in w['contributionDays']]
@@ -123,7 +123,12 @@ def build(data, today):
     for x, c in [(174, '#f28c84'), (194, '#e9ba79'), (214, '#97bf9b')]:
         b.append(f'<circle cx="{x}" cy="61" r="5.5" fill="{c}"/>')
     b += [text(600, 66, 'zsh — ~/Timcai06', 14, '#9aa5c0', 'text-anchor="middle"'),
-          text(1028, 66, 'LIVE', 11, '#edc38c', 'text-anchor="end" letter-spacing="1"')]
+          text(1028, 66, f'LIVE · updated {generated}', 11, '#edc38c', 'text-anchor="end" letter-spacing=".5"')]
+    # Pulsing red dot before the label: this terminal is regenerated from live data.
+    live_x = round(1028 - len(f'LIVE · updated {generated}') * 11 * 0.62 - 12)
+    M.raw('@keyframes ping{0%{transform:scale(1);opacity:.7}80%,100%{transform:scale(2.6);opacity:0}}'
+          '.ping{transform-box:fill-box;transform-origin:center;animation:ping 1.8s ease-out infinite}')
+    b += [f'<circle cx="{live_x}" cy="62" r="4" fill="#f85149" class="ping"/>', f'<circle cx="{live_x}" cy="62" r="4" fill="#f85149"/>']
     # ---- One 28 s session, like the workspace: `git log --graph` types and its rows
     # cascade in; `skyline` types, then every building rises to its true height and
     # the tower lights floor by floor; `echo` types and "Thanks for stopping by."
@@ -274,7 +279,16 @@ def build(data, today):
 
 
 data = json.loads((ROOT / 'assets/editor/activity.json').read_text())
-# SKYLINE_DATE=YYYY-MM-DD previews another day (e.g. a full moon) without touching the data.
-day = date.fromisoformat(os.environ['SKYLINE_DATE']) if os.environ.get('SKYLINE_DATE') else datetime.now(TZ).date()
-OUT.write_text(build(data, day))
+now = datetime.now(TZ)
+generated = now.strftime('%Y-%m-%d %H:%M') + ' (UTC+8)'
+# SKYLINE_DATE=YYYY-MM-DD previews another day (e.g. a full moon) without touching the data or README.
+preview = os.environ.get('SKYLINE_DATE')
+day = date.fromisoformat(preview) if preview else now.date()
+OUT.write_text(build(data, day, generated))
+if not preview:
+    # The README caption under the terminal shows the same timestamp as its title bar.
+    readme = ROOT / 'README.md'
+    text_ = readme.read_text()
+    a, z = text_.index('<!-- live:updated -->'), text_.index('<!-- /live:updated -->')
+    readme.write_text(text_[:a] + f'<!-- live:updated --><b>{generated}</b>' + text_[z:])
 print('Built live terminal')

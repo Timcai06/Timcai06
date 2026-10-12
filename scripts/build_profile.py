@@ -541,7 +541,14 @@ for slug,name,tagline,desc,stack,accent in compact:
     # Status bar.
     b += [rect(X0+1,480,X1-X0-2,27,'#252f48'),rect(X0+1,480,74,27,'#3a3356'),
           text(34,498,'⎇ main',12,'#f5d2a4'),*card_activity(REPO_DIR[slug],accent,-(Mc.phase%11)),
-          text(604,498,'Markdown   UTF-8   LF',12,'#aab6d2','text-anchor="end"')]
+          text(604,498,'live   UTF-8   LF',12,'#aab6d2','text-anchor="end"')]
+    # The status bar is live data (activity.json, refreshed daily): say so with the
+    # same pulsing red dot as the live terminal's title bar.
+    Mc.raw('@keyframes ping{0%{transform:scale(1);opacity:.7}80%,100%{transform:scale(2.4);opacity:0}}'
+           '.ping{transform-box:fill-box;transform-origin:center;animation:ping 1.8s ease-out infinite}')
+    lx=round(604-len('live   UTF-8   LF')*12*0.6-9)
+    assert lx-4 > 452
+    b += [f'<circle cx="{lx}" cy="494" r="3" fill="#f85149" class="ping"/>',f'<circle cx="{lx}" cy="494" r="3" fill="#f85149"/>']
     b.extend(project_frame(slug, name, accent))
     b.insert(0,Mc.style())
     if WRITE: (out/(slug+'-compact.svg')).write_text(svg(640,540,b,name+' — '+tagline))
