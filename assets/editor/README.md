@@ -8,7 +8,7 @@
 2. English intro, then `workspace.svg` — pixel-night backdrop + VS Code-style editor (`about.ts`, file tree, terminal, minimap).
 3. Chinese intro below the workspace image + "Now" blockquote.
 4. Chapters as centred `<h1>` openers `01–04`; subsections use `<kbd>label</kbd> <b>English</b>`.
-   - 01 重点作品 — lead cards EduCanvas, SciScope; "Also featured" rows TTT-I-M, BDI, PulseGraph.
+   - 01 重点作品 — two `<details>` layers: 主推 (open by default) with lead cards EduCanvas, SciScope; 精选 (collapsed) with rows TTT-I-M, BDI, PulseGraph.
    - 02 用代码做动画 — series statement, then one card per work (01 clawd-mv).
    - 03 技术栈 — centered light/dark SVG, 3×2 grid with interrupted borders, corner marks and numbered groups; original skillicons and shields are embedded.
    - 04 更多 — Sophon AI card, Seen; folds "其他作品" and "数学建模" (one fold per modeling project inside).

@@ -37,7 +37,9 @@
 
 <br>
 <h1 id="featured" align="center"><sub><samp>01</samp></sub><br>重点作品<br><sub>Featured work</sub></h1>
-<p><kbd>主推</kbd> &nbsp;<b>Lead projects</b></p>
+<details open>
+<summary><kbd>主推</kbd> &nbsp;<b>Lead projects</b> — EduCanvas · SciScope</summary>
+<br>
 <table>
 <tr>
 <td width="50%" valign="top">
@@ -58,8 +60,11 @@
 </td>
 </tr>
 </table>
+</details>
 
-<p><kbd>精选</kbd> &nbsp;<b>Also featured</b></p>
+<details>
+<summary><kbd>精选</kbd> &nbsp;<b>Also featured</b> — TTT-I-M · BDI · PulseGraph</summary>
+<br>
 <table>
 <tr>
 <td width="44%" valign="middle"><a href="https://github.com/Timcai06/TTT-I-M"><img src="./assets/editor/tttim-compact.svg" width="100%" alt="TTT-I-M — 个人网站与内容工作室"></a></td>
@@ -89,6 +94,7 @@
 </td>
 </tr>
 </table>
+</details>
 
 <br>
 <h1 id="code-in-motion" align="center"><sub><samp>02</samp></sub><br>用代码做动画<br><sub>Code in motion</sub></h1>
