@@ -1,6 +1,6 @@
 {
  "calendar": {
-  "totalContributions": 3171,
+  "totalContributions": 3175,
   "weeks": [
    {
     "contributionDays": [
@@ -2039,7 +2039,7 @@
      },
      {
       "date": "2026-10-12",
-      "contributionCount": 49,
+      "contributionCount": 53,
       "contributionLevel": "SECOND_QUARTILE"
      }
     ]
@@ -2069,12 +2069,12 @@
    27,
    26,
    27,
-   14,
-   11,
-   9
+   15,
+   12,
+   11
   ],
   [
-   14,
+   17,
    8,
    0,
    0,
@@ -2230,37 +2230,37 @@
    21
   ]
  ],
- "commits_last_year": 2374,
+ "commits_last_year": 2381,
  "recent": [
   {
    "repo": "Timcai06",
-   "sha": "eeb7f79",
-   "date": "2026-10-12",
-   "message": "feat(profile): more pixel details — shared moon, water, toast, airlin…"
+   "sha": "9c14051",
+   "date": "2026-10-13",
+   "message": "fix(profile): live dot no longer overlaps its label"
   },
   {
    "repo": "Timcai06",
-   "sha": "3c866e0",
-   "date": "2026-10-12",
-   "message": "feat(profile): workspace session — window opens, UI loads in, ⌘P, sec…"
-  },
-  {
-   "repo": "EduCanvas",
-   "sha": "46afb37",
-   "date": "2026-10-12",
-   "message": "docs: enrich README with project-specific diagrams (#526)"
+   "sha": "ee71a97",
+   "date": "2026-10-13",
+   "message": "feat(profile): make liveness visible — timestamped LIVE dot, chapter …"
   },
   {
    "repo": "Timcai06",
-   "sha": "ca9dd5f",
-   "date": "2026-10-12",
-   "message": "fix(profile): editor projects match the explorer order; shaded pixel …"
+   "sha": "e0dd0dd",
+   "date": "2026-10-13",
+   "message": "feat(profile): tail as a typed session — git graph, rising city, pixe…"
   },
   {
-   "repo": "SciScope",
-   "sha": "b3a4eb8",
+   "repo": "Timcai06",
+   "sha": "475d776",
    "date": "2026-10-12",
-   "message": "Merge remote-tracking branch 'origin/main' into codex/sync-latest-main"
+   "message": "feat(profile): pixel-font hero title and a cursor that follows the ty…"
+  },
+  {
+   "repo": "Timcai06",
+   "sha": "cf2d611",
+   "date": "2026-10-12",
+   "message": "feat(profile): lead with AI agent engineering, searchable stack text,…"
   }
  ],
  "cards": {
