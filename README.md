@@ -34,7 +34,6 @@
 <blockquote>
 <p><b>Now / 近期关注</b><br>Evidence-grounded research workflows, local-first ML tooling, and systems that turn experiments into usable products.<br>有证据支撑的研究工作流、本地优先的机器学习工具，以及将实验转化为可用产品的系统。</p>
 </blockquote>
-<p><kbd>Writing</kbd> &nbsp;<a href="https://www.crt-dsg.com/blog/platform-split"><kbd>Keeping the landing cinematic and the studio quiet ↗</kbd></a> <a href="https://www.crt-dsg.com/blog/studio-mdx-system"><kbd>Studio content now starts in the repository ↗</kbd></a> <a href="https://www.crt-dsg.com/blog"><kbd>全部文章 / All posts ↗</kbd></a></p>
 <p><kbd>Live</kbd> &nbsp;页尾是一台每天自动更新的终端：最近提交、贡献和今晚的月相 <a href="#live"><kbd>跳到 05 / Jump ↓</kbd></a></p>
 
 <br>
@@ -110,7 +109,7 @@
 <h3><kbd>01</kbd> &nbsp;clawd-mv <sub>Works on My Machine</sub></h3>
 <p>代码驱动的音乐MV，用 TypeScript / Three.js 时间轴与离线渲染串起场景、镜头和音乐。基于 pdoom-video 开源框架进行个人非商业创作，目前持续迭代中。</p>
 <p><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="Three.js"> <img src="https://img.shields.io/badge/Bun-000000?style=flat-square&amp;logo=bun&amp;logoColor=white" alt="Bun"> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite"> <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat-square" alt="Playwright"> <img src="https://img.shields.io/badge/FFmpeg-007808?style=flat-square&amp;logo=ffmpeg&amp;logoColor=white" alt="FFmpeg"> <img src="https://img.shields.io/badge/Suno-000000?style=flat-square&amp;logo=suno&amp;logoColor=white" alt="Suno"></p>
-<p><a href="https://www.bilibili.com/video/BV1wapR6JER5/"><kbd>▶ 观看完整 MV / Watch on Bilibili ↗</kbd></a> <a href="https://github.com/Timcai06/clawd-mv"><kbd>仓库 / Repo ↗</kbd></a></p>
+<p><a href="https://www.bilibili.com/video/BV1wapR6JER5/"><kbd>▶ 观看完整 MV / Watch on Bilibili ↗</kbd></a> <a href="https://www.youtube.com/watch?v=-ih1Iw_-yX8"><kbd>▶ YouTube ↗</kbd></a> <a href="https://github.com/Timcai06/clawd-mv"><kbd>仓库 / Repo ↗</kbd></a></p>
 </td>
 </tr>
 </table>
