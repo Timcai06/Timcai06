@@ -1,6 +1,6 @@
 {
  "calendar": {
-  "totalContributions": 3178,
+  "totalContributions": 3256,
   "weeks": [
    {
     "contributionDays": [
@@ -2020,13 +2020,13 @@
      },
      {
       "date": "2026-10-09",
-      "contributionCount": 23,
-      "contributionLevel": "FIRST_QUARTILE"
+      "contributionCount": 45,
+      "contributionLevel": "SECOND_QUARTILE"
      },
      {
       "date": "2026-10-10",
-      "contributionCount": 43,
-      "contributionLevel": "SECOND_QUARTILE"
+      "contributionCount": 86,
+      "contributionLevel": "FOURTH_QUARTILE"
      }
     ]
    },
@@ -2034,17 +2034,17 @@
     "contributionDays": [
      {
       "date": "2026-10-11",
-      "contributionCount": 10,
+      "contributionCount": 13,
       "contributionLevel": "FIRST_QUARTILE"
      },
      {
       "date": "2026-10-12",
-      "contributionCount": 53,
-      "contributionLevel": "SECOND_QUARTILE"
+      "contributionCount": 59,
+      "contributionLevel": "THIRD_QUARTILE"
      },
      {
       "date": "2026-10-13",
-      "contributionCount": 3,
+      "contributionCount": 7,
       "contributionLevel": "FIRST_QUARTILE"
      }
     ]
@@ -2089,7 +2089,7 @@
    0,
    2,
    8,
-   18,
+   19,
    34,
    13,
    19,
@@ -2235,8 +2235,14 @@
    21
   ]
  ],
- "commits_last_year": 2381,
+ "commits_last_year": 2382,
  "recent": [
+  {
+   "repo": "Timcai06",
+   "sha": "d669dc8",
+   "date": "2026-10-13",
+   "message": "feat(profile): YouTube link for clawd-mv; drop the Writing row"
+  },
   {
    "repo": "Timcai06",
    "sha": "9c14051",
@@ -2260,12 +2266,6 @@
    "sha": "475d776",
    "date": "2026-10-12",
    "message": "feat(profile): pixel-font hero title and a cursor that follows the ty…"
-  },
-  {
-   "repo": "Timcai06",
-   "sha": "cf2d611",
-   "date": "2026-10-12",
-   "message": "feat(profile): lead with AI agent engineering, searchable stack text,…"
   }
  ],
  "cards": {
