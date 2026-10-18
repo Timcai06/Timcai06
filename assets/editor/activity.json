@@ -5,45 +5,6 @@
    {
     "contributionDays": [
      {
-      "date": "2025-10-12",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
-     },
-     {
-      "date": "2025-10-13",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
-     },
-     {
-      "date": "2025-10-14",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
-     },
-     {
-      "date": "2025-10-15",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
-     },
-     {
-      "date": "2025-10-16",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
-     },
-     {
-      "date": "2025-10-17",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
-     },
-     {
-      "date": "2025-10-18",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
-     }
-    ]
-   },
-   {
-    "contributionDays": [
-     {
       "date": "2025-10-19",
       "contributionCount": 0,
       "contributionLevel": "NONE"
@@ -2068,6 +2029,15 @@
       "contributionLevel": "NONE"
      }
     ]
+   },
+   {
+    "contributionDays": [
+     {
+      "date": "2026-10-18",
+      "contributionCount": 0,
+      "contributionLevel": "NONE"
+     }
+    ]
    }
   ]
  },
@@ -2308,7 +2278,6 @@
   },
   "EduCanvas": {
    "weeks": [
-    54,
     48,
     42,
     26,
@@ -2319,7 +2288,8 @@
     0,
     7,
     0,
-    1
+    1,
+    0
    ],
    "last_commit": "2026-10-12"
   },
@@ -2342,7 +2312,6 @@
   },
   "SciScope": {
    "weeks": [
-    3,
     7,
     49,
     0,
@@ -2353,13 +2322,13 @@
     0,
     0,
     0,
-    2
+    2,
+    0
    ],
    "last_commit": "2026-10-12"
   },
   "TTT-I-M": {
    "weeks": [
-    0,
     0,
     0,
     0,
@@ -2370,7 +2339,8 @@
     3,
     39,
     0,
-    1
+    1,
+    0
    ],
    "last_commit": "2026-10-12"
   }
