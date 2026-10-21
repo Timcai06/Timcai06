@@ -1,6 +1,6 @@
 {
  "calendar": {
-  "totalContributions": 3598,
+  "totalContributions": 3672,
   "weeks": [
    {
     "contributionDays": [
@@ -2044,8 +2044,13 @@
      },
      {
       "date": "2026-10-20",
-      "contributionCount": 1,
+      "contributionCount": 11,
       "contributionLevel": "FIRST_QUARTILE"
+     },
+     {
+      "date": "2026-10-21",
+      "contributionCount": 64,
+      "contributionLevel": "SECOND_QUARTILE"
      }
     ]
    }
@@ -2119,7 +2124,7 @@
    28,
    7,
    42,
-   27,
+   28,
    8,
    13,
    14,
@@ -2235,8 +2240,14 @@
    21
   ]
  ],
- "commits_last_year": 2382,
+ "commits_last_year": 2383,
  "recent": [
+  {
+   "repo": "Timcai06",
+   "sha": "cc7c0dc",
+   "date": "2026-10-21",
+   "message": "docs: reorder project badges by color"
+  },
   {
    "repo": "Timcai06",
    "sha": "d669dc8",
@@ -2260,12 +2271,6 @@
    "sha": "e0dd0dd",
    "date": "2026-10-13",
    "message": "feat(profile): tail as a typed session — git graph, rising city, pixe…"
-  },
-  {
-   "repo": "Timcai06",
-   "sha": "475d776",
-   "date": "2026-10-12",
-   "message": "feat(profile): pixel-font hero title and a cursor that follows the ty…"
   }
  ],
  "cards": {
