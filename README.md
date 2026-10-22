@@ -238,8 +238,8 @@
 <br>
 <h1 id="live" align="center"><sub><samp>05</samp></sub><br>实时终端<br><sub>Live</sub></h1>
 <p align="center"><b>每天 03:17 由 GitHub Actions 自动重新生成</b><br><sub>Regenerated every day from live GitHub data.</sub></p>
-<p><img src="./assets/editor/skyline.svg?v=f6c00170" width="100%" alt="实时终端：所有公开仓库最近 5 条提交；贡献天际线（每周一栋楼，楼高为当周贡献数，窗户为每天）；24 层作息楼（窗户为周一到周日各小时的提交数，UTC+8）；天上是当天真实月相；最后 echo &quot;Thanks for stopping by.&quot;。每日自动更新。"></p>
-<p align="center"><sub>最近提交、贡献天际线、作息楼和月相，都是生成当天的真实数据 · 最近更新 <!-- live:updated --><b>2026-10-22 06:20 (UTC+8)</b><!-- /live:updated --></sub><br>
+<p><img src="./assets/editor/skyline.svg?v=d02fb658" width="100%" alt="实时终端：所有公开仓库最近 5 条提交；贡献天际线（每周一栋楼，楼高为当周贡献数，窗户为每天）；24 层作息楼（窗户为周一到周日各小时的提交数，UTC+8）；天上是当天真实月相；最后 echo &quot;Thanks for stopping by.&quot;。每日自动更新。"></p>
+<p align="center"><sub>最近提交、贡献天际线、作息楼和月相，都是生成当天的真实数据 · 最近更新 <!-- live:updated --><b>2026-10-23 06:19 (UTC+8)</b><!-- /live:updated --></sub><br>
 <a href="https://github.com/Timcai06/Timcai06/actions/workflows/skyline.yml"><img src="https://github.com/Timcai06/Timcai06/actions/workflows/skyline.yml/badge.svg" alt="Live profile data workflow status"></a> <a href="./.github/workflows/skyline.yml"><kbd>Workflow 源码 / Source ↗</kbd></a> <a href="https://github.com/Timcai06/Timcai06/actions/workflows/skyline.yml"><kbd>运行记录 / Runs ↗</kbd></a></p>
 <br>
 <p align="center"><b>如果你也在做智能体、研究工具或有趣的全栈产品，欢迎交流。</b><br><sub>If something here resonates with you, feel free to explore, follow, or say hello.</sub></p>
