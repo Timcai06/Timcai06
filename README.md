@@ -44,7 +44,7 @@
 <table>
 <tr>
 <td width="50%" valign="top">
-<a href="https://github.com/Timcai06/EduCanvas"><img src="./assets/editor/educanvas-compact.svg?v=a33e4994" width="100%" alt="EduCanvas — 通用个人 Agent 与学习空间"></a>
+<a href="https://github.com/Timcai06/EduCanvas"><img src="./assets/editor/educanvas-compact.svg?v=7de9c018" width="100%" alt="EduCanvas — 通用个人 Agent 与学习空间"></a>
 <h3>EduCanvas <sub>A personal agent for learning</sub></h3>
 <p><b>面向学习场景的通用个人 Agent</b>。你可以把资料、对话和 Canvas 放在同一个 Notebook 里，让 Agent 调用工具和技能，围绕这些资料继续讨论、创作和学习。</p>
 <p>普通对话和教育功能共用一套 <code>Agent Runtime</code>，按需接入学习工具。判分、掌握度和学习记录由服务端代码更新；模型适配、权限和数据访问各有明确边界。这个项目也包含 Web、Gateway 和后台任务，覆盖从 Agent 运行时到用户界面的开发。</p>
@@ -52,7 +52,7 @@
 <p><a href="https://github.com/Timcai06/EduCanvas"><kbd>仓库 / Repo ↗</kbd></a></p>
 </td>
 <td width="50%" valign="top">
-<a href="https://github.com/Timcai06/SciScope"><img src="./assets/editor/sciscope-compact.svg?v=f6e6415d" width="100%" alt="SciScope — 文献与证据驱动的研究 Agent"></a>
+<a href="https://github.com/Timcai06/SciScope"><img src="./assets/editor/sciscope-compact.svg?v=0637adaa" width="100%" alt="SciScope — 文献与证据驱动的研究 Agent"></a>
 <h3>SciScope <sub>Evidence-grounded research agent</sub></h3>
 <p><b>在终端里查文献、找证据的研究 Agent</b>。后端用 <code>LangGraph StateGraph</code> 组织运行过程，调用 RAG 检索和研究工具，再把找到的文献证据用于回答。</p>
 <p>除了最终答案，你还能看到它如何规划、调用了什么工具、工具返回了什么，以及反思过程。Python / FastAPI 后端通过 SSE 把这些事件传给 Go TUI，终端按时间线展示工具调用，并支持在同一会话里重试。Agent 编排、后端协议和终端交互都在这个项目里实现。</p>
@@ -68,7 +68,7 @@
 <br>
 <table>
 <tr>
-<td width="44%" valign="middle"><a href="https://github.com/Timcai06/TTT-I-M"><img src="./assets/editor/tttim-compact.svg?v=f44c17bf" width="100%" alt="TTT-I-M — 个人网站与内容工作室"></a></td>
+<td width="44%" valign="middle"><a href="https://github.com/Timcai06/TTT-I-M"><img src="./assets/editor/tttim-compact.svg?v=040c1055" width="100%" alt="TTT-I-M — 个人网站与内容工作室"></a></td>
 <td width="56%" valign="middle">
 <h3>TTT-I-M <sub>个人网站与内容工作室</sub></h3>
 <p>我的个人网站与内容工作室：<b>电影感 Landing</b> 与博客、作品、内容管理组成同一套空间。探索 GSAP 动效、Three.js / React Three Fiber 与全栈内容系统如何共同服务个人表达。</p>
@@ -238,8 +238,8 @@
 <br>
 <h1 id="live" align="center"><sub><samp>05</samp></sub><br>实时终端<br><sub>Live</sub></h1>
 <p align="center"><b>每天 03:17 由 GitHub Actions 自动重新生成</b><br><sub>Regenerated every day from live GitHub data.</sub></p>
-<p><img src="./assets/editor/skyline.svg?v=31e57d0b" width="100%" alt="实时终端：所有公开仓库最近 5 条提交；贡献天际线（每周一栋楼，楼高为当周贡献数，窗户为每天）；24 层作息楼（窗户为周一到周日各小时的提交数，UTC+8）；天上是当天真实月相；最后 echo &quot;Thanks for stopping by.&quot;。每日自动更新。"></p>
-<p align="center"><sub>最近提交、贡献天际线、作息楼和月相，都是生成当天的真实数据 · 最近更新 <!-- live:updated --><b>2026-10-27 07:07 (UTC+8)</b><!-- /live:updated --></sub><br>
+<p><img src="./assets/editor/skyline.svg?v=a89682ec" width="100%" alt="实时终端：所有公开仓库最近 5 条提交；贡献天际线（每周一栋楼，楼高为当周贡献数，窗户为每天）；24 层作息楼（窗户为周一到周日各小时的提交数，UTC+8）；天上是当天真实月相；最后 echo &quot;Thanks for stopping by.&quot;。每日自动更新。"></p>
+<p align="center"><sub>最近提交、贡献天际线、作息楼和月相，都是生成当天的真实数据 · 最近更新 <!-- live:updated --><b>2026-10-28 06:57 (UTC+8)</b><!-- /live:updated --></sub><br>
 <a href="https://github.com/Timcai06/Timcai06/actions/workflows/skyline.yml"><img src="https://github.com/Timcai06/Timcai06/actions/workflows/skyline.yml/badge.svg" alt="Live profile data workflow status"></a> <a href="./.github/workflows/skyline.yml"><kbd>Workflow 源码 / Source ↗</kbd></a> <a href="https://github.com/Timcai06/Timcai06/actions/workflows/skyline.yml"><kbd>运行记录 / Runs ↗</kbd></a></p>
 <br>
 <p align="center"><b>如果你也在做智能体、研究工具或有趣的全栈产品，欢迎交流。</b><br><sub>If something here resonates with you, feel free to explore, follow, or say hello.</sub></p>
