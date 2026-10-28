@@ -25,7 +25,7 @@
 <p>My focus is <b>AI agent engineering</b>: agent runtimes, tool orchestration and <code>evidence-grounded research agents</code>, delivered end to end on full-stack foundations. Alongside that I work on observability for ML / DL / RL, quantitative research systems and creative coding. I enjoy following an idea all the way through: from models and data pipelines to the interface someone actually uses.</p>
 <p>Full-stack is central to how I learn and build. My interests span frontend, backend, databases, LLMs, AI infrastructure, and lower-level computing systems. I work with React, Next.js and FastAPI, build around PostgreSQL and Redis, and explore GSAP motion and Three.js experiences. I'm working toward becoming a versatile, end-to-end developer in the AI era.</p>
 
-<p><img src="./assets/editor/workspace.svg?v=0e297460" width="100%" alt="Tim 的像素夜景代码工作台：文件树、about.ts、语法高亮与终端。AI agents · ML observability · Full-stack products."></p>
+<p><img src="./assets/editor/workspace.svg?v=918b99c0" width="100%" alt="Tim 的像素夜景代码工作台：文件树、about.ts、语法高亮与终端。AI agents · ML observability · Full-stack products."></p>
 
 <p><b>你好，我是 Tim，一名在上海学习的学生开发者。</b></p>
 <p>我的主攻方向是 <b>AI Agent 工程</b>：Agent 运行时、工具编排和<code>有证据支撑的研究 Agent</code>，并以全栈能力把它们完整交付。此外也做 ML / DL / RL 可观测性、量化研究系统和创意编程。我喜欢沿着一个想法往下走：从模型、数据流和后端逻辑，一直做到用户真正接触的界面。</p>
@@ -238,8 +238,8 @@
 <br>
 <h1 id="live" align="center"><sub><samp>05</samp></sub><br>实时终端<br><sub>Live</sub></h1>
 <p align="center"><b>每天 03:17 由 GitHub Actions 自动重新生成</b><br><sub>Regenerated every day from live GitHub data.</sub></p>
-<p><img src="./assets/editor/skyline.svg?v=a89682ec" width="100%" alt="实时终端：所有公开仓库最近 5 条提交；贡献天际线（每周一栋楼，楼高为当周贡献数，窗户为每天）；24 层作息楼（窗户为周一到周日各小时的提交数，UTC+8）；天上是当天真实月相；最后 echo &quot;Thanks for stopping by.&quot;。每日自动更新。"></p>
-<p align="center"><sub>最近提交、贡献天际线、作息楼和月相，都是生成当天的真实数据 · 最近更新 <!-- live:updated --><b>2026-10-28 06:57 (UTC+8)</b><!-- /live:updated --></sub><br>
+<p><img src="./assets/editor/skyline.svg?v=2b99cde9" width="100%" alt="实时终端：所有公开仓库最近 5 条提交；贡献天际线（每周一栋楼，楼高为当周贡献数，窗户为每天）；24 层作息楼（窗户为周一到周日各小时的提交数，UTC+8）；天上是当天真实月相；最后 echo &quot;Thanks for stopping by.&quot;。每日自动更新。"></p>
+<p align="center"><sub>最近提交、贡献天际线、作息楼和月相，都是生成当天的真实数据 · 最近更新 <!-- live:updated --><b>2026-10-29 07:13 (UTC+8)</b><!-- /live:updated --></sub><br>
 <a href="https://github.com/Timcai06/Timcai06/actions/workflows/skyline.yml"><img src="https://github.com/Timcai06/Timcai06/actions/workflows/skyline.yml/badge.svg" alt="Live profile data workflow status"></a> <a href="./.github/workflows/skyline.yml"><kbd>Workflow 源码 / Source ↗</kbd></a> <a href="https://github.com/Timcai06/Timcai06/actions/workflows/skyline.yml"><kbd>运行记录 / Runs ↗</kbd></a></p>
 <br>
 <p align="center"><b>如果你也在做智能体、研究工具或有趣的全栈产品，欢迎交流。</b><br><sub>If something here resonates with you, feel free to explore, follow, or say hello.</sub></p>
