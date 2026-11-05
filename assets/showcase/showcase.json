@@ -59,6 +59,173 @@
           ]
         }
       ]
+    },
+    {
+      "slug": "sophon-home",
+      "candidates": "sophon-2026-11/source",
+      "aspect_ratio": 2.6666666666666665,
+      "export_frames": "sophon-2026-11",
+      "selected_frames": [
+        {
+          "label": "home-hero",
+          "file": "home-hero.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-11-04 at 7.09.10 PM.png",
+          "sha256": "b595c4bbc3f5c2dfec90de970d37851f46832aa9ed5fe64ee90a01cee89d41e0",
+          "crop": [
+            4,
+            0,
+            3431,
+            1290
+          ],
+          "lead": true,
+          "overview": true
+        },
+        {
+          "label": "home-valley",
+          "file": "home-valley.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-11-04 at 7.10.09 PM.png",
+          "sha256": "cfb339af36c6186a12516c1c0ef77ef7dd8dbd81a2bceadbc750b8e7d6c65eed",
+          "crop": [
+            4,
+            0,
+            3428,
+            1287
+          ],
+          "lead": false,
+          "overview": true
+        },
+        {
+          "label": "home-contact",
+          "file": "home-contact.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-11-04 at 7.10.31 PM.png",
+          "sha256": "8d4d031e9ea75dd29f543d14ed81064956b64a9e0dca9a5d9b95b0191a4fb640",
+          "crop": [
+            4,
+            0,
+            3431,
+            1289
+          ],
+          "lead": false,
+          "overview": true
+        }
+      ]
+    },
+    {
+      "slug": "sophon-rsi",
+      "candidates": "sophon-2026-11/source",
+      "aspect_ratio": 2.6666666666666665,
+      "export_frames": "sophon-2026-11",
+      "selected_frames": [
+        {
+          "label": "rsi-transition",
+          "file": "rsi-transition.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-11-04 at 7.11.03 PM (2).png",
+          "sha256": "73d8e49481fb77eeb7f20705ca34ccc1e48fd1e455c31f8ddaa70fc236f1c3ae",
+          "crop": [
+            4,
+            148,
+            3436,
+            1435
+          ],
+          "lead": false,
+          "overview": true
+        },
+        {
+          "label": "rsi-hero",
+          "file": "rsi-hero.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-11-04 at 7.11.37 PM.png",
+          "sha256": "986f62e4af16d63c44058226964c42d233c80692373ce3eb69331771d817f026",
+          "crop": [
+            4,
+            0,
+            3430,
+            1288
+          ],
+          "lead": false,
+          "overview": true,
+          "position": "top"
+        },
+        {
+          "label": "rsi-state",
+          "file": "rsi-state.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-11-04 at 7.11.56 PM.png",
+          "sha256": "1afd4717a7f379e70d7bf1a1ca4989a110c62bf3877c37e0516ab0d587da565a",
+          "crop": [
+            4,
+            0,
+            3421,
+            1281
+          ],
+          "lead": false,
+          "overview": true
+        },
+        {
+          "label": "rsi-forgetting",
+          "file": "rsi-forgetting.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-11-04 at 7.12.56 PM (2).png",
+          "sha256": "85d5eed4e16859968ac6cd9da8f643bc7168e31fb75bb399c76f02b441f03c2b",
+          "crop": [
+            4,
+            148,
+            3436,
+            1435
+          ],
+          "lead": false,
+          "overview": false
+        },
+        {
+          "label": "rsi-explanation",
+          "file": "rsi-explanation.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-11-04 at 7.13.56 PM (2).png",
+          "sha256": "e57399774b6aa0443412c913dbca028bad510a4e9e7142c034d1baacf1555989",
+          "crop": [
+            4,
+            148,
+            3436,
+            1390
+          ],
+          "lead": true,
+          "overview": true
+        },
+        {
+          "label": "rsi-map",
+          "file": "rsi-map.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-11-04 at 7.14.19 PM (2).png",
+          "sha256": "e41b957a6d652b351f695ebe84b844186309714b8427bc9904c95295a3be7e55",
+          "crop": [
+            4,
+            148,
+            3436,
+            1435
+          ],
+          "lead": false,
+          "overview": false
+        },
+        {
+          "label": "rsi-contact",
+          "file": "rsi-contact.png",
+          "source": "user desktop screenshot",
+          "source_file_name": "Screenshot 2026-11-04 at 7.14.37 PM (2).png",
+          "sha256": "1a428ea45eed3b023cb6e228d00dcb730af571bc79653cd5e39d69110e2e9ba6",
+          "crop": [
+            4,
+            148,
+            3436,
+            1435
+          ],
+          "lead": false,
+          "overview": false
+        }
+      ]
     }
   ]
 }

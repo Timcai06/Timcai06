@@ -87,7 +87,7 @@ def main():
         blk = readme[a:b]
         head = re.search(r'<p><sub>(.+?) · 论文正式插图 (\d+) 张', blk)
         desc = re.search(r'</b> — ([^<]+)</summary>', blk).group(1)
-        summary = re.search(r'<summary>.*?</summary>\n<br>\n', blk, re.S).group(0)
+        summary = re.search(r'<summary>.*?</summary>', blk, re.S).group(0) + '\n\n'
         repo_btn = f'<a href="https://github.com/Timcai06/{repo}"><kbd>仓库 / Repo ↗</kbd></a>'
         # Lead: full width, its own proportions (clamped so it never gets taller than 4:3).
         (lead_stem, lead_cap), rest = figs[0], figs[1:]

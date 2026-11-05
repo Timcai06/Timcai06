@@ -24,20 +24,31 @@ def key_visual(work, base=MOTION):
     selection marked "lead": true, or the first one.
     """
     frames = work['selected_frames']
+    if work.get('export_frames'):
+        gallery = base / work['export_frames']
+        gallery.mkdir(parents=True, exist_ok=True)
+        for frame in frames:
+            picture = frame_image(base / work['candidates'] / frame['file'], frame)
+            picture.thumbnail((2400, 2400), Image.Resampling.LANCZOS)
+            picture.save(gallery / (Path(frame['file']).stem + '.jpg'), quality=88, optimize=True)
+    frames = [f for f in frames if f.get('overview', True)]
     if not frames:
         raise ValueError(f"Select at least one real frame for {work['slug']}")
+    full_width = [f for f in frames if f.get('position') in ('top', 'bottom')]
+    frames = [f for f in frames if f.get('position') not in ('top', 'bottom')]
     lead = next((f for f in frames if f.get('lead')), frames[0])
     rest = [f for f in frames if f is not lead]
     directory = base / work['candidates']
     gap, width = 12, 2400
+    ratio = work.get("aspect_ratio", 16 / 9)
     if rest:
         n = len(rest)
         # lead_w*9/16 == n*side_w*9/16 + (n-1)*gap  and  lead_w + gap + side_w == width
-        side_w = round((width - gap - (n - 1) * gap * 16 / 9) / (n + 1))
+        side_w = round((width - gap - (n - 1) * gap * ratio) / (n + 1))
         lead_w = width - gap - side_w
     else:
         side_w, lead_w = 0, width
-    lead_h = round(lead_w * 9 / 16)
+    lead_h = round(lead_w / ratio)
     canvas = Image.new('RGB', (width, lead_h), GUTTER)
     fit = lambda f, size: ImageOps.fit(frame_image(directory / f['file'], f), size,
                                        method=Image.Resampling.LANCZOS)
@@ -46,6 +57,18 @@ def key_visual(work, base=MOTION):
         side_h = (lead_h - (len(rest) - 1) * gap) // len(rest)
         for i, frame in enumerate(rest):
             canvas.paste(fit(frame, (side_w, side_h)), (lead_w + gap, i * (side_h + gap)))
+    for frame in full_width:
+        picture = frame_image(directory / frame['file'], frame)
+        height = round(width * picture.height / picture.width)
+        expanded = Image.new('RGB', (width, canvas.height + gap + height), GUTTER)
+        picture = picture.resize((width, height), Image.Resampling.LANCZOS)
+        if frame['position'] == 'top':
+            expanded.paste(picture, (0, 0))
+            expanded.paste(canvas, (0, height + gap))
+        else:
+            expanded.paste(canvas, (0, 0))
+            expanded.paste(picture, (0, canvas.height + gap))
+        canvas = expanded
     destination = base / f"{work['slug']}.jpg"
     quality = 85
     while True:

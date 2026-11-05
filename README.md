@@ -32,7 +32,7 @@
 <p>全栈是我的标签：从前端到后端、数据库，再到 LLM、AI infrastructure 和计算机底层；从 GSAP 高级前端动效、Three.js 3D 体验到 React 开发；从 FastAPI、Next.js 到 Redis、PostgreSQL。我希望成为 AI 时代能够端到端解决问题的开发者，也在持续把实验转化为可以理解、观察和使用的产品。</p>
 
 <blockquote>
-<p><b>Now / 近期关注</b><br>Evidence-grounded research workflows, local-first ML tooling, and systems that turn experiments into usable products.<br>有证据支撑的研究工作流、本地优先的机器学习工具，以及将实验转化为可用产品的系统。</p>
+  <p><b>Now / 近期关注</b><br>Evidence-grounded research workflows, local-first ML tooling, and systems that turn experiments into usable products.<br>有证据支撑的研究工作流、本地优先的机器学习工具，以及将实验转化为可用产品的系统。</p>
 </blockquote>
 <p><kbd>Live</kbd> &nbsp;页尾是一台每天自动更新的终端：最近提交、贡献和今晚的月相 <a href="#live"><kbd>跳到 05 / Jump ↓</kbd></a></p>
 
@@ -40,7 +40,7 @@
 <h1 id="featured" align="center"><sub><samp>01</samp></sub><br>重点作品<br><sub>Featured work</sub></h1>
 <details open>
 <summary><kbd>主推</kbd> &nbsp;<b>Lead projects</b> — EduCanvas · SciScope</summary>
-<br>
+
 <table>
 <tr>
 <td width="50%" valign="top">
@@ -65,7 +65,7 @@
 
 <details>
 <summary><kbd>精选</kbd> &nbsp;<b>Also featured</b> — TTT-I-M · BDI · PulseGraph</summary>
-<br>
+
 <table>
 <tr>
 <td width="44%" valign="middle"><a href="https://github.com/Timcai06/TTT-I-M"><img src="./assets/editor/tttim-compact.svg?v=f1395093" width="100%" alt="TTT-I-M — 个人网站与内容工作室"></a></td>
@@ -118,11 +118,11 @@
 <h1 id="toolbox" align="center"><sub><samp>03</samp></sub><br>技术栈<br><sub>Toolbox</sub></h1>
 <p align="center"><sub>按方向整理的常用语言、框架与工具。</sub></p>
 <p align="center">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/toolbox/toolbox-dark.svg?v=bf1e5f5c">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/toolbox/toolbox-light.svg?v=5057b973">
-  <img src="./assets/toolbox/toolbox-light.svg?v=5057b973" width="100%" alt="技术栈：语言（Python、TypeScript、JavaScript、Go）；AI 与研究（PyTorch、scikit-learn、YOLOv8、PaddleOCR、RAG、Agent workflows）；前端与动效（React、Next.js、Vite、Tailwind CSS、Three.js、GSAP、React Three Fiber）；后端与数据（FastAPI、Django、PostgreSQL、Redis、Supabase、Celery、Drizzle）；工程与交付（Docker、GitHub Actions、Vercel、Bun、pnpm、FFmpeg）；建模与科学计算（LaTeX、R、NumPy、pandas、SciPy、Matplotlib、PuLP、HiGHS）。">
-</picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/toolbox/toolbox-dark.svg?v=bf1e5f5c">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/toolbox/toolbox-light.svg?v=5057b973">
+    <img src="./assets/toolbox/toolbox-light.svg?v=5057b973" width="100%" alt="技术栈：语言（Python、TypeScript、JavaScript、Go）；AI 与研究（PyTorch、scikit-learn、YOLOv8、PaddleOCR、RAG、Agent workflows）；前端与动效（React、Next.js、Vite、Tailwind CSS、Three.js、GSAP、React Three Fiber）；后端与数据（FastAPI、Django、PostgreSQL、Redis、Supabase、Celery、Drizzle）；工程与交付（Docker、GitHub Actions、Vercel、Bun、pnpm、FFmpeg）；建模与科学计算（LaTeX、R、NumPy、pandas、SciPy、Matplotlib、PuLP、HiGHS）。">
+  </picture>
 </p>
 <!-- toolbox:text -->
 <p align="center"><sub><b>语言</b> Python · TypeScript · JavaScript · Go &nbsp;|&nbsp; <b>AI 与研究</b> PyTorch · scikit-learn · YOLOv8 · PaddleOCR · RAG · Agent workflows &nbsp;|&nbsp; <b>前端与动效</b> React · Next.js · Vite · Tailwind CSS · Three.js · GSAP · React Three Fiber &nbsp;|&nbsp; <b>后端与数据</b> FastAPI · Django · PostgreSQL · Redis · Supabase · Celery · Drizzle &nbsp;|&nbsp; <b>工程与交付</b> Docker · GitHub Actions · Vercel · Bun · pnpm · FFmpeg &nbsp;|&nbsp; <b>建模与科学计算</b> LaTeX · R · NumPy · pandas · SciPy · Matplotlib · PuLP · HiGHS</sub></p>
@@ -131,21 +131,58 @@
 <br>
 <h1 id="more" align="center"><sub><samp>04</samp></sub><br>更多<br><sub>More</sub></h1>
 <p align="center"><sub>在建项目、其他作品与数学建模。</sub></p>
-<p><kbd>在建</kbd> &nbsp;<b>Also building</b> <sub>代码仓库暂未公开</sub></p>
-<table>
-<tr>
-<td>
-<img src="./assets/showcase/sophon.jpg?v=7a1810dd" width="100%" alt="Sophon AI 官网界面：Bitemporal 记忆章节与 client.memory.search 示例等页面">
-<h3>Sophon AI 官网</h3>
-<p>结合交互叙事、前端动效与 3D 视觉的官网设计与开发，与全栈系统骨架</p>
-</td>
-</tr>
-</table>
+<details open>
+<summary><kbd>Sophon AI</kbd> &nbsp;<b>官网设计与开发</b> — Home · RSI-LNN · Long-term Memory</summary>
+<p><sub>代码仓库暂未公开</sub></p>
+<p>围绕长期记忆与 RSI-LNN 构建的官网设计与开发，结合交互叙事、前端动效与 3D 视觉。</p>
+<h3>01 / Home</h3>
+<a href="./assets/showcase/sophon-poster-home.png"><img src="./assets/showcase/sophon-poster-home.png?v=41f0a4d5" width="100%" alt="Sophon 官网首页：以星系与山谷首屏为主图，双方向入口和等高线联系页为附图"></a>
+
+<h3>02 / RSI-LNN</h3>
+<a href="./assets/showcase/sophon-poster-rsi.png"><img src="./assets/showcase/sophon-poster-rsi.png?v=832a6c38" width="100%" alt="RSI-LNN：以 What remains after an interaction? 状态演化说明为主图，绿色转场动画静态帧与 Continuous-time state 为附图，顶部为粒子 SOPHON Hero"></a>
+<details>
+<summary><sub>查看 RSI-LNN 完整截图 · 7 张</sub></summary>
+
+<p align="center"><b>转场动画 · 静态帧</b></p>
+<a href="./assets/showcase/sophon-2026-11/rsi-transition.jpg"><img src="./assets/showcase/sophon-2026-11/rsi-transition.jpg?v=53290b85" width="100%" alt="转场动画 · 静态帧"></a>
+
+<p align="center"><b>RSI Hero · SOPHON 粒子视觉</b></p>
+<a href="./assets/showcase/sophon-2026-11/rsi-hero.jpg"><img src="./assets/showcase/sophon-2026-11/rsi-hero.jpg?v=fbced6ae" width="100%" alt="RSI Hero · SOPHON 粒子视觉"></a>
+
+<p align="center"><b>Continuous-time state · 连续时间状态</b></p>
+<a href="./assets/showcase/sophon-2026-11/rsi-state.jpg"><img src="./assets/showcase/sophon-2026-11/rsi-state.jpg?v=4311d130" width="100%" alt="Continuous-time state · 连续时间状态"></a>
+
+<p align="center"><b>Compression and selective forgetting · 压缩与选择性遗忘</b></p>
+<a href="./assets/showcase/sophon-2026-11/rsi-forgetting.jpg"><img src="./assets/showcase/sophon-2026-11/rsi-forgetting.jpg?v=dbadbd9e" width="100%" alt="Compression and selective forgetting · 压缩与选择性遗忘"></a>
+
+<p align="center"><b>What remains after an interaction? · 状态演化说明</b></p>
+<a href="./assets/showcase/sophon-2026-11/rsi-explanation.jpg"><img src="./assets/showcase/sophon-2026-11/rsi-explanation.jpg?v=18fff385" width="100%" alt="What remains after an interaction? · 状态演化说明"></a>
+
+<p align="center"><b>Leave a line on this map · 地图留言</b></p>
+<a href="./assets/showcase/sophon-2026-11/rsi-map.jpg"><img src="./assets/showcase/sophon-2026-11/rsi-map.jpg?v=75aac09c" width="100%" alt="Leave a line on this map · 地图留言"></a>
+
+<p align="center"><b>Get in touch · RSI 页尾</b></p>
+<a href="./assets/showcase/sophon-2026-11/rsi-contact.jpg"><img src="./assets/showcase/sophon-2026-11/rsi-contact.jpg?v=6e5ee236" width="100%" alt="Get in touch · RSI 页尾"></a>
+
+</details>
+
+<br>
+
+<h3>03 / Long-term Memory</h3>
+<a href="./assets/showcase/sophon-poster-memory.png"><img src="./assets/showcase/sophon-poster-memory.png?v=09036675" width="100%" alt="长期记忆页面原有截图：米白色流体视觉、记忆叙事与 Bitemporal 章节"></a>
+</details>
+
+<br>
+
+<details>
+<summary><kbd>在建</kbd> &nbsp;<b>Also building</b> — 代码仓库暂未公开</summary>
+
 <p><b>Seen</b> — 面向中国出海品牌的 AI 商务平台，探索商品信息如何被 AI 理解、发现与推荐。</p>
+</details>
 
 <details>
 <summary><kbd>其他作品</kbd> &nbsp;<b>More projects</b> — GoogleTrans · FormulaLab · SPM · Earnlytics</summary>
-<br>
+
 <table>
 <tr><td width="160" valign="top"><b>GoogleTrans</b><br><sub>Translation &amp; vocabulary</sub><br><a href="https://github.com/Timcai06/google-trans-extantion"><kbd>Repo ↗</kbd></a></td><td>浏览器里的翻译与词汇学习工具，把翻译记录、生词管理、间隔复习、闪卡与拼写练习连接起来，让查询之后的单词继续进入学习过程。<br><samp>Chrome MV3 · JavaScript · React · TypeScript</samp></td></tr>
 <tr><td valign="top"><b>FormulaLab</b><br><sub>Formula recognition &amp; review</sub><br><a href="https://github.com/Timcai06/LinuxFinal-Django-FormulaLab"><kbd>Repo ↗</kbd></a></td><td>从公式图片识别到 LaTeX 审校与导出的异步工作台。通过论文项目组织批次与公式条目，结合实时预览与人工确认，让 OCR 结果进入可复用的写作流程。<br><samp>Django · PaddleOCR · Celery · Redis · PostgreSQL · Docker</samp></td></tr>
@@ -156,13 +193,13 @@
 
 <details>
 <summary><kbd>数学建模</kbd> &nbsp;<b>Mathematical modeling</b> — 5 个项目与论文配图：LP · MILP · MDP · Markov · Monte Carlo</summary>
-<br>
+
 <p>在数学建模中练习把现实问题拆成假设、约束、数据与可检验的模型，也把求解、实验和交付整理成可复现的工程。</p>
 <p><sub>展开每个项目查看论文配图（均由 Python 绘制）与仓库。</sub></p>
 
 <details>
 <summary><b>微网与外部电网电力调控</b> — LP、MPC 与动态电价，研究电力调控策略。</summary>
-<br>
+
 <p><sub>2026 年全国大学生数学建模竞赛 · C 题 · 论文正式插图 11 张，以下选 4 张</sub></p>
 <p><img src="./assets/modeling/electricity-1.png?v=d72f6b08" width="100%" alt="安全裕量策略的月均储电量三维曲面"><br><sub>安全裕量策略的月均储电量三维曲面</sub></p>
 <table>
@@ -179,7 +216,7 @@
 
 <details>
 <summary><b>霍尔木兹海峡与国际油价</b> — 机制模型、Markov 与 Monte Carlo 模拟。</summary>
-<br>
+
 <p><sub>浙江工商大学 2026 年大学生数学建模竞赛 · A 题 · 论文正式插图 11 张，以下选 2 张</sub></p>
 <p><img src="./assets/modeling/tunnel-1.png?v=fe12d756" width="100%" alt="布伦特原油收益率与滚动波动率"><br><sub>布伦特原油收益率与滚动波动率</sub></p>
 <table>
@@ -192,7 +229,7 @@
 
 <details>
 <summary><b>农作物种植策略优化</b> — MILP、SAA 与 CVaR，处理不确定性下的种植决策。</summary>
-<br>
+
 <p><sub>浙江工商大学 2026 年校级数学建模模拟赛 1 · C 题 · 论文正式插图 16 张，以下选 4 张</sub></p>
 <p><img src="./assets/modeling/agriculture-1.png?v=32518443" width="100%" alt="问题二各土地类型的复种季利用率与水浇地模式切换"><br><sub>问题二各土地类型的复种季利用率与水浇地模式切换</sub></p>
 <table>
@@ -209,7 +246,7 @@
 
 <details>
 <summary><b>穿越沙漠</b> — MILP、MDP 与多玩家博弈。</summary>
-<br>
+
 <p><sub>浙江工商大学 2026 年校级数学建模模拟赛 2 · B 题 · 论文正式插图 15 张，以下选 4 张</sub></p>
 <p><img src="./assets/modeling/desert-1.png?v=6e866def" width="100%" alt="六关地图的规范图结构与确定天气最优轨迹"><br><sub>六关地图的规范图结构与确定天气最优轨迹</sub></p>
 <table>
@@ -228,7 +265,7 @@
 
 <details>
 <summary><b>古代玻璃成分分析</b> — 成分分类、CLR 变换与稳健聚类。</summary>
-<br>
+
 <p><sub>浙江工商大学 2026 年校级数学建模模拟赛 3 · C 题 · 论文正式插图 5 张，以下选 1 张</sub></p>
 <p><img src="./assets/modeling/glass-1.png?v=20c58b0c" width="100%" alt="高钾与铅钡玻璃的比例性矩阵"><br><sub>高钾与铅钡玻璃的比例性矩阵</sub></p>
 <p><a href="https://github.com/Timcai06/26_MathModel_Glass"><kbd>仓库 / Repo ↗</kbd></a></p>
