@@ -136,10 +136,20 @@
 <p><sub>代码仓库暂未公开</sub></p>
 <p>围绕长期记忆与 RSI-LNN 构建的官网设计与开发，结合交互叙事、前端动效与 3D 视觉。</p>
 <h3>01 / Home</h3>
-<a href="./assets/showcase/sophon-poster-home.png"><img src="./assets/showcase/sophon-poster-home.png?v=41f0a4d5" width="100%" alt="Sophon 官网首页：以星系与山谷首屏为主图，双方向入口和等高线联系页为附图"></a>
+<a href="./assets/showcase/sophon-poster-home.png">
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="./assets/showcase/sophon-poster-home-light.png?v=15af3e4d">
+  <img src="./assets/showcase/sophon-poster-home.png?v=6b011e89" width="100%" alt="Sophon 官网首页：以星系与山谷首屏为主图，双方向入口和等高线联系页为附图">
+</picture>
+</a>
 
 <h3>02 / RSI-LNN</h3>
-<a href="./assets/showcase/sophon-poster-rsi.png"><img src="./assets/showcase/sophon-poster-rsi.png?v=832a6c38" width="100%" alt="RSI-LNN：以 What remains after an interaction? 状态演化说明为主图，绿色转场动画静态帧与 Continuous-time state 为附图，顶部为粒子 SOPHON Hero"></a>
+<a href="./assets/showcase/sophon-poster-rsi.png">
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="./assets/showcase/sophon-poster-rsi-light.png?v=04a86998">
+  <img src="./assets/showcase/sophon-poster-rsi.png?v=505d3c59" width="100%" alt="RSI-LNN：以 What remains after an interaction? 状态演化说明为主图，绿色转场动画静态帧与 Continuous-time state 为附图，顶部为粒子 SOPHON Hero">
+</picture>
+</a>
 <details>
 <summary><sub>查看 RSI-LNN 完整截图 · 7 张</sub></summary>
 
@@ -169,7 +179,12 @@
 <br>
 
 <h3>03 / Long-term Memory</h3>
-<a href="./assets/showcase/sophon-poster-memory.png"><img src="./assets/showcase/sophon-poster-memory.png?v=09036675" width="100%" alt="长期记忆页面原有截图：米白色流体视觉、记忆叙事与 Bitemporal 章节"></a>
+<a href="./assets/showcase/sophon-poster-memory.png">
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="./assets/showcase/sophon-poster-memory-light.png?v=3cbf6470">
+  <img src="./assets/showcase/sophon-poster-memory.png?v=60b6558c" width="100%" alt="长期记忆页面原有截图：米白色流体视觉、记忆叙事与 Bitemporal 章节">
+</picture>
+</a>
 </details>
 
 <br>
