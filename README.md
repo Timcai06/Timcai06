@@ -102,17 +102,15 @@
 <p align="center"><b>用代码编排场景、镜头与时间，<code>把程序变成动画</code>。</b><br>
 <sub>Scenes, cameras and time, composed in code.</sub></p>
 <blockquote><p>这是一个持续创作的系列，新作品完成后会收录在这里。</p></blockquote>
-<table>
-<tr>
-<td>
-<a href="https://www.bilibili.com/video/BV1wapR6JER5/"><img src="./assets/motion/clawd-mv.jpg?v=a907d2e1" width="100%" alt="clawd-mv 画面：片尾署名（主画面）、October 32 报告、undefined 堆栈雨、Local 与 CI 对比"></a>
-<h3><kbd>01</kbd> &nbsp;clawd-mv <sub>Works on My Machine</sub></h3>
+<details open>
+<summary><kbd>clawd-mv</kbd> &nbsp;<b>Works on My Machine</b> — 01 / Music video</summary>
+
 <p>代码驱动的音乐MV，用 TypeScript / Three.js 时间轴与离线渲染串起场景、镜头和音乐。基于 pdoom-video 开源框架进行个人非商业创作，目前持续迭代中。</p>
 <p><img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="Three.js"> <img src="https://img.shields.io/badge/Bun-000000?style=flat-square&amp;logo=bun&amp;logoColor=white" alt="Bun"> <img src="https://img.shields.io/badge/Suno-000000?style=flat-square&amp;logo=suno&amp;logoColor=white" alt="Suno"> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat-square" alt="Playwright"> <img src="https://img.shields.io/badge/FFmpeg-007808?style=flat-square&amp;logo=ffmpeg&amp;logoColor=white" alt="FFmpeg"></p>
+
+<a href="https://www.bilibili.com/video/BV1wapR6JER5/"><img src="./assets/motion/clawd-mv.jpg?v=a907d2e1" width="100%" alt="clawd-mv 画面：片尾署名（主画面）、October 32 报告、undefined 堆栈雨、Local 与 CI 对比"></a>
 <p><a href="https://www.bilibili.com/video/BV1wapR6JER5/"><kbd>▶ 观看完整 MV / Watch on Bilibili ↗</kbd></a> <a href="https://www.youtube.com/watch?v=-ih1Iw_-yX8"><kbd>▶ YouTube ↗</kbd></a> <a href="https://github.com/Timcai06/clawd-mv"><kbd>仓库 / Repo ↗</kbd></a></p>
-</td>
-</tr>
-</table>
+</details>
 
 <br>
 <h1 id="toolbox" align="center"><sub><samp>03</samp></sub><br>技术栈<br><sub>Toolbox</sub></h1>
@@ -135,6 +133,7 @@
 <summary><kbd>Sophon AI</kbd> &nbsp;<b>官网设计与开发</b> — Home · RSI-LNN · Long-term Memory</summary>
 <p><sub>代码仓库暂未公开</sub></p>
 <p>围绕长期记忆与 RSI-LNN 构建的官网设计与开发，结合交互叙事、前端动效与 3D 视觉。</p>
+<p><img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="Three.js"> <img src="https://img.shields.io/badge/React_Three_Fiber-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="React Three Fiber"> <img src="https://img.shields.io/badge/Lenis-30363D?style=flat-square" alt="Lenis"> <img src="https://img.shields.io/badge/OGL-30363D?style=flat-square" alt="OGL"> <img src="https://img.shields.io/badge/React-20232A?style=flat-square&amp;logo=react&amp;logoColor=61DAFB" alt="React"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite"> <img src="https://img.shields.io/badge/GSAP-0AE448?style=flat-square&amp;logo=greensock&amp;logoColor=black" alt="GSAP"></p>
 <h3>01 / Home</h3>
 <a href="./assets/showcase/sophon-poster-home.png">
 <picture>
