@@ -1,6 +1,6 @@
 {
  "calendar": {
-  "totalContributions": 4012,
+  "totalContributions": 4018,
   "weeks": [
    {
     "contributionDays": [
@@ -2054,13 +2054,13 @@
      },
      {
       "date": "2026-11-05",
-      "contributionCount": 12,
+      "contributionCount": 13,
       "contributionLevel": "FIRST_QUARTILE"
      },
      {
       "date": "2026-11-06",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
+      "contributionCount": 5,
+      "contributionLevel": "FIRST_QUARTILE"
      }
     ]
    }
@@ -2182,7 +2182,7 @@
    0,
    0,
    13,
-   23,
+   24,
    27,
    24,
    29,
@@ -2250,8 +2250,14 @@
    21
   ]
  ],
- "commits_last_year": 2386,
+ "commits_last_year": 2387,
  "recent": [
+  {
+   "repo": "Timcai06",
+   "sha": "dac15a3",
+   "date": "2026-11-06",
+   "message": "style(profile): add color-grouped stack badges to other projects"
+  },
   {
    "repo": "Timcai06",
    "sha": "24ce99b",
@@ -2275,12 +2281,6 @@
    "sha": "cc7c0dc",
    "date": "2026-10-21",
    "message": "docs: reorder project badges by color"
-  },
-  {
-   "repo": "Timcai06",
-   "sha": "d669dc8",
-   "date": "2026-10-13",
-   "message": "feat(profile): YouTube link for clawd-mv; drop the Writing row"
   }
  ],
  "cards": {
