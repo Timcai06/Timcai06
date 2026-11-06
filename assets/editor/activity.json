@@ -1,6 +1,6 @@
 {
  "calendar": {
-  "totalContributions": 3999,
+  "totalContributions": 4012,
   "weeks": [
    {
     "contributionDays": [
@@ -2049,11 +2049,16 @@
      },
      {
       "date": "2026-11-04",
-      "contributionCount": 9,
+      "contributionCount": 10,
       "contributionLevel": "FIRST_QUARTILE"
      },
      {
       "date": "2026-11-05",
+      "contributionCount": 12,
+      "contributionLevel": "FIRST_QUARTILE"
+     },
+     {
+      "date": "2026-11-06",
       "contributionCount": 0,
       "contributionLevel": "NONE"
      }
@@ -2153,11 +2158,11 @@
    10,
    16,
    49,
-   20,
-   29,
+   21,
+   30,
    17,
    32,
-   33,
+   34,
    16,
    17,
    30,
@@ -2245,8 +2250,26 @@
    21
   ]
  ],
- "commits_last_year": 2383,
+ "commits_last_year": 2386,
  "recent": [
+  {
+   "repo": "Timcai06",
+   "sha": "24ce99b",
+   "date": "2026-11-05",
+   "message": "style(profile): align MV project hierarchy and Sophon stack badges"
+  },
+  {
+   "repo": "Timcai06",
+   "sha": "362b938",
+   "date": "2026-11-05",
+   "message": "style(profile): blend Sophon posters with theme-aware transparent frames"
+  },
+  {
+   "repo": "Timcai06",
+   "sha": "9b6fa35",
+   "date": "2026-11-05",
+   "message": "feat(profile): refresh Sophon showcase with editorial posters and gal…"
+  },
   {
    "repo": "Timcai06",
    "sha": "cc7c0dc",
@@ -2258,24 +2281,6 @@
    "sha": "d669dc8",
    "date": "2026-10-13",
    "message": "feat(profile): YouTube link for clawd-mv; drop the Writing row"
-  },
-  {
-   "repo": "Timcai06",
-   "sha": "9c14051",
-   "date": "2026-10-13",
-   "message": "fix(profile): live dot no longer overlaps its label"
-  },
-  {
-   "repo": "Timcai06",
-   "sha": "ee71a97",
-   "date": "2026-10-13",
-   "message": "feat(profile): make liveness visible — timestamped LIVE dot, chapter …"
-  },
-  {
-   "repo": "Timcai06",
-   "sha": "e0dd0dd",
-   "date": "2026-10-13",
-   "message": "feat(profile): tail as a typed session — git graph, rising city, pixe…"
   }
  ],
  "cards": {
