@@ -46,13 +46,13 @@
 <picture>
   <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="./assets/features/educanvas-light.png?v=b8c2a554">
   <source media="(prefers-reduced-motion: reduce)" srcset="./assets/features/educanvas.png?v=8e2f2e48">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/features/educanvas-light.svg?v=a8bb98ab">
-  <img src="./assets/features/educanvas.svg?v=1b922523" width="100%" alt="EduCanvas 实际产品截图：专注模式、学习回答与 Notebook 首页缓慢轮播">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/features/educanvas-light.svg?v=fc16c24a">
+  <img src="./assets/features/educanvas.svg?v=71d53484" width="100%" alt="EduCanvas 实际产品截图：专注模式、学习回答与 Notebook 首页缓慢轮播">
 </picture>
 </a>
 <p><b>面向学习场景的通用个人 Agent</b>。你可以把资料、对话和 Canvas 放在同一个 Notebook 里，让 Agent 调用工具和技能，围绕这些资料继续讨论、创作和学习。</p>
-<p><a href="https://github.com/Timcai06/EduCanvas"><kbd>仓库 / Repo ↗</kbd></a></p>
 <p><img src="https://img.shields.io/badge/Drizzle-1A1A1A?style=flat-square&amp;logo=drizzle&amp;logoColor=C5F74F" alt="Drizzle"> <img src="https://img.shields.io/badge/Agent_runtime-30363D?style=flat-square" alt="Agent runtime"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" alt="Docker"> <img src="https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&amp;logo=nodedotjs&amp;logoColor=white" alt="Node.js"> <img src="https://img.shields.io/badge/pnpm-F69220?style=flat-square&amp;logo=pnpm&amp;logoColor=white" alt="pnpm"></p>
+<p><a href="https://github.com/Timcai06/EduCanvas"><kbd>仓库 / Repo ↗</kbd></a></p>
 <details>
 <summary>实现说明 / EduCanvas</summary>
 
@@ -68,26 +68,15 @@
 <h3>SciScope <sub>Evidence-grounded research agent</sub></h3>
 <a href="https://github.com/Timcai06/SciScope">
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="./assets/features/sciscope-light.png?v=3b10471c">
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/features/sciscope.png?v=0d14fc50">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/features/sciscope-light.svg?v=78789619">
-  <img src="./assets/features/sciscope.svg?v=92c06b1f" width="100%" alt="SciScope 真实 Go TUI 截图与 Agent trace 流程图；底部动效示意 SSE 事件流，不是运行录屏">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="./assets/features/sciscope-light.png?v=31366386">
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/features/sciscope.png?v=dcf6f45c">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/features/sciscope-light.svg?v=7685051b">
+  <img src="./assets/features/sciscope.svg?v=05267dff" width="100%" alt="SciScope 真实 Go TUI 截图与 Agent trace 流程图；底部动效示意 SSE 事件流，不是运行录屏">
 </picture>
 </a>
 <p><b>在终端里查文献、找证据的研究 Agent</b>。后端用 <code>LangGraph StateGraph</code> 组织运行过程，调用 RAG 检索和研究工具，再把找到的文献证据用于回答。</p>
-<p><a href="https://github.com/Timcai06/SciScope"><kbd>仓库 / Repo ↗</kbd></a></p>
 <p><img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI"> <img src="https://img.shields.io/badge/Go_TUI-00ADD8?style=flat-square&amp;logo=go&amp;logoColor=white" alt="Go TUI"> <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL"> <img src="https://img.shields.io/badge/DeepSeek-4D6BFE?style=flat-square&amp;logo=deepseek&amp;logoColor=white" alt="DeepSeek"> <img src="https://img.shields.io/badge/RAG-5A4FCF?style=flat-square" alt="RAG"> <img src="https://img.shields.io/badge/Agent-30363D?style=flat-square" alt="Agent"> <img src="https://img.shields.io/badge/LangGraph-30363D?style=flat-square" alt="LangGraph"> <img src="https://img.shields.io/badge/SSE-30363D?style=flat-square" alt="Server-Sent Events"></p>
-<details>
-<summary>实现说明 / SciScope</summary>
-
-<p>除了最终答案，你还能看到它如何规划、调用了什么工具、工具返回了什么，以及反思过程。Python / FastAPI 后端通过 SSE 把这些事件传给 Go TUI，终端按时间线展示工具调用，并支持在同一会话里重试。Agent 编排、后端协议和终端交互都在这个项目里实现。</p>
-
-
-<p><sub>桌面作品归档；截图反映拍摄时的版本。研究流程图为说明图。</sub></p>
-<p><a href="./assets/features/screenshots/sciscope-tui-product.webp"><kbd>tui-product 原图 ↗</kbd></a></p>
-<p><a href="./assets/features/screenshots/sciscope-agent-trace.webp"><kbd>agent-trace 原图 ↗</kbd></a></p>
-<p><a href="./assets/features/screenshots/sciscope-claim-grounding.webp"><kbd>claim-grounding 原图 ↗</kbd></a></p>
-</details>
+<p><a href="https://github.com/Timcai06/SciScope"><kbd>仓库 / Repo ↗</kbd></a></p>
 </details>
 
 <details>
@@ -134,16 +123,15 @@
 
 <a href="https://www.bilibili.com/video/BV1wapR6JER5/">
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="./assets/features/motion-light.png?v=a672d36c">
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/features/motion.png?v=5d82e34a">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/features/motion-light.svg?v=cabc1eeb">
-  <img src="./assets/features/motion.svg?v=73d2b87d" width="100%" alt="Works on My Machine 真实画面缓慢轮播与三张静态分镜">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="./assets/features/motion-light.png?v=be062336">
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/features/motion.png?v=3a7a535d">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/features/motion-light.svg?v=5df2052b">
+  <img src="./assets/features/motion.svg?v=f3832b5b" width="100%" alt="Works on My Machine 真实画面缓慢轮播与三张静态分镜">
 </picture>
 </a>
 <p>代码驱动的音乐MV，用 TypeScript / Three.js 时间轴与离线渲染串起场景、镜头和音乐。基于 pdoom-video 开源框架进行个人非商业创作，目前持续迭代中。</p>
-<p><a href="https://www.bilibili.com/video/BV1wapR6JER5/"><kbd>▶ 观看完整 MV / Watch on Bilibili ↗</kbd></a> <a href="https://www.youtube.com/watch?v=-ih1Iw_-yX8"><kbd>▶ YouTube ↗</kbd></a> <a href="https://github.com/Timcai06/clawd-mv"><kbd>仓库 / Repo ↗</kbd></a></p>
-<p><sub>制作工具 / Production tools</sub></p>
 <p><img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&amp;logo=threedotjs&amp;logoColor=white" alt="Three.js"> <img src="https://img.shields.io/badge/Bun-000000?style=flat-square&amp;logo=bun&amp;logoColor=white" alt="Bun"> <img src="https://img.shields.io/badge/Suno-000000?style=flat-square&amp;logo=suno&amp;logoColor=white" alt="Suno"> <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white" alt="Vite"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat-square" alt="Playwright"> <img src="https://img.shields.io/badge/FFmpeg-007808?style=flat-square&amp;logo=ffmpeg&amp;logoColor=white" alt="FFmpeg"></p>
+<p><a href="https://www.bilibili.com/video/BV1wapR6JER5/"><kbd>▶ 观看完整 MV / Watch on Bilibili ↗</kbd></a> <a href="https://www.youtube.com/watch?v=-ih1Iw_-yX8"><kbd>▶ YouTube ↗</kbd></a> <a href="https://github.com/Timcai06/clawd-mv"><kbd>仓库 / Repo ↗</kbd></a></p>
 
 </details>
 
@@ -152,14 +140,18 @@
 <p align="center"><sub>从 Agent 编排到产品交付：常用技术，以及它们在项目中的位置。</sub></p>
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/toolbox/toolbox-dark.svg?v=04ac636e">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/toolbox/toolbox-light.svg?v=ff6389d9">
-    <img src="./assets/toolbox/toolbox-light.svg?v=ff6389d9" width="100%" alt="技术栈：Agent 工程（LangGraph、Agent runtime、RAG、工具编排、SSE）；补充 Node.js、Lenis、OGL、Playwright；语言（Python、TypeScript、JavaScript、Go）；AI 与研究（PyTorch、scikit-learn、YOLOv8、PaddleOCR、RAG、Agent workflows）；前端与动效（React、Next.js、Vite、Tailwind CSS、Three.js、GSAP、React Three Fiber）；后端与数据（FastAPI、Django、PostgreSQL、Redis、Supabase、Celery、Drizzle）；工程与交付（Docker、GitHub Actions、Vercel、Bun、pnpm、FFmpeg）；建模与科学计算（LaTeX、R、NumPy、pandas、SciPy、Matplotlib、PuLP、HiGHS）。">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/toolbox/toolbox-dark.svg?v=3a125b45">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/toolbox/toolbox-light.svg?v=f9caa3e0">
+    <img src="./assets/toolbox/toolbox-light.svg?v=f9caa3e0" width="100%" alt="技术栈：Agent 工程（LangGraph、Agent runtime、RAG、工具编排、SSE）；补充 Node.js、Lenis、OGL、Playwright；语言（Python、TypeScript、JavaScript、Go）；AI 与研究（PyTorch、scikit-learn、YOLOv8、PaddleOCR、RAG、Agent workflows）；前端与动效（React、Next.js、Vite、Tailwind CSS、Three.js、GSAP、React Three Fiber）；后端与数据（FastAPI、Django、PostgreSQL、Redis、Supabase、Celery、Drizzle）；工程与交付（Docker、GitHub Actions、Vercel、Bun、pnpm、FFmpeg）；建模与科学计算（LaTeX、R、NumPy、pandas、SciPy、Matplotlib、PuLP、HiGHS）。">
   </picture>
 </p>
+<details>
+<summary>完整技术清单 / Technology index</summary>
+
 <!-- toolbox:text -->
 <p align="center"><sub><b>Agent 工程</b> LangGraph · Agent runtime · RAG · Tool orchestration · SSE &nbsp;|&nbsp; <b>语言</b> Python · TypeScript · JavaScript · Go &nbsp;|&nbsp; <b>AI 与研究</b> PyTorch · scikit-learn · YOLOv8 · PaddleOCR · RAG · Agent workflows &nbsp;|&nbsp; <b>前端与动效</b> React · Next.js · Vite · Tailwind CSS · Three.js · GSAP · React Three Fiber · Lenis · OGL &nbsp;|&nbsp; <b>后端与数据</b> FastAPI · Django · PostgreSQL · Redis · Supabase · Celery · Drizzle · Node.js &nbsp;|&nbsp; <b>工程与交付</b> Docker · GitHub Actions · Vercel · Bun · pnpm · FFmpeg · Playwright &nbsp;|&nbsp; <b>建模与科学计算</b> LaTeX · R · NumPy · pandas · SciPy · Matplotlib · PuLP · HiGHS</sub></p>
 <!-- /toolbox:text -->
+</details>
 
 <br>
 <h1 id="more" align="center"><sub><samp>04</samp></sub><br>更多<br><sub>More</sub></h1>
@@ -172,16 +164,16 @@
 <h3>01 / Home</h3>
 <a href="./assets/showcase/sophon-poster-home.png">
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="./assets/showcase/sophon-poster-home-light.png?v=15af3e4d">
-  <img src="./assets/showcase/sophon-poster-home.png?v=6b011e89" width="100%" alt="Sophon 官网首页：以星系与山谷首屏为主图，双方向入口和等高线联系页为附图">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/showcase/sophon-poster-home-light.png?v=65ae0360">
+  <img src="./assets/showcase/sophon-poster-home.png?v=ac18926b" width="100%" alt="Sophon 官网首页：以星系与山谷首屏为主图，双方向入口和等高线联系页为附图">
 </picture>
 </a>
 
 <h3>02 / RSI-LNN</h3>
 <a href="./assets/showcase/sophon-poster-rsi.png">
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="./assets/showcase/sophon-poster-rsi-light.png?v=04a86998">
-  <img src="./assets/showcase/sophon-poster-rsi.png?v=505d3c59" width="100%" alt="RSI-LNN：以 What remains after an interaction? 状态演化说明为主图，绿色转场动画静态帧与 Continuous-time state 为附图，顶部为粒子 SOPHON Hero">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/showcase/sophon-poster-rsi-light.png?v=40632222">
+  <img src="./assets/showcase/sophon-poster-rsi.png?v=c5ef9173" width="100%" alt="RSI-LNN：以 What remains after an interaction? 状态演化说明为主图，绿色转场动画静态帧与 Continuous-time state 为附图，顶部为粒子 SOPHON Hero">
 </picture>
 </a>
 <details>
@@ -216,7 +208,7 @@
 <a href="./assets/showcase/sophon-poster-memory.png">
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="./assets/showcase/sophon-poster-memory-light.png?v=3cbf6470">
-  <img src="./assets/showcase/sophon-poster-memory.png?v=60b6558c" width="100%" alt="长期记忆页面原有截图：米白色流体视觉、记忆叙事与 Bitemporal 章节">
+  <img src="./assets/showcase/sophon-poster-memory.png?v=f638df89" width="100%" alt="长期记忆页面原有截图：米白色流体视觉、记忆叙事与 Bitemporal 章节">
 </picture>
 </a>
 </details>
@@ -330,3 +322,8 @@
 <br>
 <p align="center"><b>如果你也在做智能体、研究工具或有趣的全栈产品，欢迎交流。</b><br><sub>If something here resonates with you, feel free to explore, follow, or say hello.</sub></p>
 <p align="center"><a href="https://www.crt-dsg.com"><kbd>crt-dsg.com ↗</kbd></a> <a href="mailto:cairentian932@gmail.com"><kbd>cairentian932@gmail.com</kbd></a> <a href="https://www.instagram.com/cairentian932/"><kbd>Instagram ↗</kbd></a> <a href="https://www.linkedin.com/in/%E4%BB%BB%E5%A4%A9-%E8%94%A1-6553163a6"><kbd>LinkedIn ↗</kbd></a></p>
+
+<hr>
+<p align="center"><sub>© 2026 Tim Cai · 原创内容保留权利。未经许可，请勿人工或使用 AI 复刻、改编本仓库用于他人的 Profile。<br>
+<a href="./COPYRIGHT.md">版权与复用说明</a> · <a href="./AI_USAGE.md">AI 复刻限制</a> · <a href="./THIRD_PARTY_NOTICES.md">第三方素材说明</a></sub></p>
+

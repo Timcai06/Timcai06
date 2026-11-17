@@ -1,12 +1,12 @@
 """Build editorial Sophon panels from the existing screenshot gallery."""
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageOps
+from visual_style import WIDTH, DISPLAY_SIZE, CAPTION_SIZE, HERO_RADIUS, DETAIL_RADIUS, palette
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / 'assets/showcase'
 GALLERY = BASE / 'sophon-2026-11'
 FONTS = BASE / 'fonts'
-WIDTH = 1800
 DARK, PAPER, MUTED, GREEN = '#0a0c0b', '#e8e4d8', '#aaa9a4', '#d1d0c8'
 FRAME, CORNER = '#59636f', '#a7b3c0'
 
@@ -24,13 +24,13 @@ def picture(canvas, name, box):
     canvas.paste(ImageOps.fit(source, box[2:], method=Image.Resampling.LANCZOS), box[:2])
     x, y, width, height = box
     style = {
-        'home-hero': (18, 0),
-        'home-contact': (5, 18),
-        'home-valley': (10, 0),
-        'rsi-hero': (18, 0),
-        'rsi-state': (10, 0),
-        'rsi-transition': (4, 20),
-        'rsi-explanation': (8, 0),
+        'home-hero': (HERO_RADIUS, 0),
+        'home-contact': (DETAIL_RADIUS, 18),
+        'home-valley': (DETAIL_RADIUS, 0),
+        'rsi-hero': (HERO_RADIUS, 0),
+        'rsi-state': (DETAIL_RADIUS, 0),
+        'rsi-transition': (DETAIL_RADIUS, 20),
+        'rsi-explanation': (DETAIL_RADIUS, 0),
     }[name]
     frame(canvas, (x, y, width, height), *style)
 
@@ -73,18 +73,19 @@ def label(canvas, y, number, title, light=False):
 
 def build(light=False):
     global PAPER, MUTED, GREEN, FRAME, CORNER
-    PAPER, MUTED, GREEN = (('#24292f', '#57606a', '#424a53') if light
-                           else ('#e6edf3', '#a0aab5', '#c9d1d9'))
-    FRAME, CORNER = ('#b7bec6', '#57606a') if light else ('#424a54', '#a7b3c0')
+    colors = palette(light)
+    PAPER, MUTED, GREEN = colors['ink'], colors['muted'], colors['ink']
+    FRAME, CORNER = colors['frame'], colors['muted']
     home = Image.new('RGBA', (WIDTH, 1500), (0, 0, 0, 0))
     draw = ImageDraw.Draw(home)
-    text(home, (80, 45), 'TIM CAI / SELECTED WORK')
-    text(home, (1335, 45), 'WEB EXPERIENCE', color=MUTED)
-    draw.line((80, 91, 1720, 91), fill=FRAME)
-    text(home, (73, 111), 'SOPHON', 180, face='BigShoulders-Bold.ttf')
+    text(home, (80, 35), 'TIM CAI / SELECTED WORK', CAPTION_SIZE, MUTED)
+    right = 'WEB EXPERIENCE'
+    text(home, (1720-font('DMMono-Regular.ttf', CAPTION_SIZE).getlength(right), 35), right, CAPTION_SIZE, MUTED)
+    draw.line((80, 86, 1720, 86), fill=colors['rail'], width=2)
+    text(home, (75, 110), 'SOPHON', DISPLAY_SIZE, face='BigShoulders-Bold.ttf')
     text(home, (780, 132), 'AI', 150, GREEN, 'CrimsonPro-Italic.ttf')
-    text(home, (1234, 147), 'DESIGN + DEVELOPMENT', 18, MUTED)
-    text(home, (1234, 180), 'HOME / RSI / MEMORY', 18, MUTED)
+    text(home, (1234, 175), 'DESIGN + DEVELOPMENT', 24, MUTED)
+    text(home, (1234, 220), 'HOME / RSI / MEMORY', 24, MUTED)
     picture(home, 'home-hero', (80, 398, 1640, 619))
     picture(home, 'home-contact', (80, 1099, 530, 200))
     picture(home, 'home-valley', (650, 1040, 1070, 403))

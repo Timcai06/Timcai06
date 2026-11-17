@@ -7,11 +7,12 @@ import json
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
+from visual_style import WIDTH, DISPLAY_SIZE, HERO_RADIUS, DETAIL_RADIUS, SLIDE_SECONDS, FADE_SECONDS, palette
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'assets/features'
 FONTS = ROOT / 'assets/showcase/fonts'
-W = 1800
+W = WIDTH
 
 
 def font(size, face='DMMono-Regular.ttf'):
@@ -22,7 +23,7 @@ def text(im, xy, value, size, color, face='DMMono-Regular.ttf'):
     ImageDraw.Draw(im).text(xy, value, font=font(size, face), fill=color)
 
 
-def picture(im, source, box, radius=14):
+def picture(im, source, box, radius=HERO_RADIUS):
     x, y, w, h = box
     tile = ImageOps.fit(source.convert('RGB'), (w, h), method=Image.Resampling.LANCZOS)
     mask = Image.new('L', (w, h))
@@ -50,8 +51,8 @@ def movie_frames():
 
 
 def build(light=False):
-    ink, muted, rail = (('#24292f', '#57606a', '#d0d7de') if light
-                        else ('#e6edf3', '#9da7b3', '#303943'))
+    colors = palette(light)
+    ink, muted, rail = (colors[k] for k in ('ink', 'muted', 'rail'))
     suffix = '-light' if light else ''
 
     def panel(height):
@@ -67,7 +68,7 @@ def build(light=False):
         im.save(OUT / f'{name}{suffix}.png', optimize=True)
 
     mv = panel(1970)
-    heading(mv, 'TIM CAI / CODE IN MOTION', 'clawd-mv')
+    heading(mv, 'TIM CAI / SELECTED WORK', 'CODE IN MOTION')
     text(mv, (75, 111), 'WORKS ON', 160, ink, 'BigShoulders-Bold.ttf')
     text(mv, (75, 275), 'MY MACHINE', 160, ink, 'BigShoulders-Bold.ttf')
     text(mv, (1120, 215), 'A music video,', 43, ink, 'CrimsonPro-Italic.ttf')
@@ -78,7 +79,7 @@ def build(light=False):
     text(mv, (80, 1438), 'S18 / CLOSING CREDITS', 24, muted)
     for i, (f, label) in enumerate(zip(frames[:3], ['S03 / OCTOBER 32', 'S11 / UNDEFINED', 'S13 / LOCAL vs CI'])):
         x = 80 + i * 556
-        picture(mv, f, (x, 1530, 528, 297), radius=6)
+        picture(mv, f, (x, 1530, 528, 297), radius=DETAIL_RADIUS)
         text(mv, (x, 1855), label, 22, muted)
     text(mv, (80, 1920), 'TypeScript + Three.js / offline rendering', 23, muted)
     save(mv, 'motion')
@@ -86,7 +87,7 @@ def build(light=False):
     shots = OUT / 'screenshots'
     edu = panel(1370)
     heading(edu, 'TIM CAI / SELECTED WORK', 'AGENT ENGINEERING')
-    text(edu, (75, 110), 'EduCanvas', 170, ink, 'BigShoulders-Bold.ttf')
+    text(edu, (75, 110), 'EduCanvas', DISPLAY_SIZE, ink, 'BigShoulders-Bold.ttf')
     text(edu, (1090, 175), 'A place to learn.', 60, ink, 'CrimsonPro-Italic.ttf')
     text(edu, (1090, 260), 'A PERSONAL LEARNING AGENT', 24, muted)
     edu_box = (80, 370, 1640, 895)
@@ -100,7 +101,7 @@ def build(light=False):
 
     sci = panel(2120)
     heading(sci, 'TIM CAI / SELECTED WORK', 'RESEARCH AGENT')
-    text(sci, (75, 110), 'SciScope', 175, ink, 'BigShoulders-Bold.ttf')
+    text(sci, (75, 110), 'SciScope', DISPLAY_SIZE, ink, 'BigShoulders-Bold.ttf')
     text(sci, (1050, 175), 'Follow the evidence.', 60, ink, 'CrimsonPro-Italic.ttf')
     text(sci, (1050, 260), 'RESEARCH IN THE TERMINAL', 24, muted)
     tui = Image.open(shots / 'sciscope-tui-product.webp').crop((0, 160, 1600, 825))
@@ -161,16 +162,16 @@ def animated(base, name, suffix, box, sources, ink, muted, labels=None, label_xy
     if sources:
         x,y,w,h = box; n=len(sources)
         chunks.append(f'<defs><clipPath id="shot"><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14"/></clipPath></defs>')
-        # Six seconds per still, with a restrained 0.8-second crossfade.
+        # Slide duration and crossfade are shared across project panels.
         for i,source in enumerate(sources):
-            start = i*100/n; fade=0.8/(6*n)*100; end=(i+1)*100/n
+            start = i*100/n; fade=FADE_SECONDS/(SLIDE_SECONDS*n)*100; end=(i+1)*100/n
             if i==0:
                 keys=f'0%,{end-fade}%{{opacity:1}}{end}%,{100-fade}%{{opacity:0}}100%{{opacity:1}}'
             else:
                 keys=f'0%,{start-fade}%{{opacity:0}}{start}%,{end-fade}%{{opacity:1}}{end}%,100%{{opacity:0}}'
             chunks.append(f'<style>@keyframes shot{i}{{{keys}}}</style>')
             im = Image.open(source).convert('RGB'); im.thumbnail((1400, 1000), Image.Resampling.LANCZOS)
-            chunks.append(f'<g class="slide {"first" if i==0 else ""}" style="opacity:{1 if i==0 else 0};animation:shot{i} {6*n}s linear infinite">')
+            chunks.append(f'<g class="slide {"first" if i==0 else ""}" style="opacity:{1 if i==0 else 0};animation:shot{i} {SLIDE_SECONDS*n}s linear infinite">')
             chunks.append(f'<image x="{x}" y="{y}" width="{w}" height="{h}" preserveAspectRatio="xMidYMid slice" clip-path="url(#shot)" xlink:href="{data(im,"JPEG")}"/>')
             chunks.append(caption(labels[i], *label_xy)); chunks.append('</g>')
     else:

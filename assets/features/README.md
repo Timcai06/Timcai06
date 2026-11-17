@@ -9,8 +9,8 @@ the SVGs also independently disable motion under that preference. No JavaScript,
 external image requests or external fonts are used inside the SVGs. Captions are
 converted to paths with the existing licensed DM Mono font.
 
-EduCanvas shows three archived product screenshots, held for six seconds each
-with a short crossfade. SciScope shows an archived Go TUI screenshot and a separate
+EduCanvas shows three archived product screenshots, shown in four-second slots
+with a 0.5-second crossfade. SciScope shows an archived Go TUI screenshot and a separate
 Agent trace diagram. Its moving dot illustrates the event flow; it is not a
 recording of application execution. Sources are copied unchanged into
 `screenshots/`; `manifest.json` records their archive paths, types and hashes.
@@ -24,10 +24,13 @@ private desktop originals. If selections or crop coordinates in
 rebuild with the originals available. The original `clawd-mv.jpg` is retained.
 
 Descriptions, full technology badge rows and repository links remain native
-README content. Implementation explanations and full-size image links are in
-project disclosures. The old compact SVG assets are retained but no longer used
+README content. EduCanvas retains its implementation disclosure and full-size image links.
+SciScope has no implementation disclosure. The old compact SVG assets are retained but no longer used
 for these two lead projects. The existing daily activity generators are unchanged.
 
 Fonts and licenses are shared with `assets/showcase/fonts/`. Transparent outer
 canvases inherit the profile background. Panel text supplements native
 README descriptions rather than replacing essential accessible content.
+
+Shared palette, title size, image radii and slideshow timing are maintained in
+`scripts/visual_style.py`, also used by the Sophon and toolbox builders.
