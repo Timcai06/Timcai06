@@ -98,7 +98,7 @@ def build(theme, groups, agent):
     text(body, 1147, 238, agent['projects'], 16, muted, text_anchor='end', font_family='monospace')
     for i, label in enumerate(agent['tools']):
         x = 53 + i * 222
-        element(body, 'rect', x=x, y=268, width=206, height=48, rx=5, fill=bg, stroke=edge)
+        element(body, 'path', d=f'M {x+6} 268 H {x+200} Q {x+206} 268 {x+206} 274 V 304 L {x+194} 316 H {x+6} Q {x} 316 {x} 310 V 274 Q {x} 268 {x+6} 268 Z', fill=bg, stroke=edge)
         text(body, x+103, 298, label, 18, ink, text_anchor='middle')
     element(body, 'line', x1=53, y1=358, x2=1147, y2=358, stroke=edge)
     for index, group in enumerate(groups):
@@ -129,7 +129,7 @@ def build(theme, groups, agent):
                     bx += bw*BADGE_SCALE+BADGE_GAP
         else:
             text(g,x,y+198,group['images'][0]['alt'].replace(', ', ' · '),18,muted)
-        element(g, 'line', x1=x, y1=y+264, x2=x+w, y2=y+264, stroke=edge)
+        element(g, 'path', d=f'M {x} {y+264} H {x+w-16} L {x+w} {y+248} V {y+228}', fill='none', stroke=edge, stroke_width=1)
         text(g, x, y+288, group['caption'], 14, muted)
     output = ASSETS / f'toolbox-{theme}.svg'
     ET.ElementTree(root).write(output,encoding='utf-8',xml_declaration=False)

@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
+from visual_frame import frame
 from visual_style import WIDTH, DISPLAY_SIZE, HERO_RADIUS, DETAIL_RADIUS, SLIDE_SECONDS, FADE_SECONDS, palette
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,14 +24,11 @@ def text(im, xy, value, size, color, face='DMMono-Regular.ttf'):
     ImageDraw.Draw(im).text(xy, value, font=font(size, face), fill=color)
 
 
-def picture(im, source, box, radius=HERO_RADIUS):
+def picture(im, source, box, radius=HERO_RADIUS, cut=0):
     x, y, w, h = box
     tile = ImageOps.fit(source.convert('RGB'), (w, h), method=Image.Resampling.LANCZOS)
-    mask = Image.new('L', (w, h))
-    ImageDraw.Draw(mask).rounded_rectangle((0, 0, w-1, h-1), radius, fill=255)
-    im.paste(tile, (x, y), mask)
-    ImageDraw.Draw(im).rounded_rectangle((x, y, x+w-1, y+h-1), radius,
-                                         outline='#59616e', width=1)
+    im.paste(tile, (x, y))
+    frame(im, box, radius, cut)
 
 
 def movie_frames():
@@ -79,7 +77,7 @@ def build(light=False):
     text(mv, (80, 1438), 'S18 / CLOSING CREDITS', 24, muted)
     for i, (f, label) in enumerate(zip(frames[:3], ['S03 / OCTOBER 32', 'S11 / UNDEFINED', 'S13 / LOCAL vs CI'])):
         x = 80 + i * 556
-        picture(mv, f, (x, 1530, 528, 297), radius=DETAIL_RADIUS)
+        picture(mv, f, (x, 1530, 528, 297), radius=DETAIL_RADIUS, cut=24)
         text(mv, (x, 1855), label, 22, muted)
     text(mv, (80, 1920), 'TypeScript + Three.js / offline rendering', 23, muted)
     save(mv, 'motion')
@@ -109,7 +107,7 @@ def build(light=False):
     text(sci, (80, 1080), 'GO TUI / PRODUCT SCREENSHOT', 24, muted)
     text(sci, (80, 1170), 'The process is part of the answer.', 65, ink, 'CrimsonPro-Italic.ttf')
     trace = Image.open(shots / 'sciscope-agent-trace.webp').crop((35, 250, 1565, 770))
-    picture(sci, trace, (80, 1300, 1640, 557), radius=8)
+    picture(sci, trace, (80, 1300, 1640, 557), radius=DETAIL_RADIUS, cut=30)
     text(sci, (80, 1885), 'AGENT TRACE / WORKFLOW DIAGRAM', 24, muted)
     d = ImageDraw.Draw(sci)
     d.line((80, 1995, 1720, 1995), fill=rail, width=2)

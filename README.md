@@ -44,10 +44,10 @@
 <h3>EduCanvas <sub>A personal agent for learning</sub></h3>
 <a href="https://github.com/Timcai06/EduCanvas">
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="./assets/features/educanvas-light.png?v=b8c2a554">
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/features/educanvas.png?v=8e2f2e48">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/features/educanvas-light.svg?v=fc16c24a">
-  <img src="./assets/features/educanvas.svg?v=71d53484" width="100%" alt="EduCanvas 实际产品截图：专注模式、学习回答与 Notebook 首页缓慢轮播">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="./assets/features/educanvas-light.png?v=556446fd">
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/features/educanvas.png?v=c41e98ea">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/features/educanvas-light.svg?v=39343b66">
+  <img src="./assets/features/educanvas.svg?v=c8f731d2" width="100%" alt="EduCanvas 实际产品截图：专注模式、学习回答与 Notebook 首页缓慢轮播">
 </picture>
 </a>
 <p><b>面向学习场景的通用个人 Agent</b>。你可以把资料、对话和 Canvas 放在同一个 Notebook 里，让 Agent 调用工具和技能，围绕这些资料继续讨论、创作和学习。</p>
@@ -68,10 +68,10 @@
 <h3>SciScope <sub>Evidence-grounded research agent</sub></h3>
 <a href="https://github.com/Timcai06/SciScope">
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="./assets/features/sciscope-light.png?v=31366386">
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/features/sciscope.png?v=dcf6f45c">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/features/sciscope-light.svg?v=7685051b">
-  <img src="./assets/features/sciscope.svg?v=05267dff" width="100%" alt="SciScope 真实 Go TUI 截图与 Agent trace 流程图；底部动效示意 SSE 事件流，不是运行录屏">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="./assets/features/sciscope-light.png?v=7cadabd3">
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/features/sciscope.png?v=4351d67f">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/features/sciscope-light.svg?v=972aca78">
+  <img src="./assets/features/sciscope.svg?v=587bc2df" width="100%" alt="SciScope 真实 Go TUI 截图与 Agent trace 流程图；底部动效示意 SSE 事件流，不是运行录屏">
 </picture>
 </a>
 <p><b>在终端里查文献、找证据的研究 Agent</b>。后端用 <code>LangGraph StateGraph</code> 组织运行过程，调用 RAG 检索和研究工具，再把找到的文献证据用于回答。</p>
@@ -123,10 +123,10 @@
 
 <a href="https://www.bilibili.com/video/BV1wapR6JER5/">
 <picture>
-  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="./assets/features/motion-light.png?v=be062336">
-  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/features/motion.png?v=3a7a535d">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/features/motion-light.svg?v=5df2052b">
-  <img src="./assets/features/motion.svg?v=f3832b5b" width="100%" alt="Works on My Machine 真实画面缓慢轮播与三张静态分镜">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: light)" srcset="./assets/features/motion-light.png?v=6f042a91">
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/features/motion.png?v=1d5cba39">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/features/motion-light.svg?v=600cb692">
+  <img src="./assets/features/motion.svg?v=6bdd4142" width="100%" alt="Works on My Machine 真实画面缓慢轮播与三张静态分镜">
 </picture>
 </a>
 <p>代码驱动的音乐MV，用 TypeScript / Three.js 时间轴与离线渲染串起场景、镜头和音乐。基于 pdoom-video 开源框架进行个人非商业创作，目前持续迭代中。</p>
@@ -140,9 +140,9 @@
 <p align="center"><sub>从 Agent 编排到产品交付：常用技术，以及它们在项目中的位置。</sub></p>
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/toolbox/toolbox-dark.svg?v=3a125b45">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/toolbox/toolbox-light.svg?v=f9caa3e0">
-    <img src="./assets/toolbox/toolbox-light.svg?v=f9caa3e0" width="100%" alt="技术栈：Agent 工程（LangGraph、Agent runtime、RAG、工具编排、SSE）；补充 Node.js、Lenis、OGL、Playwright；语言（Python、TypeScript、JavaScript、Go）；AI 与研究（PyTorch、scikit-learn、YOLOv8、PaddleOCR、RAG、Agent workflows）；前端与动效（React、Next.js、Vite、Tailwind CSS、Three.js、GSAP、React Three Fiber）；后端与数据（FastAPI、Django、PostgreSQL、Redis、Supabase、Celery、Drizzle）；工程与交付（Docker、GitHub Actions、Vercel、Bun、pnpm、FFmpeg）；建模与科学计算（LaTeX、R、NumPy、pandas、SciPy、Matplotlib、PuLP、HiGHS）。">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/toolbox/toolbox-dark.svg?v=27785dee">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/toolbox/toolbox-light.svg?v=9e4e7285">
+    <img src="./assets/toolbox/toolbox-light.svg?v=9e4e7285" width="100%" alt="技术栈：Agent 工程（LangGraph、Agent runtime、RAG、工具编排、SSE）；补充 Node.js、Lenis、OGL、Playwright；语言（Python、TypeScript、JavaScript、Go）；AI 与研究（PyTorch、scikit-learn、YOLOv8、PaddleOCR、RAG、Agent workflows）；前端与动效（React、Next.js、Vite、Tailwind CSS、Three.js、GSAP、React Three Fiber）；后端与数据（FastAPI、Django、PostgreSQL、Redis、Supabase、Celery、Drizzle）；工程与交付（Docker、GitHub Actions、Vercel、Bun、pnpm、FFmpeg）；建模与科学计算（LaTeX、R、NumPy、pandas、SciPy、Matplotlib、PuLP、HiGHS）。">
   </picture>
 </p>
 <details>
@@ -164,16 +164,16 @@
 <h3>01 / Home</h3>
 <a href="./assets/showcase/sophon-poster-home.png">
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="./assets/showcase/sophon-poster-home-light.png?v=65ae0360">
-  <img src="./assets/showcase/sophon-poster-home.png?v=ac18926b" width="100%" alt="Sophon 官网首页：以星系与山谷首屏为主图，双方向入口和等高线联系页为附图">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/showcase/sophon-poster-home-light.png?v=eca6d0d2">
+  <img src="./assets/showcase/sophon-poster-home.png?v=1affd3e0" width="100%" alt="Sophon 官网首页：以星系与山谷首屏为主图，双方向入口和等高线联系页为附图">
 </picture>
 </a>
 
 <h3>02 / RSI-LNN</h3>
 <a href="./assets/showcase/sophon-poster-rsi.png">
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="./assets/showcase/sophon-poster-rsi-light.png?v=40632222">
-  <img src="./assets/showcase/sophon-poster-rsi.png?v=c5ef9173" width="100%" alt="RSI-LNN：以 What remains after an interaction? 状态演化说明为主图，绿色转场动画静态帧与 Continuous-time state 为附图，顶部为粒子 SOPHON Hero">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/showcase/sophon-poster-rsi-light.png?v=e83b2c3c">
+  <img src="./assets/showcase/sophon-poster-rsi.png?v=2e6133ee" width="100%" alt="RSI-LNN：以 What remains after an interaction? 状态演化说明为主图，绿色转场动画静态帧与 Continuous-time state 为附图，顶部为粒子 SOPHON Hero">
 </picture>
 </a>
 <details>

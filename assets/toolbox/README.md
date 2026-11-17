@@ -13,3 +13,7 @@ Tool icons are 64 px high; badge SVGs are scaled to 32 px high. Open groups are 
 The Agent engineering header precedes the six original groups. Each group now includes a project or usage caption. All entries, including text-only chips and Agent tools, are included in the searchable native text beneath the image.
 
 The current layout uses a shared editorial palette from `scripts/visual_style.py`, a Big Shoulders wordmark outlined from the vendored font, left-aligned groups and hairline separators. The earlier decorative card borders and group numbering have been removed. The full native technology index is retained in a disclosure.
+
+Agent labels have rounded corners with a small lower-right cut. Each open group
+ends in a short diagonal rail, extending the screenshot frame motif without
+restoring full card borders.

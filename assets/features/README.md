@@ -34,3 +34,7 @@ README descriptions rather than replacing essential accessible content.
 
 Shared palette, title size, image radii and slideshow timing are maintained in
 `scripts/visual_style.py`, also used by the Sophon and toolbox builders.
+
+`visual_frame.py` supplies the shared antialiased rounded outline and transparent
+lower-right cut used for MV supporting stills and the SciScope workflow diagram.
+Main carousel frames retain an uncut rounded silhouette.

@@ -1,6 +1,7 @@
 """Build editorial Sophon panels from the existing screenshot gallery."""
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageOps
+from visual_frame import frame as image_frame
 from visual_style import WIDTH, DISPLAY_SIZE, CAPTION_SIZE, HERO_RADIUS, DETAIL_RADIUS, palette
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,44 +27,17 @@ def picture(canvas, name, box):
     style = {
         'home-hero': (HERO_RADIUS, 0),
         'home-contact': (DETAIL_RADIUS, 18),
-        'home-valley': (DETAIL_RADIUS, 0),
+        'home-valley': (DETAIL_RADIUS, 24),
         'rsi-hero': (HERO_RADIUS, 0),
-        'rsi-state': (DETAIL_RADIUS, 0),
+        'rsi-state': (DETAIL_RADIUS, 24),
         'rsi-transition': (DETAIL_RADIUS, 20),
         'rsi-explanation': (DETAIL_RADIUS, 0),
     }[name]
     frame(canvas, (x, y, width, height), *style)
 
 
-def frame(canvas, box, radius=12, cut=0):
-    """Quiet rounded outline; selected supporting frames have a transparent cut."""
-    x, y, width, height = box
-    scale = 3
-    size = (width * scale, height * scale)
-
-    def silhouette(inset):
-        mask = Image.new('L', size, 0)
-        draw = ImageDraw.Draw(mask)
-        right, bottom = size[0] - 1, size[1] - 1
-        draw.rounded_rectangle((inset, inset, right - inset, bottom - inset),
-                               radius=max(0, radius * scale - inset), fill=255)
-        if cut:
-            # The diagonal remains parallel for the inset outline.
-            diagonal = cut * scale + round(inset * 1.414)
-            draw.polygon([(right, bottom - diagonal),
-                          (right - diagonal, bottom), (right, bottom)], fill=0)
-        return mask
-
-    from PIL import ImageChops
-    outer = silhouette(0)
-    inner = silhouette(3)  # one source pixel; subtle at README display width
-    alpha = outer.resize((width, height), Image.Resampling.LANCZOS)
-    region = canvas.crop((x, y, x + width, y + height))
-    region.putalpha(alpha)
-    canvas.paste(region, (x, y))
-    border = Image.new('RGBA', size, FRAME)
-    border.putalpha(ImageChops.subtract(outer, inner))
-    canvas.alpha_composite(border.resize((width, height), Image.Resampling.LANCZOS), (x, y))
+def frame(canvas, box, radius=14, cut=0):
+    return image_frame(canvas, box, radius, cut, color=FRAME)
 
 
 def label(canvas, y, number, title, light=False):
