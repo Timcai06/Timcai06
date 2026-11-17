@@ -326,4 +326,3 @@
 <hr>
 <p align="center"><sub>© 2026 Tim Cai · 原创内容保留权利。未经许可，请勿人工或使用 AI 复刻、改编本仓库用于他人的 Profile。<br>
 <a href="./COPYRIGHT.md">版权与复用说明</a> · <a href="./AI_USAGE.md">AI 复刻限制</a> · <a href="./THIRD_PARTY_NOTICES.md">第三方素材说明</a></sub></p>
-
