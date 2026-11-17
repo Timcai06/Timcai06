@@ -10,9 +10,10 @@ ASSETS = ROOT / 'assets/toolbox'
 ICON_HEIGHT = 64
 BADGE_SCALE = 1.6
 BADGE_GAP = 8
-CARD_HEIGHT = 270
+CARD_HEIGHT = 310
 ROW_GAP = 24
-CANVAS_HEIGHT = 2 * 16 + 3 * CARD_HEIGHT + 2 * ROW_GAP
+HEADER_HEIGHT = 240
+CANVAS_HEIGHT = HEADER_HEIGHT + 2 * 16 + 3 * CARD_HEIGHT + 2 * ROW_GAP
 NS = 'http://www.w3.org/2000/svg'
 ET.register_namespace('', NS)
 ET.register_namespace('xlink', 'http://www.w3.org/1999/xlink')
@@ -28,6 +29,13 @@ def text(parent, x, y, content, size, color, **attrs):
 
 
 def icon(image, theme, prefix):
+    if 'text' in image:
+        width, height = len(image['text']) * 7.5 + 24, 20
+        node = ET.Element(f'{{{NS}}}svg', width=str(width), height=str(height), viewBox=f'0 0 {width} {height}')
+        dark = theme == 'dark'
+        element(node, 'rect', width=width, height=height, rx=3, fill='#28323e' if dark else '#e4e9ee')
+        text(node, width/2, 14, image['text'], 11, '#dce5ed' if dark else '#303b47', text_anchor='middle', font_family='Arial,sans-serif')
+        return node, width, height
     path = ASSETS / 'source' / image['file']
     if 'skillicons.dev' in image['url'] and theme == 'light':
         path = path.with_name(path.stem + '-light.svg')
@@ -58,16 +66,24 @@ def place(parent, node, x, y, width, height):
     parent.append(placed)
 
 
-def build(theme, groups):
+def build(theme, groups, agent):
     dark = theme == 'dark'
     bg, edge, corner, ink, muted = ('#111820', '#303b47', '#85939f', '#e0e6ed', '#97a4b0') if dark else (
         '#f6f8fa', '#d4dce3', '#748392', '#242d37', '#596875')
     root = ET.Element(f'{{{NS}}}svg', width='1200', height=str(CANVAS_HEIGHT), viewBox=f'0 0 1200 {CANVAS_HEIGHT}', role='img')
     element(root, 'title').text = 'Tim Cai — languages, AI, web, backend, tooling and scientific computing'
-    element(root, 'desc').text = 'Six centered groups. Icons and badges are embedded; no external resources are loaded.'
+    element(root, 'desc').text = 'Agent engineering plus six technology groups with project context. All assets are embedded.'
     body = element(root, 'g', font_family='-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif')
+    text(body, 32, 55, agent['title'], 38, ink, font_weight=650)
+    text(body, 32, 91, agent['subtitle'], 18, muted)
+    text(body, 1168, 54, agent['projects'], 18, muted, text_anchor='end', font_family='monospace')
+    for i, label in enumerate(agent['tools']):
+        x = 32 + i * 234
+        element(body, 'rect', x=x, y=124, width=212, height=54, rx=8, fill=bg, stroke=edge)
+        text(body, x+106, 157, label, 19, ink, text_anchor='middle')
+    element(body, 'line', x1=32, y1=217, x2=1168, y2=217, stroke=edge)
     for index, group in enumerate(groups):
-        x, y, w, h = 16 + (index % 2) * 600, 16 + (index // 2) * (CARD_HEIGHT + ROW_GAP), 568, CARD_HEIGHT
+        x, y, w, h = 16 + (index % 2) * 600, HEADER_HEIGHT + 16 + (index // 2) * (CARD_HEIGHT + ROW_GAP), 568, CARD_HEIGHT
         cx = x + w / 2
         g = element(body, 'g')
         element(g, 'rect', x=x, y=y, width=w, height=h, rx=12, fill=bg)
@@ -102,20 +118,24 @@ def build(theme, groups):
                     bx += bw*BADGE_SCALE+BADGE_GAP
         else:
             text(g,cx,y+198,group['images'][0]['alt'].replace(', ', ' · '),18,muted,text_anchor='middle')
+        element(g, 'line', x1=x+28, y1=y+264, x2=x+w-28, y2=y+264, stroke=edge)
+        text(g, cx, y+288, group['caption'], 15, muted, text_anchor='middle')
     output = ASSETS / f'toolbox-{theme}.svg'
     ET.ElementTree(root).write(output,encoding='utf-8',xml_declaration=False)
     print(f'{output.relative_to(ROOT)}: 1200x{CANVAS_HEIGHT}, {output.stat().st_size} bytes')
 
 
 if __name__ == '__main__':
-    groups = json.loads((ASSETS / 'toolbox.json').read_text())['groups']
+    config = json.loads((ASSETS / 'toolbox.json').read_text())
+    groups = config['groups']
     assert len(groups) == 6
     for theme in ('dark', 'light'):
-        build(theme, groups)
+        build(theme, groups, config['agent'])
     # Plain-text stack under the image: SVG text is invisible to Ctrl+F and search,
     # so the same groups are also written into README.md between the markers.
     line = ' &nbsp;|&nbsp; '.join(f"<b>{g['title']}</b> " + ' · '.join(i['alt'].replace(', ', ' · ') for i in g['images'])
                                  for g in groups)
+    line = '<b>Agent 工程</b> ' + ' · '.join(config['agent']['tools']) + ' &nbsp;|&nbsp; ' + line
     block = f'<!-- toolbox:text -->\n<p align="center"><sub>{line}</sub></p>\n<!-- /toolbox:text -->'
     readme = ROOT / 'README.md'
     text_ = readme.read_text()

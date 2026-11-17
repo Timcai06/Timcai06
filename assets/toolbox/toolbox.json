@@ -9,7 +9,8 @@
           "alt": "Python, TypeScript, JavaScript, Go",
           "file": "01-00.svg"
         }
-      ]
+      ],
+      "caption": "Across agents, products and services"
     },
     {
       "title": "AI 与研究",
@@ -40,7 +41,8 @@
           "alt": "Agent workflows",
           "file": "02-04.svg"
         }
-      ]
+      ],
+      "caption": "BDI / PulseGraph"
     },
     {
       "title": "前端与动效",
@@ -60,8 +62,17 @@
           "url": "https://img.shields.io/badge/React_Three_Fiber-000000?style=flat-square&logo=threedotjs&logoColor=white",
           "alt": "React Three Fiber",
           "file": "03-02.svg"
+        },
+        {
+          "alt": "Lenis",
+          "text": "Lenis"
+        },
+        {
+          "alt": "OGL",
+          "text": "OGL"
         }
-      ]
+      ],
+      "caption": "TTT-I-M / Sophon / clawd-mv"
     },
     {
       "title": "后端与数据",
@@ -81,8 +92,13 @@
           "url": "https://img.shields.io/badge/Drizzle-1A1A1A?style=flat-square&logo=drizzle&logoColor=C5F74F",
           "alt": "Drizzle",
           "file": "04-02.svg"
+        },
+        {
+          "alt": "Node.js",
+          "text": "Node.js"
         }
-      ]
+      ],
+      "caption": "EduCanvas / SciScope / Seen"
     },
     {
       "title": "工程与交付",
@@ -102,8 +118,13 @@
           "url": "https://img.shields.io/badge/FFmpeg-007808?style=flat-square&logo=ffmpeg&logoColor=white",
           "alt": "FFmpeg",
           "file": "05-02.svg"
+        },
+        {
+          "alt": "Playwright",
+          "text": "Playwright"
         }
-      ]
+      ],
+      "caption": "Build, test, render and deliver"
     },
     {
       "title": "建模与科学计算",
@@ -144,7 +165,20 @@
           "alt": "HiGHS",
           "file": "06-06.svg"
         }
-      ]
+      ],
+      "caption": "Energy / Agriculture / Oil / Desert / Glass"
     }
-  ]
+  ],
+  "agent": {
+    "title": "Agent engineering",
+    "subtitle": "From orchestration to an inspectable answer",
+    "tools": [
+      "LangGraph",
+      "Agent runtime",
+      "RAG",
+      "Tool orchestration",
+      "SSE"
+    ],
+    "projects": "EduCanvas / SciScope"
+  }
 }

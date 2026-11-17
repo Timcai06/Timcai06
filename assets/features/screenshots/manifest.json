@@ -1,0 +1,38 @@
+[
+  {
+    "file": "educanvas-home.webp",
+    "source": "个人作品画廊/网站作品/educanvas/home.webp",
+    "sha256": "08a421ef78633a769410f877305ed25177f1c80477901ce7bb709eb9aadde943",
+    "kind": "product screenshot"
+  },
+  {
+    "file": "educanvas-learning-response.webp",
+    "source": "个人作品画廊/网站作品/educanvas/learning-response.webp",
+    "sha256": "189761d727ac762aed4f134cfc848a963bda959633211ae56b50877c69227168",
+    "kind": "product screenshot"
+  },
+  {
+    "file": "educanvas-focus-mode.webp",
+    "source": "个人作品画廊/网站作品/educanvas/focus-mode.webp",
+    "sha256": "84a0b0ca615acab561ca9ccc0b7e086d287b98afbeeb9d49a627577876eb6b5a",
+    "kind": "product screenshot"
+  },
+  {
+    "file": "sciscope-tui-product.webp",
+    "source": "个人作品画廊/网站作品/sciscope/tui-product.webp",
+    "sha256": "358bf2a62f77b8d3ba0953c7286e262a2838d529774ade218291ddbf1dcc8c4b",
+    "kind": "product screenshot"
+  },
+  {
+    "file": "sciscope-agent-trace.webp",
+    "source": "个人作品画廊/网站作品/sciscope/agent-trace.webp",
+    "sha256": "b361e4f2cb90c2cfb133b14197be0493225c3d441a71d6175a4d5c77b0beec02",
+    "kind": "diagram"
+  },
+  {
+    "file": "sciscope-claim-grounding.webp",
+    "source": "个人作品画廊/网站作品/sciscope/claim-grounding.webp",
+    "sha256": "4f16df246db8fcb6af9bc24138f303bdddff12325aadbf9cfb852ef4c2d90670",
+    "kind": "diagram"
+  }
+]
