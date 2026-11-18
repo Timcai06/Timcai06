@@ -1,6 +1,6 @@
 {
  "calendar": {
-  "totalContributions": 4120,
+  "totalContributions": 4157,
   "weeks": [
    {
     "contributionDays": [
@@ -2025,7 +2025,7 @@
      },
      {
       "date": "2026-11-14",
-      "contributionCount": 9,
+      "contributionCount": 12,
       "contributionLevel": "FIRST_QUARTILE"
      }
     ]
@@ -2034,16 +2034,21 @@
     "contributionDays": [
      {
       "date": "2026-11-15",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
+      "contributionCount": 22,
+      "contributionLevel": "FIRST_QUARTILE"
      },
      {
       "date": "2026-11-16",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
+      "contributionCount": 8,
+      "contributionLevel": "FIRST_QUARTILE"
      },
      {
       "date": "2026-11-17",
+      "contributionCount": 4,
+      "contributionLevel": "FIRST_QUARTILE"
+     },
+     {
+      "date": "2026-11-18",
       "contributionCount": 0,
       "contributionLevel": "NONE"
      }
@@ -2094,8 +2099,8 @@
    13,
    19,
    21,
-   33,
-   21,
+   34,
+   24,
    28,
    19,
    29,
@@ -2235,37 +2240,37 @@
    21
   ]
  ],
- "commits_last_year": 2387,
+ "commits_last_year": 2391,
  "recent": [
+  {
+   "repo": "Timcai06",
+   "sha": "3ed0dc4",
+   "date": "2026-11-17",
+   "message": "style(profile): extend rounded frames and cut corners across showcases"
+  },
+  {
+   "repo": "Timcai06",
+   "sha": "bb1d26e",
+   "date": "2026-11-17",
+   "message": "style: trim trailing blank line in profile README"
+  },
+  {
+   "repo": "Timcai06",
+   "sha": "946cdd3",
+   "date": "2026-11-17",
+   "message": "refine profile styling and carousel timing; clarify reuse rights"
+  },
+  {
+   "repo": "Timcai06",
+   "sha": "5f1f8fc",
+   "date": "2026-11-17",
+   "message": "feat(profile): add animated project showcases and expand toolbox"
+  },
   {
    "repo": "Timcai06",
    "sha": "dac15a3",
    "date": "2026-11-06",
    "message": "style(profile): add color-grouped stack badges to other projects"
-  },
-  {
-   "repo": "Timcai06",
-   "sha": "24ce99b",
-   "date": "2026-11-05",
-   "message": "style(profile): align MV project hierarchy and Sophon stack badges"
-  },
-  {
-   "repo": "Timcai06",
-   "sha": "362b938",
-   "date": "2026-11-05",
-   "message": "style(profile): blend Sophon posters with theme-aware transparent frames"
-  },
-  {
-   "repo": "Timcai06",
-   "sha": "9b6fa35",
-   "date": "2026-11-05",
-   "message": "feat(profile): refresh Sophon showcase with editorial posters and gal…"
-  },
-  {
-   "repo": "Timcai06",
-   "sha": "cc7c0dc",
-   "date": "2026-10-21",
-   "message": "docs: reorder project badges by color"
   }
  ],
  "cards": {
