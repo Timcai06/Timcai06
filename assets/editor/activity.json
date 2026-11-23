@@ -1,46 +1,7 @@
 {
  "calendar": {
-  "totalContributions": 4191,
+  "totalContributions": 4170,
   "weeks": [
-   {
-    "contributionDays": [
-     {
-      "date": "2025-11-16",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
-     },
-     {
-      "date": "2025-11-17",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
-     },
-     {
-      "date": "2025-11-18",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
-     },
-     {
-      "date": "2025-11-19",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
-     },
-     {
-      "date": "2025-11-20",
-      "contributionCount": 23,
-      "contributionLevel": "FIRST_QUARTILE"
-     },
-     {
-      "date": "2025-11-21",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
-     },
-     {
-      "date": "2025-11-22",
-      "contributionCount": 0,
-      "contributionLevel": "NONE"
-     }
-    ]
-   },
    {
     "contributionDays": [
      {
@@ -2068,6 +2029,20 @@
       "contributionLevel": "NONE"
      }
     ]
+   },
+   {
+    "contributionDays": [
+     {
+      "date": "2026-11-22",
+      "contributionCount": 2,
+      "contributionLevel": "FIRST_QUARTILE"
+     },
+     {
+      "date": "2026-11-23",
+      "contributionCount": 0,
+      "contributionLevel": "NONE"
+     }
+    ]
    }
   ]
  },
@@ -2309,12 +2284,12 @@
   "EduCanvas": {
    "weeks": [
     0,
-    0,
     17,
     0,
     7,
     0,
     1,
+    0,
     0,
     0,
     0,
@@ -2347,8 +2322,8 @@
     0,
     0,
     0,
-    0,
     2,
+    0,
     0,
     0,
     0,
@@ -2359,13 +2334,13 @@
   },
   "TTT-I-M": {
    "weeks": [
-    40,
     67,
     16,
     3,
     39,
     0,
     1,
+    0,
     0,
     0,
     0,
