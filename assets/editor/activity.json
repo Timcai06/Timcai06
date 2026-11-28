@@ -1,6 +1,6 @@
 {
  "calendar": {
-  "totalContributions": 4236,
+  "totalContributions": 4270,
   "weeks": [
    {
     "contributionDays": [
@@ -2049,16 +2049,21 @@
      },
      {
       "date": "2026-11-25",
-      "contributionCount": 31,
-      "contributionLevel": "FIRST_QUARTILE"
+      "contributionCount": 39,
+      "contributionLevel": "SECOND_QUARTILE"
      },
      {
       "date": "2026-11-26",
-      "contributionCount": 25,
-      "contributionLevel": "FIRST_QUARTILE"
+      "contributionCount": 43,
+      "contributionLevel": "SECOND_QUARTILE"
      },
      {
       "date": "2026-11-27",
+      "contributionCount": 8,
+      "contributionLevel": "FIRST_QUARTILE"
+     },
+     {
+      "date": "2026-11-28",
       "contributionCount": 0,
       "contributionLevel": "NONE"
      }
@@ -2187,8 +2192,8 @@
    24,
    29,
    22,
-   24,
-   21,
+   30,
+   22,
    15,
    22,
    32,
@@ -2250,37 +2255,37 @@
    21
   ]
  ],
- "commits_last_year": 2391,
+ "commits_last_year": 2398,
  "recent": [
   {
-   "repo": "Timcai06",
-   "sha": "3ed0dc4",
-   "date": "2026-11-17",
-   "message": "style(profile): extend rounded frames and cut corners across showcases"
+   "repo": "TTTIM-skills",
+   "sha": "fa57916",
+   "date": "2026-11-27",
+   "message": "feat(readme-skill): bundle editorial panel engine and redesign repo m…"
   },
   {
-   "repo": "Timcai06",
-   "sha": "bb1d26e",
-   "date": "2026-11-17",
-   "message": "style: trim trailing blank line in profile README"
+   "repo": "TTTIM-skills",
+   "sha": "db24c25",
+   "date": "2026-11-27",
+   "message": "docs: redesign bilingual README with TTT-Readme-skill and dual-theme …"
   },
   {
-   "repo": "Timcai06",
-   "sha": "946cdd3",
-   "date": "2026-11-17",
-   "message": "refine profile styling and carousel timing; clarify reuse rights"
+   "repo": "TTTIM-skills",
+   "sha": "28e7c65",
+   "date": "2026-11-27",
+   "message": "chore: remove redundant templates directory"
   },
   {
-   "repo": "Timcai06",
-   "sha": "5f1f8fc",
-   "date": "2026-11-17",
-   "message": "feat(profile): add animated project showcases and expand toolbox"
+   "repo": "TTTIM-skills",
+   "sha": "a5048ae",
+   "date": "2026-11-27",
+   "message": "feat: add TTT-Readme-skill for editorial GitHub READMEs"
   },
   {
-   "repo": "Timcai06",
-   "sha": "dac15a3",
-   "date": "2026-11-06",
-   "message": "style(profile): add color-grouped stack badges to other projects"
+   "repo": "TTTIM-skills",
+   "sha": "35d02c5",
+   "date": "2026-11-27",
+   "message": "chore: enforce TTT-xxx-skill naming and rename mono-pdf to TTT-MonoPD…"
   }
  ],
  "cards": {
